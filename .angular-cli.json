@@ -20,11 +20,11 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/semantic-ui/dist/semantic.min.css"
+        "../semantic/dist/semantic.css"
       ],
       "scripts": [
         "../node_modules/semantic-ui/examples/assets/library/jquery.min.js",
-        "../node_modules/semantic-ui/dist/semantic.min.js"
+        "../semantic/dist/semantic.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -62,19 +62,10 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "prefixInterfaces": false,
-    "inline": {
-      "style": false,
-      "template": false
+    "build": {
+      "preserveSymlinks": true
     },
-    "spec": {
-      "class": false,
-      "component": true,
-      "directive": true,
-      "module": false,
-      "pipe": true,
-      "service": true
-    }
+    "styleExt": "css",
+    "component": {}
   }
 }
