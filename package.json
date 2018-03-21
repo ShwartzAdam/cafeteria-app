@@ -21,13 +21,14 @@
     "@angular/platform-browser": "^5.2.7",
     "@angular/platform-browser-dynamic": "^5.2.7",
     "@angular/router": "^5.2.7",
+    "@types/semantic-ui-modal": "^2.2.3",
     "core-js": "^2.4.1",
     "express": "^4.14.0",
     "ng-semantic": "https://github.com/vladotesanovic/ngSemantic/tarball/master",
     "rxjs": "^5.5.6",
     "semantic-ui": "^2.2.7",
-    "semantic-ui-calendar": "0.0.8",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "typescript": "~2.5.3"
   },
   "devDependencies": {
     "@angular/cli": "1.7.2",

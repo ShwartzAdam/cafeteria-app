@@ -1,0 +1,442 @@
+{
+  "item": [
+    {
+      "id": 1,
+      "SupID": 1,
+      "Name": "Doppio",
+      "Description": "Two shots of espersson. Straight",
+      "Qty": 100,
+      "URL": "image/drinks/hot",
+      "Price": "6.50",
+      "Type": "Drink"
+    },
+    {
+      "id": 2,
+      "SupID": 1,
+      "Name": "Cafe Americano",
+      "Description": "Shots of espresso and filtered hot water",
+      "Qty": 100,
+      "URL": "image/drink/hot",
+      "Price": "4.00",
+      "Type": "Drink"
+    },
+    {
+      "id": 3,
+      "SupID": 1,
+      "Name": "Latte Macchiato",
+      "Description": "Foamed whole milk marked with shots of espersso",
+      "Qty": 100,
+      "URL": "image/drink/hot",
+      "Price": "5.00",
+      "Type": "Drink"
+    },
+    {
+      "id": 4,
+      "SupID": 1,
+      "Name": "Flat White",
+      "Description": "Sweed ristretto espressp shots finished with steamed whole milk",
+      "Qty": 100,
+      "URL": "image/drink/hot",
+      "Price": "5.50",
+      "Type": "Drink"
+    },
+    {
+      "id": 5,
+      "SupID": 1,
+      "Name": "Cappuccino",
+      "Description": "A shot of espresso topped with a deep layer of foamed milk",
+      "Qty": 100,
+      "URL": "image/drink/hot",
+      "Price": "6.50",
+      "Type": "Drink"
+    },
+    {
+      "id": 6,
+      "SupID": 1,
+      "Name": "Caffe Latte",
+      "Description": "A shot of espressp in steamed milk lightly topped with foam",
+      "Qty": 100,
+      "URL": "image/drink/hot",
+      "Price": "6.50",
+      "Type": "Drink"
+    },
+    {
+      "id": 7,
+      "SupID": 1,
+      "Name": "Black Coffee",
+      "Description": "Elite Coffee from a can",
+      "Qty": 1000,
+      "URL": "image/drink/hot",
+      "Price": "3",
+      "Type": "Drink"
+    },
+    {
+      "id": 8,
+      "SupID": 2,
+      "Name": "Cold Brew",
+      "Description": "Slow-steeped in cool, flitered water for a super-smoth flavor",
+      "Qty": 50,
+      "URL": "image/drink/cold",
+      "Price": "7.00",
+      "Type": "Drink"
+    },
+    {
+      "id": 9,
+      "SupID": 2,
+      "Name": "Vanilla Sweet Cream Cold Brew",
+      "Description": "Smooth cold bew with sweet cream",
+      "Qty": 50,
+      "URL": "image/drink/cold",
+      "Price": "5.50",
+      "Type": "Drink"
+    },
+    {
+      "id": 10,
+      "SupID": 2,
+      "Name": "Nitro Cold Brew",
+      "Description": "Nitrogen-infused cold bew for a naturally sweed flavor and velvsty texture",
+      "Qty": 50,
+      "URL": "image/drink/cold",
+      "Price": "5.50",
+      "Type": "Drink"
+    },
+    {
+      "id": 11,
+      "SupID": 2,
+      "Name": "Iced Americano",
+      "Description": "Shots of espresso and filtered water served over ice",
+      "Qty": 50,
+      "URL": "image/drink/cold",
+      "Price": "4.50",
+      "Type": "Drink"
+    },
+    {
+      "id": 12,
+      "SupID": 2,
+      "Name": "Double Shot On Ice",
+      "Description": "Bold espresso hand-shaken over ice with a hint of sweetness and a splash of milk",
+      "Qty": 50,
+      "URL": "image/drink/cold",
+      "Price": "6.50",
+      "Type": "Drink"
+    },
+    {
+      "id": 13,
+      "SupID": 2,
+      "Name": "Iced Latte",
+      "Description": "Bold esspresso and cold milk served over ice",
+      "Qty": 50,
+      "URL": "image/drink/cold",
+      "Price": "5.50",
+      "Type": "Drink"
+    },
+    {
+      "id": 14,
+      "SupID": 2,
+      "Name": "Iced Carmamel Macchiato",
+      "Description": "Sweetened cold milk marked by espresso shots, finished with a caramel crosshatch",
+      "Qty": 50,
+      "URL": "image/drink/cold",
+      "Price": "5.50",
+      "Type": "Drink"
+    },
+    {
+      "id": 15,
+      "SupID": 2,
+      "Name": "Iced Mocha",
+      "Description": "Espresso,milk and bittersweet mocha sauce, served over ice and topped with whipped cream",
+      "Qty": 50,
+      "URL": "image/drink/cold",
+      "Price": "5.50",
+      "Type": "Drink"
+    },
+    {
+      "id": 16,
+      "SupID": 3,
+      "Name": "Mineral Water",
+      "Description": "Cold Mineral Water",
+      "Qty": 500,
+      "URL": "image/drink/cold",
+      "Price": "3.00",
+      "Type": "Drink"
+    },
+    {
+      "id": 17,
+      "SupID": 3,
+      "Name": "Coke",
+      "Description": "Cold Sparkling Water",
+      "Qty": 400,
+      "URL": "image/drink/cold",
+      "Price": "3.00",
+      "Type": "Drink"
+    },
+    {
+      "id": 18,
+      "SupID": 4,
+      "Name": "Sparkling Water",
+      "Description": "Cold Sparkling Water",
+      "Qty": 50,
+      "URL": "image/colddrinks/",
+      "Price": "3.00",
+      "Type": "Drink"
+    },
+    {
+      "id": 19,
+      "SupID": 4,
+      "Name": "Iced Tea",
+      "Description": "Iced Tea",
+      "Qty": 50,
+      "URL": "image/colddrinks/",
+      "Price": "3.00",
+      "Type": "Drink"
+    },
+    {
+      "id": 20,
+      "SupID": 5,
+      "Name": "Croissant Butter",
+      "Description": "Croissant Butter",
+      "Qty": 500,
+      "URL": "image/food/",
+      "Price": "2.00",
+      "Type": "Food"
+    },
+    {
+      "id": 21,
+      "SupID": 5,
+      "Name": "Croissant Chocolate",
+      "Description": "Croissant Chocolate",
+      "Qty": 500,
+      "URL": "image/food/",
+      "Price": "2.00",
+      "Type": "Food"
+    },
+    {
+      "id": 22,
+      "SupID": 6,
+      "Name": "Spaghetti Bolognese",
+      "Description": "Spaghetti served with a sauce of ground beef, tomato, onion, and herbs.",
+      "Qty": 50,
+      "URL": "image/food/",
+      "Price": "7.00",
+      "Type": "Food"
+    },
+    {
+      "id": 23,
+      "SupID": 6,
+      "Name": "Fried Rice",
+      "Description": "Fried rice is a dish of cooked rice that has been stir-fried in a wok or a frying pan and is usually mixed with other ingredients such as eggs, vegetables, seafood, or meat.",
+      "Qty": 50,
+      "URL": "image/food/",
+      "Price": "7.00",
+      "Type": "Food"
+    },
+    {
+      "id": 24,
+      "SupID": 7,
+      "Name": "Greek Salad",
+      "Description": "Pieces of tomatoes, sliced cucumbers, onion, feta cheese (usually served as a slice on top of the other ingredients), and olives (usually Kalamata olives), typically seasoned with salt and oregano, and dressed with olive oil.",
+      "Qty": 100,
+      "URL": "image/food/",
+      "Price": "3.00",
+      "Type": "Food"
+    },
+    {
+      "id": 25,
+      "SupID": 6,
+      "Name": "Majadra",
+      "Description": "Mujaddara consists of cooked lentils together with groats, generally rice, and garnished with sautéed onions.",
+      "Qty": 50,
+      "URL": "image/food/",
+      "Price": "3.00",
+      "Type": "Food"
+    }
+  ],
+  "orderedItem": [
+    {
+      "id": 1,
+      "ItemID": 2,
+      "OLID": 1,
+      "Quantity": 4
+    },
+    {
+      "id": 2,
+      "ItemID": 1,
+      "OLID": 2,
+      "Quantity": 4
+    }
+  ],
+  "orderList": [
+    {
+      "id": 1,
+      "UserID": 2,
+      "TotalPrice": "100",
+      "OLdttm": "2018-03-10 11:56:49",
+      "Status": "Incoming"
+    },
+    {
+      "id": 2,
+      "UserID": 2,
+      "TotalPrice": "50",
+      "OLdttm": "2018-03-10 11:56:49",
+      "Status": "Incoming"
+    },
+    {
+      "id": 3,
+      "UserID": 2,
+      "TotalPrice": "0.00",
+      "OLdttm": "2018-03-10 11:56:49",
+      "Status": "Incoming"
+    },
+    {
+      "id": 4,
+      "UserID": 2,
+      "TotalPrice": "0.00",
+      "OLdttm": "2018-03-10 11:56:49",
+      "Status": "Incoming"
+    },
+    {
+      "id": 5,
+      "UserID": 2,
+      "TotalPrice": "0.00",
+      "OLdttm": "2018-03-10 11:56:49",
+      "Status": "Incoming"
+    }
+  ],
+  "review": [
+    {
+      "id": 1,
+      "UserID": 1,
+      "RLID": 1,
+      "Stars": "4.5",
+      "Comment": "Very good"
+    },
+    {
+      "id": 2,
+      "UserID": 2,
+      "RLID": 2,
+      "Stars": "4.5",
+      "Comment": "Very good"
+    }
+  ],
+  "reviewList": [
+    {
+      "id": 2,
+      "ItemID": 1
+    },
+    {
+      "id": 1,
+      "ItemID": 2
+    }
+  ],
+  "shift": [
+    {
+      "id": 1,
+      "EmpID": 2,
+      "StartDttm": "2018-03-11 06:00:00",
+      "EndDttm": "2018-03-11 11:00:00"
+    },
+    {
+      "id": 2,
+      "EmpID": 1,
+      "StartDttm": "2018-03-11 11:00:00",
+      "EndDttm": "2018-03-11 17:00:00"
+    }
+  ],
+  "supplier": [
+    {
+      "id": 1,
+      "Name": "CocaCola",
+      "Phone": "05445556655",
+      "Email": "CocaCola@gmail.com"
+    },
+    {
+      "id": 2,
+      "Name": "Nestle",
+      "Phone": "0544225455",
+      "Email": "Nestle@gmail.com"
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "Email": "adam@shwartz.com",
+      "Password": "1234",
+      "FirstName": "Adam",
+      "LastName": "Shwartz",
+      "Credit": "100",
+      "Phone": "54273902",
+      "Image": "/image/profile/id"
+    },
+    {
+      "id": 2,
+      "Email": "almog@gmail.com",
+      "Password": "1234",
+      "FirstName": "Almog",
+      "LastName": "Assulin",
+      "Credit": "80",
+      "Phone": "2141521",
+      "Image": "/image/profile/"
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "firstName": "1123",
+      "lastLame": "1231",
+      "phone": "12",
+      "email": "123",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "firstName": "1123",
+      "lastLame": "1231",
+      "phone": "12",
+      "email": "123",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "firstName": "adam",
+      "lastLame": "shwartz",
+      "phone": "1234",
+      "email": "a@s",
+      "password": "1234",
+      "id": 8
+    },
+    {
+      "firstName": "adam",
+      "lastLame": "sh",
+      "phone": "1234",
+      "email": "a@s",
+      "password": "1234",
+      "id": 9
+    }
+  ],
+  "employee": [
+    {
+      "id": 1,
+      "email": "yoni@gmail.com",
+      "password": "1234",
+      "firstName": "Yoni",
+      "lastName": "Cohen",
+      "phone": "0544556445",
+      "image": "/image/emp/"
+    },
+    {
+      "id": 2,
+      "email": "ela@gmail.com",
+      "password": "1234",
+      "firstName": "Ela",
+      "lastName": "Levi",
+      "phone": "0542254455",
+      "image": "/image/emp/"
+    }
+  ]
+}

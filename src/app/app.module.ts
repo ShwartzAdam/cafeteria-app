@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 // Modules Added
 import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 // Main Component
 import { AppComponent } from './app.component';
 // Sub Components
@@ -12,9 +13,14 @@ import { LoginViewComponent } from './auth/login/login-view/login-view.component
 import { SignupComponent } from './auth/signup/signup.component';
 import { ForgotpassComponent } from './auth/forgotpass/forgotpass.component';
 import { OrderComponent } from './order/order.component';
-import { QuickOrderViewComponent } from './order/quick-order-view/quick-order-view.component';
-import { MenuOrderViewComponent } from './order/menu-order-view/menu-order-view.component';
-import { TrackingComponent } from './tracking/tracking.component';
+import { ItemsComponent } from './items/items.component';
+import { ChartsComponent } from './charts/charts.component';
+// services
+import {OrderService} from './order/order.service';
+import { OrderIncomingComponent } from './order/order-incoming/order-incoming.component';
+import { OrderActiveComponent } from './order/order-active/order-active.component';
+import { OrderCompleteComponent } from './order/order-complete/order-complete.component';
+
 
 
 @NgModule({
@@ -26,16 +32,19 @@ import { TrackingComponent } from './tracking/tracking.component';
     SignupComponent,
     ForgotpassComponent,
     OrderComponent,
-    QuickOrderViewComponent,
-    MenuOrderViewComponent,
-    TrackingComponent,
+    ItemsComponent,
+    ChartsComponent,
+    OrderIncomingComponent,
+    OrderActiveComponent,
+    OrderCompleteComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NgSemanticModule
   ],
-  providers: [],
+  providers: [OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

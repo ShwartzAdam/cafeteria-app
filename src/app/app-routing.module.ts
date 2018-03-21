@@ -4,9 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from './auth/login/login.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {ForgotpassComponent} from './auth/forgotpass/forgotpass.component';
-import {QuickOrderViewComponent} from './order/quick-order-view/quick-order-view.component';
-import {MenuOrderViewComponent} from './order/menu-order-view/menu-order-view.component';
-import {TrackingComponent} from './tracking/tracking.component';
+import {OrderComponent} from './order/order.component';
+import {ItemsComponent} from './items/items.component';
+import {ChartsComponent} from './charts/charts.component';
 
 
 const appRoutes: Routes = [
@@ -14,9 +14,9 @@ const appRoutes: Routes = [
   { path: 'home' , component : LoginComponent},
   { path: 'signup' , component : SignupComponent},
   { path: 'forgotpass' , component : ForgotpassComponent},
-  { path: 'quickorder' , component : QuickOrderViewComponent},
-  { path: 'menuorder' , component : MenuOrderViewComponent},
-  { path: 'tracking' , component : TrackingComponent}
+  { path: 'order' , component : OrderComponent},
+  { path: 'items' , component : ItemsComponent},
+  { path: 'charts' , component : ChartsComponent},
 
 ];
 @NgModule({
