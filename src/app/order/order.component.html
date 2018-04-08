@@ -1,11 +1,5 @@
 <div class="ui masthead vertical segment">
   <div class="ui container">
-    <app-order-incoming></app-order-incoming>
-    <div class="ui divider"></div>
-    <app-order-active></app-order-active>
-    <div class="ui divider"></div>
-    <app-order-complete></app-order-complete>
-    <div class="ui divider"></div>
 
     <h2 class="ui yellow center aligned icon header">Incoming Orders </h2>
     <div class="ui divider"></div>
@@ -29,9 +23,9 @@
               <input type="checkbox"> <label></label>
             </div>
           </td>
-          <td>{{orders.OLID}}</td>
+          <td>{{orders.olid}}</td>
           <td>4</td>
-          <td>{{orders.UserID}}
+          <td>{{orders.userid}}
             <button class="mini ui icon button" (click)="myModalImage.show({inverted: false})"> <i class="user circle icon"></i></button>
             <sm-modal title="User Image" class="" icon="user circle icon" #myModalImage>
               <modal-content>
@@ -46,8 +40,8 @@
               </modal-actions>
             </sm-modal>
           </td>
-          <td>{{orders.OLdttm}}</td>
-          <td>{{orders.TotalPrice}}</td>
+          <td>{{orders.ol_dttm}}</td>
+          <td>{{orders.totalprice}}</td>
           <td>
             <button class="ui button primary" (click)="myModalNormal.show({inverted: false})"><i class="help link icon"></i>Info</button>
             <sm-modal title="Order List" class="" icon="address card" #myModalNormal>
@@ -101,7 +95,7 @@
         </tfoot>
       </table>
     </div>
-    
+
   </div>
 </div>
 
