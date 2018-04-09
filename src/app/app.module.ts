@@ -20,6 +20,7 @@ import {OrderService} from './order/order.service';
 import { OrderIncomingComponent } from './order/order-incoming/order-incoming.component';
 import { OrderActiveComponent } from './order/order-active/order-active.component';
 import { OrderCompleteComponent } from './order/order-complete/order-complete.component';
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -42,7 +43,8 @@ import { OrderCompleteComponent } from './order/order-complete/order-complete.co
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgSemanticModule
+    NgSemanticModule,
+    FormsModule
   ],
   providers: [OrderService],
   bootstrap: [AppComponent]

@@ -1,94 +1,89 @@
 <h2 class="ui yellow center aligned icon header">Incoming Orders </h2>
-<div class="ui divider"></div>
-<div class="ui three column centered grid">
-  <table class="ui compact celled definition inverted table">
-    <thead class="full-width">
-    <tr>
-      <th></th>
-      <th>Order ID</th>
-      <th>Order Quantity</th>
-      <th>Student Full Name</th>
-      <th>PickUp Time</th>
-      <th>Total Price </th>
-      <th>Order Information</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let orders of orderList">
-        <td class="collapsing">
-          <div class="ui fitted slider checkbox">
-            <input type="checkbox"> <label></label>
+<table class="ui compact celled definition inverted table">
+  <thead class="full-width">
+  <tr>
+    <th></th>
+    <th>Order ID</th>
+    <th>Student Full Name</th>
+    <th>PickUp Time</th>
+    <th>Total Price (NIS)</th>
+    <th>Order Information</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let orders of orderList; let i = index;">
+    <td class="collapsing">
+      <div class="ui fitted toggle checkbox">
+        <input type="checkbox" [(ngModel)]="checkedOrderList[i]"><label></label>
+      </div>
+    </td>
+    <td>{{orders.olid}}</td>
+    <td>{{orders.userid}}
+      <button class="mini ui icon button" (click)="myModalImage.show({inverted: false})"> <i class="user circle icon"></i></button>
+      <sm-modal title="User Image" class="" icon="user circle icon" #myModalImage>
+        <modal-content>
+          <div class="image content">
+            <img class="ui centered medium circular image" src="../../assets/png/adam%20copy.jpg">
           </div>
-        </td>
-        <td>{{orders.OLID}}</td>
-        <td>4</td>
-        <td>{{orders.UserID}}
-          <button class="mini ui icon button" (click)="myModalImage.show({inverted: false})"> <i class="user circle icon"></i></button>
-          <sm-modal title="User Image" class="" icon="user circle icon" #myModalImage>
-            <modal-content>
-              <div class="image content">
-                <img class="ui centered medium circular image" src="../../assets/png/adam%20copy.jpg">
+        </modal-content>
+        <modal-actions>
+          <div class="ui buttons">
+            <div class="ui button primary" (click)="myModalImage.hide()">Close</div>
+          </div>
+        </modal-actions>
+      </sm-modal>
+    </td>
+    <td>{{orders.ol_dttm}}</td>
+    <td>{{orders.totalprice}}</td>
+    <td>
+      <button class="ui button primary" (click)="myModalNormal.show({inverted: false})"><i class="help link icon"></i>Info</button>
+      <sm-modal title="Order List" class="" icon="address card" #myModalNormal>
+        <modal-content>
+          <div class="ui two column grid">
+            <div class="column">
+              <h2 class="ui black">
+                Food:
+              </h2>
+            </div>
+            <div class="column">
+              <div class="ui labeled">
+                2X Sandwich Tuna
               </div>
-            </modal-content>
-            <modal-actions>
-              <div class="ui buttons">
-                <div class="ui button primary" (click)="myModalImage.hide()">Close</div>
+            </div>
+          </div>
+          <div class="ui two column grid">
+            <div class="column">
+              <h2 class="ui black">
+                Drinks:
+              </h2>
+            </div>
+            <div class="column">
+              <div class="ui labeled">
+                2X Black Coffee
               </div>
-            </modal-actions>
-          </sm-modal>
-        </td>
-        <td>{{orders.OLdttm}}</td>
-        <td>{{orders.TotalPrice}}</td>
-        <td>
-          <button class="ui button primary" (click)="myModalNormal.show({inverted: false})"><i class="help link icon"></i>Info</button>
-          <sm-modal title="Order List" class="" icon="address card" #myModalNormal>
-            <modal-content>
-              <div class="ui two column grid">
-                <div class="column">
-                  <h2 class="ui black">
-                    Food:
-                  </h2>
-                </div>
-                <div class="column">
-                  <div class="ui labeled">
-                    2X Sandwich Tuna
-                  </div>
-                </div>
-              </div>
-              <div class="ui two column grid">
-                <div class="column">
-                  <h2 class="ui black">
-                    Drinks:
-                  </h2>
-                </div>
-                <div class="column">
-                  <div class="ui labeled">
-                    2X Black Coffee
-                  </div>
-                </div>
-              </div>
-            </modal-content>
-            <modal-actions>
-              <div class="ui buttons">
-                <div class="ui button primary" (click)="myModalNormal.hide()">Close</div>
-              </div>
-            </modal-actions>
-          </sm-modal>
-        </td>
-      </tr>
-    </tbody>
-    <tfoot class="full-width">
-    <tr>
-      <th></th>
-      <th colspan="6">
-        <div class="ui right floated small primary labeled icon button">
-          <i class="user icon"></i> Start Order
-        </div>
-        <div class="ui small button">
-          Select All
-        </div>
-      </th>
-    </tr>
-    </tfoot>
-  </table>
-</div>
+            </div>
+          </div>
+        </modal-content>
+        <modal-actions>
+          <div class="ui buttons">
+            <div class="ui button primary" (click)="myModalNormal.hide()">Close</div>
+          </div>
+        </modal-actions>
+      </sm-modal>
+    </td>
+  </tr>
+  </tbody>
+  <tfoot class="full-width">
+  <tr>
+    <th></th>
+    <th colspan="6">
+      <div class="ui right floated small primary labeled icon button" (click)="startMakingOrder()">
+        <i class="user icon"></i> Start Order
+      </div>
+      <div class="ui small button">
+        Select All
+      </div>
+    </th>
+  </tr>
+  </tfoot>
+</table>

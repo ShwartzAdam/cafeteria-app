@@ -13,17 +13,8 @@ export class OrderComponent implements OnInit {
 
   orderList: OrderList[] ;
 
-  constructor(private orderService: OrderService) { }
-  ngOnInit() {
-    this.getOrdersList();
-  }
-  getOrdersList(): void {
-    this.orderService.getAllOrders().subscribe( ( _orderList) => {
-      const rawData = _orderList.filter(order => order.status === 'I');
-      this.orderList = rawData;
-      console.log(rawData);
-    });
-  }
+  constructor() {}
+  ngOnInit() {}
   getOrderDetailes(): void {}
   getOrderStudentImage(): void {}
   startOrder(): void {}
