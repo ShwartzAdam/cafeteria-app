@@ -16,12 +16,18 @@ import { OrderComponent } from './order/order.component';
 import { ItemsComponent } from './items/items.component';
 import { ChartsComponent } from './charts/charts.component';
 // services
-import {OrderService} from './order/order.service';
+import {OrderService} from './services/order.service';
 import { OrderIncomingComponent } from './order/order-incoming/order-incoming.component';
 import { OrderActiveComponent } from './order/order-active/order-active.component';
 import { OrderCompleteComponent } from './order/order-complete/order-complete.component';
 import {FormsModule} from "@angular/forms";
-
+import {OrderListService} from "./services/orderlist.service";
+import {UserService} from "./services/user.service";
+import {ItemService} from "./services/item.service";
+// directives
+import { StudentDirective } from './directives/user.directive';
+import { UserDetailsComponent } from './ui-compoents/button/userdetails.component';
+import {CapitalizeFirstPipe} from './pipes/capitalizefirst.pipe';
 
 
 @NgModule({
@@ -38,6 +44,9 @@ import {FormsModule} from "@angular/forms";
     OrderIncomingComponent,
     OrderActiveComponent,
     OrderCompleteComponent,
+    StudentDirective,
+    UserDetailsComponent,
+    CapitalizeFirstPipe
   ],
   imports: [
     BrowserModule,
@@ -46,7 +55,11 @@ import {FormsModule} from "@angular/forms";
     NgSemanticModule,
     FormsModule
   ],
-  providers: [OrderService],
+  providers: [OrderListService,
+              OrderService,
+              UserService,
+              ItemService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

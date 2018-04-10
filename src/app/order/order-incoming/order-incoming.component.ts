@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {OrderService} from '../order.service';
-import {OrderList} from "../../interface/orderlist";
-import {forEach} from "@angular/router/src/utils/collection";
+import {OrderList} from '../../interface/orderlist';
+import {OrderListService} from '../../services/orderlist.service';
 
 @Component({
   selector: 'app-order-incoming',
   templateUrl: './order-incoming.component.html',
   styleUrls: ['./order-incoming.component.css'],
-  providers : [OrderService]
+  providers : []
 })
 export class OrderIncomingComponent implements OnInit {
 
@@ -16,13 +15,14 @@ export class OrderIncomingComponent implements OnInit {
   //
   orderListId: number[];
   checkedOrderList: boolean[];
-  constructor(public orderService: OrderService) {}
+  constructor(public orderListService: OrderListService) {}
 
   ngOnInit() {
     this.getIncomingOrders();
   }
   getIncomingOrders(): void {
-    this.orderService.getAllOrders().subscribe( ( _orderList) => {
+    console.log('Getting Incoming Orders !');
+    this.orderListService.getAllOrders().subscribe( ( _orderList) => {
       const rawData = _orderList.filter(order => order.status === 'I');
       this.orderList = rawData;
       console.log(rawData);
@@ -31,28 +31,29 @@ export class OrderIncomingComponent implements OnInit {
     });
   }
 
-  startMakingOrder(orderlistid){
+  startMakingOrder() {
+    console.log('Start Making Orders !');
       // collect the checkbox orderlist from the template
       console.log(this.checkedOrderList);
       let index = 0;
       let indey = 0;
       this.checkedOrderList.forEach( order => {
-        console.log(order);
+        // if order has true from checkbox add it to orderlistid
         if (order === true) {
-          console.log('true');
           console.log(this.orderList[index]['olid']);
           this.orderListId[indey++] = this.orderList[index]['olid'];
         } else {
-          console.log('false');
         }
         index++;
       });
       console.log(this.orderListId);
       this.orderListId.forEach(orderListToMake => {
-        this.orderService.getOrderListById(orderListToMake).subscribe(res => {
+        this.orderListService.getOrderListById(orderListToMake).subscribe(res => {
           console.log(res);
         });
       });
+      // call it again to present changes in tables
+      this.getIncomingOrders();
 
   }
 

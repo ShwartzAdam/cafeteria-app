@@ -1,0 +1,26 @@
+import {Component, Input, OnInit} from '@angular/core';
+import { UserService } from '../../services/user.service';
+import {Student} from '../../interface/user';
+
+@Component({
+  selector: 'app-student-details',
+  templateUrl: './userdetails.component.html',
+  styleUrls: ['./userdetails.component.css'],
+  providers: [UserService]
+})
+export class UserDetailsComponent implements OnInit {
+  @Input() userId: number;
+  private stu: Student = new Student;
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.userService.getUserById(this.userId).subscribe(
+      student => {
+        this.stu.userid = student.userid;
+        this.stu.firstname = student.firstname;
+        this.stu.lastname = student.lastname;
+        this.stu.image = student.image;
+        this.stu.email = student.email;
+      });
+  }
+}

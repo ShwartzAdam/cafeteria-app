@@ -18,25 +18,15 @@
       </div>
     </td>
     <td>{{orders.olid}}</td>
-    <td>{{orders.userid}}
-      <button class="mini ui icon button" (click)="myModalImage.show({inverted: false})"> <i class="user circle icon"></i></button>
-      <sm-modal title="User Image" class="" icon="user circle icon" #myModalImage>
-        <modal-content>
-          <div class="image content">
-            <img class="ui centered medium circular image" src="../../assets/png/adam%20copy.jpg">
-          </div>
-        </modal-content>
-        <modal-actions>
-          <div class="ui buttons">
-            <div class="ui button primary" (click)="myModalImage.hide()">Close</div>
-          </div>
-        </modal-actions>
-      </sm-modal>
+    <td>
+      <app-student-details [userId]="orders.userid" ></app-student-details>
     </td>
     <td>{{orders.ol_dttm}}</td>
     <td>{{orders.totalprice}}</td>
     <td>
-      <button class="ui button primary" (click)="myModalNormal.show({inverted: false})"><i class="help link icon"></i>Info</button>
+      <button class="ui button primary" (click)="myModalNormal.show({inverted: false})">
+        <i class="help link icon"></i>Info
+      </button>
       <sm-modal title="Order List" class="" icon="address card" #myModalNormal>
         <modal-content>
           <div class="ui two column grid">

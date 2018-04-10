@@ -1,0 +1,16 @@
+<button class="mini ui icon button" (click)="myModalImage.show({inverted: false})" xmlns="http://www.w3.org/1999/html">
+  <i class="user circle icon"></i>
+</button>
+<label>{{stu.firstname | capitalizeFirst}} {{stu.lastname | capitalizeFirst}}</label>
+<sm-modal title="User Image" class="" icon="user circle icon" #myModalImage>
+  <modal-content>
+    <div class="image content">
+      <img class="ui centered medium circular image" src="../../assets/png/adam%20copy.jpg">
+    </div>
+  </modal-content>
+  <modal-actions>
+    <div class="ui buttons">
+      <div class="ui button primary" (click)="myModalImage.hide()">Close</div>
+    </div>
+  </modal-actions>
+</sm-modal>

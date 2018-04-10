@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from './order.service';
-import { OrderList } from '../interface/orderlist';
+import { OrderListService } from '../services/orderlist.service';
 
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css'],
-  providers: [OrderService]
+  providers: [OrderListService]
 })
 export class OrderComponent implements OnInit {
-
-  orderList: OrderList[] ;
 
   constructor() {}
   ngOnInit() {}

@@ -6,20 +6,20 @@ import {Observable} from 'rxjs/Observable';
 
 
 @Injectable()
-export class OrderService {
+export class OrderListService {
   url = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
 
   public getAllOrders(): Observable<OrderList[]> {
-   return this.http.get<OrderList[]>(this.url + '/orderedlists');
+    return this.http.get<OrderList[]>(this.url + '/orderedlists');
   }
 
-  public getOrderListById(id : number): Observable<OrderList> {
+  public getOrderListById(id: number): Observable<OrderList> {
     return this.http.get<OrderList>(this.url + '/orderedlists/' + id );
   }
 
-  public updateOrderList(_orderList: OrderList){
+  public updateOrderList(_orderList: OrderList) {
     return new Promise((resolve, reject) => {
       this.http.put(this.url + '/orderedlists/' , JSON.stringify(_orderList) ,{
         headers: new HttpHeaders().set('Content-Type', 'application/json')
