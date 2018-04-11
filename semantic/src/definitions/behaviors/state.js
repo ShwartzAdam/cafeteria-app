@@ -154,7 +154,7 @@ $.fn.state = function(parameters) {
 
           // definitions for automatic type detection
           button: function() {
-            return $module.is('.button:not(a, .submit)');
+            return $module.is('.userInfo:not(a, .submit)');
           },
           input: function() {
             return $module.is('input');

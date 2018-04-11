@@ -24,42 +24,7 @@
     <td>{{orders.ol_dttm}}</td>
     <td>{{orders.totalprice}}</td>
     <td>
-      <button class="ui button primary" (click)="myModalNormal.show({inverted: false})">
-        <i class="help link icon"></i>Info
-      </button>
-      <sm-modal title="Order List" class="" icon="address card" #myModalNormal>
-        <modal-content>
-          <div class="ui two column grid">
-            <div class="column">
-              <h2 class="ui black">
-                Food:
-              </h2>
-            </div>
-            <div class="column">
-              <div class="ui labeled">
-                2X Sandwich Tuna
-              </div>
-            </div>
-          </div>
-          <div class="ui two column grid">
-            <div class="column">
-              <h2 class="ui black">
-                Drinks:
-              </h2>
-            </div>
-            <div class="column">
-              <div class="ui labeled">
-                2X Black Coffee
-              </div>
-            </div>
-          </div>
-        </modal-content>
-        <modal-actions>
-          <div class="ui buttons">
-            <div class="ui button primary" (click)="myModalNormal.hide()">Close</div>
-          </div>
-        </modal-actions>
-      </sm-modal>
+     <app-order-details></app-order-details>
     </td>
   </tr>
   </tbody>
@@ -68,7 +33,7 @@
     <th></th>
     <th colspan="6">
       <div class="ui right floated small primary labeled icon button" (click)="startMakingOrder()">
-        <i class="user icon"></i> Start Order
+        <i class="bullhorn icon"></i> Start Order
       </div>
       <div class="ui small button">
         Select All

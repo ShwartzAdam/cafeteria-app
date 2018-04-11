@@ -1,58 +1,46 @@
-<h2 class="ui yellow center aligned icon header">Active Orders</h2>
-<div class="ui divider"></div>
-<div class="ui three column centered grid">
-  <table class="ui compact celled definition inverted table">
-    <thead class="full-width">
-    <tr>
-      <th></th>
-      <th>Order ID</th>
-      <th>Order Quantity</th>
-      <th>Student Full Name</th>
-      <th>Start Making Order</th>
-      <th>PickUp Time</th>
-      <th>Total Price </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td class="collapsing">
-        <div class="ui fitted slider checkbox">
-          <input type="checkbox"> <label></label>
-        </div>
-      </td>
-      <td>4</td>
-      <td>1</td>
-      <td>Maayan Sides</td>
-      <td>10:05:00 AM</td>
-      <td>10:10:00 AM</td>
-      <td>5 NIS</td>
-    </tr>
-    <tr>
-      <td class="collapsing">
-        <div class="ui fitted slider checkbox">
-          <input type="checkbox"> <label></label>
-        </div>
-      </td>
-      <td>5</td>
-      <td>1</td>
-      <td>Ronnie Agassi</td>
-      <td>10:04:00 AM</td>
-      <td>10:10:00 AM</td>
-      <td>5 NIS</td>
-    </tr>
-    </tbody>
-    <tfoot class="full-width">
-    <tr>
-      <th></th>
-      <th colspan="6">
-        <div class="ui right floated small primary labeled icon button">
-          <i class="user icon"></i> Order Ready
-        </div>
-        <div class="ui small button">
-          Select All
-        </div>
-      </th>
-    </tr>
-    </tfoot>
-  </table>
-</div>
+<h2 class="ui yellow center aligned icon header">Active Orders </h2>
+<table class="ui compact celled definition inverted table">
+  <thead class="full-width">
+  <tr>
+    <th></th>
+    <th>Order ID</th>
+    <th>Student Full Name</th>
+    <th>Start Making Order</th>
+    <th>Pick-Up Time</th>
+    <th>Total Price (NIS)</th>
+    <th>Order Information</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let orders of orderList; let i = index;">
+    <td class="collapsing">
+      <div class="ui fitted toggle checkbox">
+        <input type="checkbox" [(ngModel)]="checkedOrderList[i]"><label></label>
+      </div>
+    </td>
+    <td>{{orders.olid}}</td>
+    <td>
+      <app-student-details [userId]="orders.userid" ></app-student-details>
+    </td>
+    <td></td>
+    <td>{{orders.ol_dttm}}</td>
+    <td>{{orders.totalprice}}</td>
+    <td>
+      <app-order-details></app-order-details>
+    </td>
+  </tr>
+  </tbody>
+  <tfoot class="full-width">
+  <tr>
+    <th></th>
+    <th colspan="6">
+      <div class="ui right floated small primary labeled icon button" (click)="startMakingOrder()">
+        <i class="clipboard check icon"></i> Finish Order & Notify Student
+      </div>
+      <div class="ui small button">
+        Select All
+      </div>
+    </th>
+  </tr>
+  </tfoot>
+</table>

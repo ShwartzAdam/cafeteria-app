@@ -2330,7 +2330,7 @@ $.fn.dropdown = function(parameters) {
           text: function(text) {
             if(settings.action !== 'select') {
               if(settings.action == 'combo') {
-                module.debug('Changing combo button text', text, $combo);
+                module.debug('Changing combo userInfo text', text, $combo);
                 if(settings.preserveHTML) {
                   $combo.html(text);
                 }

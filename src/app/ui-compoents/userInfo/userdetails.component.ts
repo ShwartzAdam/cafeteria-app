@@ -21,6 +21,7 @@ export class UserDetailsComponent implements OnInit {
         this.stu.lastname = student.lastname;
         this.stu.image = student.image;
         this.stu.email = student.email;
+        this.stu.phone = student.phone;
       });
   }
 }

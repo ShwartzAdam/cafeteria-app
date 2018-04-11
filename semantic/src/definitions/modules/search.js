@@ -122,7 +122,7 @@ $.fn.search = function(parameters) {
               .on('focus'     + eventNamespace, selector.prompt, module.event.focus)
               .on('blur'      + eventNamespace, selector.prompt, module.event.blur)
               .on('keydown'   + eventNamespace, selector.prompt, module.handleKeyboard)
-              // search button
+              // search userInfo
               .on('click'     + eventNamespace, selector.searchButton, module.query)
               // results
               .on('mousedown' + eventNamespace, selector.results, module.event.result.mousedown)

@@ -6692,7 +6692,7 @@ $.fn.dropdown = function(parameters) {
           text: function(text) {
             if(settings.action !== 'select') {
               if(settings.action == 'combo') {
-                module.debug('Changing combo button text', text, $combo);
+                module.debug('Changing combo userInfo text', text, $combo);
                 if(settings.preserveHTML) {
                   $combo.html(text);
                 }
@@ -13532,7 +13532,7 @@ $.fn.search = function(parameters) {
               .on('focus'     + eventNamespace, selector.prompt, module.event.focus)
               .on('blur'      + eventNamespace, selector.prompt, module.event.blur)
               .on('keydown'   + eventNamespace, selector.prompt, module.handleKeyboard)
-              // search button
+              // search userInfo
               .on('click'     + eventNamespace, selector.searchButton, module.query)
               // results
               .on('mousedown' + eventNamespace, selector.results, module.event.result.mousedown)
@@ -17427,7 +17427,7 @@ $.fn.sticky = function(parameters) {
             }
             else if( module.is.bottom() ) {
               if( scroll.top <= element.top ) {
-                module.debug('Jumped from bottom fixed to top fixed, most likely used home/end button');
+                module.debug('Jumped from bottom fixed to top fixed, most likely used home/end userInfo');
                 module.setInitialPosition();
               }
               else {
@@ -21202,7 +21202,7 @@ $.fn.state = function(parameters) {
 
           // definitions for automatic type detection
           button: function() {
-            return $module.is('.button:not(a, .submit)');
+            return $module.is('.userInfo:not(a, .submit)');
           },
           input: function() {
             return $module.is('input');

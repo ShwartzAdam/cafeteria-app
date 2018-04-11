@@ -1,0 +1,36 @@
+<button class="ui button primary" (click)="myModalNormal.show({inverted: false})">
+  <i class="search plus icon"></i>Info
+</button>
+<sm-modal title="Order List" class="" icon="address card" #myModalNormal>
+  <modal-content>
+    <div class="ui two column grid">
+      <div class="column">
+        <h2 class="ui black">
+          Food:
+        </h2>
+      </div>
+      <div class="column">
+        <div class="ui labeled">
+          2X Sandwich Tuna
+        </div>
+      </div>
+    </div>
+    <div class="ui two column grid">
+      <div class="column">
+        <h2 class="ui black">
+          Drinks:
+        </h2>
+      </div>
+      <div class="column">
+        <div class="ui labeled">
+          2X Black Coffee
+        </div>
+      </div>
+    </div>
+  </modal-content>
+  <modal-actions>
+    <div class="ui buttons">
+      <div class="ui button primary" (click)="myModalNormal.hide()">Close</div>
+    </div>
+  </modal-actions>
+</sm-modal>

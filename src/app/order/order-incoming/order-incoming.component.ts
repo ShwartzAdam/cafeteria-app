@@ -6,7 +6,7 @@ import {OrderListService} from '../../services/orderlist.service';
   selector: 'app-order-incoming',
   templateUrl: './order-incoming.component.html',
   styleUrls: ['./order-incoming.component.css'],
-  providers : []
+  providers : [OrderListService]
 })
 export class OrderIncomingComponent implements OnInit {
 
