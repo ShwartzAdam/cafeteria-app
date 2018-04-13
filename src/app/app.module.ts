@@ -21,6 +21,7 @@ import { UserDetailsComponent } from './ui-compoents/userInfo/userdetails.compon
 import { OrderIncomingComponent } from './order/order-incoming/order-incoming.component';
 import { OrderActiveComponent } from './order/order-active/order-active.component';
 import { OrderCompleteComponent } from './order/order-complete/order-complete.component';
+import { ItemAddComponent } from './ui-compoents/modals/item-add.component';
 // services
 import {OrderService} from './services/order.service';
 import {OrderListService} from './services/orderlist.service';
@@ -28,6 +29,7 @@ import {UserService} from './services/user.service';
 import {ItemService} from './services/item.service';
 // pipes
 import {CapitalizeFirstPipe} from './pipes/capitalizefirst.pipe';
+import { ItemEditComponent } from './ui-compoents/modals/item-edit.component';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import {CapitalizeFirstPipe} from './pipes/capitalizefirst.pipe';
     AppComponent,
     NavComponent,
     MenuComponent,
+    ItemAddComponent,
+    ItemEditComponent,
     LoginComponent,
     LoginViewComponent,
     SignupComponent,

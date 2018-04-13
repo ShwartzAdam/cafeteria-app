@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ItemService} from '../services/item.service';
 import {Item} from '../interface/item';
 
+declare var jquery: any;
+declare var $: any;
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -12,6 +15,10 @@ export class MenuComponent implements OnInit {
   // THE ITEMS IN PUBLISHED MENU
   itemsMenu: Item[] = new Array();
   checkedOrderList: boolean[];
+
+  // display add item in modal
+  showAddItem: boolean = false;
+
   constructor(public itemService: ItemService) { }
 
   ngOnInit() {
@@ -31,6 +38,22 @@ export class MenuComponent implements OnInit {
   }
   removeItemFromMenu(): any {
     console.log('Remove Item From Menu - Start');
+  }
+  displayModal(event): any {
+    if (event === 'Add') {
+      console.log('Show Modal To Add Item');
+      $('.ui.add.modal')
+        .modal('setting', 'transition', 'horizontal flip')
+        .modal('show')
+      ;
+    } else {
+      console.log('Show Modal To Edit Item');
+      $('.ui.edit.modal')
+        .modal('setting', 'transition', 'horizontal flip')
+        .modal('show')
+      ;
+    }
+
   }
 
 }

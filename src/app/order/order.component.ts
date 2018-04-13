@@ -9,11 +9,6 @@ import { OrderListService } from '../services/orderlist.service';
   providers: [OrderListService]
 })
 export class OrderComponent implements OnInit {
-
   constructor() {}
   ngOnInit() {}
-  getOrderDetailes(): void {}
-  getOrderStudentImage(): void {}
-  startOrder(): void {}
-  notifyStudent(): void {}
 }

@@ -1,0 +1,51 @@
+<div class="ui add modal">
+  <div class="header">
+    Add A New Item To The Cafeteria
+  </div>
+  <div class="ui internally celled grid">
+      <div class="row">
+        <div class="three wide column">
+          <div class="ui left aligned image content">
+            <img class="ui centered small circular image padding" src="../../assets/png/adam%20copy.jpg">
+            <label>Click To Upload Image</label>
+          </div>
+        </div>
+        <div class="eleven wide column">
+          <div class="ui form">
+            <div class="two fields">
+              <div class="field">
+                <label>Item Name</label>
+                <input type="text" placeholder="Name" [(ngModel)]="item.name" required>
+              </div>
+              <div class="field">
+                <label>Item Description</label>
+                <textarea rows="2" [(ngModel)]="item.desc" required>
+                </textarea>
+              </div>
+            </div>
+            <div class="three fields">
+              <div class="field">
+                <label>Item Price</label>
+                <input type="text" placeholder="Price" [(ngModel)]="item.price">
+              </div>
+              <div class="field">
+                <label>Item Quantity</label>
+                <input type="text" placeholder="Quantity" [(ngModel)]="item.qty">
+              </div>
+              <div class="field">
+                <label>Item Type</label>
+                <select class="ui fluid search dropdown" [(ngModel)]="item.type">
+                  <option value="">Drink</option>
+                  <option value="1">Food</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="actions">
+    <div class="ui cancel button" (click)="action('Cancel')" >Cancel</div>
+    <div class="ui button" (click)="action('Upload')">Upload</div>
+  </div>
+</div>

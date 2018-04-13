@@ -7,6 +7,9 @@ import {ForgotpassComponent} from './auth/forgotpass/forgotpass.component';
 import {OrderComponent} from './order/order.component';
 import {MenuComponent} from './menu/menu.component';
 import {ChartsComponent} from './charts/charts.component';
+import {OrderIncomingComponent} from './order/order-incoming/order-incoming.component';
+import {OrderActiveComponent} from './order/order-active/order-active.component';
+import {OrderCompleteComponent} from './order/order-complete/order-complete.component';
 
 
 const appRoutes: Routes = [
@@ -14,9 +17,25 @@ const appRoutes: Routes = [
   { path: 'home' , component : LoginComponent},
   { path: 'signup' , component : SignupComponent},
   { path: 'forgotpass' , component : ForgotpassComponent},
-  { path: 'order' , component : OrderComponent},
-  { path: 'menu' , component : MenuComponent},
+  {
+    path: 'order' ,
+    component : OrderComponent,
+    children: [
+      {path: '' , redirectTo: '/order' , pathMatch : 'full' },
+      {path: 'incoming' , component: OrderIncomingComponent},
+      {path: 'active' , component: OrderActiveComponent},
+      {path: 'complete' , component: OrderCompleteComponent}
+    ]
+  },
+  {
+    path: 'menu' ,
+    component : OrderComponent,
+    children: [
+      {path: '' , redirectTo: '/menu' , pathMatch : 'full' }
+    ]
+  },
   { path: 'charts' , component : ChartsComponent},
+  { path: '**' , component : LoginComponent},
 
 ];
 @NgModule({
