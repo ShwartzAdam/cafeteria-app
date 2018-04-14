@@ -7,6 +7,7 @@ export class Item {
   public url: string = "default";
   public price: number = 0;
   public type: string = "default";
+  public ispublished: boolean = false;
 
   public constructor(init?: Partial<Item>) {
     Object.assign(this, init);

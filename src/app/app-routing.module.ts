@@ -10,6 +10,8 @@ import {ChartsComponent} from './charts/charts.component';
 import {OrderIncomingComponent} from './order/order-incoming/order-incoming.component';
 import {OrderActiveComponent} from './order/order-active/order-active.component';
 import {OrderCompleteComponent} from './order/order-complete/order-complete.component';
+import {MenuPublishedComponent} from './menu/menu-published/menu-published.component';
+import {MenuStorageComponent} from './menu/menu-storage/menu-storage.component';
 
 
 const appRoutes: Routes = [
@@ -29,9 +31,11 @@ const appRoutes: Routes = [
   },
   {
     path: 'menu' ,
-    component : OrderComponent,
+    component : MenuComponent,
     children: [
-      {path: '' , redirectTo: '/menu' , pathMatch : 'full' }
+      {path: '' , redirectTo: '/menu' , pathMatch : 'full' },
+      {path: 'published' , component: MenuPublishedComponent},
+      {path: 'storage' , component: MenuStorageComponent}
     ]
   },
   { path: 'charts' , component : ChartsComponent},

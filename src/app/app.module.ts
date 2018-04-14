@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 // Sub Components
 import { NavComponent } from './nav.component';
 import { MenuComponent} from './menu/menu.component';
+import {MenuPublishedComponent} from './menu/menu-published/menu-published.component';
+import {MenuStorageComponent} from './menu/menu-storage/menu-storage.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LoginViewComponent } from './auth/login/login-view/login-view.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -22,6 +24,8 @@ import { OrderIncomingComponent } from './order/order-incoming/order-incoming.co
 import { OrderActiveComponent } from './order/order-active/order-active.component';
 import { OrderCompleteComponent } from './order/order-complete/order-complete.component';
 import { ItemAddComponent } from './ui-compoents/modals/item-add.component';
+import { ItemEditComponent } from './ui-compoents/modals/item-edit.component';
+
 // services
 import {OrderService} from './services/order.service';
 import {OrderListService} from './services/orderlist.service';
@@ -29,7 +33,7 @@ import {UserService} from './services/user.service';
 import {ItemService} from './services/item.service';
 // pipes
 import {CapitalizeFirstPipe} from './pipes/capitalizefirst.pipe';
-import { ItemEditComponent } from './ui-compoents/modals/item-edit.component';
+
 
 
 @NgModule({
@@ -37,6 +41,8 @@ import { ItemEditComponent } from './ui-compoents/modals/item-edit.component';
     AppComponent,
     NavComponent,
     MenuComponent,
+    MenuPublishedComponent,
+    MenuStorageComponent,
     ItemAddComponent,
     ItemEditComponent,
     LoginComponent,

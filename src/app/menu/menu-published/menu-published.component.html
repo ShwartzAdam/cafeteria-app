@@ -1,0 +1,47 @@
+<div class="ui inverted segment">
+<h2 class="ui yellow center aligned icon header">Published Menu</h2>
+<div class="ui divider"></div>
+<div class="ui three column centered grid">
+  <table class="ui compact celled definition inverted table">
+    <thead class="full-width">
+    <tr>
+      <th></th>
+      <th>Item ID</th>
+      <th>Item Type</th>
+      <th>Item Name</th>
+      <th>Item Description</th>
+      <th>Item Quantity </th>
+      <th>Item Price </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of itemsMenu; let i = index;">
+      <td class="collapsing">
+        <div class="ui fitted toggle checkbox">
+          <input type="checkbox" [(ngModel)]="checkedOrderList[i]"><label></label>
+        </div>
+      </td>
+      <td>{{item.itemid}}</td>
+      <td>{{item.type}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.qty}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+    </tbody>
+    <tfoot class="full-width">
+    <tr>
+      <th></th>
+      <th colspan="7">
+        <div class="ui right floated small primary labeled icon button" (click)="removeItemFromMenu()">
+          <i class="ban icon"></i> Remove
+        </div>
+        <div class="ui small button">
+          Remove Item From Menu
+        </div>
+      </th>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+</div>
