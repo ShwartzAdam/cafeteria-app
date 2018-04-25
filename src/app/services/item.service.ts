@@ -17,4 +17,16 @@ export class ItemService {
   public getItemById(id): Observable<Item> {
     return this.http.get<Item>(this.url + '/items/' + id );
   }
+  public createItem(_item: Item) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url + '/items', JSON.stringify(_item), {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }

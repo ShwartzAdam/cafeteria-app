@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ItemService } from '../../services/item.service';
 import { Item } from '../../interface/item';
 
@@ -9,8 +9,8 @@ import { Item } from '../../interface/item';
   providers: [ItemService]
 })
 export class ItemEditComponent implements OnInit {
+  @Input() itemid: number;
   public item: Item = new Item;
-
   constructor(private itemService: ItemService) {}
   ngOnInit() {}
 

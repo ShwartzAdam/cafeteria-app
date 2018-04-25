@@ -11,10 +11,8 @@ import {OrderListService} from '../../services/orderlist.service';
 export class OrderIncomingComponent implements OnInit {
 
   // ORDER LIST WITH STATUS 'INCOMING'
-  orderList: OrderList[] ;
-  //
-  orderListId: number[];
-  checkedOrderList: boolean[];
+  orderList: OrderList[] = new Array();
+
   constructor(public orderListService: OrderListService) {}
 
   ngOnInit() {
@@ -23,38 +21,35 @@ export class OrderIncomingComponent implements OnInit {
   getIncomingOrders(): void {
     console.log('Getting Incoming Orders !');
     this.orderListService.getAllOrders().subscribe( ( _orderList) => {
-      const rawData = _orderList.filter(order => order.status === 'I');
-      this.orderList = rawData;
-      console.log(rawData);
-      this.checkedOrderList = new Array(this.orderList.length).fill(false);
-      this.orderListId = new Array(this.orderList.length);
+      const rawData = _orderList.filter(order => order.status === 'Incoming');
+      rawData.forEach( order => {
+        const ol: OrderList = new OrderList;
+        ol.userid = order.userid;
+        ol.olid = order.olid
+        ol.totalprice = order.totalprice;
+        ol.status = order.status;
+        ol.ol_dttm = order.ol_dttm;
+        ol.ol_dttm_real = order.ol_dttm_real;
+        ol.hasreview = order.hasreview;
+        this.orderList.push(ol);
+      });
+      console.log(this.orderList);
     });
   }
 
-  startMakingOrder() {
-    console.log('Start Making Orders !');
-      // collect the checkbox orderlist from the template
-      console.log(this.checkedOrderList);
-      let index = 0;
-      let indey = 0;
-      this.checkedOrderList.forEach( order => {
-        // if order has true from checkbox add it to orderlistid
-        if (order === true) {
-          console.log(this.orderList[index]['olid']);
-          this.orderListId[indey++] = this.orderList[index]['olid'];
-        } else {
-        }
-        index++;
-      });
-      console.log(this.orderListId);
-      this.orderListId.forEach(orderListToMake => {
-        this.orderListService.getOrderListById(orderListToMake).subscribe(res => {
-          console.log(res);
-        });
-      });
-      // call it again to present changes in tables
-      this.getIncomingOrders();
+  startMakingOrder(order) {
+    console.log('Start Making Order List');
+    console.log(order);
+    // modal for action - yes or no - then if
+    // yes  - put call with orderlist to change status to 'Active'
+    //        notify student (server side my opion
+    //        get new incoming order to the list
+    // no -   return to old screen review incoming anyway
+    //
+    // call it again to present changes in tables
+    this.getIncomingOrders();
 
   }
+
 
 }

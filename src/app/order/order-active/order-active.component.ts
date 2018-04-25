@@ -11,10 +11,9 @@ import {OrderList} from '../../interface/orderlist';
 export class OrderActiveComponent implements OnInit {
 
   // ORDER LIST WITH STATUS 'ACTIVE'
-  orderList: OrderList[] ;
-  //
-  orderListId: number[];
-  checkedOrderList: boolean[];
+  orderList: OrderList[] = new Array();  //
+
+
   constructor(public orderListService: OrderListService) { }
 
   ngOnInit() {
@@ -24,10 +23,19 @@ export class OrderActiveComponent implements OnInit {
     console.log('Getting Active Orders !');
     this.orderListService.getAllOrders().subscribe( ( _orderList) => {
       const rawData = _orderList.filter(order => order.status === 'A');
-      this.orderList = rawData;
-      console.log(rawData);
-      this.checkedOrderList = new Array(this.orderList.length).fill(false);
-      this.orderListId = new Array(this.orderList.length);
+      rawData.forEach( order => {
+        const ol: OrderList = new OrderList;
+        ol.userid = order.userid;
+        ol.olid = order.olid
+        ol.totalprice = order.totalprice;
+        ol.status = order.status;
+        ol.ol_dttm = order.ol_dttm;
+        ol.ol_dttm_real = order.ol_dttm_real;
+        ol.hasreview = order.hasreview;
+        this.orderList.push(ol);
+      });
+      console.log(this.orderList);
+
     });
   }
 

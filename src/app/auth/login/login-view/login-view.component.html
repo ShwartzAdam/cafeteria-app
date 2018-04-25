@@ -1,18 +1,20 @@
-<div class="ui one column grid">
-  <div class="column">
-    <div class="ui fluid icon input">
-      <input type="text" placeholder="User Name">
-      <i class="users icon"></i>
+<form (ngSubmit)="login()" #registerForm="ngForm">
+  <div class="ui one column grid">
+    <div class="column">
+      <div class="ui icon input">
+        <input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required>
+        <i class="users icon"></i>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui icon input">
+        <input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required>
+        <i class="key icon"></i>
+      </div>
+    </div>
+    <div class="column">
+      <button class="large ui teal button" type="submit"  [disabled]="!registerForm.form.valid">Login</button>
     </div>
   </div>
-  <div class="column">
-    <div class="ui fluid icon input">
-      <input type="text" placeholder="Password">
-      <i class="key icon"></i>
-    </div>
-  </div>
-  <div class="column">
-    <button class="fluid large ui teal button">LOGIN</button>
-  </div>
-</div>
+</form>
 

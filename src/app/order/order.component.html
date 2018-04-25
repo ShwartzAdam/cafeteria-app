@@ -1,20 +1,11 @@
 <div class="ui masthead vertical segment">
   <div class="ui container">
-    <div class="ui inverted segment">
-      <div class="ui compact labeled icon inverted menu">
-        <a class="item" [routerLink]="['incoming']">
-          <i class="hourglass start icon"></i>Incoming Orders
-        </a>
-        <a class="item" [routerLink]="['active']">
-          <i class="hourglass half icon"></i>Active Orders
-        </a>
-        <a class="item" [routerLink]="['complete']">
-          <i class="hourglass end icon"></i>Complete Orders
-        </a>
-      </div>
+    <div class="ui segment">
+      <app-order-incoming></app-order-incoming>
     </div>
-    <router-outlet></router-outlet>
-  </div>
+    <div class="ui segment">
+      <app-order-active></app-order-active>
+    </div>
 </div>
 
 

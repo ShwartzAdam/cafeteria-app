@@ -1,18 +1,10 @@
 <div class="ui masthead vertical segment">
   <div class="ui container">
-    <div class="ui inverted segment">
+    <div class="ui segment">
       <app-item-modal-add></app-item-modal-add>
       <app-item-modal-edit></app-item-modal-edit>
-      <div class="ui compact labeled icon inverted menu">
-        <a class="item" [routerLink]="['published']">
-          <i class="map icon"></i>Published Menu
-        </a>
-        <a class="item" [routerLink]="['storage']">
-          <i class="clipboard icon"></i>Storage
-        </a>
-      </div>
-    </div>
-    <router-outlet></router-outlet>
+      <app-item-modal-confirm></app-item-modal-confirm>
+      <app-menu-storage></app-menu-storage>
   </div>
 </div>
 

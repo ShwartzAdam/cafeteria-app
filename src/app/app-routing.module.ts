@@ -12,6 +12,7 @@ import {OrderActiveComponent} from './order/order-active/order-active.component'
 import {OrderCompleteComponent} from './order/order-complete/order-complete.component';
 import {MenuPublishedComponent} from './menu/menu-published/menu-published.component';
 import {MenuStorageComponent} from './menu/menu-storage/menu-storage.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 
 const appRoutes: Routes = [
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'home' , component : LoginComponent},
   { path: 'signup' , component : SignupComponent},
   { path: 'forgotpass' , component : ForgotpassComponent},
+  { path: 'dashboard' , component : DashboardComponent},
   {
     path: 'order' ,
     component : OrderComponent,
@@ -34,7 +36,6 @@ const appRoutes: Routes = [
     component : MenuComponent,
     children: [
       {path: '' , redirectTo: '/menu' , pathMatch : 'full' },
-      {path: 'published' , component: MenuPublishedComponent},
       {path: 'storage' , component: MenuStorageComponent}
     ]
   },

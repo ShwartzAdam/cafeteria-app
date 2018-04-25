@@ -12,6 +12,17 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  public getUser(registerCredentials) {
+    return new Promise(resolve => {
+      this.http.post(this.url + '/users/login' , JSON.stringify(registerCredentials), {
+        headers: new HttpHeaders().set('Content-Type', 'application/json')
+      })
+        .subscribe(res => {
+          resolve(res);
+        });
+    });
+  }
+
   public getUserById(id: number): Observable<Student> {
     return this.http.get<Student>(this.url + '/users/' + id );
   }

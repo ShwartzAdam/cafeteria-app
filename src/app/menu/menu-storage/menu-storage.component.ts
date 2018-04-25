@@ -15,7 +15,6 @@ export class MenuStorageComponent implements OnInit {
 
   // THE ITEMS IN PUBLISHED MENU
   itemsMenu: Item[] = new Array();
-  checkedOrderList: boolean[];
 
   // display add item in modal
   showAddItem: boolean = false;
@@ -31,31 +30,55 @@ export class MenuStorageComponent implements OnInit {
       items => {
         items.forEach(item => {
           const itemTmp = new Item(item);
-          console.log(itemTmp);
           this.itemsMenu.push(itemTmp);
         });
         console.log(this.itemsMenu);
-        this.checkedOrderList = new Array(this.itemsMenu.length).fill(false);
       });
   }
   removeItemFromMenu(): any {
     console.log('Remove Item From Menu - Start');
   }
-  displayModal(event): any {
-    if (event === 'Add') {
+
+  displayModal(action, order): any {
+    console.log(action);
+    console.log(order);
+    if (action === 'Add') {
       console.log('Show Modal To Add Item');
       $('.ui.add.modal')
         .modal('setting', 'transition', 'horizontal flip')
         .modal('show')
       ;
-    } else {
+    } else if (action === 'Edit') {
       console.log('Show Modal To Edit Item');
-      $('.ui.edit.modal')
+      $('.ui.large.edit.modal')
         .modal('setting', 'transition', 'horizontal flip')
         .modal('show')
       ;
+    } else if (action === 'Delete') {
+      // post delete to server
+      console.log('Show Modal To Delete Item');
+      $('.ui.confirm.modal')
+        .modal('setting', 'transition', 'horizontal flip')
+        .modal({
+          closable  : false,
+          onDeny    : function() {
+            console.log('Modal return False');
+          },
+          onApprove : function() {
+            console.log('Modal return True');
+            // call to item service to delete item id
+            // when succesfuly update the table with a listener function
+            //
+          }
+        })
+        .modal('show')
+      ;
+    } else {
+      console.log("ERROR");
     }
 
   }
+
+
 
 }

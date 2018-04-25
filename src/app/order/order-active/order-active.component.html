@@ -1,24 +1,19 @@
-<div class="ui inverted segment">
-<h2 class="ui yellow center aligned icon header">Active Orders </h2>
-<table class="ui compact celled definition inverted table">
+<div class="ui segment">
+<h2 class="ui  center aligned icon header">Active Orders </h2>
+<table class="ui compact celled definition table">
   <thead class="full-width">
   <tr>
-    <th></th>
     <th>Order ID</th>
     <th>Student Full Name</th>
     <th>Start Making Order</th>
     <th>Pick-Up Time</th>
     <th>Total Price (NIS)</th>
     <th>Order Information</th>
+    <th>End Order</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let orders of orderList; let i = index;">
-    <td class="collapsing">
-      <div class="ui fitted toggle checkbox">
-        <input type="checkbox" [(ngModel)]="checkedOrderList[i]"><label></label>
-      </div>
-    </td>
+  <tr *ngFor="let orders of (orderList | orderByTime : 3); let i = index;">
     <td>{{orders.olid}}</td>
     <td>
       <app-student-details [userId]="orders.userid" ></app-student-details>
@@ -29,20 +24,12 @@
     <td>
       <app-order-details></app-order-details>
     </td>
+    <td>
+      <div class="ui small primary labeled icon button" (click)="endOrder(order)">
+        <i class="bullhorn icon"></i> Order Is Ready
+      </div>
+    </td>
   </tr>
   </tbody>
-  <tfoot class="full-width">
-  <tr>
-    <th></th>
-    <th colspan="6">
-      <div class="ui right floated small primary labeled icon button" (click)="startMakingOrder()">
-        <i class="clipboard check icon"></i> Finish Order & Notify Student
-      </div>
-      <div class="ui small button">
-        Select All
-      </div>
-    </th>
-  </tr>
-  </tfoot>
 </table>
 </div>

@@ -24,11 +24,12 @@
     "@types/semantic-ui-modal": "^2.2.3",
     "core-js": "^2.4.1",
     "express": "^4.14.0",
+    "localforage": "^1.7.1",
     "ng-semantic": "https://github.com/vladotesanovic/ngSemantic/tarball/master",
     "rxjs": "^5.5.6",
     "semantic-ui": "^2.2.7",
-    "zone.js": "^0.8.19",
-    "typescript": "~2.5.3"
+    "typescript": "~2.5.3",
+    "zone.js": "^0.8.19"
   },
   "devDependencies": {
     "@angular/cli": "1.7.2",
