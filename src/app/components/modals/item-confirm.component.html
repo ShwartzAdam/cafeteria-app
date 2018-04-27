@@ -4,14 +4,21 @@
     Action confirmation
   </div>
   <div class="content">
-    <p>Are you sure to want to delete this item? </p>
+    <div class="ui centered header">
+      <h1>Are you sure to want to delete this item? </h1>
+      <p> Item Name : <span>{{item.name}}</span></p>
+      <p> Item Type : <span>{{item.type}}</span></p>
+      <p> Item Desc : <span>{{item.description}}</span></p>
+    </div>
+
+
   </div>
   <div class="actions">
-    <div class="ui left floated red cancel button">
+    <div class="ui left floated red cancel button" (click)="action('Cancel')">
       <i class="remove icon"></i>
       No
     </div>
-    <div class="ui green ok button">
+    <div class="ui green ok button" (click)="action('Ok')">
       <i class="checkmark icon"></i>
       Yes
     </div>
