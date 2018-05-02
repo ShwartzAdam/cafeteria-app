@@ -3,24 +3,45 @@
     <div class="ui two column centered grid">
       <div class="column">
         <div class="ui segment">
-          <p>Publish Menu</p>
+          <h2 class="ui block header">
+            <i class="small map icon"></i>
+            <div class="content">
+              Published Menu
+              <div class="sub header">View the pusblished items</div>
+            </div>
+          </h2>
+          <app-menu-published></app-menu-published>
         </div>
       </div>
       <div class="column">
         <div class="ui segment">
-          <p>Orders Today</p>
+          <h2 class="ui block header">
+            <i class="small plus users icon"></i>
+            <div class="content">
+              Add a New Employee
+              <div class="sub header">Invite a worker to the cafeteria</div>
+            </div>
+          </h2>
+          <app-employee></app-employee>
         </div>
       </div>
-        <div class="column">
-          <div class="ui segment">
-            <p>Complete Orders</p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            <p>Best Sellers</p>
-          </div>
+      <div class="column">
+        <div class="ui segment">
+          <h2 class="ui block header">
+            <i class="small book icon"></i>
+            <div class="content">
+              Complete Orders
+              <div class="sub header">Last complete orders</div>
+            </div>
+          </h2>
+          <app-order-complete></app-order-complete>
         </div>
       </div>
+      <div class="column">
+        <div class="ui segment">
+          <p>Best Sellers</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

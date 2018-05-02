@@ -1,5 +1,4 @@
 <div class="ui segment">
-<h2 class="ui  center aligned icon header">Active Orders </h2>
 <table class="ui compact celled definition table">
   <thead class="full-width">
   <tr>
@@ -13,16 +12,16 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let orders of (orderList | orderByTime : 3); let i = index;">
-    <td>{{orders.olid}}</td>
+  <tr *ngFor="let order of (orderList | orderByTime : 5); let i = index;">
+    <td>{{order.olid}}</td>
     <td>
-      <app-student-details [userId]="orders.userid" ></app-student-details>
+      <app-student-details [userId]="order.userid" ></app-student-details>
     </td>
-    <td></td>
-    <td>{{orders.ol_dttm}}</td>
-    <td>{{orders.totalprice}}</td>
+    <td>{{order?.ol_dttm_real | date: 'short' }}</td>
+    <td>{{order?.ol_dttm | date: 'short' }}</td>
+    <td>{{order?.totalprice}} &#8362;</td>
     <td>
-      <app-order-details></app-order-details>
+      <app-order-details [olid]="order.olid"></app-order-details>
     </td>
     <td>
       <div class="ui small primary labeled icon button" (click)="endOrder(order)">

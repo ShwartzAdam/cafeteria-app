@@ -1,5 +1,4 @@
-import {Component, Input} from '@angular/core';
-import {Item} from '../interface/item';
+import {Component} from '@angular/core';
 
 declare var jquery: any;
 declare var $: any;
@@ -11,10 +10,5 @@ declare var $: any;
   providers: []
 })
 export class MenuComponent {
-  @Input() item: Item;
   constructor() { }
-
-  onClicked(item) {
-    console.log(item);
-  }
 }

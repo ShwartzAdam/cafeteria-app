@@ -11,17 +11,49 @@ export class ItemService {
 
   constructor(public http: HttpClient) {}
 
-  public getAllItems(): Observable<Item[]> {
-    return this.http.get<Item[]>(this.url + '/items' );
+
+  public getItemById(id) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url + '/items/' + id , {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
   }
-  public getItemById(id): Observable<Item> {
-    return this.http.get<Item>(this.url + '/items/' + id );
+  public getAllItems() {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url + '/items', {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+  public getAllItemsSub(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.url + '/items');
   }
   public createItem(_item: Item) {
     return new Promise((resolve, reject) => {
       this.http.post(this.url + '/items', JSON.stringify(_item), {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
       })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+  public deleteItem(itemid: number) {
+    return new Promise((resolve, reject) => {
+      this.http.delete(this.url + '/items/' + itemid)
         .subscribe(res => {
           resolve(res);
         }, (err) => {

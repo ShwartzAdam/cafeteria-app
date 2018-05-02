@@ -1,5 +1,4 @@
 <div class="ui segment">
-  <h2 class="ui center aligned icon header">Items In The Cafeteria</h2>
   <div class="ui three column centered grid">
     <table class="ui compact celled definition table">
       <thead class="full-width">
@@ -10,7 +9,7 @@
         <th>Item Quantity </th>
         <th>Item Price </th>
         <th>On Menu ?</th>
-        <th>Action</th>
+        <th>Actions </th>
       </tr>
       </thead>
       <tbody>
@@ -22,13 +21,13 @@
         <td>{{item.price}} &#8362;</td>
         <td>{{item.ispublished | reviewPipe }}</td>
         <td>
-          <div class="ui left floated small primary labeled icon button"
-               (click)="displayModal('Delete', item)">
-            <i class="delete icon"></i> Delete Item
-          </div>
-          <div class="ui right floated small primary labeled icon button"
+          <div class="ui primary left floated small labeled icon button"
                (click)="displayModal('Edit', item)">
-            <i class="edit icon"></i> Edit Item
+            <i class="edit icon"></i>Edit
+          </div>
+          <div class="ui small secondary labeled icon button"
+               (click)="displayModal('Delete', item)">
+            <i class="delete icon"></i>Delete
           </div>
         </td>
       </tr>
@@ -37,12 +36,15 @@
       <tr>
         <th></th>
         <th colspan="7">
-          <div class="ui small button" (click)="displayModal('Add')">
-            Add Item
+          <div class="ui primary small labeled icon button" (click)="displayModal('Add')">
+            <i class="plus icon"></i>Add Item
           </div>
         </th>
       </tr>
       </tfoot>
     </table>
+    <app-item-modal-add (notify)="onNotifyClicked($event)"></app-item-modal-add>
+    <app-item-modal-edit [itemInputEdit]="editItem" (notify)="onNotifyClicked($event)"></app-item-modal-edit>
+    <app-item-modal-confirm [itemInputDelete]="deleteItem" (notify)="onNotifyClicked($event)"></app-item-modal-confirm>
   </div>
 </div>

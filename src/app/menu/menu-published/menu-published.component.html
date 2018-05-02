@@ -1,0 +1,22 @@
+<div class="ui segment">
+  <div class="ui three column centered grid">
+    <table datatable [dtOptions]="dtOptions" class="ui compact celled definition table">
+      <thead class="full-width">
+        <tr>
+          <th>Item Name</th>
+          <th>Item Type</th>
+          <th>Item Quantity </th>
+          <th>Item Price </th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of itemsMenu">
+        <td>{{item.name}}</td>
+        <td>{{item.type}}</td>
+        <td>{{item.qty}}</td>
+        <td>{{item.price}} &#8362;</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

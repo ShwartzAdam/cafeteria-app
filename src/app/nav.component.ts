@@ -10,9 +10,8 @@ export class NavComponent implements OnInit {
     {'name' : 'Dashboard', 'routerLink' : '/dashboard', 'icon' : 'cogs'},
     {'name' : 'Orders', 'routerLink' : '/order', 'icon' : 'coffee'},
     {'name' : 'Storage', 'routerLink' : '/menu', 'icon' : 'map'},
-    {'name' : 'Charts', 'routerLink' : '/charts', 'icon' : 'chart line'},
-    {'name' : 'Employee', 'routerLink' : '/charts', 'icon' : 'user plus'},
-  ];
+    {'name' : 'Charts', 'routerLink' : '/charts', 'icon' : 'chart line'}
+    ];
 
   constructor() { }
 

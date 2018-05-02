@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemService } from '../../services/item.service';
-import { Item } from '../../interface/item';
-import {Supplier} from '../../interface/supplier';
+import { ItemService } from '../../../services/item.service';
+import { Item } from '../../../interface/item';
+import {Supplier} from '../../../interface/supplier';
 
 @Component({
   selector: 'app-item-modal-add',

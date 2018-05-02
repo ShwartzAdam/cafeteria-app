@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ItemService} from '../../services/item.service';
 import {Item} from '../../interface/item';
 
@@ -11,23 +11,41 @@ declare var $: any;
   styleUrls: ['./menu-storage.component.css'],
   providers : [ItemService]
 })
-export class MenuStorageComponent implements OnInit {
+export class MenuStorageComponent implements OnInit, OnDestroy {
 
+  public editItem: Item;
+  public deleteItem: Item;
   // THE ITEMS IN PUBLISHED MENU
   itemsMenu: Item[] = new Array();
 
-  // display add item in modal
-  showAddItem: boolean = false;
-
-  constructor(public itemService: ItemService) {}
+  constructor(public itemService: ItemService) {
+    this.editItem = new Item;
+    this.deleteItem = new Item;
+  }
+  onNotifyClicked(message: string): void {
+    if (message === 'Delete') {
+      this.itemsMenu = new Array();
+      this.getStorage();
+    } else if (message === 'Edit') {
+      this.itemsMenu = new Array();
+      this.getStorage();
+    }
+  }
 
   ngOnInit() {
     this.getStorage();
   }
 
-  getStorage(): any {
-    this.itemService.getAllItems().subscribe(
-      items => {
+  ngOnDestroy(): void {
+    console.log('exit Menu Storage');
+    $( '.ui.edit.modal' ).remove();
+    $( '.ui.add.modal' ).remove();
+    $( '.ui.confirm.modal' ).remove();
+  }
+
+  public getStorage(): any {
+    this.itemService.getAllItems().then(
+      (items: any) => {
         items.forEach(item => {
           const itemTmp = new Item(item);
           this.itemsMenu.push(itemTmp);
@@ -35,13 +53,10 @@ export class MenuStorageComponent implements OnInit {
         console.log(this.itemsMenu);
       });
   }
-  removeItemFromMenu(): any {
-    console.log('Remove Item From Menu - Start');
-  }
 
-  displayModal(action, order): any {
+  public displayModal(action, item): any {
     console.log(action);
-    console.log(order);
+    console.log(item);
     if (action === 'Add') {
       console.log('Show Modal To Add Item');
       $('.ui.add.modal')
@@ -50,31 +65,23 @@ export class MenuStorageComponent implements OnInit {
       ;
     } else if (action === 'Edit') {
       console.log('Show Modal To Edit Item');
-      $('.ui.large.edit.modal')
+      // update the modal with item
+      this.editItem = item;
+      console.log(this.editItem);
+      $('.ui.edit.modal')
         .modal('setting', 'transition', 'horizontal flip')
         .modal('show')
       ;
     } else if (action === 'Delete') {
       // post delete to server
+      this.deleteItem = item;
       console.log('Show Modal To Delete Item');
       $('.ui.confirm.modal')
         .modal('setting', 'transition', 'horizontal flip')
-        .modal({
-          closable  : false,
-          onDeny    : function() {
-            console.log('Modal return False');
-          },
-          onApprove : function() {
-            console.log('Modal return True');
-            // call to item service to delete item id
-            // when succesfuly update the table with a listener function
-            //
-          }
-        })
         .modal('show')
       ;
     } else {
-      console.log("ERROR");
+      console.log('ERROR');
     }
 
   }

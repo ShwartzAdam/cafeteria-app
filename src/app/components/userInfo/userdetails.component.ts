@@ -19,7 +19,7 @@ export class UserDetailsComponent implements OnInit {
         this.stu.userid = student.userid;
         this.stu.firstname = student.firstname;
         this.stu.lastname = student.lastname;
-        this.stu.image = student.image;
+        this.stu.url = student.url;
         this.stu.email = student.email;
         this.stu.phone = student.phone;
       });

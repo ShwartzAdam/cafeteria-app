@@ -1,30 +1,56 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {OrderList} from '../../interface/orderlist';
+import {OrderService} from '../../services/order.service';
+import {ItemService} from '../../services/item.service';
 import {OrderListService} from '../../services/orderlist.service';
+import {Order} from '../../interface/order';
+import {Item} from '../../interface/item';
 
 @Component({
   selector: 'app-order-details',
   templateUrl: './orderdetails.component.html',
   styleUrls: ['./orderdetails.component.css'],
-  providers: [OrderListService]
+  providers: [OrderService, ItemService, OrderListService]
 })
-export class OrderDetailsComponent implements OnInit {
-  @Input() orderListId: number;
-  private orderList: OrderList = new OrderList();
+export class OrderDetailsComponent implements OnChanges {
+  @Input() olid: number;
+  public orderListRef: OrderList;
+  public orders: Order[] = new Array();
+  public items: Item[] = new Array();
+  constructor(private orderService: OrderService,
+              private orderListService: OrderListService,
+              private itemService: ItemService) {}
 
-  constructor(private orderListService: OrderListService) {}
-
-  ngOnInit() {
-    /*
-    this.orderListService.getOrderListById(this.userId).subscribe(
-      student => {
-        this.stu.userid = student.userid;
-        this.stu.firstname = student.firstname;
-        this.stu.lastname = student.lastname;
-        this.stu.image = student.image;
-        this.stu.email = student.email;
-        this.stu.phone = student.phone;
-      });
-  }*/
+  ngOnChanges(changes: SimpleChanges): void {
+    if ( !changes ) {
+      return;
+    } else {
+      this.orderListService.getOrderListById(this.olid).subscribe(
+        (res: any) => {
+          this.orderListRef = res;
+        });
+      this.olid = changes.olid.currentValue;
+      this.orderService.getOrdersByOrderListId(this.olid).then(
+        (resOrders: any ) => {
+          resOrders.forEach( order => {
+            let _order: Order = new Order;
+            _order.orderid = order.orderid;
+            _order.olid = order.olid;
+            _order.itemid = order.itemid;
+            _order.qty = order.qty;
+            this.orders.push(_order);
+          });
+          this.orders.forEach( order => {
+            this.itemService.getItemById(order.itemid).then(
+              (resItem: any) => {
+                let _item: Item = new Item;
+                _item.itemid = order.itemid;
+                _item.name = resItem.name;
+                _item.price = resItem.price;
+                this.items.push(_item);
+              });
+          });
+        });
+    }
   }
 }

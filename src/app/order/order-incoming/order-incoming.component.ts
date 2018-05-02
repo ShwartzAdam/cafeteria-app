@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {OrderList} from '../../interface/orderlist';
 import {OrderListService} from '../../services/orderlist.service';
+
+import 'jquery';
+
+declare var jquery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-order-incoming',
@@ -8,19 +13,35 @@ import {OrderListService} from '../../services/orderlist.service';
   styleUrls: ['./order-incoming.component.css'],
   providers : [OrderListService]
 })
-export class OrderIncomingComponent implements OnInit {
+export class OrderIncomingComponent implements OnInit, OnDestroy {
 
   // ORDER LIST WITH STATUS 'INCOMING'
-  orderList: OrderList[] = new Array();
-
-  constructor(public orderListService: OrderListService) {}
+  orderList: OrderList[] ;
+  @Output() notifyTable: EventEmitter<string> = new EventEmitter<string>();
+  public ordertodo: OrderList;
+  constructor(public orderListService: OrderListService) {
+    this.orderList = new Array();
+  }
 
   ngOnInit() {
     this.getIncomingOrders();
   }
+  onNotifyClicked(message: string): void {
+    if ( message === 'Update Table') {
+      this.orderList = new Array();
+      this.getIncomingOrders();
+      this.notifyTable.emit('Update Active Table');
+    }
+  }
+
+  ngOnDestroy(): void {
+    console.log('exit Menu Storage');
+    $( '.ui.confirm.order.modal' ).remove();
+  }
+
   getIncomingOrders(): void {
     console.log('Getting Incoming Orders !');
-    this.orderListService.getAllOrders().subscribe( ( _orderList) => {
+    this.orderListService.getAllOrdersPromise().then( ( _orderList: any) => {
       const rawData = _orderList.filter(order => order.status === 'Incoming');
       rawData.forEach( order => {
         const ol: OrderList = new OrderList;
@@ -33,13 +54,16 @@ export class OrderIncomingComponent implements OnInit {
         ol.hasreview = order.hasreview;
         this.orderList.push(ol);
       });
-      console.log(this.orderList);
     });
   }
 
   startMakingOrder(order) {
     console.log('Start Making Order List');
-    console.log(order);
+    this.ordertodo = order;
+    $('.ui.confirm.order.modal')
+      .modal('setting', 'transition', 'horizontal flip')
+      .modal('show')
+    ;
     // modal for action - yes or no - then if
     // yes  - put call with orderlist to change status to 'Active'
     //        notify student (server side my opion
@@ -47,7 +71,7 @@ export class OrderIncomingComponent implements OnInit {
     // no -   return to old screen review incoming anyway
     //
     // call it again to present changes in tables
-    this.getIncomingOrders();
+    //this.getIncomingOrders();
 
   }
 

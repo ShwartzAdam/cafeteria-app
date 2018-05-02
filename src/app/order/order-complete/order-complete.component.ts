@@ -20,10 +20,8 @@ export class OrderCompleteComponent implements OnInit {
   }
   getCompletedOrders(): void {
     console.log('Getting Completed Orders !');
-    this.orderListService.getAllOrders().subscribe( ( _orderList) => {
-      const rawData = _orderList.filter(order => order.status === 'C');
-      this.orderList = rawData;
-      console.log(rawData);
+    this.orderListService.getAllOrders().subscribe( ( _orderList: any) => {
+      this.orderList = _orderList.filter(order => order.status === 'Complete');
     });
   }
 

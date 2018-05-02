@@ -1,10 +1,24 @@
 <div class="ui masthead vertical segment">
   <div class="ui container">
     <div class="ui segment">
-      <app-order-incoming></app-order-incoming>
+      <h2 class="ui block header">
+        <i class="small map icon"></i>
+        <div class="content">
+          Incoming Orders
+          <div class="sub header">List of incoming orders</div>
+        </div>
+      </h2>
+      <app-order-incoming (notifyTable)="onChange($event)"></app-order-incoming>
     </div>
     <div class="ui segment">
-      <app-order-active></app-order-active>
+      <h2 class="ui block header">
+        <i class="small map icon"></i>
+        <div class="content">
+          Active Orders
+          <div class="sub header">List of active orders</div>
+        </div>
+      </h2>
+      <app-order-active [insertOrder]="isActiveTableUpdated" (notifyUpdated)="onFinish($event)"></app-order-active>
     </div>
 </div>
 

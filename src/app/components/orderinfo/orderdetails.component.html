@@ -1,30 +1,42 @@
 <button class="ui button primary" (click)="myModalNormal.show({inverted: false})">
   <i class="search plus icon"></i>Info
 </button>
-<sm-modal title="Order List" class="" icon="address card" #myModalNormal>
+<sm-modal title="Order List Details" class="" icon="clipboard" #myModalNormal>
   <modal-content>
-    <div class="ui two column grid">
+    <div class="ui six column grid" *ngFor="let order of orders; let i = index">
+        <div class="six column row">
+          <div class="column">
+            <strong>Order ID :</strong>
+          </div>
+          <div class="column">
+            {{order.orderid}}
+          </div>
+        </div>
       <div class="column">
-        <h2 class="ui black">
-          Food:
-        </h2>
+        <strong>Item Name :</strong>
       </div>
       <div class="column">
-        <div class="ui labeled">
-          2X Sandwich Tuna
-        </div>
+        {{this.items[i]?.name}}
+      </div>
+      <div class="column">
+        <strong>Item Quantity :</strong>
+      </div>
+      <div class="column">
+        {{order.qty}}
+      </div>
+      <div class="column">
+        <strong>Item Price :</strong>
+      </div>
+      <div class="column">
+        {{this.items[i]?.price}} &#8362;
       </div>
     </div>
-    <div class="ui two column grid">
+    <div class="ui four column grid">
       <div class="column">
-        <h2 class="ui black">
-          Drinks:
-        </h2>
+        <strong>Pick Up Time:</strong>
       </div>
       <div class="column">
-        <div class="ui labeled">
-          2X Black Coffee
-        </div>
+       {{orderListRef?.ol_dttm | date: 'medium' }}
       </div>
     </div>
   </modal-content>

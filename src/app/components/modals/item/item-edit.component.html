@@ -1,12 +1,13 @@
-<div class="ui large edit modal">
-  <div class="header">
+<div class="ui edit modal">
+  <div class="ui icon header">
+    <i class="edit icon"></i>
     Edit An Existing Item In The Cafeteria
   </div>
   <div class="ui internally celled grid">
     <div class="row">
       <div class="three wide column">
         <div class="ui left aligned image content">
-          <img class="ui centered small circular image padding" src="../../assets/png/adam%20copy.jpg">
+          <img class="ui centered small circular image padding" src="../../../../assets/png/item.png">
           <label>Click To Change Image</label>
         </div>
       </div>
@@ -19,7 +20,7 @@
             </div>
             <div class="field">
               <label>Item Description</label>
-              <textarea rows="2" [(ngModel)]="item.desc" required>
+              <textarea rows="2" [(ngModel)]="item.description" required>
                 </textarea>
             </div>
           </div>
@@ -35,13 +36,23 @@
             <div class="field">
               <label>Item Type</label>
               <select class="ui fluid search dropdown" [(ngModel)]="item.type">
-                <option value="">Drink</option>
-                <option value="1">Food</option>
+                <option value="Drink">Drink</option>
+                <option value="Food">Food</option>
               </select>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui left floated red cancel button" (click)="action('Cancel')" >
+      <i class="remove icon"></i>
+      Cancel
+    </div>
+    <div class="ui green ok button" (click)="action('Upload The Changes')">
+      <i class="checkmark icon"></i>
+      Upload
     </div>
   </div>
   <div class="actions">

@@ -42,4 +42,18 @@ export class OrderService {
     });
   }
 
+  // get all orders by olid
+  public getOrdersByOrderListId(id: number) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url + '/ordereditems/olid/' + id , {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
 }

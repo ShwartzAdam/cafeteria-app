@@ -5,12 +5,15 @@ import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { DataTablesModule } from 'angular-datatables';
+
 // Main Component
 import { AppComponent } from './app.component';
 // Sub Components
 import { NavComponent } from './nav.component';
 import { MenuComponent} from './menu/menu.component';
-import {MenuStorageComponent} from './menu/menu-storage/menu-storage.component';
+import { MenuStorageComponent } from './menu/menu-storage/menu-storage.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LoginViewComponent } from './auth/login/login-view/login-view.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -22,9 +25,8 @@ import { UserDetailsComponent } from './components/userInfo/userdetails.componen
 import { OrderIncomingComponent } from './order/order-incoming/order-incoming.component';
 import { OrderActiveComponent } from './order/order-active/order-active.component';
 import { OrderCompleteComponent } from './order/order-complete/order-complete.component';
-import { ItemAddComponent } from './components/modals/item-add.component';
-import { ItemEditComponent } from './components/modals/item-edit.component';
-
+import { ItemAddComponent } from './components/modals/item/Item-add.component';
+import { ItemEditComponent } from './components/modals/item/item-edit.component';
 // services
 import {OrderService} from './services/order.service';
 import {OrderListService} from './services/orderlist.service';
@@ -39,7 +41,10 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {SortableTableDirective} from './components/sort/sort.directive';
 import {SortService} from './components/sort/sort.service';
 import {ReviewPipe} from './pipes/review.pipe';
-import {ItemConfirmComponent} from './components/modals/item-confirm.component';
+import {ItemConfirmComponent} from './components/modals/item/item-confirm.component';
+import {EmployeeComponent} from './components/employee/employee.component';
+import {MenuPublishedComponent} from './menu/menu-published/menu-published.component';
+import {OrderConfirmComponent} from './components/modals/order/order-confirm.component';
 
 
 
@@ -70,13 +75,18 @@ import {ItemConfirmComponent} from './components/modals/item-confirm.component';
     DashboardComponent,
     SortableColumnComponent,
     SortableTableDirective,
+    EmployeeComponent,
+    MenuPublishedComponent,
+    OrderConfirmComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     NgSemanticModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule,
+    CommonModule
   ],
   providers: [OrderListService,
               OrderService,

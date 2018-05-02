@@ -10,7 +10,7 @@
 
 ;(function ($, window, document, undefined) {
 
-"use strict";
+'use strict';
 
 window = (typeof window != 'undefined' && window.Math == Math)
   ? window
@@ -122,7 +122,7 @@ $.fn.search = function(parameters) {
               .on('focus'     + eventNamespace, selector.prompt, module.event.focus)
               .on('blur'      + eventNamespace, selector.prompt, module.event.blur)
               .on('keydown'   + eventNamespace, selector.prompt, module.handleKeyboard)
-              // search userInfo
+              // search button
               .on('click'     + eventNamespace, selector.searchButton, module.query)
               // results
               .on('mousedown' + eventNamespace, selector.results, module.event.result.mousedown)
@@ -596,9 +596,10 @@ $.fn.search = function(parameters) {
               addResult = function(array, result) {
                 var
                   notResult      = ($.inArray(result, results) == -1),
-                  notFuzzyResult = ($.inArray(result, fuzzyResults) == -1)
+                  notFuzzyResult = ($.inArray(result, fuzzyResults) == -1),
+                  notExactResults = ($.inArray(result, exactResults) == -1)
                 ;
-                if(notResult && notFuzzyResult) {
+                if(notResult && notFuzzyResult && notExactResults) {
                   array.push(result);
                 }
               }

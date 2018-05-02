@@ -1,0 +1,25 @@
+<form (ngSubmit)="inviteEmployee()" #registerForm="ngForm">
+  <div class="ui center aligned one column grid">
+    <div class="column">
+      <div class="ui icon input">
+        <input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required>
+        <i class="keyboard icon"></i>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui icon input">
+        <input type="text" placeholder="First Name" name="firstname" [(ngModel)]="registerCredentials.firstname" required>
+        <i class="user circle icon"></i>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui icon input">
+        <input type="text" placeholder="Last Name" name="lastname" [(ngModel)]="registerCredentials.lastname" required>
+        <i class="user circle  icon"></i>
+      </div>
+    </div>
+    <div class="column">
+      <button class="large ui teal button" type="submit"  [disabled]="!registerForm.form.valid">Invite</button>
+    </div>
+  </div>
+</form>
