@@ -22,7 +22,8 @@ export class MenuPublishedComponent implements OnInit,
       searching: false,
       ordering:  false,
       info: false,
-      pageLength: 5
+      pageLength: 5,
+      lengthChange: false
     };
   }
   ngAfterContentInit(): void {

@@ -1,6 +1,11 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {OrderListService} from '../../services/orderlist.service';
 import {OrderList} from '../../interface/orderlist';
+
+import 'jquery';
+
+declare var jquery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-order-active',
@@ -8,13 +13,18 @@ import {OrderList} from '../../interface/orderlist';
   styleUrls: ['./order-active.component.css'],
   providers : [OrderListService]
 })
-export class OrderActiveComponent implements OnInit, OnChanges {
+export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
 
   // ORDER LIST WITH STATUS 'ACTIVE'
-  orderList: OrderList[] = new Array();  //
+  private orderList: OrderList[] = new Array();  //
   @Output() notifyUpdated: EventEmitter<string> = new EventEmitter<string>();
   @Input() insertOrder: boolean = false;
+  public ordertocomplete: OrderList;
   constructor(public orderListService: OrderListService) { }
+
+  ngOnInit() {
+    this.getActiveOrders();
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes) {
@@ -29,26 +39,53 @@ export class OrderActiveComponent implements OnInit, OnChanges {
       }
     }
   }
-  ngOnInit() {
-    this.getActiveOrders();
+  ngOnDestroy(): void {
+    console.log("Active - Destory");
+    $( '.ui.complete.order.modal' ).remove();
+  }
+  onNotifyClicked(message) {
+    console.log(message);
+    if ( message === 'Order Complete') {
+      this.orderList = new Array();
+      this.getActiveOrders();
+    }
   }
   getActiveOrders(): void {
     console.log('Getting Active Orders !');
-    this.orderListService.getAllOrders().subscribe( ( _orderList) => {
-      const rawData = _orderList.filter(order => order.status === 'Active');
-      rawData.forEach( order => {
-        const ol: OrderList = new OrderList;
-        ol.userid = order.userid;
-        ol.olid = order.olid
-        ol.totalprice = order.totalprice;
-        ol.status = order.status;
-        ol.ol_dttm = order.ol_dttm;
-        ol.ol_dttm_real = order.ol_dttm_real;
-        ol.hasreview = order.hasreview;
-        this.orderList.push(ol);
+    this.orderListService.getAllOrdersByStatus('Active').
+    then( (_orderList: any) =>  {
+      _orderList.forEach( ol => {
+        const _ol: OrderList = new OrderList;
+        _ol.userid = ol.userid;
+        _ol.olid = ol.olid
+        _ol.totalprice = ol.totalprice;
+        _ol.status = ol.status;
+        _ol.ol_dttm = ol.ol_dttm;
+        _ol.ol_dttm_real = ol.ol_dttm_real;
+        _ol.hasreview = ol.hasreview;
+        this.orderList.push(_ol);
       });
-
+      console.log(this.orderList);
     });
   }
+  completeOrder(order) {
+    console.log(order);
+    console.log('Complete Order List and notify Student');
+    this.ordertocomplete = order;
+    console.log(this.ordertocomplete);
+    $('.ui.complete.order.modal')
+      .modal('setting', 'transition', 'horizontal flip')
+      .modal('show')
+    ;
+    // modal for action - yes or no - then if
+    // yes  - put call with orderlist to change status to 'Active'
+    //        notify student (server side my opion
+    //        get new incoming order to the list
+    // no -   return to old screen review incoming anyway
+    //
+    // call it again to present changes in tables
+    //this.getIncomingOrders();
+  }
+
 
 }

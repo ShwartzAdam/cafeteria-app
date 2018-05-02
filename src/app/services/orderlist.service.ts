@@ -29,6 +29,18 @@ export class OrderListService {
         });
     });
   }
+  public getAllOrdersByStatus(status: string) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url + '/orderedlists/status/' + status , {
+        headers: new HttpHeaders().set('Content-Type', 'application/json')
+      })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
   public updateOrderListPromise(_orderList: OrderList) {
     return new Promise((resolve, reject) => {
       this.http.put(this.url + '/orderedlists/' , JSON.stringify(_orderList) , {

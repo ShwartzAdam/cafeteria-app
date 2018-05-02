@@ -45,8 +45,7 @@ import {ItemConfirmComponent} from './components/modals/item/item-confirm.compon
 import {EmployeeComponent} from './components/employee/employee.component';
 import {MenuPublishedComponent} from './menu/menu-published/menu-published.component';
 import {OrderConfirmComponent} from './components/modals/order/order-confirm.component';
-
-
+import {OrderCompComponent} from './components/modals/order/order-complete.component';
 
 
 @NgModule({
@@ -77,7 +76,8 @@ import {OrderConfirmComponent} from './components/modals/order/order-confirm.com
     SortableTableDirective,
     EmployeeComponent,
     MenuPublishedComponent,
-    OrderConfirmComponent
+    OrderConfirmComponent,
+    OrderCompComponent
   ],
   imports: [
     BrowserModule,

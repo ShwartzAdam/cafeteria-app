@@ -1,0 +1,5 @@
+table .dataTables_wrapper .dataTables_paginate {
+  float: none;
+  text-align: center;
+  padding-top: 0.25em;
+}

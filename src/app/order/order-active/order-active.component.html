@@ -24,11 +24,12 @@
       <app-order-details [olid]="order.olid"></app-order-details>
     </td>
     <td>
-      <div class="ui small primary labeled icon button" (click)="endOrder(order)">
+      <div class="ui small primary labeled icon button" (click)="completeOrder(order)">
         <i class="bullhorn icon"></i> Order Is Ready
       </div>
     </td>
   </tr>
   </tbody>
+  <app-order-modal-complete [orderInputConf]="ordertocomplete" (notifyChange)="onNotifyClicked($event)"></app-order-modal-complete>
 </table>
 </div>

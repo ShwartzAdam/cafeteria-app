@@ -16,7 +16,7 @@ declare var $: any;
 export class OrderIncomingComponent implements OnInit, OnDestroy {
 
   // ORDER LIST WITH STATUS 'INCOMING'
-  orderList: OrderList[] ;
+  private orderList: OrderList[] = [];
   @Output() notifyTable: EventEmitter<string> = new EventEmitter<string>();
   public ordertodo: OrderList;
   constructor(public orderListService: OrderListService) {
@@ -41,25 +41,27 @@ export class OrderIncomingComponent implements OnInit, OnDestroy {
 
   getIncomingOrders(): void {
     console.log('Getting Incoming Orders !');
-    this.orderListService.getAllOrdersPromise().then( ( _orderList: any) => {
-      const rawData = _orderList.filter(order => order.status === 'Incoming');
-      rawData.forEach( order => {
-        const ol: OrderList = new OrderList;
-        ol.userid = order.userid;
-        ol.olid = order.olid
-        ol.totalprice = order.totalprice;
-        ol.status = order.status;
-        ol.ol_dttm = order.ol_dttm;
-        ol.ol_dttm_real = order.ol_dttm_real;
-        ol.hasreview = order.hasreview;
-        this.orderList.push(ol);
+    this.orderListService.getAllOrdersByStatus('Incoming').
+    then( (_orderList: any) =>  {
+      _orderList.forEach( ol => {
+        const _ol: OrderList = new OrderList;
+        _ol.userid = ol.userid;
+        _ol.olid = ol.olid
+        _ol.totalprice = ol.totalprice;
+        _ol.status = ol.status;
+        _ol.ol_dttm = ol.ol_dttm;
+        _ol.ol_dttm_real = ol.ol_dttm_real;
+        _ol.hasreview = ol.hasreview;
+        this.orderList.push(_ol);
       });
+      console.log(this.orderList);
     });
   }
 
   startMakingOrder(order) {
     console.log('Start Making Order List');
     this.ordertodo = order;
+
     $('.ui.confirm.order.modal')
       .modal('setting', 'transition', 'horizontal flip')
       .modal('show')

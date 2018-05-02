@@ -1,11 +1,11 @@
-<div class="ui confirm order modal">
+<div class="ui complete order modal">
   <div class="ui icon header">
     <i class="archive icon"></i>
-    Action confirmation - Start Making The Order
+    Action confirmation - Order Complete
   </div>
   <div class="content">
     <div class="ui centered header">
-      <h1>Are you sure to want to start this order list? </h1>
+      <h1>Does this order is ready for pick up by the student ? </h1>
       <p> Order ID : <span>{{order?.olid}}</span></p>
       <p> Order Pick Up Time : <span>{{order?.ol_dttm | date: 'medium'}}</span></p>
       <p> Order Total Price : <span>{{order?.totalprice}} &#8362;</span></p>
@@ -22,5 +22,3 @@
     </div>
   </div>
 </div>
-
-

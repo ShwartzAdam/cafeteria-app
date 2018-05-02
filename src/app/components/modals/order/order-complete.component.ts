@@ -3,12 +3,12 @@ import {OrderListService} from '../../../services/orderlist.service';
 import {OrderList} from '../../../interface/orderlist';
 
 @Component({
-  selector: 'app-order-modal-confirm',
-  templateUrl: './order-confirm.component.html',
-  styleUrls: ['./order-confirm.component.css'],
+  selector: 'app-order-modal-complete',
+  templateUrl: './order-complete.component.html',
+  styleUrls: ['./order-complete.component.css'],
   providers: [OrderListService]
 })
-export class OrderConfirmComponent implements OnChanges {
+export class OrderCompComponent implements OnChanges {
   @Input() orderInputConf: OrderList = new OrderList;
   @Output() notifyChange: EventEmitter<string> = new EventEmitter<string>();
   public order: OrderList = new OrderList;
@@ -19,7 +19,6 @@ export class OrderConfirmComponent implements OnChanges {
       console.log(changes);
       return;
     } else {
-      console.log("current value in comfirm :");
       console.log(changes.orderInputConf.currentValue);
       this.order = changes.orderInputConf.currentValue;
     }
@@ -27,13 +26,12 @@ export class OrderConfirmComponent implements OnChanges {
 
   action(event): void {
     if ( event === 'Ok') {
-      console.log('Start Making Order List ID : ' + this.order.olid);
-      this.order.status = 'Active';
-      this.order.ol_dttm_real = new Date().toISOString();
+      console.log('Order has been complete and ready for pickup - Order List ID : ' + this.order.olid);
+      this.order.status = 'Complete';
       this.orderListService.updateOrderList(this.order).then(
         res => {
           console.log(res);
-          this.notifyChange.emit('Update Table');
+          this.notifyChange.emit('Order Complete');
         }
       );
     } else {

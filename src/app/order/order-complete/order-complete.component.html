@@ -12,22 +12,21 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let orders of orderList; let i = index;">
-    <td>{{orders.olid}}</td>
+  <tr *ngFor="let order of orderList; let i = index;">
+    <td>{{order.olid}}</td>
     <td>
-      <app-student-details [userId]="orders.userid" ></app-student-details>
+      <app-student-details [userId]="order.userid" ></app-student-details>
     </td>
-    <td>{{orders.ol_dttm}}</td>
-    <td></td>
-    <td></td>
-    <td>{{orders.totalprice}}</td>
+    <td>{{order.ol_dttm | date: 'short' }}</td>
+    <td>{{order.ol_dttm_real | date: 'short' }}</td>
+    <td>{{order.hasreview | reviewPipe}}</td>
+    <td>{{order.totalprice}}  &#8362;</td>
     <td>
-      <app-order-details></app-order-details>
+      <app-order-details [olid]="order.olid"></app-order-details>
     </td>
   </tr>
   </tbody>
   <tfoot class="full-width">
-
   </tfoot>
 </table>
 </div>

@@ -5,7 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ReviewPipe implements PipeTransform {
   transform(value: string, args: any[]): string {
-    if (value === '0') return 'False';
-    return 'True';
+    if (value.toString() === '0') {
+      return 'False';
+    } else {
+      return 'True';
+    }
+
   }
 }
