@@ -38,9 +38,22 @@ const appRoutes: Routes = [
         children: [
           {path: '' , redirectTo: '/menu' , pathMatch : 'full' },
           {path: 'storage' , component: MenuStorageComponent}
-        ]
+        ],
+        /*canActivate: [RoleGuard],
+        data: {
+          expectedRole: 'admin'
+        }
+        */
       },
-      { path: 'charts' , component : ChartsComponent},
+      { path: 'charts' ,
+        component : ChartsComponent,
+        /*
+        canActivate: [RoleGuard],
+        data: {
+          expectedRole: 'admin'
+        }
+        */
+      },
     ]
   },
   {
