@@ -49,6 +49,8 @@ import {SortableColumnComponent} from './components/sort/sortable-column.compone
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {SortableTableDirective} from './components/sort/sort.directive';
 import {ReviewPipe} from './pipes/review.pipe';
+import {AuthLayoutComponent} from './layouts/auth-layout.component';
+import {HomeLayoutComponent} from './layouts/home-layout.component';
 
 
 import '../app/interface/rxjs-operators';
@@ -81,7 +83,9 @@ import '../app/interface/rxjs-operators';
     EmployeeComponent,
     MenuPublishedComponent,
     OrderConfirmComponent,
-    OrderCompComponent
+    OrderCompComponent,
+    AuthLayoutComponent,
+    HomeLayoutComponent
   ],
   imports: [
     BrowserModule,

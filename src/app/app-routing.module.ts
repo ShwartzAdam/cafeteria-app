@@ -10,33 +10,50 @@ import {OrderActiveComponent} from './order/order-active/order-active.component'
 import {OrderCompleteComponent} from './order/order-complete/order-complete.component';
 import {MenuStorageComponent} from './menu/menu-storage/menu-storage.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {AuthGuard} from "./auth/auth.guard";
+import {AuthLayoutComponent} from "./layouts/auth-layout.component";
+import {HomeLayoutComponent} from "./layouts/home-layout.component";
 
 
 const appRoutes: Routes = [
-  { path: '' , redirectTo : '/login' , pathMatch : 'full' },
-  { path: 'login' , component : LoginComponent},
-  { path: 'dashboard' , component : DashboardComponent},
   {
-    path: 'order' ,
-    component : OrderComponent,
+    path: '',
+    component: HomeLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
-      {path: '' , redirectTo: '/order' , pathMatch : 'full' },
-      {path: 'incoming' , component: OrderIncomingComponent},
-      {path: 'active' , component: OrderActiveComponent},
-      {path: 'complete' , component: OrderCompleteComponent}
+      { path: 'dashboard' , component : DashboardComponent},
+      {
+        path: 'order' ,
+        component : OrderComponent,
+        children: [
+          {path: '' , redirectTo: '/order' , pathMatch : 'full' },
+          {path: 'incoming' , component: OrderIncomingComponent},
+          {path: 'active' , component: OrderActiveComponent},
+          {path: 'complete' , component: OrderCompleteComponent}
+        ]
+      },
+      {
+        path: 'menu' ,
+        component : MenuComponent,
+        children: [
+          {path: '' , redirectTo: '/menu' , pathMatch : 'full' },
+          {path: 'storage' , component: MenuStorageComponent}
+        ]
+      },
+      { path: 'charts' , component : ChartsComponent},
     ]
   },
   {
-    path: 'menu' ,
-    component : MenuComponent,
+    path: '',
+    component: AuthLayoutComponent,
     children: [
-      {path: '' , redirectTo: '/menu' , pathMatch : 'full' },
-      {path: 'storage' , component: MenuStorageComponent}
+      {
+        path: 'login',
+        component: LoginComponent
+      }
     ]
   },
-  { path: 'charts' , component : ChartsComponent},
-  { path: '**' , component : LoginComponent},
-
+  { path: '**', redirectTo: '' }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(appRoutes)],
