@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { UserService } from '../../services/user.service';
-import {Student} from '../../interface/user';
+import {User} from '../../interface/user';
 
 @Component({
   selector: 'app-student-details',
@@ -10,7 +10,7 @@ import {Student} from '../../interface/user';
 })
 export class UserDetailsComponent implements OnInit {
   @Input() userId: number;
-  private stu: Student = new Student;
+  private stu: User = new User;
   constructor(private userService: UserService) {}
 
   ngOnInit() {

@@ -13,8 +13,8 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 
 
 const appRoutes: Routes = [
-  { path: '' , redirectTo : '/home' , pathMatch : 'full' },
-  { path: 'home' , component : LoginComponent},
+  { path: '' , redirectTo : '/login' , pathMatch : 'full' },
+  { path: 'login' , component : LoginComponent},
   { path: 'dashboard' , component : DashboardComponent},
   {
     path: 'order' ,

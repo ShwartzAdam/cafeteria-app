@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Manager} from '../../interface/user';
+import {User} from '../../interface/user';
 import * as localForage from 'localforage';
 
 @Injectable()
 export class UserData {
 
   public userid: number;
-  public manager: Manager;
+  public manager: User;
   public instance: any;
   constructor () {
     localForage.config({
@@ -36,7 +36,7 @@ export class UserData {
     return this.instance.setItem('userid', userid).then(res => console.log(res));
   }
 
-  public setManager(manager: Manager):void{}
+  public setManager(manager: User): void {}
 
   public clearManager(): void {
     this.instance.removeItem('userid');

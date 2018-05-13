@@ -6,7 +6,44 @@
           <img class="ui centered circular massive image" src="../../../assets/png/Logo_Little%20Cafeteria.png">
         </div>
       </div>
-    <app-login-view></app-login-view>
+      <form (ngSubmit)="login()" #registerForm="ngForm">
+        <div class="ui one column grid">
+          <div class="column">
+            <div class="ui icon input">
+              <input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required>
+              <i class="users icon"></i>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui icon input">
+              <input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required>
+              <i class="key icon"></i>
+            </div>
+          </div>
+          <div class="column">
+            <div class="grouped fields">
+              <label>What Is Your Role ?</label>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="role" value="Manager" [(ngModel)]="registerCredentials.role" checked>
+                  <label>Manager</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="role" value="Employee" [(ngModel)]="registerCredentials.role">
+                  <label>Employee</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <button class="large ui teal button" type="submit"  [disabled]="!registerForm.form.valid">Login</button>
+          </div>
+        </div>
+      </form>
+
+
     </div>
   </div>
 </div>
