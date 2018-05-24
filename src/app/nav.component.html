@@ -1,7 +1,7 @@
 <sm-menu title="CMS - Little Cafeteria" class="" logoClass="home icon">
   <sm-menu class="left menu">
     <a sm-item *ngFor="let item of items" class="item" [routerLink]="item.routerLink" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      <i class="big {{ item.icon }} icon"></i>
+      <i class="white big {{ item.icon }} icon"></i>
       {{ item.name }}
     </a>
   </sm-menu>

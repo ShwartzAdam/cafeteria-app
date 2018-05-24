@@ -7,6 +7,7 @@
         <th>Item Type</th>
         <th>Item Name</th>
         <th>Item Quantity </th>
+        <th>Item Time Prep </th>
         <th>Item Price </th>
         <th>On Menu ?</th>
         <th>Actions </th>
@@ -18,8 +19,9 @@
         <td>{{item.type}}</td>
         <td>{{item.name}}</td>
         <td>{{item.qty}}</td>
+        <td>{{item.preptime}}</td>
         <td>{{item.price}} &#8362;</td>
-        <td>{{item.ispublished | reviewPipe }}</td>
+        <td>{{item.ispublished | onMenuPipe }}</td>
         <td>
           <div class="ui primary left floated small labeled icon button"
                (click)="displayModal('Edit', item)">

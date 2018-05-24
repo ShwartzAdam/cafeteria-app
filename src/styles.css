@@ -45,14 +45,39 @@
 }
 
 body{
-  background-color: #fff !important;
+  background-color: #EC644B !important;
 }
+
 .pusher{
-  background-color: #fff !important;
+  background-color: #EC644B !important;
+}
+.ui.menu{
+  background-color: #5c1010 !important;
+  font-size: 1.3rem;
+  border-radius: 0px !important;;
+}
+.ui.menu .header.item {
+  color: #ECECEC !important;
+}
+.ui.menu .item {
+  color: #ECECEC !important;
+}
+.ui.menu .item.active {
+  color: #c30101 !important;
+}
+button, html [type="button"], [type="reset"], [type="submit"]{
+  color: #fff;
+}
+.dataTables_wrapper{
+  margin-top: 10px !important;
+}
+.dataTables_wrapper .dataTables_paginate {
+  float: left !important;
+  margin-left: 45px !important;
+  padding-bottom: 5px !important;
 }
 
-
-/* Text Color */
+  /* Text Color */
 .text.white {
   color: #FFFFFF;
 }

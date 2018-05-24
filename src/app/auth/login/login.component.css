@@ -1,0 +1,20 @@
+.grouped.fields{
+  color:#fff;
+}
+.ui.checkbox label {
+  color: #fff !important;
+}
+.large.ui.button{
+  background-color: #EC644B !important;
+  font-size: 1.40em;
+}
+.ui.centered.image{
+  height:400px;
+}
+.ui.vertical.segment{
+  margin-top: 2% !important;
+  background-color: #EC644B !important;
+}
+.ui.segment{
+  background-color: #96281B !important;
+}

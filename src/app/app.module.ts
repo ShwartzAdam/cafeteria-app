@@ -54,6 +54,7 @@ import {HomeLayoutComponent} from './layouts/home-layout.component';
 
 
 import '../app/interface/rxjs-operators';
+import {MenuPipe} from './pipes/on-menu.pipe';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import '../app/interface/rxjs-operators';
     CapitalizeFirstPipe,
     TimeOrderPipe,
     ReviewPipe,
+    MenuPipe,
     DashboardComponent,
     SortableColumnComponent,
     SortableTableDirective,
