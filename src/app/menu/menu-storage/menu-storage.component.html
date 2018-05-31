@@ -23,11 +23,11 @@
         <td>{{item.price}} &#8362;</td>
         <td>{{item.ispublished | onMenuPipe }}</td>
         <td>
-          <div class="ui primary left floated small labeled icon button"
+          <div class="ui left floated small labeled icon button"
                (click)="displayModal('Edit', item)">
             <i class="edit icon"></i>Edit
           </div>
-          <div class="ui small secondary labeled icon button"
+          <div class="ui small labeled icon button"
                (click)="displayModal('Delete', item)">
             <i class="delete icon"></i>Delete
           </div>
@@ -38,7 +38,7 @@
       <tr>
         <th></th>
         <th colspan="7">
-          <div class="ui primary small labeled icon button" (click)="displayModal('Add')">
+          <div class="ui small labeled icon button" (click)="displayModal('Add')">
             <i class="plus icon"></i>Add Item
           </div>
         </th>
