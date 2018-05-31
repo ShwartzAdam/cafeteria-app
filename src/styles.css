@@ -41,18 +41,37 @@
 
 .ui.card > .content .thumbs.icon:hover, .ui.cards > .card > .content .thumbs.icon:hover {
   opacity: 1;
-  color: #FF2733
+  color: #FF2733 !important;
 }
 
 body{
-  background-color: #EC644B !important;
+  background-color: #2A7C63 !important;
+}
+.ui.segment{
+  background-color: #5DC7A7 !important;
+  border-radius: 10px;
+}
+.ui.vertical.segment{
+  margin-top: 2% !important;
+  background-color: #2A7C63 !important;
 }
 
+.large.ui.button{
+  background-color: #094C38 !important;
+  font-size: 1.40em;
+  color: #fff;
+  letter-spacing: 3px;
+}
+
+.ui.block.header{
+  background: #5DC7A7 !important;
+  color: #fff;
+}
 .pusher{
-  background-color: #EC644B !important;
+  background-color: #2A7C63 !important;
 }
 .ui.menu{
-  background-color: #5c1010 !important;
+  background-color: #2A7C63 !important;
   font-size: 1.3rem;
   border-radius: 0px !important;;
 }
@@ -63,7 +82,7 @@ body{
   color: #ECECEC !important;
 }
 .ui.menu .item.active {
-  color: #c30101 !important;
+  color: #90BAAD !important;
 }
 button, html [type="button"], [type="reset"], [type="submit"]{
   color: #fff;

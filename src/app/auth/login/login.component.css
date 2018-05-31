@@ -5,16 +5,19 @@
   color: #fff !important;
 }
 .large.ui.button{
-  background-color: #EC644B !important;
+  background-color: #094C38 !important;
   font-size: 1.40em;
+  color: #fff;
+  letter-spacing: 3px;
 }
 .ui.centered.image{
   height:400px;
 }
 .ui.vertical.segment{
   margin-top: 2% !important;
-  background-color: #EC644B !important;
+  background-color: #2A7C63 !important;
 }
 .ui.segment{
-  background-color: #96281B !important;
+  background-color: #5DC7A7 !important;
+  border-radius: 10px;
 }
