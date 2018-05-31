@@ -63,15 +63,19 @@ body{
   letter-spacing: 3px;
 }
 
+h2.ui.header .sub.header {
+  font-size: 1.14285714rem;
+  color: #fff;
+}
 .ui.block.header{
-  background: #5DC7A7 !important;
+  background: #2A7C63 !important;
   color: #fff;
 }
 .pusher{
   background-color: #2A7C63 !important;
 }
 .ui.menu{
-  background-color: #2A7C63 !important;
+  background-color: #004933 !important;
   font-size: 1.3rem;
   border-radius: 0px !important;;
 }
