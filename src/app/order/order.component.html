@@ -2,13 +2,16 @@
   <div class="ui container">
     <div class="ui segment">
       <h2 class="ui block header">
+        <div class="reload-button" (click)="reloadTable()">
+          <i class="circular white sync icon" id='refresh'></i>
+        </div>
         <i class="small map icon"></i>
         <div class="content">
           Incoming Orders
           <div class="sub header">List of incoming orders</div>
         </div>
       </h2>
-      <app-order-incoming (notifyTable)="onChange($event)"></app-order-incoming>
+      <app-order-incoming [reloadTable]="isReloadAsked" (notifyTable)="onChange($event)"></app-order-incoming>
     </div>
     <div class="ui segment">
       <h2 class="ui block header">

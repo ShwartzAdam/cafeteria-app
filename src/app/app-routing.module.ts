@@ -10,16 +10,19 @@ import {OrderActiveComponent} from './order/order-active/order-active.component'
 import {OrderCompleteComponent} from './order/order-complete/order-complete.component';
 import {MenuStorageComponent} from './menu/menu-storage/menu-storage.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {AuthGuard} from "./auth/auth.guard";
-import {AuthLayoutComponent} from "./layouts/auth-layout.component";
-import {HomeLayoutComponent} from "./layouts/home-layout.component";
+import {EmployeeComponent} from './employee/employee.component';
+// guards
+import {AuthGuard} from './auth/auth.guard';
+import {AuthLayoutComponent} from './layouts/auth-layout.component';
+import {HomeLayoutComponent} from './layouts/home-layout.component';
+
 
 
 const appRoutes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     children: [
       { path: 'dashboard' , component : DashboardComponent},
       {
@@ -54,6 +57,15 @@ const appRoutes: Routes = [
         }
         */
       },
+      { path: 'emp' ,
+        component : EmployeeComponent,
+        /*
+        canActivate: [RoleGuard],
+        data: {
+          expectedRole: 'admin'
+        }
+        */
+      }
     ]
   },
   {
@@ -66,7 +78,7 @@ const appRoutes: Routes = [
       }
     ]
   },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '/dashboard' }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(appRoutes)],

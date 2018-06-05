@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,4 @@ import { Component } from '@angular/core';
     '../.././node_modules/semantic-ui/dist/semantic.css',
   ]
 })
-export class AppComponent {
-
-}
+export class AppComponent {}

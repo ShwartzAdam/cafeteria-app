@@ -1,32 +1,30 @@
 <div class="ui segment">
-<table class="ui compact celled definition table">
-  <thead class="full-width">
-  <tr>
-    <th>Order ID</th>
-    <th>Student Full Name</th>
-    <th>Pick-Up Time</th>
-    <th>Real Pick-Up Time</th>
-    <th>Review</th>
-    <th>Total Price (NIS)</th>
-    <th>Order Information</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let order of orderList; let i = index;">
-    <td>{{order.olid}}</td>
-    <td>
-      <app-student-details [userId]="order.userid" ></app-student-details>
-    </td>
-    <td>{{order.ol_dttm | date: 'short' }}</td>
-    <td>{{order.ol_dttm_real | date: 'short' }}</td>
-    <td>{{order.hasreview | reviewPipe}}</td>
-    <td>{{order.totalprice}}  &#8362;</td>
-    <td>
-      <app-order-details [olid]="order.olid"></app-order-details>
-    </td>
-  </tr>
-  </tbody>
-  <tfoot class="full-width">
-  </tfoot>
-</table>
+  <table datatable [dtOptions]="dtOptionsComp" [dtTrigger]="dtTrigger" class="ui compact celled definition table">
+    <thead class="full-width">
+      <tr>
+        <th>Order ID</th>
+        <th>Student Full Name</th>
+        <th>Pick-Up Time</th>
+        <th>Real Pick-Up Time</th>
+        <th>Review</th>
+        <th>Total Price (NIS)</th>
+        <th>Order Information</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orderList">
+        <td>{{order.olid}}</td>
+        <td>
+          <app-student-details [userId]="order.userid" ></app-student-details>
+        </td>
+        <td>{{order.ol_dttm | date: 'short' }}</td>
+        <td>{{order.ol_dttm_real | date: 'short' }}</td>
+        <td>{{order.hasreview | reviewPipe}}</td>
+        <td>{{order.totalprice}}  &#8362;</td>
+        <td>
+          <app-order-details [olid]="order.olid"></app-order-details>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

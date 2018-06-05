@@ -12,7 +12,8 @@ export class NavComponent {
     {'name' : 'Dashboard', 'routerLink' : '/dashboard', 'icon' : 'cogs'},
     {'name' : 'Orders', 'routerLink' : '/order', 'icon' : 'coffee'},
     {'name' : 'Storage', 'routerLink' : '/menu', 'icon' : 'map'},
-    {'name' : 'Charts', 'routerLink' : '/charts', 'icon' : 'chart line'}
+    {'name' : 'Charts', 'routerLink' : '/charts', 'icon' : 'chart line'},
+    {'name' : 'Employee', 'routerLink' : '/emp', 'icon' : 'chart line'}
     ];
   constructor(private authService: AuthService) {}
 

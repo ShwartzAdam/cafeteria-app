@@ -1,8 +1,11 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {OrderList} from '../../interface/orderlist';
 import {OrderListService} from '../../services/orderlist.service';
 
 import 'jquery';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/takeWhile';
+import {Observable} from "rxjs/Observable";
 
 declare var jquery: any;
 declare var $: any;
@@ -13,24 +16,50 @@ declare var $: any;
   styleUrls: ['./order-incoming.component.css'],
   providers : [OrderListService]
 })
-export class OrderIncomingComponent implements OnInit, OnDestroy {
+export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
 
   // ORDER LIST WITH STATUS 'INCOMING'
   private orderList: OrderList[] = [];
   @Output() notifyTable: EventEmitter<string> = new EventEmitter<string>();
+  @Input() reloadTable: boolean = false;
   public ordertodo: OrderList;
   constructor(public orderListService: OrderListService) {
-    this.orderList = new Array();
+    // Observable.interval(10000).takeWhile(() => true).subscribe(() => this.getIncomingOrders());
   }
-
   ngOnInit() {
     this.getIncomingOrders();
+    $(document).ready(function() {
+      $('.reload-button').hover(function() {
+        $(this).transition('horizontal flip')
+          .transition('horizontal flip')
+          .transition('horizontal flip')
+          .transition('stop')
+          .transition('vertical flip');
+      }, function() {
+        console.log('fadeeee');
+      });
+    });
   }
   onNotifyClicked(message: string): void {
     if ( message === 'Update Table') {
       this.orderList = new Array();
       this.getIncomingOrders();
       this.notifyTable.emit('Update Active Table');
+    }
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    if (!changes) {
+      console.log(changes);
+      return;
+    } else {
+      console.log(changes.reloadTable.currentValue);
+      console.log(changes.reloadTable.firstChange);
+      if (changes.reloadTable.currentValue) {
+        this.orderList = new Array();
+        this.getIncomingOrders();
+        this.notifyTable.emit('Incoming Table Updated Succesfuly');
+      }
     }
   }
 
@@ -40,6 +69,7 @@ export class OrderIncomingComponent implements OnInit, OnDestroy {
   }
 
   getIncomingOrders(): void {
+    this.orderList = new Array();
     console.log('Getting Incoming Orders !');
     this.orderListService.getAllOrdersByStatus('Incoming').
     then( (_orderList: any) =>  {

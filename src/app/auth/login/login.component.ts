@@ -15,7 +15,10 @@ export class LoginComponent {
               public userData: UserData,
               private authService: AuthService
   ) { }
-
+  setRole(s) {
+    this.registerCredentials.role = s;
+    console.log(this.registerCredentials.role);
+  }
   login() {
     console.log(this.registerCredentials);
     this.userService.getUser(this.registerCredentials).then( result => {

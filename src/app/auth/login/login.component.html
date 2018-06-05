@@ -21,20 +21,10 @@
             </div>
           </div>
           <div class="column">
-            <div class="grouped fields">
-              <label>What Is Your Role ?</label>
-              <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" name="role" value="Manager" [(ngModel)]="registerCredentials.role" checked>
-                  <label>Manager</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" name="role" value="Employee" [(ngModel)]="registerCredentials.role">
-                  <label>Employee</label>
-                </div>
-              </div>
+            <div class="ui large buttons">
+              <button class="ui button" type="button" (click)="setRole('Manager')">Manager</button>
+              <div class="or"></div>
+              <button class="ui button" type="button" (click)="setRole('Employee')">Employee</button>
             </div>
           </div>
           <div class="column">

@@ -8,8 +8,10 @@ import { OrderListService } from '../services/orderlist.service';
   styleUrls: ['./order.component.css'],
   providers: [OrderListService]
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent {
   isActiveTableUpdated: boolean = false;
+  isReloadAsked: boolean = false;
+
   constructor() {}
 
   onChange(message: string) {
@@ -17,18 +19,25 @@ export class OrderComponent implements OnInit {
       console.log(message);
       this.isActiveTableUpdated = true;
       console.log('changed to true to update active table');
-    } else {
-      console.log(message);
-
+    } else if (message === 'Incoming Table Updated Succesfuly'){
+        console.log(message);
+        setTimeout(() => {
+          this.isReloadAsked = false;
+        });
     }
     // this.isActiveTableUpdated = false;
   }
   onFinish(message: string) {
     if ( message === 'Active Table Updated Succesfuly' ) {
       console.log(message);
-      this.isActiveTableUpdated = false;
+      setTimeout(() => {
+        this.isActiveTableUpdated = false;
+      });
     }
   }
-  ngOnInit() {}
+  reloadTable() {
+    console.log('reload data from server');
+    this.isReloadAsked = true;
+  }
 
 }

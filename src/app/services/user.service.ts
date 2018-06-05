@@ -12,6 +12,20 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  public createUser(_user: User){
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url + '/users/signupemployee', JSON.stringify(_user), {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+        responseType: 'text'
+      })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   public getUser(registerCredentials) {
     return new Promise(resolve => {
       this.http.post(this.url + '/users/login' , JSON.stringify(registerCredentials), {
@@ -21,6 +35,24 @@ export class UserService {
           resolve(res);
         });
     });
+  }
+  public getBestUsers(string): Observable<any[]> {
+    return this.http.get<any[]>(this.url + '/query/' + string );
+  }
+  /*
+  public getUserByRole(role) {
+    return new Promise(resolve => {
+      this.http.get(this.url + '/users/role/' + role , {
+        headers: new HttpHeaders().set('Content-Type', 'application/json')
+      })
+        .subscribe(res => {
+          resolve(res);
+        });
+    });
+  }
+  */
+  public getUserByRole(role): Observable<User[]> {
+    return this.http.get<User[]>(this.url + '/users/role/' + role );
   }
 
   public getUserById(id: number): Observable<User> {

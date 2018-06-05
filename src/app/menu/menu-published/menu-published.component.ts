@@ -17,17 +17,17 @@ export class MenuPublishedComponent implements OnInit,
   dtOptions: DataTables.Settings = {};
   constructor(public itemService: ItemService) {}
   ngOnInit(): void {
-    console.log("ngOnInit");
+    console.log("ngOnInit - Menu published");
     this.dtOptions = {
       searching: false,
       ordering:  false,
       info: false,
-      pageLength: 5,
+      pageLength: 7,
       lengthChange: false
     };
   }
   ngAfterContentInit(): void {
-    console.log("ngAfterContentInit");
+    console.log("ngAfterContentInit - Menu published");
     this.getPusblishedMenu();
   }
 

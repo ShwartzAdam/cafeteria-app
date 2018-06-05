@@ -6,37 +6,37 @@
           <h2 class="ui block header">
             <i class="small map icon"></i>
             <div class="content">
-              Best Sellers
-              <div class="sub header">List of most sold items</div>
+              Best Users This Month
+              <div class="sub header">List of users who spend the most</div>
             </div>
           </h2>
-
+          <app-charts-users [option]="'MonthBestUsers'"></app-charts-users>
         </div>
       </div>
       <div class="column">
         <div class="ui segment">
           <h2 class="ui block header">
-            <i class="small plus users icon"></i>
+            <i class="small map icon"></i>
             <div class="content">
-              Title
-              <div class="sub header">Sub Title</div>
+              Best Users Of Week
+              <div class="sub header">List of users who spend the most</div>
             </div>
           </h2>
-
+          <app-charts-users [option]="'WeekBestUsers'"></app-charts-users>
         </div>
       </div>
       <div class="column">
-        <div class="ui segment">
-          <h2 class="ui block header">
-            <i class="small book icon"></i>
-            <div class="content">
-              Title
-              <div class="sub header">Sub Title</div>
-            </div>
-          </h2>
-
-        </div>
+      <div class="ui segment">
+        <h2 class="ui block header">
+          <i class="small map icon"></i>
+          <div class="content">
+            Best Users Of Today
+            <div class="sub header">List of users who spend the most</div>
+          </div>
+        </h2>
+        <app-charts-users [option]="'TodayBestUsers'"></app-charts-users>
       </div>
+    </div>
       <div class="column">
         <div class="ui segment">
           <h2 class="ui block header">
