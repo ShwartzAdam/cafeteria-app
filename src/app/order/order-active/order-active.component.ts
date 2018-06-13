@@ -16,7 +16,7 @@ declare var $: any;
 export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
 
   // ORDER LIST WITH STATUS 'ACTIVE'
-  private orderList: OrderList[] = new Array();  //
+  public orderList: OrderList[] = new Array();  //
   @Output() notifyUpdated: EventEmitter<string> = new EventEmitter<string>();
   @Input() insertOrder: boolean = false;
   public ordertocomplete: OrderList;

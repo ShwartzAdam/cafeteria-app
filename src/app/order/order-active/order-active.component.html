@@ -12,13 +12,13 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let order of (orderList | orderByTime : 5); let i = index;">
+  <tr *ngFor="let order of ( orderList | orderByTime : 5); let i = index;">
     <td>{{order.olid}}</td>
     <td>
       <app-student-details [userId]="order.userid" ></app-student-details>
     </td>
-    <td>{{order?.ol_dttm_real | date: 'short' }}</td>
-    <td>{{order?.ol_dttm | date: 'short' }}</td>
+    <td>{{order?.ol_dttm_real | date: 'short' : 'UTC'  }}</td>
+    <td>{{order?.ol_dttm | date: 'short' : 'UTC'  }}</td>
     <td>{{order?.totalprice}} &#8362;</td>
     <td>
       <app-order-details [olid]="order.olid"></app-order-details>

@@ -17,8 +17,8 @@
         <td>
           <app-student-details [userId]="order.userid" ></app-student-details>
         </td>
-        <td>{{order.ol_dttm | date: 'short' }}</td>
-        <td>{{order.ol_dttm_real | date: 'short' }}</td>
+        <td>{{order.ol_dttm | date: 'short' : 'UTC' }}</td>
+        <td>{{order.ol_dttm_real | date: 'short' : 'UTC'  }}</td>
         <td>{{order.hasreview | reviewPipe}}</td>
         <td>{{order.totalprice}}  &#8362;</td>
         <td>
