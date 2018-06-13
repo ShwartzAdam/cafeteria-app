@@ -5,7 +5,8 @@ import {OrderListService} from '../../services/orderlist.service';
 import 'jquery';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/takeWhile';
-
+import {Observable} from 'rxjs/Observable';
+declare var jQuery: any;
 declare var $: any;
 
 @Component({
@@ -21,10 +22,11 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
   @Output() notifyTable: EventEmitter<string> = new EventEmitter<string>();
   @Input() reloadTable: boolean = false;
   public ordertodo: OrderList;
-  constructor(public orderListService: OrderListService) {
-    // Observable.interval(10000).takeWhile(() => true).subscribe(() => this.getIncomingOrders());
-  }
+  constructor(public orderListService: OrderListService) {}
   ngOnInit() {
+    Observable.interval(20000).takeWhile(() => true).subscribe(() => {
+      this.getIncomingOrders();
+    });
     this.getIncomingOrders();
     $(document).ready(function() {
       $('.reload-button').hover(function() {
@@ -34,7 +36,7 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
           .transition('stop')
           .transition('vertical flip');
       }, function() {
-        console.log('fadeeee');
+        console.log('reload button triggerd');
       });
     });
   }
@@ -67,6 +69,15 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   getIncomingOrders(): void {
+    jQuery.uiAlert({
+      textHead: 'Incoming Orders', // header
+      text: 'Incoming orders table has been updated succesfuly', // Text
+      bgcolor: '#55a9ee', // background-color
+      textcolor: '#fff', // color
+      position: 'top-left', // position . top And bottom ||  left / center / right
+      icon: 'info circle', // icon in semantic-UI
+      time: 5, // time
+    });
     this.orderList = new Array();
     console.log('Getting Incoming Orders !');
     this.orderListService.getAllOrdersByStatus('Incoming').
