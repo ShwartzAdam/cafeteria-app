@@ -4,7 +4,7 @@ import {OrderList} from '../../interface/orderlist';
 
 import 'jquery';
 
-declare var jquery: any;
+declare var jQuery: any;
 declare var $: any;
 
 @Component({
@@ -52,6 +52,15 @@ export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
   }
   getActiveOrders(): void {
     console.log('Getting Active Orders !');
+    jQuery.uiAlert({
+      textHead: 'Active Orders', // header
+      text: 'Active orders table has been updated succesfuly', // Text
+      bgcolor: '#55a9ee', // background-color
+      textcolor: '#fff', // color
+      position: 'top-left',// position . top And bottom ||  left / center / right
+      icon: 'info circle', // icon in semantic-UI
+      time: 5, // time
+    });
     this.orderListService.getAllOrdersByStatus('Active').
     then( (_orderList: any) =>  {
       _orderList.forEach( ol => {

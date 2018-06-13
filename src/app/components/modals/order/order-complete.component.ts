@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {OrderListService} from '../../../services/orderlist.service';
 import {OrderList} from '../../../interface/orderlist';
+declare var jQuery: any;
 
 @Component({
   selector: 'app-order-modal-complete',
@@ -32,6 +33,15 @@ export class OrderCompComponent implements OnChanges {
         res => {
           console.log(res);
           this.notifyChange.emit('Order Complete');
+          jQuery.uiAlert({
+            textHead: 'Order has been completed', // header
+            text: 'An order has been completed and moved to the complete table', // Text
+            bgcolor: '#F2711C', // background-color
+            textcolor: '#fff', // color
+            position: 'top-right',// position . top And bottom ||  left / center / right
+            icon: 'warning sign', // icon in semantic-UI
+            time: 5, // time
+          });
         }
       );
     } else {

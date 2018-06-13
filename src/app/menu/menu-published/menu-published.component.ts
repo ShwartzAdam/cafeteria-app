@@ -13,7 +13,7 @@ declare var $: any;
 })
 export class MenuPublishedComponent implements OnInit,
                                                AfterContentInit {
-  private itemsMenu: Item[] = [];
+  public itemsMenu: Item[] = [];
   dtOptions: DataTables.Settings = {};
   constructor(public itemService: ItemService) {}
   ngOnInit(): void {

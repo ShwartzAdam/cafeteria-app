@@ -19,7 +19,7 @@
               </div>
               <div class="field">
                 <label>Item Description</label>
-                <textarea rows="2" [(ngModel)]="item.desc" required>
+                <textarea rows="4" [(ngModel)]="item.description" required>
                 </textarea>
               </div>
             </div>
@@ -35,8 +35,11 @@
               <div class="field">
                 <label>Item Type</label>
                 <select class="ui fluid search dropdown" [(ngModel)]="item.type">
-                  <option value="Drink">Drink</option>
-                  <option value="Food">Food</option>
+                  <option value="Drink">Dish</option>
+                  <option value="Food">Pastry</option>
+                  <option value="Food">Drink</option>
+                  <option value="Food">Sandwich</option>
+                  <option value="Food">Snack</option>
                 </select>
               </div>
               <div class="field">
@@ -49,7 +52,13 @@
       </div>
   </div>
   <div class="actions">
-    <div class="ui cancel button" (click)="action('Cancel')" >Cancel</div>
-    <div class="ui button" (click)="action('Upload')">Upload</div>
+    <div class="ui left floated red cancel button" (click)="action('Cancel')" >
+      <i class="remove icon"></i>
+      Cancel
+    </div>
+    <div class="ui green ok button" (click)="action('Upload')">
+      <i class="checkmark icon"></i>
+      Upload
+    </div>
   </div>
 </div>

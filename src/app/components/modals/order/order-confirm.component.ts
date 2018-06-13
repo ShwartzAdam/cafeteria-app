@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '
 import {OrderListService} from '../../../services/orderlist.service';
 import {OrderList} from '../../../interface/orderlist';
 
+declare var jQuery: any;
+
 @Component({
   selector: 'app-order-modal-confirm',
   templateUrl: './order-confirm.component.html',
@@ -34,6 +36,15 @@ export class OrderConfirmComponent implements OnChanges {
         res => {
           console.log(res);
           this.notifyChange.emit('Update Table');
+          jQuery.uiAlert({
+            textHead: 'Order has been activated', // header
+            text: 'An order has been started and moved to the active table', // Text
+            bgcolor: '#F2711C', // background-color
+            textcolor: '#fff', // color
+            position: 'top-right',// position . top And bottom ||  left / center / right
+            icon: 'warning sign', // icon in semantic-UI
+            time: 5, // time
+          });
         }
       );
     } else {

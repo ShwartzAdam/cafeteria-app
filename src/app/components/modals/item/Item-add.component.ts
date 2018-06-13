@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../interface/item';
 import {Supplier} from '../../../interface/supplier';
@@ -10,6 +10,7 @@ import {Supplier} from '../../../interface/supplier';
   providers: [ItemService]
 })
 export class ItemAddComponent implements OnInit {
+  @Output() notify: EventEmitter<string> = new EventEmitter<string>();
   public item: Item = new Item;
   public suppliers: Supplier[] = new Array();
 
@@ -25,6 +26,7 @@ export class ItemAddComponent implements OnInit {
       this.itemService.createItem(this.item).then(
         res => {
           console.log(res);
+          this.notify.emit('Add');
         });
 
     } else {

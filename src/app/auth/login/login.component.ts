@@ -13,7 +13,7 @@ declare var jQuery: any;
 })
 export class LoginComponent {
   public loading = false;
-  public registerCredentials = { email: '', password: '', role: 'Manager' };
+  public registerCredentials = { email: '', password: '', role: '' };
   constructor(public userService: UserService,
               public userData: UserData,
               private authService: AuthService) {}
@@ -36,15 +36,28 @@ export class LoginComponent {
           console.log(err);
           this.loading = false;
           console.log('bad input for loggin');
+          if ( this.registerCredentials.role === '') {
             jQuery.uiAlert({
-            textHead: 'Error Login', // header
-            text: 'Email or password are incorrect', // Text
-            bgcolor: '#DB2828', // background-color
-            textcolor: '#fff', // color
-            position: 'top-right',// position . top And bottom ||  left / center / right
-            icon: 'remove circle', // icon in semantic-UI
-            time: 3, // time
-          });
+              textHead: 'Error Login', // header
+              text: 'Choose a role - Manager or Employee', // Text
+              bgcolor: '#DB2828', // background-color
+              textcolor: '#fff', // color
+              position: 'top-right',// position . top And bottom ||  left / center / right
+              icon: 'remove circle', // icon in semantic-UI
+              time: 3, // time
+            });
+          } else {
+            jQuery.uiAlert({
+              textHead: 'Error Login', // header
+              text: 'Email or password are incorrect', // Text
+              bgcolor: '#DB2828', // background-color
+              textcolor: '#fff', // color
+              position: 'top-right',// position . top And bottom ||  left / center / right
+              icon: 'remove circle', // icon in semantic-UI
+              time: 3, // time
+            });
+          }
+
       })
     );
   }

@@ -10,7 +10,7 @@ import {UserService} from '../../services/user.service';
 })
 export class EmployeeInviteComponent {
   private userReg: User = new User;
-  private registerCredentials = { email: '',
+  public registerCredentials = { email: '',
                                   password: '',
                                   firstname: '',
                                   lastname: '',
@@ -30,7 +30,7 @@ export class EmployeeInviteComponent {
     this.userReg.credit = 0;
     this.userPro.createUser(this.userReg).then(
       res => {
-        console.log('employee succsfuly created with id' + res );
+        console.log(res );
         this.cleanForm();
       }
     );

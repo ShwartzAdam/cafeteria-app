@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ItemService} from '../../services/item.service';
 import {Item} from '../../interface/item';
 
-declare var jquery: any;
+declare var jQuery: any;
 declare var $: any;
 
 @Component({
@@ -23,12 +23,38 @@ export class MenuStorageComponent implements OnInit, OnDestroy {
     this.deleteItem = new Item;
   }
   onNotifyClicked(message: string): void {
+    this.itemsMenu = new Array();
+    this.getStorage();
     if (message === 'Delete') {
-      this.itemsMenu = new Array();
-      this.getStorage();
+      jQuery.uiAlert({
+        textHead: 'Item notification', // header
+        text: 'An item was delete from the storage successfully', // Text
+        bgcolor: '#19c3aa', // background-color
+        textcolor: '#fff', // color
+        position: 'top-right', // position . top And bottom ||  left / center / right
+        icon: 'checkmark box', // icon in semantic-UI
+        time: 5, // time
+      });
     } else if (message === 'Edit') {
-      this.itemsMenu = new Array();
-      this.getStorage();
+      jQuery.uiAlert({
+        textHead: 'Item notification', // header
+        text: 'An item was edit successfully', // Text
+        bgcolor: '#19c3aa', // background-color
+        textcolor: '#fff', // color
+        position: 'top-right', // position . top And bottom ||  left / center / right
+        icon: 'checkmark box', // icon in semantic-UI
+        time: 5, // time
+      });
+    } else if (message === 'Add') {
+      jQuery.uiAlert({
+        textHead: 'Item notification', // header
+        text: 'An item was added successfully', // Text
+        bgcolor: '#19c3aa', // background-color
+        textcolor: '#fff', // color
+        position: 'top-right', // position . top And bottom ||  left / center / right
+        icon: 'checkmark box', // icon in semantic-UI
+        time: 5, // time
+      });
     }
   }
 
@@ -44,6 +70,15 @@ export class MenuStorageComponent implements OnInit, OnDestroy {
   }
 
   public getStorage(): any {
+    jQuery.uiAlert({
+      textHead: 'Storage', // header
+      text: 'Storage table has been updated successfully', // Text
+      bgcolor: '#55a9ee', // background-color
+      textcolor: '#fff', // color
+      position: 'top-left', // position . top And bottom ||  left / center / right
+      icon: 'info circle', // icon in semantic-UI
+      time: 5, // time
+    });
     this.itemService.getAllItems().then(
       (items: any) => {
         items.forEach(item => {
