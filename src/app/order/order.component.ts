@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { OrderListService } from '../services/orderlist.service';
 
+declare var jQuery: any;
 
 @Component({
   selector: 'app-order',
