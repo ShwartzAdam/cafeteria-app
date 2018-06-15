@@ -102,7 +102,7 @@ import '../app/interface/rxjs-operators';
     AppRoutingModule,
     NgSemanticModule,
     FormsModule,
-    //DataTablesModule,
+    // DataTablesModule,
     CommonModule
   ],
   providers: [
