@@ -10,18 +10,19 @@ import {UserService} from "../../../services/user.service";
 export class BestUsersComponent implements OnInit, AfterContentInit {
   @Input() option: string;
   public users: any[] = new Array();
-  dtOptions: DataTables.Settings = {};
+  // dtOptions: DataTables.Settings = {};
   constructor(private userPro: UserService) {}
 
   ngOnInit(): void {
     console.log("ngOnInit - Best Users report - " + this.option);
-    this.dtOptions = {
+    /*this.dtOptions = {
       searching: false,
       ordering:  false,
       info: false,
       pageLength: 7,
       lengthChange: false
     };
+    */
   }
 
   ngAfterContentInit(): void {

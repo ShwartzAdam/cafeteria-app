@@ -13,18 +13,19 @@ declare var $: any;
 })
 export class EmployeeListComponent implements OnInit, AfterContentInit {
   private users: User[] = new Array();
-  dtOptions: DataTables.Settings = {};
+  // dtOptions: DataTables.Settings = {};
   constructor(private userPro: UserService) {}
 
   ngOnInit(): void {
     console.log("ngOnInit - Employee list");
-    this.dtOptions = {
+    /*this.dtOptions = {
       searching: false,
       ordering:  false,
       info: false,
       pageLength: 7,
       lengthChange: false
     };
+    */
   }
 
   ngAfterContentInit(): void {

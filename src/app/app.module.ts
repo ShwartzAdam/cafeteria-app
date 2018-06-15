@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { DataTablesModule } from 'angular-datatables';
+// import { DataTablesModule } from 'angular-datatables';
 
 // Main Component
 import { AppComponent } from './app.component';
@@ -102,7 +102,7 @@ import '../app/interface/rxjs-operators';
     AppRoutingModule,
     NgSemanticModule,
     FormsModule,
-    DataTablesModule,
+    //DataTablesModule,
     CommonModule
   ],
   providers: [

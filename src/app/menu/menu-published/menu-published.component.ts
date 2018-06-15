@@ -14,17 +14,18 @@ declare var $: any;
 export class MenuPublishedComponent implements OnInit,
                                                AfterContentInit {
   public itemsMenu: Item[] = [];
-  dtOptions: DataTables.Settings = {};
+  // dtOptions: DataTables.Settings = {};
   constructor(public itemService: ItemService) {}
   ngOnInit(): void {
     console.log("ngOnInit - Menu published");
-    this.dtOptions = {
+    /*this.dtOptions = {
       searching: false,
       ordering:  false,
       info: false,
       pageLength: 7,
       lengthChange: false
     };
+    */
   }
   ngAfterContentInit(): void {
     console.log("ngAfterContentInit - Menu published");
