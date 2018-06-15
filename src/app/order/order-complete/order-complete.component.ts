@@ -15,13 +15,13 @@ declare var $: any;
 export class OrderCompleteComponent implements OnInit, AfterContentInit {
 
   // ORDER LIST WITH STATUS 'Completed'
-  private orderList: OrderList[] = [];
-  dtOptionsComp: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject();
+  public orderList: OrderList[] = [];
+  // dtOptionsComp: DataTables.Settings = {};
+  // dtTrigger: Subject<any> = new Subject();
   constructor(public orderListService: OrderListService) { }
   ngOnInit() {
     console.log("ngOnInit - Complete Orders");
-    this.dtOptionsComp = {
+    /*this.dtOptionsComp = {
       searching: false,
       ordering:  false,
       info: false,
@@ -30,6 +30,7 @@ export class OrderCompleteComponent implements OnInit, AfterContentInit {
       retrieve: true,
       lengthChange: false
     };
+    */
   }
   ngAfterContentInit(): void {
     console.log("ngAfterContentInit - Complete Orders");
@@ -58,9 +59,10 @@ export class OrderCompleteComponent implements OnInit, AfterContentInit {
          _ol.ol_dttm_real = ol.ol_dttm_real;
          _ol.hasreview = ol.hasreview;
          this.orderList.push(_ol);
-         setTimeout(function() {
+         /*setTimeout(function() {
            this.dtTrigger.next();
            }.bind(this));
+           */
        });
        console.log(this.orderList);
      });
