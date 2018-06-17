@@ -1,30 +1,31 @@
 <div class="ui masthead vertical segment">
   <div class="ui container">
     <div class="ui two column centered grid">
-      <div class="column">
+      <div class="ten wide column">
         <div class="ui segment">
           <h2 class="ui block header">
             <i class="small map icon"></i>
             <div class="content">
-              Published Menu
-              <div class="sub header">View the pusblished items</div>
-            </div>
-          </h2>
-          <app-menu-published></app-menu-published>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui segment">
-          <h2 class="ui block header">
-            <i class="small book icon"></i>
-            <div class="content">
-              Complete Orders
-              <div class="sub header">Last complete orders</div>
+              Last 10 Completed Orders
+              <div class="sub header">These orders has been completed</div>
             </div>
           </h2>
           <app-order-complete></app-order-complete>
         </div>
       </div>
+      <div class="six wide column">
+        <div class="ui segment">
+          <h2 class="ui block header">
+            <i class="small book icon"></i>
+            <div class="content">
+              Published Menu
+              <div class="sub header">These items are published on the student menu</div>
+            </div>
+          </h2>
+          <app-menu-published></app-menu-published>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

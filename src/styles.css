@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 /* ngIf */
 [hidden] { display: none !important;}
@@ -92,18 +93,6 @@ h2.ui.header .sub.header {
   font-size: 1rem;
   background-color: #2A7C63;
   color: #fff;
-}
-button, html [type="button"], [type="reset"], [type="submit"]{
-  color: #fff;
-}
-
-.dataTables_wrapper{
-  margin-top: 10px !important;
-}
-.dataTables_wrapper .dataTables_paginate {
-  float: left !important;
-  margin-left: 45px !important;
-  padding-bottom: 5px !important;
 }
 
   /* Text Color */

@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {MaterialModule} from './modules/material-module.module';
+
 // import { DataTablesModule } from 'angular-datatables';
 
 // Main Component
@@ -58,7 +60,8 @@ import {AuthLayoutComponent} from './layouts/auth-layout.component';
 import {HomeLayoutComponent} from './layouts/home-layout.component';
 
 
-import '../app/interface/rxjs-operators';
+import './classes/rxjs-operators';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -103,7 +106,9 @@ import '../app/interface/rxjs-operators';
     NgSemanticModule,
     FormsModule,
     // DataTablesModule,
-    CommonModule
+    MaterialModule,
+    CommonModule,
+    BrowserAnimationsModule
   ],
   providers: [
     OrderListService,

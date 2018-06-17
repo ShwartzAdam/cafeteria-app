@@ -1,7 +1,7 @@
 ///<reference path="../../../../../node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts"/>
 import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import { ItemService } from '../../../services/item.service';
-import { Item } from '../../../interface/item';
+import { Item } from '../../../classes/item';
 
 @Component({
   selector: 'app-item-modal-edit',

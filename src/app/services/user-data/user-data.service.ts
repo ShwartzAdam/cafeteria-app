@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {User} from '../../interface/user';
+import {User} from '../../classes/user';
 import * as localForage from 'localforage';
 
 @Injectable()

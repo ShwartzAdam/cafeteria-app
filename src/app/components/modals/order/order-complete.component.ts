@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {OrderListService} from '../../../services/orderlist.service';
-import {OrderList} from '../../../interface/orderlist';
+import {OrderList} from '../../../classes/orderlist';
 declare var jQuery: any;
 
 @Component({

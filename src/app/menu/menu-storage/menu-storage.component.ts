@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ItemService} from '../../services/item.service';
-import {Item} from '../../interface/item';
+import {Item} from '../../classes/item';
 
 declare var jQuery: any;
 declare var $: any;

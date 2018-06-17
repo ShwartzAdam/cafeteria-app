@@ -1,18 +1,18 @@
 import {HttpClient, HttpHeaders, HttpParams, HttpRequest, HttpEvent} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../interface/user';
+import { User } from '../classes/user';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 
 @Injectable()
 export class UserService {
-  url = 'http://localhost:3000/api';
+  url = 'https://cafeappserver.herokuapp.com/api';
 
   constructor(private http: HttpClient) {}
 
-  public createUser(_user: User){
+  public createUser(_user: User) {
     return new Promise((resolve, reject) => {
       this.http.post(this.url + '/users/signupemployee', JSON.stringify(_user), {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),

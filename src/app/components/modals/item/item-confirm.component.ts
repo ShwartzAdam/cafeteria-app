@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import { ItemService } from '../../../services/item.service';
-import { Item } from '../../../interface/item';
+import { Item } from '../../../classes/item';
 
 @Component({
   selector: 'app-item-modal-confirm',

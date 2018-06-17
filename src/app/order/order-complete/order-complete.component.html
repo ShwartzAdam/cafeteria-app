@@ -1,31 +1,30 @@
 <div class="ui segment">
-  <table class="ui compact celled definition table">
-    <!-- datatable [dtOptions]="dtOptionsComp" [dtTrigger]="dtTrigger"  -->
-    <thead class="full-width">
-      <tr>
-        <th>Order ID</th>
-        <th>Student Full Name</th>
-        <th>Pick-Up Time</th>
-        <th>Real Pick-Up Time</th>
-        <th>Review</th>
-        <th>Total Price (NIS)</th>
-        <th>Order Information</th>
+  <div class="responsive_table">
+    <table class="mat-table mat-elevation-z1">
+      <thead>
+      <tr class="mat-header-row">
+        <th class="mat-header-cell">Order ID</th>
+        <th class="mat-header-cell">Student Full Name</th>
+        <th class="mat-header-cell"> Pick-Up Time </th>
+        <th class="mat-header-cell"> Review </th>
+        <th class="mat-header-cell"> Total Price (NIS) </th>
+        <th class="mat-header-cell"> Order Information </th>
       </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let order of orderList">
-        <td>{{order.olid}}</td>
-        <td>
-          <app-student-details [userId]="order.userid" ></app-student-details>
+      </thead>
+      <tbody>
+      <tr class="mat-row" *ngFor="let element of ( elements | orderByTime: 10);">
+        <td class="mat-cell">{{element.olid}} </td>
+        <td class="mat-cell">
+          <app-student-details [userId]="element.userid" ></app-student-details>
         </td>
-        <td>{{order.ol_dttm | date: 'short' : 'UTC' }}</td>
-        <td>{{order.ol_dttm_real | date: 'short' : 'UTC'  }}</td>
-        <td>{{order.hasreview | reviewPipe}}</td>
-        <td>{{order.totalprice}}  &#8362;</td>
-        <td>
-          <app-order-details [olid]="order.olid"></app-order-details>
+        <td class="mat-cell"> {{element.ol_dttm | date: 'short' : 'UTC' }} </td>
+        <td class="mat-cell"> {{element.hasreview | reviewPipe}} </td>
+        <td class="mat-cell"> {{element.totalprice}}  &#8362;</td>
+        <td class="mat-cell">
+          <app-order-details [olid]="element.olid"></app-order-details>
         </td>
       </tr>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
 </div>

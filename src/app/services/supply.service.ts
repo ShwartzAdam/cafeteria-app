@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import {Supplier} from '../interface/supplier';
+import {Supplier} from '../classes/supplier';
 
 
 @Injectable()

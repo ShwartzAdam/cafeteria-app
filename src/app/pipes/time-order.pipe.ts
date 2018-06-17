@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import {OrderList} from '../interface/orderlist';
+import {OrderList} from '../classes/orderlist';
 
 @Pipe({
   name: 'orderByTime',

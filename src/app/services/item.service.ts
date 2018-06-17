@@ -2,13 +2,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 // models
-import {Item} from '../interface/item';
-import {OrderList} from "../interface/orderlist";
+import {Item} from '../classes/item';
 
 @Injectable()
 export class ItemService {
 
-  url = 'http://localhost:3000/api';
+  url = 'https://cafeappserver.herokuapp.com/api';
 
   constructor(public http: HttpClient) {}
 

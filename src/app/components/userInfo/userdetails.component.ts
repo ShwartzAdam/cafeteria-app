@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { UserService } from '../../services/user.service';
-import {User} from '../../interface/user';
+import {User} from '../../classes/user';
 
 @Component({
   selector: 'app-student-details',

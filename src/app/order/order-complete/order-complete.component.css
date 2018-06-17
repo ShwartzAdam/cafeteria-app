@@ -1,0 +1,7 @@
+.responsive_table {
+  overflow-x: auto !important;
+}
+
+.mat-header-cell{
+  margin: 10px !important;
+}

@@ -1,5 +1,6 @@
-table .dataTables_wrapper .dataTables_paginate {
-  float: none;
-  text-align: center;
-  padding-top: 0.25em;
+.mat-paginator-navigation-previous mat-icon-button{
+  color: #000 !important;
+}
+.mat-sort-header-button{
+  color: #000 !important;
 }

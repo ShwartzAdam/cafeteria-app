@@ -1,5 +1,5 @@
 import {AfterContentInit, Component, OnInit} from '@angular/core';
-import {User} from '../../interface/user';
+import {User} from '../../classes/user';
 import {UserService} from '../../services/user.service';
 
 declare var jquery: any;

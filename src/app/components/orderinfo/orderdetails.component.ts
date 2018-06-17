@@ -1,10 +1,10 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {OrderList} from '../../interface/orderlist';
+import {OrderList} from '../../classes/orderlist';
 import {OrderService} from '../../services/order.service';
 import {ItemService} from '../../services/item.service';
 import {OrderListService} from '../../services/orderlist.service';
-import {Order} from '../../interface/order';
-import {Item} from '../../interface/item';
+import {Order} from '../../classes/order';
+import {Item} from '../../classes/item';
 
 @Component({
   selector: 'app-order-details',
