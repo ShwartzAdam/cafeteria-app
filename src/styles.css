@@ -9,6 +9,11 @@ body{
   min-height: 100%;
   margin: 0 auto;
 }
+.ui.container {
+  width: 90%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
 .pusher{
   background-color: #2A7C63 !important;
 }
@@ -61,7 +66,6 @@ body{
   }
   .mat-header-cell{
     font-size:1em;
-    margin: 10px !important;
   }
   .mat-cell{
     font-size: 1em;
@@ -70,9 +74,12 @@ body{
   buttons - sizes
    */
   .ui.button {
-    font-size: 1em;
+    font-size: 0.8em;
     background-color: #2A7C63;
     color: #fff;
+  }
+  .ui.icon.button{
+    font-size:0.6em !important;
   }
 
 
@@ -118,6 +125,9 @@ body{
   .mat-header-row{
     font-size: 0.9em;
   }
+  .mat-header-cell{
+    font-size:0.9em;
+  }
   .mat-cell{
     font-size: 0.9em;
   }
@@ -125,6 +135,9 @@ body{
     font-size: 0.8em;
     background-color: #2A7C63;
     color: #fff;
+  }
+  .ui.icon.button{
+    font-size:0.6em !important;
   }
 
 
@@ -172,11 +185,12 @@ body{
     color: #fff;
   }
   .mat-header-row{
-    font-size: 0.9em;
+    font-size: 0.6em;
   }
   .mat-cell{
     font-size: 0.8em;
   }
+
   .ui.button {
     font-size: 0.7em;
     background-color: #2A7C63;
@@ -187,26 +201,6 @@ body{
 
 }
 
-
-@media (min-width: 481px) and (max-width: 767px) {
-  .ui.menu{
-    background-color: #004933 !important;
-    font-size: 0.5em;
-    border-radius: 0px !important;;
-
-  }
-  .ui.menu .header.item {
-    color: #ECECEC !important;
-  }
-  .ui.menu .item {
-    color: #ECECEC !important;
-  }
-  .ui.menu .item.active {
-    color: #90BAAD !important;
-  }
-
-
-}
 
 
 /* HIghlight vote up and down on cards*/
