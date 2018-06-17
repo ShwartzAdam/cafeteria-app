@@ -4,39 +4,210 @@
 /* ngIf */
 [hidden] { display: none !important;}
 
+body{
+  background-color: #2A7C63 !important;
+  min-height: 100%;
+  margin: 0 auto;
+}
+.pusher{
+  background-color: #2A7C63 !important;
+}
+
 /* You can add global styles to this file, and also import other style files */
-@media only screen and (max-width: 767px) {
-  .mobile.hidden,
-  .tablet.only,
-  .small.monitor.only,
-  .large.monitor.only {
-    display: none !important;
+@media (min-width: 1281px) {
+  /*
+  upper menu
+   */
+  .ui.menu{
+    background-color: #004933 !important;
+    font-size: 1.3em;
+    border-radius: 0px !important;
   }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .mobile.only,
-  .tablet.hidden,
-  .small.monitor.only,
-  .large.monitor.only {
-    display: none !important;
+  .ui.menu .header.item {
+    color: #ECECEC !important;
   }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .mobile.only,
-  .tablet.only,
-  .small.monitor.hidden,
-  .large.monitor.only {
-    display: none !important;
+  .ui.menu .item {
+    color: #ECECEC !important;
   }
-}
-@media only screen and (min-width: 1200px) {
-  .mobile.only,
-  .tablet.only,
-  .small.monitor.only,
-  .large.monitor.hidden {
-    display: none !important;
+  .ui.menu .item.active {
+    color: #90BAAD !important;
   }
+  /*
+  segments - tables containers
+   */
+  .ui.segment{
+    background-color: #5DC7A7 !important;
+    border-radius: 10px;
+  }
+  .ui.vertical.segment{
+    background-color: #2A7C63 !important;
+  }
+  /*
+  segemnt - block header
+   */
+  .ui.block.header{
+    background: #2A7C63 !important;
+    color: #fff;
+  }
+  h2.ui.header .sub.header {
+    font-size: 1.14285714rem;
+    color: #fff;
+  }
+  /*
+  table - font size
+   */
+  .mat-header-row{
+    font-size:1em;
+  }
+  .mat-header-cell{
+    font-size:1em;
+    margin: 10px !important;
+  }
+  .mat-cell{
+    font-size: 1em;
+  }
+  /*
+  buttons - sizes
+   */
+  .ui.button {
+    font-size: 1em;
+    background-color: #2A7C63;
+    color: #fff;
+  }
+
+
 }
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .ui.menu{
+    background-color: #004933 !important;
+    font-size: 1.1em;
+    border-radius: 0px !important;;
+  }
+  .ui.menu .header.item {
+    color: #ECECEC !important;
+  }
+  .ui.menu .item {
+    color: #ECECEC !important;
+  }
+  .ui.menu .item.active {
+    color: #90BAAD !important;
+  }
+
+  .ui.segment{
+    background-color: #5DC7A7 !important;
+    border-radius: 10px;
+  }
+  .ui.vertical.segment{
+    background-color: #2A7C63 !important;
+  }
+  .ui.block.header{
+    background: #2A7C63 !important;
+    color: #fff;
+    font-size: 1em;
+  }
+  h2.ui.header .sub.header {
+    font-size: 0.8em;
+    color: #fff;
+  }
+  .mat-header-row{
+    font-size: 0.9em;
+  }
+  .mat-cell{
+    font-size: 0.9em;
+  }
+  .ui.button {
+    font-size: 0.8em;
+    background-color: #2A7C63;
+    color: #fff;
+  }
+
+
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /*
+  menu css
+   */
+  .ui.menu{
+    background-color: #004933 !important;
+    font-size: 0.8em;
+    border-radius: 0px !important;;
+
+  }
+  .ui.menu .header.item {
+    color: #ECECEC !important;
+  }
+  .ui.menu .item {
+    color: #ECECEC !important;
+  }
+  .ui.menu .item.active {
+    color: #90BAAD !important;
+  }
+  .ui.segment{
+    background-color: #5DC7A7 !important;
+    border-radius: 10px;
+  }
+  .ui.vertical.segment{
+    background-color: #2A7C63 !important;
+  }
+  .ui.block.header{
+    background: #2A7C63 !important;
+    color: #fff;
+    font-size: 0.8em;
+  }
+  h2.ui.header .sub.header {
+    font-size: 0.7em;
+    color: #fff;
+  }
+  .mat-header-row{
+    font-size: 0.9em;
+  }
+  .mat-cell{
+    font-size: 0.8em;
+  }
+  .ui.button {
+    font-size: 0.7em;
+    background-color: #2A7C63;
+    color: #fff;
+  }
+
+
+
+}
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .ui.menu{
+    background-color: #004933 !important;
+    font-size: 0.5em;
+    border-radius: 0px !important;;
+
+  }
+  .ui.menu .header.item {
+    color: #ECECEC !important;
+  }
+  .ui.menu .item {
+    color: #ECECEC !important;
+  }
+  .ui.menu .item.active {
+    color: #90BAAD !important;
+  }
+
+
+}
+
 
 /* HIghlight vote up and down on cards*/
 
@@ -45,17 +216,8 @@
   color: #FF2733 !important;
 }
 
-body{
-  background-color: #2A7C63 !important;
-}
-.ui.segment{
-  background-color: #5DC7A7 !important;
-  border-radius: 10px;
-}
-.ui.vertical.segment{
-  margin-top: 2% !important;
-  background-color: #2A7C63 !important;
-}
+
+
 
 .large.ui.button{
   background-color: #094C38 !important;
@@ -64,36 +226,8 @@ body{
   letter-spacing: 3px;
 }
 
-h2.ui.header .sub.header {
-  font-size: 1.14285714rem;
-  color: #fff;
-}
-.ui.block.header{
-  background: #2A7C63 !important;
-  color: #fff;
-}
-.pusher{
-  background-color: #2A7C63 !important;
-}
-.ui.menu{
-  background-color: #004933 !important;
-  font-size: 1.3rem;
-  border-radius: 0px !important;;
-}
-.ui.menu .header.item {
-  color: #ECECEC !important;
-}
-.ui.menu .item {
-  color: #ECECEC !important;
-}
-.ui.menu .item.active {
-  color: #90BAAD !important;
-}
-.ui.button {
-  font-size: 1rem;
-  background-color: #2A7C63;
-  color: #fff;
-}
+
+
 
   /* Text Color */
 .text.white {
