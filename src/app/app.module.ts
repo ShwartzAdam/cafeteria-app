@@ -62,6 +62,8 @@ import {HomeLayoutComponent} from './layouts/home-layout.component';
 
 import './classes/rxjs-operators';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {QueryService} from './services/query.service';
+import {BestItemsComponent} from './components/reports/bestItems/best-items.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +99,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     OrderCompComponent,
     AuthLayoutComponent,
     HomeLayoutComponent,
-    BestUsersComponent
+    BestUsersComponent,
+    BestItemsComponent
   ],
   imports: [
     BrowserModule,
@@ -118,7 +121,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     UserData,
     SortService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    QueryService
   ],
   bootstrap: [AppComponent]
 })

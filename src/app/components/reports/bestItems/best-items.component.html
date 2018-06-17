@@ -28,30 +28,22 @@
   </mat-form-field>
   <div class="mat-elevation-z8">
     <mat-table #table matSort [dataSource]="dataSource" >
-      <ng-container matColumnDef="userid">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> User ID </mat-header-cell>
-        <mat-cell *matCellDef="let element"  >{{element.userid}}  </mat-cell>
+      <ng-container matColumnDef="itemid">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Item ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"  >{{element.itemid}}  </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
-        <mat-cell *matCellDef="let element" >{{element.email}}  </mat-cell>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element" >{{element.name}}  </mat-cell>
       </ng-container>
-
-      <ng-container matColumnDef="firstname">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
-        <mat-cell *matCellDef="let element" >{{element.firstname}}  </mat-cell>
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Item Price </mat-header-cell>
+        <mat-cell *matCellDef="let element" > {{element.price}}  </mat-cell>
       </ng-container>
-
-      <ng-container matColumnDef="lastname">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
-        <mat-cell *matCellDef="let element" > {{element.lastname}}  </mat-cell>
-      </ng-container>
-
       <ng-container matColumnDef="total">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Total Spend </mat-header-cell>
-        <mat-cell *matCellDef="let element" > {{element.total}} &#8362; </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Total Amount </mat-header-cell>
+        <mat-cell *matCellDef="let element" >{{element.total}}  </mat-cell>
       </ng-container>
-
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>

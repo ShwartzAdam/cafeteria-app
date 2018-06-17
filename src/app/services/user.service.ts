@@ -38,9 +38,6 @@ export class UserService {
         });
     });
   }
-  public getBestUsers(string): Observable<any[]> {
-    return this.http.get<any[]>(this.url + '/query/' + string );
-  }
   /*
   public getUserByRole(role) {
     return new Promise(resolve => {

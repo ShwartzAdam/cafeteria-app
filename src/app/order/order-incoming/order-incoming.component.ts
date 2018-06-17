@@ -24,9 +24,11 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
   public ordertodo: OrderList;
   constructor(public orderListService: OrderListService) {}
   ngOnInit() {
+    /*
     Observable.interval(20000).takeWhile(() => true).subscribe(() => {
       this.getIncomingOrders();
     });
+    */
     this.getIncomingOrders();
     $(document).ready(function() {
       $('.reload-button').hover(function() {

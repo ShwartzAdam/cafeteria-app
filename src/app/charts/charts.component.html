@@ -1,51 +1,76 @@
 <div class="ui masthead vertical segment">
   <div class="ui container">
     <div class="ui two column centered grid">
-      <div class="column">
-        <div class="ui segment">
-          <h2 class="ui block header">
-            <i class="small map icon"></i>
-            <div class="content">
-              Best Users This Month
-              <div class="sub header">List of users who spend the most</div>
-            </div>
-          </h2>
-          <app-charts-users [option]="'MonthBestUsers'"></app-charts-users>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui segment">
-          <h2 class="ui block header">
-            <i class="small map icon"></i>
-            <div class="content">
-              Best Users Of Week
-              <div class="sub header">List of users who spend the most</div>
-            </div>
-          </h2>
-          <app-charts-users [option]="'WeekBestUsers'"></app-charts-users>
-        </div>
-      </div>
-      <div class="column">
-      <div class="ui segment">
-        <h2 class="ui block header">
-          <i class="small map icon"></i>
-          <div class="content">
-            Best Users Of Today
-            <div class="sub header">List of users who spend the most</div>
+        <div class="column">
+          <div class="ui segment">
+            <h2 class="ui block header">
+              <i class="small map icon"></i>
+              <div class="content">
+                Best Users This Month
+                <div class="sub header">List of users who spend the most</div>
+              </div>
+            </h2>
+            <app-charts-users [option]="'MonthBestUsers'"></app-charts-users>
           </div>
-        </h2>
-        <app-charts-users [option]="'TodayBestUsers'"></app-charts-users>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <h2 class="ui block header">
+              <i class="small map icon"></i>
+              <div class="content">
+                Best Users Of Week
+                <div class="sub header">List of users who spend the most</div>
+              </div>
+            </h2>
+            <app-charts-users [option]="'WeekBestUsers'"></app-charts-users>
+          </div>
+        </div>
+        <div class="column">
+        <div class="ui segment">
+          <h2 class="ui block header">
+            <i class="small map icon"></i>
+            <div class="content">
+              Best Users Of Today
+              <div class="sub header">List of users who spend the most</div>
+            </div>
+          </h2>
+          <app-charts-users [option]="'TodayBestUsers'"></app-charts-users>
+        </div>
       </div>
-    </div>
       <div class="column">
         <div class="ui segment">
           <h2 class="ui block header">
-            <i class="small book icon"></i>
+            <i class="small map icon"></i>
             <div class="content">
-              Title
-              <div class="sub header">Sub Title</div>
+              Best Items Of Today
+              <div class="sub header">List of items and theirs performance</div>
             </div>
           </h2>
+          <app-charts-items [option]="'TodayBestItems'"></app-charts-items>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <h2 class="ui block header">
+            <i class="small map icon"></i>
+            <div class="content">
+              Best Items Of Week
+              <div class="sub header">List of items and theirs performance</div>
+            </div>
+          </h2>
+          <app-charts-items [option]="'WeekBestItems'"></app-charts-items>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <h2 class="ui block header">
+            <i class="small map icon"></i>
+            <div class="content">
+              Best Items Of Month
+              <div class="sub header">List of items and theirs performance</div>
+            </div>
+          </h2>
+          <app-charts-items [option]="'MonthBestItems'"></app-charts-items>
         </div>
       </div>
     </div>

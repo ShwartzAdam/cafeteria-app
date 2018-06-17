@@ -1,7 +1,6 @@
 import {AfterContentInit, Component, OnInit, ViewChild} from '@angular/core';
 import {OrderList} from '../../classes/orderlist';
 import {OrderListService} from '../../services/orderlist.service';
-import {MatPaginator} from '@angular/material';
 
 
 @Component({
@@ -11,7 +10,6 @@ import {MatPaginator} from '@angular/material';
   providers : [OrderListService]
 })
 export class OrderCompleteComponent implements OnInit, AfterContentInit {
-  @ViewChild('paging') paginator: MatPaginator;
   // ORDER LIST WITH STATUS 'Completed'
   public elements: OrderList[] = [];
   constructor(public orderListService: OrderListService) { }
