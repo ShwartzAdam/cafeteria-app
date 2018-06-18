@@ -13,19 +13,16 @@
 .ui.button{
   background-color: #CCCCCC !important;
   color: #fff;
-
 }
 .ui.button:hover{
   background-color: #2A7C63 !important;
   color: #fff;
 
 }
-.ui.centered.image{
-  height:400px;
-}
 .ui.vertical.segment{
-  margin-top: 2% !important;
   background-color: #2A7C63 !important;
+  margin-top: 3%;
+  margin-bottom: 5%;
 }
 .ui.segment{
   background-color: #5DC7A7 !important;

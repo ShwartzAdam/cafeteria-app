@@ -580,7 +580,7 @@ var ForgotpassComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".grouped.fields{\n  color:#fff;\n}\n.ui.checkbox label {\n  color: #fff !important;\n}\n.large.ui.button{\n  background-color: #094C38 !important;\n  font-size: 1.40em;\n  color: #fff;\n  letter-spacing: 3px;\n}\n.ui.button{\n  background-color: #CCCCCC !important;\n  color: #fff;\n\n}\n.ui.button:hover{\n  background-color: #2A7C63 !important;\n  color: #fff;\n\n}\n.ui.centered.image{\n  height:400px;\n}\n.ui.vertical.segment{\n  margin-top: 2% !important;\n  background-color: #2A7C63 !important;\n}\n.ui.segment{\n  background-color: #5DC7A7 !important;\n  border-radius: 10px;\n}\n\n"
+module.exports = ".grouped.fields{\n  color:#fff;\n}\n.ui.checkbox label {\n  color: #fff !important;\n}\n.large.ui.button{\n  background-color: #094C38 !important;\n  font-size: 1.40em;\n  color: #fff;\n  letter-spacing: 3px;\n}\n.ui.button{\n  background-color: #CCCCCC !important;\n  color: #fff;\n}\n.ui.button:hover{\n  background-color: #2A7C63 !important;\n  color: #fff;\n\n}\n.ui.vertical.segment{\n  background-color: #2A7C63 !important;\n  margin-top: 3%;\n  margin-bottom: 5%;\n}\n.ui.segment{\n  background-color: #5DC7A7 !important;\n  border-radius: 10px;\n}\n\n"
 
 /***/ }),
 

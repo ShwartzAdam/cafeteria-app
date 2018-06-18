@@ -6,7 +6,6 @@
 
 body{
   background-color: #2A7C63 !important;
-  min-height: 100%;
   margin: 0 auto;
 }
 .ui.container {
@@ -98,6 +97,12 @@ body{
   .ui.icon.button{
     font-size:0.85em !important;
   }
+  /*
+   logo- image
+   */
+  .ui.centered.image{
+    height:300px !important;
+  }
 
 
 }
@@ -167,6 +172,9 @@ body{
   }
   .ui.icon.button{
     font-size:0.7em !important;
+  }
+  .ui.centered.image{
+    height:250px !important;
   }
 
 
@@ -239,6 +247,9 @@ body{
   }
   .ui.icon.button{
     font-size:0.6em !important;
+  }
+  .ui.centered.image{
+    height:250px !important;
   }
 
 
