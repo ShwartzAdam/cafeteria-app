@@ -18,14 +18,13 @@ declare var $: any;
 export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
 
   // ORDER LIST WITH STATUS 'INCOMING'
-  private orderList: OrderList[] = [];
+  public orderList: OrderList[] = [];
   @Output() notifyTable: EventEmitter<string> = new EventEmitter<string>();
   @Input() reloadTable: boolean = false;
   public ordertodo: OrderList;
   constructor(public orderListService: OrderListService) {}
   ngOnInit() {
-    /*
-    Observable.interval(20000).takeWhile(() => true).subscribe(() => {
+    /*Observable.interval(25000).takeWhile(() => true).subscribe(() => {
       this.getIncomingOrders();
     });
     */
@@ -83,6 +82,7 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
     */
     this.orderList = new Array();
     console.log('Getting Incoming Orders !');
+    /*
     this.orderListService.getAllOrdersByStatus('Incoming').
     then( (_orderList: any) =>  {
       _orderList.forEach( ol => {
@@ -97,6 +97,28 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
         this.orderList.push(_ol);
       });
       console.log(this.orderList);
+    });
+    */
+    this.orderListService.getTodayFutureOrders().then( (_orderList: any) => {
+        const len = _orderList['length'];
+        if ( len === 0 ) {
+          console.log('no orders yet');
+          // change orders table to display empty line
+        } else {
+          console.log('there are orders waiting');
+          _orderList.forEach( ol => {
+            console.log(ol);
+            let _ol: OrderList = new OrderList;
+            _ol.userid = ol.userid;
+            _ol.olid = ol.olid
+            _ol.totalprice = ol.totalprice;
+            // _ol.status = ol.status;
+            _ol.ol_dttm = ol.ol_dttm;
+            // _ol.ol_dttm_real = ol.ol_dttm_real;
+            // _ol.hasreview = ol.hasreview;
+            this.orderList.push(_ol);
+          });
+        }
     });
   }
 

@@ -4,7 +4,6 @@
   <tr>
     <th>Order ID</th>
     <th>Student Full Name</th>
-    <th>Start Making Order</th>
     <th>Pick-Up Time</th>
     <th>Total Price (NIS)</th>
     <th>Order Information</th>
@@ -17,14 +16,13 @@
     <td>
       <app-student-details [userId]="order.userid" ></app-student-details>
     </td>
-    <td>{{order?.ol_dttm_real | date: 'short' : 'UTC'  }}</td>
     <td>{{order?.ol_dttm | date: 'short' : 'UTC'  }}</td>
     <td>{{order?.totalprice}} &#8362;</td>
     <td>
       <app-order-details [olid]="order.olid"></app-order-details>
     </td>
     <td>
-      <div class="ui small labeled icon button" (click)="completeOrder(order)">
+      <div class="ui labeled icon button" (click)="completeOrder(order)">
         <i class="bullhorn icon"></i> Order Is Ready
       </div>
     </td>

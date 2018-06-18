@@ -1,4 +1,4 @@
-<button class="ui button" (click)="myModalNormal.show({inverted: false})">
+<button class="ui labeled icon button" (click)="myModalNormal.show({inverted: false})">
   <i class="search plus icon"></i>Info
 </button>
 <sm-modal title="Order List Details" class="" icon="clipboard" #myModalNormal>
@@ -37,6 +37,14 @@
       </div>
       <div class="column">
        {{orderListRef?.ol_dttm | date: 'medium' }}
+      </div>
+    </div>
+    <div class="ui four column grid">
+      <div class="column">
+        <strong>Preperation Time:</strong>
+      </div>
+      <div class="column">
+        {{orderListRef?.totalpreptime }} Minutes
       </div>
     </div>
   </modal-content>

@@ -21,6 +21,35 @@ body{
 /* You can add global styles to this file, and also import other style files */
 @media (min-width: 1281px) {
   /*
+  table css
+   */
+  .mat-table.mat-elevation-z1{
+    width:90%;
+    margin:auto;
+  }
+  /*
+  table - font size
+   */
+  .mat-header-row{
+    font-size:1em;
+  }
+  .mat-header-cell{
+    font-size:1em;
+  }
+  .mat-cell{
+    font-size: 1em;
+  }
+  /*
+   table - semantic
+   */
+  .ui.table thead th {
+    font-size:1.1em;
+  }
+  .ui.table tr td {
+    font-size:1em;
+  }
+
+  /*
   upper menu
    */
   .ui.menu{
@@ -59,18 +88,6 @@ body{
     color: #fff;
   }
   /*
-  table - font size
-   */
-  .mat-header-row{
-    font-size:1em;
-  }
-  .mat-header-cell{
-    font-size:1em;
-  }
-  .mat-cell{
-    font-size: 1em;
-  }
-  /*
   buttons - sizes
    */
   .ui.button {
@@ -79,7 +96,7 @@ body{
     color: #fff;
   }
   .ui.icon.button{
-    font-size:0.6em !important;
+    font-size:0.85em !important;
   }
 
 
@@ -91,6 +108,18 @@ body{
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
+  .mat-table.mat-elevation-z1 {
+    width: 90%;
+    margin: auto;
+  }
+
+  .ui.table thead th {
+    font-size:0.9em;
+  }
+  .ui.table tr td {
+    font-size:0.8em;
+  }
+
   .ui.menu{
     background-color: #004933 !important;
     font-size: 1.1em;
@@ -137,7 +166,7 @@ body{
     color: #fff;
   }
   .ui.icon.button{
-    font-size:0.6em !important;
+    font-size:0.7em !important;
   }
 
 
@@ -150,6 +179,18 @@ body{
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .mat-table.mat-elevation-z1 {
+    width: 90%;
+    margin: auto;
+  }
+
+  .ui.table thead th {
+    font-size:0.8em;
+  }
+  .ui.table tr td {
+    font-size:0.7em;
+  }
+
   /*
   menu css
    */
@@ -195,6 +236,9 @@ body{
     font-size: 0.7em;
     background-color: #2A7C63;
     color: #fff;
+  }
+  .ui.icon.button{
+    font-size:0.6em !important;
   }
 
 

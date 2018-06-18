@@ -45,8 +45,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu_menu_storage_menu_storage_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./menu/menu-storage/menu-storage.component */ "./src/app/menu/menu-storage/menu-storage.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _employee_employee_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./employee/employee.component */ "./src/app/employee/employee.component.ts");
-/* harmony import */ var _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./layouts/auth-layout.component */ "./src/app/layouts/auth-layout.component.ts");
-/* harmony import */ var _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./layouts/home-layout.component */ "./src/app/layouts/home-layout.component.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./layouts/auth-layout.component */ "./src/app/layouts/auth-layout.component.ts");
+/* harmony import */ var _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./layouts/home-layout.component */ "./src/app/layouts/home-layout.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,13 +67,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+// guards
+
 
 
 var appRoutes = [
     {
         path: '',
-        component: _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_13__["HomeLayoutComponent"],
-        // canActivate: [AuthGuard],
+        component: _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_14__["HomeLayoutComponent"],
+        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]],
         children: [
             { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["DashboardComponent"] },
             {
@@ -103,7 +106,7 @@ var appRoutes = [
     },
     {
         path: '',
-        component: _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_12__["AuthLayoutComponent"],
+        component: _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_13__["AuthLayoutComponent"],
         children: [
             {
                 path: 'login',
@@ -111,7 +114,7 @@ var appRoutes = [
             }
         ]
     },
-    { path: '**', redirectTo: '/dashboard' }
+    { path: '**', redirectTo: '' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -893,6 +896,7 @@ var OrderList = /** @class */ (function () {
         this.ol_dttm_real = "default";
         this.status = "default";
         this.hasreview = false;
+        this.totalpreptime = 0;
         Object.assign(this, init);
     }
     return OrderList;
@@ -1693,7 +1697,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button class=\"ui button\" (click)=\"myModalNormal.show({inverted: false})\">\n  <i class=\"search plus icon\"></i>Info\n</button>\n<sm-modal title=\"Order List Details\" class=\"\" icon=\"clipboard\" #myModalNormal>\n  <modal-content>\n    <div class=\"ui six column grid\" *ngFor=\"let order of orders; let i = index\">\n        <div class=\"six column row\">\n          <div class=\"column\">\n            <strong>Order ID :</strong>\n          </div>\n          <div class=\"column\">\n            {{order.orderid}}\n          </div>\n        </div>\n      <div class=\"column\">\n        <strong>Item Name :</strong>\n      </div>\n      <div class=\"column\">\n        {{this.items[i]?.name}}\n      </div>\n      <div class=\"column\">\n        <strong>Item Quantity :</strong>\n      </div>\n      <div class=\"column\">\n        {{order.qty}}\n      </div>\n      <div class=\"column\">\n        <strong>Item Price :</strong>\n      </div>\n      <div class=\"column\">\n        {{this.items[i]?.price}} &#8362;\n      </div>\n    </div>\n    <div class=\"ui four column grid\">\n      <div class=\"column\">\n        <strong>Pick Up Time:</strong>\n      </div>\n      <div class=\"column\">\n       {{orderListRef?.ol_dttm | date: 'medium' }}\n      </div>\n    </div>\n  </modal-content>\n  <modal-actions>\n    <div class=\"ui buttons\">\n      <div class=\"ui button primary\" (click)=\"myModalNormal.hide()\">Close</div>\n    </div>\n  </modal-actions>\n</sm-modal>\n"
+module.exports = "<button class=\"ui labeled icon button\" (click)=\"myModalNormal.show({inverted: false})\">\n  <i class=\"search plus icon\"></i>Info\n</button>\n<sm-modal title=\"Order List Details\" class=\"\" icon=\"clipboard\" #myModalNormal>\n  <modal-content>\n    <div class=\"ui six column grid\" *ngFor=\"let order of orders; let i = index\">\n        <div class=\"six column row\">\n          <div class=\"column\">\n            <strong>Order ID :</strong>\n          </div>\n          <div class=\"column\">\n            {{order.orderid}}\n          </div>\n        </div>\n      <div class=\"column\">\n        <strong>Item Name :</strong>\n      </div>\n      <div class=\"column\">\n        {{this.items[i]?.name}}\n      </div>\n      <div class=\"column\">\n        <strong>Item Quantity :</strong>\n      </div>\n      <div class=\"column\">\n        {{order.qty}}\n      </div>\n      <div class=\"column\">\n        <strong>Item Price :</strong>\n      </div>\n      <div class=\"column\">\n        {{this.items[i]?.price}} &#8362;\n      </div>\n    </div>\n    <div class=\"ui four column grid\">\n      <div class=\"column\">\n        <strong>Pick Up Time:</strong>\n      </div>\n      <div class=\"column\">\n       {{orderListRef?.ol_dttm | date: 'medium' }}\n      </div>\n    </div>\n    <div class=\"ui four column grid\">\n      <div class=\"column\">\n        <strong>Preperation Time:</strong>\n      </div>\n      <div class=\"column\">\n        {{orderListRef?.totalpreptime }} Minutes\n      </div>\n    </div>\n  </modal-content>\n  <modal-actions>\n    <div class=\"ui buttons\">\n      <div class=\"ui button primary\" (click)=\"myModalNormal.hide()\">Close</div>\n    </div>\n  </modal-actions>\n</sm-modal>\n"
 
 /***/ }),
 
@@ -2584,7 +2588,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui segment\">\n  <div class=\"ui three column centered grid\">\n    <table class=\"ui compact celled definition table\">\n      <thead class=\"full-width\">\n      <tr>\n        <th>Item ID</th>\n        <th>Item Type</th>\n        <th>Item Name</th>\n        <th>Item Quantity </th>\n        <th>Item Time Prep </th>\n        <th>Item Price </th>\n        <th>On Menu ?</th>\n        <th>Actions </th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let item of itemsMenu; let i = index;\">\n        <td>{{item.itemid}}</td>\n        <td>{{item.type}}</td>\n        <td>{{item.name}}</td>\n        <td>{{item.qty}}</td>\n        <td>{{item.preptime}}</td>\n        <td>{{item.price}} &#8362;</td>\n        <td>{{item.ispublished | onMenuPipe }}</td>\n        <td>\n          <div class=\"ui left floated small labeled icon button\"\n               (click)=\"displayModal('Edit', item)\">\n            <i class=\"edit icon\"></i>Edit\n          </div>\n          <div class=\"ui small labeled icon button\"\n               (click)=\"displayModal('Delete', item)\">\n            <i class=\"delete icon\"></i>Delete\n          </div>\n        </td>\n      </tr>\n      </tbody>\n      <tfoot class=\"full-width\">\n      <tr>\n        <th></th>\n        <th colspan=\"7\">\n          <div class=\"ui small labeled icon button\" (click)=\"displayModal('Add')\">\n            <i class=\"plus icon\"></i>Add Item\n          </div>\n        </th>\n      </tr>\n      </tfoot>\n    </table>\n    <app-item-modal-add (notify)=\"onNotifyClicked($event)\"></app-item-modal-add>\n    <app-item-modal-edit [itemInputEdit]=\"editItem\" (notify)=\"onNotifyClicked($event)\"></app-item-modal-edit>\n    <app-item-modal-confirm [itemInputDelete]=\"deleteItem\" (notify)=\"onNotifyClicked($event)\"></app-item-modal-confirm>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui segment\">\n  <div class=\"ui three column centered grid\">\n    <table class=\"ui compact celled definition table\">\n      <thead class=\"full-width\">\n      <tr>\n        <th>Item ID</th>\n        <th>Item Type</th>\n        <th>Item Name</th>\n        <th>Item Quantity </th>\n        <th>Item Time Prep </th>\n        <th>Item Price </th>\n        <th>On Menu ?</th>\n        <th>Actions </th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let item of itemsMenu; let i = index;\">\n        <td>{{item.itemid}}</td>\n        <td>{{item.type}}</td>\n        <td>{{item.name}}</td>\n        <td>{{item.qty}}</td>\n        <td>{{item.preptime}}</td>\n        <td>{{item.price}} &#8362;</td>\n        <td>{{item.ispublished | onMenuPipe }}</td>\n        <td>\n          <div class=\"ui left floated labeled icon button\"\n               (click)=\"displayModal('Edit', item)\">\n            <i class=\"edit icon\"></i>Edit\n          </div>\n          <div class=\"ui right floated labeled icon button\"\n               (click)=\"displayModal('Delete', item)\">\n            <i class=\"delete icon\"></i>Delete\n          </div>\n        </td>\n      </tr>\n      </tbody>\n      <tfoot class=\"full-width\">\n      <tr>\n        <th></th>\n        <th colspan=\"7\">\n          <div class=\"ui small labeled icon button\" (click)=\"displayModal('Add')\">\n            <i class=\"plus icon\"></i>Add Item\n          </div>\n        </th>\n      </tr>\n      </tfoot>\n    </table>\n    <app-item-modal-add (notify)=\"onNotifyClicked($event)\"></app-item-modal-add>\n    <app-item-modal-edit [itemInputEdit]=\"editItem\" (notify)=\"onNotifyClicked($event)\"></app-item-modal-edit>\n    <app-item-modal-confirm [itemInputDelete]=\"deleteItem\" (notify)=\"onNotifyClicked($event)\"></app-item-modal-confirm>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2924,7 +2928,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui segment\">\n<table class=\"ui compact celled definition table\">\n  <thead class=\"full-width\">\n  <tr>\n    <th>Order ID</th>\n    <th>Student Full Name</th>\n    <th>Start Making Order</th>\n    <th>Pick-Up Time</th>\n    <th>Total Price (NIS)</th>\n    <th>Order Information</th>\n    <th>End Order</th>\n  </tr>\n  </thead>\n  <tbody>\n  <tr *ngFor=\"let order of ( orderList | orderByTime : 5); let i = index;\">\n    <td>{{order.olid}}</td>\n    <td>\n      <app-student-details [userId]=\"order.userid\" ></app-student-details>\n    </td>\n    <td>{{order?.ol_dttm_real | date: 'short' : 'UTC'  }}</td>\n    <td>{{order?.ol_dttm | date: 'short' : 'UTC'  }}</td>\n    <td>{{order?.totalprice}} &#8362;</td>\n    <td>\n      <app-order-details [olid]=\"order.olid\"></app-order-details>\n    </td>\n    <td>\n      <div class=\"ui small labeled icon button\" (click)=\"completeOrder(order)\">\n        <i class=\"bullhorn icon\"></i> Order Is Ready\n      </div>\n    </td>\n  </tr>\n  </tbody>\n  <app-order-modal-complete [orderInputConf]=\"ordertocomplete\" (notifyChange)=\"onNotifyClicked($event)\"></app-order-modal-complete>\n</table>\n</div>\n"
+module.exports = "<div class=\"ui segment\">\n<table class=\"ui compact celled definition table\">\n  <thead class=\"full-width\">\n  <tr>\n    <th>Order ID</th>\n    <th>Student Full Name</th>\n    <th>Pick-Up Time</th>\n    <th>Total Price (NIS)</th>\n    <th>Order Information</th>\n    <th>End Order</th>\n  </tr>\n  </thead>\n  <tbody>\n  <tr *ngFor=\"let order of ( orderList | orderByTime : 5); let i = index;\">\n    <td>{{order.olid}}</td>\n    <td>\n      <app-student-details [userId]=\"order.userid\" ></app-student-details>\n    </td>\n    <td>{{order?.ol_dttm | date: 'short' : 'UTC'  }}</td>\n    <td>{{order?.totalprice}} &#8362;</td>\n    <td>\n      <app-order-details [olid]=\"order.olid\"></app-order-details>\n    </td>\n    <td>\n      <div class=\"ui labeled icon button\" (click)=\"completeOrder(order)\">\n        <i class=\"bullhorn icon\"></i> Order Is Ready\n      </div>\n    </td>\n  </tr>\n  </tbody>\n  <app-order-modal-complete [orderInputConf]=\"ordertocomplete\" (notifyChange)=\"onNotifyClicked($event)\"></app-order-modal-complete>\n</table>\n</div>\n"
 
 /***/ }),
 
@@ -3004,20 +3008,44 @@ var OrderActiveComponent = /** @class */ (function () {
             icon: 'info circle',
             time: 5,
         });
+        /*
         this.orderListService.getAllOrdersByStatus('Active').
-            then(function (_orderList) {
-            _orderList.forEach(function (ol) {
-                var _ol = new _classes_orderlist__WEBPACK_IMPORTED_MODULE_2__["OrderList"];
-                _ol.userid = ol.userid;
-                _ol.olid = ol.olid;
-                _ol.totalprice = ol.totalprice;
-                _ol.status = ol.status;
-                _ol.ol_dttm = ol.ol_dttm;
-                _ol.ol_dttm_real = ol.ol_dttm_real;
-                _ol.hasreview = ol.hasreview;
-                _this.orderList.push(_ol);
-            });
-            console.log(_this.orderList);
+        then( (_orderList: any) =>  {
+          _orderList.forEach( ol => {
+            const _ol: OrderList = new OrderList;
+            _ol.userid = ol.userid;
+            _ol.olid = ol.olid
+            _ol.totalprice = ol.totalprice;
+            _ol.status = ol.status;
+            _ol.ol_dttm = ol.ol_dttm;
+            _ol.ol_dttm_real = ol.ol_dttm_real;
+            _ol.hasreview = ol.hasreview;
+            this.orderList.push(_ol);
+          });
+          console.log(this.orderList);
+        });
+        */
+        this.orderListService.getTodayActiveOrders().then(function (_orderList) {
+            var len = _orderList['length'];
+            if (len === 0) {
+                console.log('no orders yet');
+                // change orders table to display empty line
+            }
+            else {
+                console.log('there are orders waiting');
+                _orderList.forEach(function (ol) {
+                    console.log(ol);
+                    var _ol = new _classes_orderlist__WEBPACK_IMPORTED_MODULE_2__["OrderList"];
+                    _ol.userid = ol.userid;
+                    _ol.olid = ol.olid;
+                    _ol.totalprice = ol.totalprice;
+                    // _ol.status = ol.status;
+                    _ol.ol_dttm = ol.ol_dttm;
+                    // _ol.ol_dttm_real = ol.ol_dttm_real;
+                    // _ol.hasreview = ol.hasreview;
+                    _this.orderList.push(_ol);
+                });
+            }
         });
     };
     OrderActiveComponent.prototype.completeOrder = function (order) {
@@ -3182,7 +3210,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui segment\">\n<table class=\"ui compact celled definition table\">\n  <thead class=\"full-width\">\n  <tr>\n    <th><span>Order ID</span></th>\n    <th><span>Student Full Name</span></th>\n    <th><span>PickUp Time</span></th>\n    <th><span>Total Price (NIS)</span></th>\n    <th><span>Order Information</span></th>\n    <th><span>Start Order</span></th>\n  </tr>\n  </thead>\n  <tbody>\n  <tr *ngFor=\"let order of ( orderList | orderByTime: 5); let i = index; \">\n    <td>{{order.olid}}</td>\n    <td>\n      <app-student-details [userId]=\"order.userid\" ></app-student-details>\n    </td>\n    <td>{{order.ol_dttm | date: 'short' : 'UTC' }}</td>\n    <td>{{order.totalprice}} &#8362;</td>\n    <td>\n     <app-order-details [olid]=\"order.olid\"></app-order-details>\n    </td>\n    <td>\n      <div class=\"ui small labeled icon button\" (click)=\"startMakingOrder(order)\">\n        <i class=\"bullhorn icon\"></i> Start Order\n      </div>\n    </td>\n  </tr>\n  </tbody>\n</table>\n  <app-order-modal-confirm [orderInputConf]=\"ordertodo\" (notifyChange)=\"onNotifyClicked($event)\"></app-order-modal-confirm>\n</div>\n"
+module.exports = "<div class=\"ui segment\">\n<table class=\"ui compact celled definition table\">\n  <thead class=\"full-width\">\n  <tr>\n    <th><span>Order ID</span></th>\n    <th><span>Student Full Name</span></th>\n    <th><span>PickUp Time</span></th>\n    <th><span>Total Price (NIS)</span></th>\n    <th><span>Order Information</span></th>\n    <th><span>Start Order</span></th>\n  </tr>\n  </thead>\n  <tbody>\n  <tr *ngFor=\"let order of ( orderList | orderByTime: 5); let i = index; \">\n    <td>{{order.olid}}</td>\n    <td>\n      <app-student-details [userId]=\"order.userid\" ></app-student-details>\n    </td>\n    <td>{{order.ol_dttm | date: 'short' : 'UTC' }}</td>\n    <td>{{order.totalprice}} &#8362;</td>\n    <td>\n     <app-order-details [olid]=\"order.olid\"></app-order-details>\n    </td>\n    <td>\n      <div class=\"ui labeled icon button\" (click)=\"startMakingOrder(order)\">\n        <i class=\"bullhorn icon\"></i> Start Order\n      </div>\n    </td>\n  </tr>\n  </tbody>\n</table>\n  <app-order-modal-confirm [orderInputConf]=\"ordertodo\" (notifyChange)=\"onNotifyClicked($event)\"></app-order-modal-confirm>\n</div>\n"
 
 /***/ }),
 
@@ -3227,8 +3255,7 @@ var OrderIncomingComponent = /** @class */ (function () {
         this.reloadTable = false;
     }
     OrderIncomingComponent.prototype.ngOnInit = function () {
-        /*
-        Observable.interval(20000).takeWhile(() => true).subscribe(() => {
+        /*Observable.interval(25000).takeWhile(() => true).subscribe(() => {
           this.getIncomingOrders();
         });
         */
@@ -3286,20 +3313,44 @@ var OrderIncomingComponent = /** @class */ (function () {
         */
         this.orderList = new Array();
         console.log('Getting Incoming Orders !');
+        /*
         this.orderListService.getAllOrdersByStatus('Incoming').
-            then(function (_orderList) {
-            _orderList.forEach(function (ol) {
-                var _ol = new _classes_orderlist__WEBPACK_IMPORTED_MODULE_1__["OrderList"];
-                _ol.userid = ol.userid;
-                _ol.olid = ol.olid;
-                _ol.totalprice = ol.totalprice;
-                _ol.status = ol.status;
-                _ol.ol_dttm = ol.ol_dttm;
-                _ol.ol_dttm_real = ol.ol_dttm_real;
-                _ol.hasreview = ol.hasreview;
-                _this.orderList.push(_ol);
-            });
-            console.log(_this.orderList);
+        then( (_orderList: any) =>  {
+          _orderList.forEach( ol => {
+            const _ol: OrderList = new OrderList;
+            _ol.userid = ol.userid;
+            _ol.olid = ol.olid
+            _ol.totalprice = ol.totalprice;
+            _ol.status = ol.status;
+            _ol.ol_dttm = ol.ol_dttm;
+            _ol.ol_dttm_real = ol.ol_dttm_real;
+            _ol.hasreview = ol.hasreview;
+            this.orderList.push(_ol);
+          });
+          console.log(this.orderList);
+        });
+        */
+        this.orderListService.getTodayFutureOrders().then(function (_orderList) {
+            var len = _orderList['length'];
+            if (len === 0) {
+                console.log('no orders yet');
+                // change orders table to display empty line
+            }
+            else {
+                console.log('there are orders waiting');
+                _orderList.forEach(function (ol) {
+                    console.log(ol);
+                    var _ol = new _classes_orderlist__WEBPACK_IMPORTED_MODULE_1__["OrderList"];
+                    _ol.userid = ol.userid;
+                    _ol.olid = ol.olid;
+                    _ol.totalprice = ol.totalprice;
+                    // _ol.status = ol.status;
+                    _ol.ol_dttm = ol.ol_dttm;
+                    // _ol.ol_dttm_real = ol.ol_dttm_real;
+                    // _ol.hasreview = ol.hasreview;
+                    _this.orderList.push(_ol);
+                });
+            }
         });
     };
     OrderIncomingComponent.prototype.startMakingOrder = function (order) {
@@ -3861,6 +3912,32 @@ var OrderListService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.url + '/orderedlist/status/' + status, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json')
+            })
+                .subscribe(function (res) {
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    OrderListService.prototype.getTodayFutureOrders = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.get(_this.url + '/orderedlist/todayfutureorders', {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json')
+            })
+                .subscribe(function (res) {
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    OrderListService.prototype.getTodayActiveOrders = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.get(_this.url + '/orderedlist/todayactiveorders', {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json')
             })
                 .subscribe(function (res) {

@@ -61,6 +61,7 @@ export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
       icon: 'info circle', // icon in semantic-UI
       time: 5, // time
     });
+    /*
     this.orderListService.getAllOrdersByStatus('Active').
     then( (_orderList: any) =>  {
       _orderList.forEach( ol => {
@@ -75,6 +76,28 @@ export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
         this.orderList.push(_ol);
       });
       console.log(this.orderList);
+    });
+    */
+    this.orderListService.getTodayActiveOrders().then( (_orderList: any) => {
+      const len = _orderList['length'];
+      if ( len === 0 ) {
+        console.log('no orders yet');
+        // change orders table to display empty line
+      } else {
+        console.log('there are orders waiting');
+        _orderList.forEach( ol => {
+          console.log(ol);
+          let _ol: OrderList = new OrderList;
+          _ol.userid = ol.userid;
+          _ol.olid = ol.olid;
+          _ol.totalprice = ol.totalprice;
+          // _ol.status = ol.status;
+          _ol.ol_dttm = ol.ol_dttm;
+          // _ol.ol_dttm_real = ol.ol_dttm_real;
+          // _ol.hasreview = ol.hasreview;
+          this.orderList.push(_ol);
+        });
+      }
     });
   }
   completeOrder(order) {

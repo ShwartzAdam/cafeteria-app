@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       { path: 'dashboard' , component : DashboardComponent},
       {
@@ -78,7 +78,7 @@ const appRoutes: Routes = [
       }
     ]
   },
-  { path: '**', redirectTo: '/dashboard' }
+  { path: '**', redirectTo: '' }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(appRoutes)],

@@ -6,6 +6,7 @@ export class OrderList {
   public ol_dttm_real: string = "default"
   public status: string = "default"
   public hasreview: boolean = false;
+  public totalpreptime: number = 0;
 
   public constructor(init?:Partial<OrderList>) {
     Object.assign(this, init);
