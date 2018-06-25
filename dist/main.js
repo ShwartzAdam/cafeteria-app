@@ -1,5 +1,285 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./node_modules/moment/locale sync recursive ^\\.\\/.*$":
+/*!**************************************************!*\
+  !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": "./node_modules/moment/locale/af.js",
+	"./af.js": "./node_modules/moment/locale/af.js",
+	"./ar": "./node_modules/moment/locale/ar.js",
+	"./ar-dz": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-dz.js": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-kw": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-kw.js": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-ly": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ly.js": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ma": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-ma.js": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-sa": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-sa.js": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-tn": "./node_modules/moment/locale/ar-tn.js",
+	"./ar-tn.js": "./node_modules/moment/locale/ar-tn.js",
+	"./ar.js": "./node_modules/moment/locale/ar.js",
+	"./az": "./node_modules/moment/locale/az.js",
+	"./az.js": "./node_modules/moment/locale/az.js",
+	"./be": "./node_modules/moment/locale/be.js",
+	"./be.js": "./node_modules/moment/locale/be.js",
+	"./bg": "./node_modules/moment/locale/bg.js",
+	"./bg.js": "./node_modules/moment/locale/bg.js",
+	"./bm": "./node_modules/moment/locale/bm.js",
+	"./bm.js": "./node_modules/moment/locale/bm.js",
+	"./bn": "./node_modules/moment/locale/bn.js",
+	"./bn.js": "./node_modules/moment/locale/bn.js",
+	"./bo": "./node_modules/moment/locale/bo.js",
+	"./bo.js": "./node_modules/moment/locale/bo.js",
+	"./br": "./node_modules/moment/locale/br.js",
+	"./br.js": "./node_modules/moment/locale/br.js",
+	"./bs": "./node_modules/moment/locale/bs.js",
+	"./bs.js": "./node_modules/moment/locale/bs.js",
+	"./ca": "./node_modules/moment/locale/ca.js",
+	"./ca.js": "./node_modules/moment/locale/ca.js",
+	"./cs": "./node_modules/moment/locale/cs.js",
+	"./cs.js": "./node_modules/moment/locale/cs.js",
+	"./cv": "./node_modules/moment/locale/cv.js",
+	"./cv.js": "./node_modules/moment/locale/cv.js",
+	"./cy": "./node_modules/moment/locale/cy.js",
+	"./cy.js": "./node_modules/moment/locale/cy.js",
+	"./da": "./node_modules/moment/locale/da.js",
+	"./da.js": "./node_modules/moment/locale/da.js",
+	"./de": "./node_modules/moment/locale/de.js",
+	"./de-at": "./node_modules/moment/locale/de-at.js",
+	"./de-at.js": "./node_modules/moment/locale/de-at.js",
+	"./de-ch": "./node_modules/moment/locale/de-ch.js",
+	"./de-ch.js": "./node_modules/moment/locale/de-ch.js",
+	"./de.js": "./node_modules/moment/locale/de.js",
+	"./dv": "./node_modules/moment/locale/dv.js",
+	"./dv.js": "./node_modules/moment/locale/dv.js",
+	"./el": "./node_modules/moment/locale/el.js",
+	"./el.js": "./node_modules/moment/locale/el.js",
+	"./en-au": "./node_modules/moment/locale/en-au.js",
+	"./en-au.js": "./node_modules/moment/locale/en-au.js",
+	"./en-ca": "./node_modules/moment/locale/en-ca.js",
+	"./en-ca.js": "./node_modules/moment/locale/en-ca.js",
+	"./en-gb": "./node_modules/moment/locale/en-gb.js",
+	"./en-gb.js": "./node_modules/moment/locale/en-gb.js",
+	"./en-ie": "./node_modules/moment/locale/en-ie.js",
+	"./en-ie.js": "./node_modules/moment/locale/en-ie.js",
+	"./en-il": "./node_modules/moment/locale/en-il.js",
+	"./en-il.js": "./node_modules/moment/locale/en-il.js",
+	"./en-nz": "./node_modules/moment/locale/en-nz.js",
+	"./en-nz.js": "./node_modules/moment/locale/en-nz.js",
+	"./eo": "./node_modules/moment/locale/eo.js",
+	"./eo.js": "./node_modules/moment/locale/eo.js",
+	"./es": "./node_modules/moment/locale/es.js",
+	"./es-do": "./node_modules/moment/locale/es-do.js",
+	"./es-do.js": "./node_modules/moment/locale/es-do.js",
+	"./es-us": "./node_modules/moment/locale/es-us.js",
+	"./es-us.js": "./node_modules/moment/locale/es-us.js",
+	"./es.js": "./node_modules/moment/locale/es.js",
+	"./et": "./node_modules/moment/locale/et.js",
+	"./et.js": "./node_modules/moment/locale/et.js",
+	"./eu": "./node_modules/moment/locale/eu.js",
+	"./eu.js": "./node_modules/moment/locale/eu.js",
+	"./fa": "./node_modules/moment/locale/fa.js",
+	"./fa.js": "./node_modules/moment/locale/fa.js",
+	"./fi": "./node_modules/moment/locale/fi.js",
+	"./fi.js": "./node_modules/moment/locale/fi.js",
+	"./fo": "./node_modules/moment/locale/fo.js",
+	"./fo.js": "./node_modules/moment/locale/fo.js",
+	"./fr": "./node_modules/moment/locale/fr.js",
+	"./fr-ca": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ca.js": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ch": "./node_modules/moment/locale/fr-ch.js",
+	"./fr-ch.js": "./node_modules/moment/locale/fr-ch.js",
+	"./fr.js": "./node_modules/moment/locale/fr.js",
+	"./fy": "./node_modules/moment/locale/fy.js",
+	"./fy.js": "./node_modules/moment/locale/fy.js",
+	"./gd": "./node_modules/moment/locale/gd.js",
+	"./gd.js": "./node_modules/moment/locale/gd.js",
+	"./gl": "./node_modules/moment/locale/gl.js",
+	"./gl.js": "./node_modules/moment/locale/gl.js",
+	"./gom-latn": "./node_modules/moment/locale/gom-latn.js",
+	"./gom-latn.js": "./node_modules/moment/locale/gom-latn.js",
+	"./gu": "./node_modules/moment/locale/gu.js",
+	"./gu.js": "./node_modules/moment/locale/gu.js",
+	"./he": "./node_modules/moment/locale/he.js",
+	"./he.js": "./node_modules/moment/locale/he.js",
+	"./hi": "./node_modules/moment/locale/hi.js",
+	"./hi.js": "./node_modules/moment/locale/hi.js",
+	"./hr": "./node_modules/moment/locale/hr.js",
+	"./hr.js": "./node_modules/moment/locale/hr.js",
+	"./hu": "./node_modules/moment/locale/hu.js",
+	"./hu.js": "./node_modules/moment/locale/hu.js",
+	"./hy-am": "./node_modules/moment/locale/hy-am.js",
+	"./hy-am.js": "./node_modules/moment/locale/hy-am.js",
+	"./id": "./node_modules/moment/locale/id.js",
+	"./id.js": "./node_modules/moment/locale/id.js",
+	"./is": "./node_modules/moment/locale/is.js",
+	"./is.js": "./node_modules/moment/locale/is.js",
+	"./it": "./node_modules/moment/locale/it.js",
+	"./it.js": "./node_modules/moment/locale/it.js",
+	"./ja": "./node_modules/moment/locale/ja.js",
+	"./ja.js": "./node_modules/moment/locale/ja.js",
+	"./jv": "./node_modules/moment/locale/jv.js",
+	"./jv.js": "./node_modules/moment/locale/jv.js",
+	"./ka": "./node_modules/moment/locale/ka.js",
+	"./ka.js": "./node_modules/moment/locale/ka.js",
+	"./kk": "./node_modules/moment/locale/kk.js",
+	"./kk.js": "./node_modules/moment/locale/kk.js",
+	"./km": "./node_modules/moment/locale/km.js",
+	"./km.js": "./node_modules/moment/locale/km.js",
+	"./kn": "./node_modules/moment/locale/kn.js",
+	"./kn.js": "./node_modules/moment/locale/kn.js",
+	"./ko": "./node_modules/moment/locale/ko.js",
+	"./ko.js": "./node_modules/moment/locale/ko.js",
+	"./ky": "./node_modules/moment/locale/ky.js",
+	"./ky.js": "./node_modules/moment/locale/ky.js",
+	"./lb": "./node_modules/moment/locale/lb.js",
+	"./lb.js": "./node_modules/moment/locale/lb.js",
+	"./lo": "./node_modules/moment/locale/lo.js",
+	"./lo.js": "./node_modules/moment/locale/lo.js",
+	"./lt": "./node_modules/moment/locale/lt.js",
+	"./lt.js": "./node_modules/moment/locale/lt.js",
+	"./lv": "./node_modules/moment/locale/lv.js",
+	"./lv.js": "./node_modules/moment/locale/lv.js",
+	"./me": "./node_modules/moment/locale/me.js",
+	"./me.js": "./node_modules/moment/locale/me.js",
+	"./mi": "./node_modules/moment/locale/mi.js",
+	"./mi.js": "./node_modules/moment/locale/mi.js",
+	"./mk": "./node_modules/moment/locale/mk.js",
+	"./mk.js": "./node_modules/moment/locale/mk.js",
+	"./ml": "./node_modules/moment/locale/ml.js",
+	"./ml.js": "./node_modules/moment/locale/ml.js",
+	"./mn": "./node_modules/moment/locale/mn.js",
+	"./mn.js": "./node_modules/moment/locale/mn.js",
+	"./mr": "./node_modules/moment/locale/mr.js",
+	"./mr.js": "./node_modules/moment/locale/mr.js",
+	"./ms": "./node_modules/moment/locale/ms.js",
+	"./ms-my": "./node_modules/moment/locale/ms-my.js",
+	"./ms-my.js": "./node_modules/moment/locale/ms-my.js",
+	"./ms.js": "./node_modules/moment/locale/ms.js",
+	"./mt": "./node_modules/moment/locale/mt.js",
+	"./mt.js": "./node_modules/moment/locale/mt.js",
+	"./my": "./node_modules/moment/locale/my.js",
+	"./my.js": "./node_modules/moment/locale/my.js",
+	"./nb": "./node_modules/moment/locale/nb.js",
+	"./nb.js": "./node_modules/moment/locale/nb.js",
+	"./ne": "./node_modules/moment/locale/ne.js",
+	"./ne.js": "./node_modules/moment/locale/ne.js",
+	"./nl": "./node_modules/moment/locale/nl.js",
+	"./nl-be": "./node_modules/moment/locale/nl-be.js",
+	"./nl-be.js": "./node_modules/moment/locale/nl-be.js",
+	"./nl.js": "./node_modules/moment/locale/nl.js",
+	"./nn": "./node_modules/moment/locale/nn.js",
+	"./nn.js": "./node_modules/moment/locale/nn.js",
+	"./pa-in": "./node_modules/moment/locale/pa-in.js",
+	"./pa-in.js": "./node_modules/moment/locale/pa-in.js",
+	"./pl": "./node_modules/moment/locale/pl.js",
+	"./pl.js": "./node_modules/moment/locale/pl.js",
+	"./pt": "./node_modules/moment/locale/pt.js",
+	"./pt-br": "./node_modules/moment/locale/pt-br.js",
+	"./pt-br.js": "./node_modules/moment/locale/pt-br.js",
+	"./pt.js": "./node_modules/moment/locale/pt.js",
+	"./ro": "./node_modules/moment/locale/ro.js",
+	"./ro.js": "./node_modules/moment/locale/ro.js",
+	"./ru": "./node_modules/moment/locale/ru.js",
+	"./ru.js": "./node_modules/moment/locale/ru.js",
+	"./sd": "./node_modules/moment/locale/sd.js",
+	"./sd.js": "./node_modules/moment/locale/sd.js",
+	"./se": "./node_modules/moment/locale/se.js",
+	"./se.js": "./node_modules/moment/locale/se.js",
+	"./si": "./node_modules/moment/locale/si.js",
+	"./si.js": "./node_modules/moment/locale/si.js",
+	"./sk": "./node_modules/moment/locale/sk.js",
+	"./sk.js": "./node_modules/moment/locale/sk.js",
+	"./sl": "./node_modules/moment/locale/sl.js",
+	"./sl.js": "./node_modules/moment/locale/sl.js",
+	"./sq": "./node_modules/moment/locale/sq.js",
+	"./sq.js": "./node_modules/moment/locale/sq.js",
+	"./sr": "./node_modules/moment/locale/sr.js",
+	"./sr-cyrl": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr-cyrl.js": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr.js": "./node_modules/moment/locale/sr.js",
+	"./ss": "./node_modules/moment/locale/ss.js",
+	"./ss.js": "./node_modules/moment/locale/ss.js",
+	"./sv": "./node_modules/moment/locale/sv.js",
+	"./sv.js": "./node_modules/moment/locale/sv.js",
+	"./sw": "./node_modules/moment/locale/sw.js",
+	"./sw.js": "./node_modules/moment/locale/sw.js",
+	"./ta": "./node_modules/moment/locale/ta.js",
+	"./ta.js": "./node_modules/moment/locale/ta.js",
+	"./te": "./node_modules/moment/locale/te.js",
+	"./te.js": "./node_modules/moment/locale/te.js",
+	"./tet": "./node_modules/moment/locale/tet.js",
+	"./tet.js": "./node_modules/moment/locale/tet.js",
+	"./tg": "./node_modules/moment/locale/tg.js",
+	"./tg.js": "./node_modules/moment/locale/tg.js",
+	"./th": "./node_modules/moment/locale/th.js",
+	"./th.js": "./node_modules/moment/locale/th.js",
+	"./tl-ph": "./node_modules/moment/locale/tl-ph.js",
+	"./tl-ph.js": "./node_modules/moment/locale/tl-ph.js",
+	"./tlh": "./node_modules/moment/locale/tlh.js",
+	"./tlh.js": "./node_modules/moment/locale/tlh.js",
+	"./tr": "./node_modules/moment/locale/tr.js",
+	"./tr.js": "./node_modules/moment/locale/tr.js",
+	"./tzl": "./node_modules/moment/locale/tzl.js",
+	"./tzl.js": "./node_modules/moment/locale/tzl.js",
+	"./tzm": "./node_modules/moment/locale/tzm.js",
+	"./tzm-latn": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm-latn.js": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm.js": "./node_modules/moment/locale/tzm.js",
+	"./ug-cn": "./node_modules/moment/locale/ug-cn.js",
+	"./ug-cn.js": "./node_modules/moment/locale/ug-cn.js",
+	"./uk": "./node_modules/moment/locale/uk.js",
+	"./uk.js": "./node_modules/moment/locale/uk.js",
+	"./ur": "./node_modules/moment/locale/ur.js",
+	"./ur.js": "./node_modules/moment/locale/ur.js",
+	"./uz": "./node_modules/moment/locale/uz.js",
+	"./uz-latn": "./node_modules/moment/locale/uz-latn.js",
+	"./uz-latn.js": "./node_modules/moment/locale/uz-latn.js",
+	"./uz.js": "./node_modules/moment/locale/uz.js",
+	"./vi": "./node_modules/moment/locale/vi.js",
+	"./vi.js": "./node_modules/moment/locale/vi.js",
+	"./x-pseudo": "./node_modules/moment/locale/x-pseudo.js",
+	"./x-pseudo.js": "./node_modules/moment/locale/x-pseudo.js",
+	"./yo": "./node_modules/moment/locale/yo.js",
+	"./yo.js": "./node_modules/moment/locale/yo.js",
+	"./zh-cn": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-cn.js": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-hk": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-hk.js": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-tw": "./node_modules/moment/locale/zh-tw.js",
+	"./zh-tw.js": "./node_modules/moment/locale/zh-tw.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	var module = __webpack_require__(id);
+	return module;
+}
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) { // check for number or string
+		var e = new Error('Cannot find module "' + req + '".');
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return id;
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
+
+/***/ }),
+
 /***/ "./src/$$_lazy_route_resource lazy recursive":
 /*!**********************************************************!*\
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
@@ -45,9 +325,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu_menu_storage_menu_storage_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./menu/menu-storage/menu-storage.component */ "./src/app/menu/menu-storage/menu-storage.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _employee_employee_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./employee/employee.component */ "./src/app/employee/employee.component.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
-/* harmony import */ var _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./layouts/auth-layout.component */ "./src/app/layouts/auth-layout.component.ts");
-/* harmony import */ var _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./layouts/home-layout.component */ "./src/app/layouts/home-layout.component.ts");
+/* harmony import */ var _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./layouts/auth-layout.component */ "./src/app/layouts/auth-layout.component.ts");
+/* harmony import */ var _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./layouts/home-layout.component */ "./src/app/layouts/home-layout.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -67,15 +346,13 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-// guards
-
 
 
 var appRoutes = [
     {
         path: '',
-        component: _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_14__["HomeLayoutComponent"],
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]],
+        component: _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_13__["HomeLayoutComponent"],
+        // canActivate: [AuthGuard],
         children: [
             { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["DashboardComponent"] },
             {
@@ -106,7 +383,7 @@ var appRoutes = [
     },
     {
         path: '',
-        component: _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_13__["AuthLayoutComponent"],
+        component: _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_12__["AuthLayoutComponent"],
         children: [
             {
                 path: 'login',
@@ -207,51 +484,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/esm5/common.js");
 /* harmony import */ var _modules_material_module_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/material-module.module */ "./src/app/modules/material-module.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _nav_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./nav.component */ "./src/app/nav.component.ts");
-/* harmony import */ var _menu_menu_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./menu/menu.component */ "./src/app/menu/menu.component.ts");
-/* harmony import */ var _menu_menu_storage_menu_storage_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./menu/menu-storage/menu-storage.component */ "./src/app/menu/menu-storage/menu-storage.component.ts");
-/* harmony import */ var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./auth/login/login.component */ "./src/app/auth/login/login.component.ts");
-/* harmony import */ var _auth_signup_signup_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./auth/signup/signup.component */ "./src/app/auth/signup/signup.component.ts");
-/* harmony import */ var _auth_forgotpass_forgotpass_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./auth/forgotpass/forgotpass.component */ "./src/app/auth/forgotpass/forgotpass.component.ts");
-/* harmony import */ var _order_order_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./order/order.component */ "./src/app/order/order.component.ts");
-/* harmony import */ var _charts_charts_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./charts/charts.component */ "./src/app/charts/charts.component.ts");
-/* harmony import */ var _components_orderinfo_orderdetails_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/orderinfo/orderdetails.component */ "./src/app/components/orderinfo/orderdetails.component.ts");
-/* harmony import */ var _components_userInfo_userdetails_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/userInfo/userdetails.component */ "./src/app/components/userInfo/userdetails.component.ts");
-/* harmony import */ var _order_order_incoming_order_incoming_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./order/order-incoming/order-incoming.component */ "./src/app/order/order-incoming/order-incoming.component.ts");
-/* harmony import */ var _order_order_active_order_active_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./order/order-active/order-active.component */ "./src/app/order/order-active/order-active.component.ts");
-/* harmony import */ var _order_order_complete_order_complete_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./order/order-complete/order-complete.component */ "./src/app/order/order-complete/order-complete.component.ts");
-/* harmony import */ var _components_modals_item_Item_add_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/modals/item/Item-add.component */ "./src/app/components/modals/item/Item-add.component.ts");
-/* harmony import */ var _components_modals_item_item_edit_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/modals/item/item-edit.component */ "./src/app/components/modals/item/item-edit.component.ts");
-/* harmony import */ var _components_modals_item_item_confirm_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/modals/item/item-confirm.component */ "./src/app/components/modals/item/item-confirm.component.ts");
-/* harmony import */ var _menu_menu_published_menu_published_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./menu/menu-published/menu-published.component */ "./src/app/menu/menu-published/menu-published.component.ts");
-/* harmony import */ var _components_modals_order_order_confirm_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/modals/order/order-confirm.component */ "./src/app/components/modals/order/order-confirm.component.ts");
-/* harmony import */ var _components_modals_order_order_complete_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/modals/order/order-complete.component */ "./src/app/components/modals/order/order-complete.component.ts");
-/* harmony import */ var _components_emp_invite_emp_invite_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/emp-invite/emp-invite.component */ "./src/app/components/emp-invite/emp-invite.component.ts");
-/* harmony import */ var _employee_employee_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./employee/employee.component */ "./src/app/employee/employee.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var _components_emp_list_emp_list_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/emp-list/emp-list.component */ "./src/app/components/emp-list/emp-list.component.ts");
-/* harmony import */ var _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/reports/bestUsers/best-users.component */ "./src/app/components/reports/bestUsers/best-users.component.ts");
-/* harmony import */ var _services_order_service__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./services/order.service */ "./src/app/services/order.service.ts");
-/* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./services/orderlist.service */ "./src/app/services/orderlist.service.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _services_item_service__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./services/item.service */ "./src/app/services/item.service.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
-/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
-/* harmony import */ var _components_sort_sort_service__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/sort/sort.service */ "./src/app/components/sort/sort.service.ts");
-/* harmony import */ var _services_user_data_user_data_service__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./services/user-data/user-data.service */ "./src/app/services/user-data/user-data.service.ts");
-/* harmony import */ var _pipes_capitalizefirst_pipe__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./pipes/capitalizefirst.pipe */ "./src/app/pipes/capitalizefirst.pipe.ts");
-/* harmony import */ var _pipes_time_order_pipe__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./pipes/time-order.pipe */ "./src/app/pipes/time-order.pipe.ts");
-/* harmony import */ var _components_sort_sortable_column_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./components/sort/sortable-column.component */ "./src/app/components/sort/sortable-column.component.ts");
-/* harmony import */ var _components_sort_sort_directive__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./components/sort/sort.directive */ "./src/app/components/sort/sort.directive.ts");
-/* harmony import */ var _pipes_review_pipe__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./pipes/review.pipe */ "./src/app/pipes/review.pipe.ts");
-/* harmony import */ var _pipes_on_menu_pipe__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./pipes/on-menu.pipe */ "./src/app/pipes/on-menu.pipe.ts");
-/* harmony import */ var _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./layouts/auth-layout.component */ "./src/app/layouts/auth-layout.component.ts");
-/* harmony import */ var _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./layouts/home-layout.component */ "./src/app/layouts/home-layout.component.ts");
-/* harmony import */ var _classes_rxjs_operators__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./classes/rxjs-operators */ "./src/app/classes/rxjs-operators.ts");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/esm5/animations.js");
-/* harmony import */ var _services_query_service__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./services/query.service */ "./src/app/services/query.service.ts");
-/* harmony import */ var _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/reports/bestItems/best-items.component */ "./src/app/components/reports/bestItems/best-items.component.ts");
+/* harmony import */ var mydaterangepicker__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! mydaterangepicker */ "./node_modules/mydaterangepicker/index.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _nav_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./nav.component */ "./src/app/nav.component.ts");
+/* harmony import */ var _menu_menu_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./menu/menu.component */ "./src/app/menu/menu.component.ts");
+/* harmony import */ var _menu_menu_storage_menu_storage_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./menu/menu-storage/menu-storage.component */ "./src/app/menu/menu-storage/menu-storage.component.ts");
+/* harmony import */ var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./auth/login/login.component */ "./src/app/auth/login/login.component.ts");
+/* harmony import */ var _auth_signup_signup_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./auth/signup/signup.component */ "./src/app/auth/signup/signup.component.ts");
+/* harmony import */ var _auth_forgotpass_forgotpass_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./auth/forgotpass/forgotpass.component */ "./src/app/auth/forgotpass/forgotpass.component.ts");
+/* harmony import */ var _order_order_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./order/order.component */ "./src/app/order/order.component.ts");
+/* harmony import */ var _charts_charts_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./charts/charts.component */ "./src/app/charts/charts.component.ts");
+/* harmony import */ var _components_orderinfo_orderdetails_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/orderinfo/orderdetails.component */ "./src/app/components/orderinfo/orderdetails.component.ts");
+/* harmony import */ var _components_userInfo_userdetails_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/userInfo/userdetails.component */ "./src/app/components/userInfo/userdetails.component.ts");
+/* harmony import */ var _order_order_incoming_order_incoming_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./order/order-incoming/order-incoming.component */ "./src/app/order/order-incoming/order-incoming.component.ts");
+/* harmony import */ var _order_order_active_order_active_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./order/order-active/order-active.component */ "./src/app/order/order-active/order-active.component.ts");
+/* harmony import */ var _order_order_complete_order_complete_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./order/order-complete/order-complete.component */ "./src/app/order/order-complete/order-complete.component.ts");
+/* harmony import */ var _components_modals_item_Item_add_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/modals/item/Item-add.component */ "./src/app/components/modals/item/Item-add.component.ts");
+/* harmony import */ var _components_modals_item_item_edit_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/modals/item/item-edit.component */ "./src/app/components/modals/item/item-edit.component.ts");
+/* harmony import */ var _components_modals_item_item_confirm_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/modals/item/item-confirm.component */ "./src/app/components/modals/item/item-confirm.component.ts");
+/* harmony import */ var _menu_menu_published_menu_published_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./menu/menu-published/menu-published.component */ "./src/app/menu/menu-published/menu-published.component.ts");
+/* harmony import */ var _components_modals_order_order_confirm_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/modals/order/order-confirm.component */ "./src/app/components/modals/order/order-confirm.component.ts");
+/* harmony import */ var _components_modals_order_order_complete_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/modals/order/order-complete.component */ "./src/app/components/modals/order/order-complete.component.ts");
+/* harmony import */ var _components_emp_invite_emp_invite_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/emp-invite/emp-invite.component */ "./src/app/components/emp-invite/emp-invite.component.ts");
+/* harmony import */ var _employee_employee_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./employee/employee.component */ "./src/app/employee/employee.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _components_emp_list_emp_list_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/emp-list/emp-list.component */ "./src/app/components/emp-list/emp-list.component.ts");
+/* harmony import */ var _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/reports/bestUsers/best-users.component */ "./src/app/components/reports/bestUsers/best-users.component.ts");
+/* harmony import */ var _services_order_service__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./services/order.service */ "./src/app/services/order.service.ts");
+/* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./services/orderlist.service */ "./src/app/services/orderlist.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_item_service__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./services/item.service */ "./src/app/services/item.service.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var _components_sort_sort_service__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/sort/sort.service */ "./src/app/components/sort/sort.service.ts");
+/* harmony import */ var _services_user_data_user_data_service__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./services/user-data/user-data.service */ "./src/app/services/user-data/user-data.service.ts");
+/* harmony import */ var _pipes_capitalizefirst_pipe__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./pipes/capitalizefirst.pipe */ "./src/app/pipes/capitalizefirst.pipe.ts");
+/* harmony import */ var _pipes_time_order_pipe__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./pipes/time-order.pipe */ "./src/app/pipes/time-order.pipe.ts");
+/* harmony import */ var _components_sort_sortable_column_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./components/sort/sortable-column.component */ "./src/app/components/sort/sortable-column.component.ts");
+/* harmony import */ var _components_sort_sort_directive__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./components/sort/sort.directive */ "./src/app/components/sort/sort.directive.ts");
+/* harmony import */ var _pipes_review_pipe__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./pipes/review.pipe */ "./src/app/pipes/review.pipe.ts");
+/* harmony import */ var _pipes_on_menu_pipe__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./pipes/on-menu.pipe */ "./src/app/pipes/on-menu.pipe.ts");
+/* harmony import */ var _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./layouts/auth-layout.component */ "./src/app/layouts/auth-layout.component.ts");
+/* harmony import */ var _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./layouts/home-layout.component */ "./src/app/layouts/home-layout.component.ts");
+/* harmony import */ var _classes_rxjs_operators__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./classes/rxjs-operators */ "./src/app/classes/rxjs-operators.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/esm5/animations.js");
+/* harmony import */ var _services_query_service__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./services/query.service */ "./src/app/services/query.service.ts");
+/* harmony import */ var _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/reports/bestItems/best-items.component */ "./src/app/components/reports/bestItems/best-items.component.ts");
+/* harmony import */ var _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/reports/date-picker/datepicker.component */ "./src/app/components/reports/date-picker/datepicker.component.ts");
+/* harmony import */ var _components_reports_chart_component_chartjs_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./components/reports/chart-component/chartjs.component */ "./src/app/components/reports/chart-component/chartjs.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -261,6 +541,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // Modules Added
+
 
 
 
@@ -319,46 +600,50 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
-                _nav_component__WEBPACK_IMPORTED_MODULE_9__["NavComponent"],
-                _menu_menu_component__WEBPACK_IMPORTED_MODULE_10__["MenuComponent"],
-                _menu_menu_storage_menu_storage_component__WEBPACK_IMPORTED_MODULE_11__["MenuStorageComponent"],
-                _components_modals_item_Item_add_component__WEBPACK_IMPORTED_MODULE_22__["ItemAddComponent"],
-                _components_modals_item_item_edit_component__WEBPACK_IMPORTED_MODULE_23__["ItemEditComponent"],
-                _components_modals_item_item_confirm_component__WEBPACK_IMPORTED_MODULE_24__["ItemConfirmComponent"],
-                _auth_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"],
-                _auth_signup_signup_component__WEBPACK_IMPORTED_MODULE_13__["SignupComponent"],
-                _auth_forgotpass_forgotpass_component__WEBPACK_IMPORTED_MODULE_14__["ForgotpassComponent"],
-                _order_order_component__WEBPACK_IMPORTED_MODULE_15__["OrderComponent"],
-                _charts_charts_component__WEBPACK_IMPORTED_MODULE_16__["ChartsComponent"],
-                _order_order_incoming_order_incoming_component__WEBPACK_IMPORTED_MODULE_19__["OrderIncomingComponent"],
-                _order_order_active_order_active_component__WEBPACK_IMPORTED_MODULE_20__["OrderActiveComponent"],
-                _order_order_complete_order_complete_component__WEBPACK_IMPORTED_MODULE_21__["OrderCompleteComponent"],
-                _components_userInfo_userdetails_component__WEBPACK_IMPORTED_MODULE_18__["UserDetailsComponent"],
-                _components_orderinfo_orderdetails_component__WEBPACK_IMPORTED_MODULE_17__["OrderDetailsComponent"],
-                _pipes_capitalizefirst_pipe__WEBPACK_IMPORTED_MODULE_41__["CapitalizeFirstPipe"],
-                _pipes_time_order_pipe__WEBPACK_IMPORTED_MODULE_42__["TimeOrderPipe"],
-                _pipes_review_pipe__WEBPACK_IMPORTED_MODULE_45__["ReviewPipe"],
-                _pipes_on_menu_pipe__WEBPACK_IMPORTED_MODULE_46__["MenuPipe"],
-                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_30__["DashboardComponent"],
-                _components_sort_sortable_column_component__WEBPACK_IMPORTED_MODULE_43__["SortableColumnComponent"],
-                _components_sort_sort_directive__WEBPACK_IMPORTED_MODULE_44__["SortableTableDirective"],
-                _components_emp_invite_emp_invite_component__WEBPACK_IMPORTED_MODULE_28__["EmployeeInviteComponent"],
-                _employee_employee_component__WEBPACK_IMPORTED_MODULE_29__["EmployeeComponent"],
-                _components_emp_list_emp_list_component__WEBPACK_IMPORTED_MODULE_31__["EmployeeListComponent"],
-                _menu_menu_published_menu_published_component__WEBPACK_IMPORTED_MODULE_25__["MenuPublishedComponent"],
-                _components_modals_order_order_confirm_component__WEBPACK_IMPORTED_MODULE_26__["OrderConfirmComponent"],
-                _components_modals_order_order_complete_component__WEBPACK_IMPORTED_MODULE_27__["OrderCompComponent"],
-                _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_47__["AuthLayoutComponent"],
-                _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_48__["HomeLayoutComponent"],
-                _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_32__["BestUsersComponent"],
-                _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_52__["BestItemsComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"],
+                _nav_component__WEBPACK_IMPORTED_MODULE_10__["NavComponent"],
+                _menu_menu_component__WEBPACK_IMPORTED_MODULE_11__["MenuComponent"],
+                _menu_menu_storage_menu_storage_component__WEBPACK_IMPORTED_MODULE_12__["MenuStorageComponent"],
+                _components_modals_item_Item_add_component__WEBPACK_IMPORTED_MODULE_23__["ItemAddComponent"],
+                _components_modals_item_item_edit_component__WEBPACK_IMPORTED_MODULE_24__["ItemEditComponent"],
+                _components_modals_item_item_confirm_component__WEBPACK_IMPORTED_MODULE_25__["ItemConfirmComponent"],
+                _auth_login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
+                _auth_signup_signup_component__WEBPACK_IMPORTED_MODULE_14__["SignupComponent"],
+                _auth_forgotpass_forgotpass_component__WEBPACK_IMPORTED_MODULE_15__["ForgotpassComponent"],
+                _order_order_component__WEBPACK_IMPORTED_MODULE_16__["OrderComponent"],
+                _charts_charts_component__WEBPACK_IMPORTED_MODULE_17__["ChartsComponent"],
+                _order_order_incoming_order_incoming_component__WEBPACK_IMPORTED_MODULE_20__["OrderIncomingComponent"],
+                _order_order_active_order_active_component__WEBPACK_IMPORTED_MODULE_21__["OrderActiveComponent"],
+                _order_order_complete_order_complete_component__WEBPACK_IMPORTED_MODULE_22__["OrderCompleteComponent"],
+                _components_userInfo_userdetails_component__WEBPACK_IMPORTED_MODULE_19__["UserDetailsComponent"],
+                _components_orderinfo_orderdetails_component__WEBPACK_IMPORTED_MODULE_18__["OrderDetailsComponent"],
+                _pipes_capitalizefirst_pipe__WEBPACK_IMPORTED_MODULE_42__["CapitalizeFirstPipe"],
+                _pipes_time_order_pipe__WEBPACK_IMPORTED_MODULE_43__["TimeOrderPipe"],
+                _pipes_review_pipe__WEBPACK_IMPORTED_MODULE_46__["ReviewPipe"],
+                _pipes_on_menu_pipe__WEBPACK_IMPORTED_MODULE_47__["MenuPipe"],
+                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_31__["DashboardComponent"],
+                _components_sort_sortable_column_component__WEBPACK_IMPORTED_MODULE_44__["SortableColumnComponent"],
+                _components_sort_sort_directive__WEBPACK_IMPORTED_MODULE_45__["SortableTableDirective"],
+                _components_emp_invite_emp_invite_component__WEBPACK_IMPORTED_MODULE_29__["EmployeeInviteComponent"],
+                _employee_employee_component__WEBPACK_IMPORTED_MODULE_30__["EmployeeComponent"],
+                _components_emp_list_emp_list_component__WEBPACK_IMPORTED_MODULE_32__["EmployeeListComponent"],
+                _menu_menu_published_menu_published_component__WEBPACK_IMPORTED_MODULE_26__["MenuPublishedComponent"],
+                _components_modals_order_order_confirm_component__WEBPACK_IMPORTED_MODULE_27__["OrderConfirmComponent"],
+                _components_modals_order_order_complete_component__WEBPACK_IMPORTED_MODULE_28__["OrderCompComponent"],
+                _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_48__["AuthLayoutComponent"],
+                _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_49__["HomeLayoutComponent"],
+                _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_33__["BestUsersComponent"],
+                _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_53__["BestItemsComponent"],
+                _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_54__["DatePickerComponent"],
+                _components_reports_chart_component_chartjs_component__WEBPACK_IMPORTED_MODULE_55__["ChartjsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -369,20 +654,22 @@ var AppModule = /** @class */ (function () {
                 // DataTablesModule,
                 _modules_material_module_module__WEBPACK_IMPORTED_MODULE_7__["MaterialModule"],
                 _angular_common__WEBPACK_IMPORTED_MODULE_6__["CommonModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_50__["BrowserAnimationsModule"]
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_51__["BrowserAnimationsModule"],
+                mydaterangepicker__WEBPACK_IMPORTED_MODULE_8__["MyDateRangePickerModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"]
             ],
             providers: [
-                _services_orderlist_service__WEBPACK_IMPORTED_MODULE_34__["OrderListService"],
-                _services_order_service__WEBPACK_IMPORTED_MODULE_33__["OrderService"],
-                _services_user_service__WEBPACK_IMPORTED_MODULE_35__["UserService"],
-                _services_item_service__WEBPACK_IMPORTED_MODULE_36__["ItemService"],
-                _services_user_data_user_data_service__WEBPACK_IMPORTED_MODULE_40__["UserData"],
-                _components_sort_sort_service__WEBPACK_IMPORTED_MODULE_39__["SortService"],
-                _auth_auth_service__WEBPACK_IMPORTED_MODULE_38__["AuthService"],
-                _auth_auth_guard__WEBPACK_IMPORTED_MODULE_37__["AuthGuard"],
-                _services_query_service__WEBPACK_IMPORTED_MODULE_51__["QueryService"]
+                _services_orderlist_service__WEBPACK_IMPORTED_MODULE_35__["OrderListService"],
+                _services_order_service__WEBPACK_IMPORTED_MODULE_34__["OrderService"],
+                _services_user_service__WEBPACK_IMPORTED_MODULE_36__["UserService"],
+                _services_item_service__WEBPACK_IMPORTED_MODULE_37__["ItemService"],
+                _services_user_data_user_data_service__WEBPACK_IMPORTED_MODULE_41__["UserData"],
+                _components_sort_sort_service__WEBPACK_IMPORTED_MODULE_40__["SortService"],
+                _auth_auth_service__WEBPACK_IMPORTED_MODULE_39__["AuthService"],
+                _auth_auth_guard__WEBPACK_IMPORTED_MODULE_38__["AuthGuard"],
+                _services_query_service__WEBPACK_IMPORTED_MODULE_52__["QueryService"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -591,7 +878,7 @@ module.exports = ".grouped.fields{\n  color:#fff;\n}\n.ui.checkbox label {\n  co
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui container\">\n    <div class=\"ui center aligned segment\">\n      <div class=\"ui active dimmer\" *ngIf=\"loading\">\n        <div class=\"ui medium text loader\">Loading...</div>\n      </div>\n      <div class=\"ui one column grid\">\n        <div class=\"column\">\n          <img class=\"ui centered image\" src=\"../../../assets/png/littlecafe.png\">\n        </div>\n      </div>\n      <form (ngSubmit)=\"login()\" #registerForm=\"ngForm\">\n        <div class=\"ui one column grid\">\n          <div class=\"column\">\n            <div class=\"ui icon input\">\n              <input type=\"text\" placeholder=\"Email\" name=\"email\" [(ngModel)]=\"registerCredentials.email\" required>\n              <i class=\"users icon\"></i>\n            </div>\n          </div>\n          <div class=\"column\">\n            <div class=\"ui icon input\">\n              <input type=\"password\" placeholder=\"Password\" name=\"password\" [(ngModel)]=\"registerCredentials.password\" required>\n              <i class=\"key icon\"></i>\n            </div>\n          </div>\n          <div class=\"column\">\n            <div class=\"ui large buttons\">\n              <button class=\"ui button\" type=\"button\" (click)=\"setRole('Manager')\">Manager</button>\n              <div class=\"or\"></div>\n              <button class=\"ui button\" type=\"button\" (click)=\"setRole('Employee')\">Employee</button>\n            </div>\n          </div>\n          <div class=\"column\">\n            <button class=\"large ui button\" type=\"submit\"  [disabled]=\"!registerForm.form.valid\">Login</button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui container\">\n    <div class=\"ui center aligned segment\">\n      <div class=\"ui active dimmer\" *ngIf=\"loading\">\n        <div class=\"ui medium text loader\">Loading...</div>\n      </div>\n      <div class=\"ui one column grid\">\n        <div class=\"column\">\n          <img class=\"ui centered image logo\" src=\"../../../assets/png/littlecafe.png\">\n        </div>\n      </div>\n      <form (ngSubmit)=\"login()\" #registerForm=\"ngForm\">\n        <div class=\"ui one column grid\">\n          <div class=\"column\">\n            <div class=\"ui icon input\">\n              <input type=\"text\" placeholder=\"Email\" name=\"email\" [(ngModel)]=\"registerCredentials.email\" required>\n              <i class=\"users icon\"></i>\n            </div>\n          </div>\n          <div class=\"column\">\n            <div class=\"ui icon input\">\n              <input type=\"password\" placeholder=\"Password\" name=\"password\" [(ngModel)]=\"registerCredentials.password\" required>\n              <i class=\"key icon\"></i>\n            </div>\n          </div>\n          <div class=\"column\">\n            <div class=\"ui large buttons\">\n              <button class=\"ui button\" type=\"button\" (click)=\"setRole('Manager')\">Manager</button>\n              <div class=\"or\"></div>\n              <button class=\"ui button\" type=\"button\" (click)=\"setRole('Employee')\">Employee</button>\n            </div>\n          </div>\n          <div class=\"column\">\n            <button class=\"large ui button\" type=\"submit\"  [disabled]=\"!registerForm.form.valid\">Login</button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -776,7 +1063,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui container\">\n    <div class=\"ui two column centered grid\">\n        <div class=\"column\">\n          <div class=\"ui segment\">\n            <h2 class=\"ui block header\">\n              <i class=\"small map icon\"></i>\n              <div class=\"content\">\n                Best Users This Month\n                <div class=\"sub header\">List of users who spend the most</div>\n              </div>\n            </h2>\n            <app-charts-users [option]=\"'MonthBestUsers'\"></app-charts-users>\n          </div>\n        </div>\n        <div class=\"column\">\n          <div class=\"ui segment\">\n            <h2 class=\"ui block header\">\n              <i class=\"small map icon\"></i>\n              <div class=\"content\">\n                Best Users Of Week\n                <div class=\"sub header\">List of users who spend the most</div>\n              </div>\n            </h2>\n            <app-charts-users [option]=\"'WeekBestUsers'\"></app-charts-users>\n          </div>\n        </div>\n        <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Best Users Of Today\n              <div class=\"sub header\">List of users who spend the most</div>\n            </div>\n          </h2>\n          <app-charts-users [option]=\"'TodayBestUsers'\"></app-charts-users>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Best Items Of Today\n              <div class=\"sub header\">List of items and theirs performance</div>\n            </div>\n          </h2>\n          <app-charts-items [option]=\"'TodayBestItems'\"></app-charts-items>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Best Items Of Week\n              <div class=\"sub header\">List of items and theirs performance</div>\n            </div>\n          </h2>\n          <app-charts-items [option]=\"'WeekBestItems'\"></app-charts-items>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Best Items Of Month\n              <div class=\"sub header\">List of items and theirs performance</div>\n            </div>\n          </h2>\n          <app-charts-items [option]=\"'MonthBestItems'\"></app-charts-items>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui container\">\n    <div class=\"ui one column centered grid\">\n        <div class=\"column\">\n          <div class=\"ui segment\">\n            <h2 class=\"ui block header\">\n              <i class=\"small map icon\"></i>\n              <div class=\"content\">\n                Best Users This Month\n                <div class=\"sub header\">List of users who spend the most</div>\n              </div>\n            </h2>\n            <app-charts-users [option]=\"'MonthBestUsers'\"></app-charts-users>\n          </div>\n        </div>\n        <div class=\"column\">\n          <div class=\"ui segment\">\n            <h2 class=\"ui block header\">\n              <i class=\"small map icon\"></i>\n              <div class=\"content\">\n                Best Users Of Week\n                <div class=\"sub header\">List of users who spend the most</div>\n              </div>\n            </h2>\n            <app-charts-users [option]=\"'WeekBestUsers'\"></app-charts-users>\n          </div>\n        </div>\n        <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Best Users Of Today\n              <div class=\"sub header\">List of users who spend the most</div>\n            </div>\n          </h2>\n          <app-charts-users [option]=\"'TodayBestUsers'\"></app-charts-users>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Best Items Of Today\n              <div class=\"sub header\">List of items and theirs performance</div>\n            </div>\n          </h2>\n          <app-charts-items [option]=\"'TodayBestItems'\"></app-charts-items>\n         </div>\n       </div>\n       <div class=\"column\">\n         <div class=\"ui segment\">\n           <h2 class=\"ui block header\">\n             <i class=\"small map icon\"></i>\n             <div class=\"content\">\n               Best Items Of Week\n               <div class=\"sub header\">List of items and theirs performance</div>\n             </div>\n           </h2>\n           <app-charts-items [option]=\"'WeekBestItems'\"></app-charts-items>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Best Items Of Month\n              <div class=\"sub header\">List of items and theirs performance</div>\n            </div>\n          </h2>\n          <app-charts-items [option]=\"'MonthBestItems'\"></app-charts-items>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Date Picker\n              <div class=\"sub header\">Review all orders in the cafeteria by dates</div>\n            </div>\n          </h2>\n          <app-date-picker></app-date-picker>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -961,9 +1248,9 @@ var User = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/components/emp-invite/emp-inivte.component.css":
+/***/ "./src/app/components/emp-invite/emp-invite.component.css":
 /*!****************************************************************!*\
-  !*** ./src/app/components/emp-invite/emp-inivte.component.css ***!
+  !*** ./src/app/components/emp-invite/emp-invite.component.css ***!
   \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -972,14 +1259,14 @@ module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components/emp-invite/emp-inivte.component.html":
+/***/ "./src/app/components/emp-invite/emp-invite.component.html":
 /*!*****************************************************************!*\
-  !*** ./src/app/components/emp-invite/emp-inivte.component.html ***!
+  !*** ./src/app/components/emp-invite/emp-invite.component.html ***!
   \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form (ngSubmit)=\"inviteEmployee()\" #registerForm=\"ngForm\">\n  <div class=\"ui center aligned two column grid\">\n    <div class=\"row\">\n      <div class=\"column\">\n        <div class=\"ui icon input\">\n          <input type=\"text\" placeholder=\"Email\" name=\"email\" [(ngModel)]=\"registerCredentials.email\" required>\n          <i class=\"inbox icon\"></i>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui icon input\">\n          <input type=\"password\" placeholder=\"Password\" name=\"password\" [(ngModel)]=\"registerCredentials.password\" required>\n          <i class=\"keyboard icon\"></i>\n        </div>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"column\">\n        <div class=\"ui icon input\">\n          <input type=\"text\" placeholder=\"First Name\" name=\"firstname\" [(ngModel)]=\"registerCredentials.firstname\" required>\n          <i class=\"user circle  icon\"></i>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui icon input\">\n          <input type=\"text\" placeholder=\"Last Name\" name=\"lastname\" [(ngModel)]=\"registerCredentials.lastname\" required>\n          <i class=\"user circle icon\"></i>\n        </div>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"column\">\n        <div class=\"ui icon input\">\n          <input type=\"text\" placeholder=\"Phone\" name=\"phone\" [(ngModel)]=\"registerCredentials.phone\" required>\n          <i class=\"phone icon\"></i>\n        </div>\n      </div>\n    </div>\n    <div class=\"column\">\n      <button class=\"large ui teal button\" type=\"submit\"  [disabled]=\"!registerForm.form.valid\">Invite</button>\n    </div>\n  </div>\n</form>\n"
+module.exports = "<form (ngSubmit)=\"inviteEmployee()\" #registerForm=\"ngForm\">\n  <div class=\"ui center aligned two column grid\">\n    <div class=\"row\">\n      <div class=\"column\">\n        <div class=\"ui icon input\">\n          <input type=\"text\" placeholder=\"Email\" name=\"email\" [(ngModel)]=\"registerCredentials.email\" required>\n          <i class=\"inbox icon\"></i>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui icon input\">\n          <input type=\"text\" placeholder=\"Phone\" name=\"phone\" [(ngModel)]=\"registerCredentials.phone\" required>\n          <i class=\"phone icon\"></i>\n        </div>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"column\">\n        <div class=\"ui icon input\">\n          <input type=\"text\" placeholder=\"First Name\" name=\"firstname\" [(ngModel)]=\"registerCredentials.firstname\" required>\n          <i class=\"user circle  icon\"></i>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui icon input\">\n          <input type=\"text\" placeholder=\"Last Name\" name=\"lastname\" [(ngModel)]=\"registerCredentials.lastname\" required>\n          <i class=\"user circle icon\"></i>\n        </div>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"column\">\n        <div class=\"ui icon input\">\n          <input type=\"password\" placeholder=\"Password\" name=\"password\" [(ngModel)]=\"registerCredentials.password\" required>\n          <i class=\"keyboard icon\"></i>\n        </div>\n      </div>\n    </div>\n    <div class=\"column\">\n      <button class=\"large ui teal button\" type=\"submit\"  [disabled]=\"!registerForm.form.valid\">Invite</button>\n    </div>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -1033,6 +1320,15 @@ var EmployeeInviteComponent = /** @class */ (function () {
         this.userPro.createUser(this.userReg).then(function (res) {
             console.log(res);
             _this.cleanForm();
+            jQuery.uiAlert({
+                textHead: 'Employee Invitation',
+                text: 'Employee has been invited successfully',
+                bgcolor: '#55a9ee',
+                textcolor: '#fff',
+                position: 'top-left',
+                icon: 'info circle',
+                time: 5,
+            });
         });
     };
     EmployeeInviteComponent.prototype.cleanForm = function () {
@@ -1045,8 +1341,8 @@ var EmployeeInviteComponent = /** @class */ (function () {
     EmployeeInviteComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-employee-invite',
-            template: __webpack_require__(/*! ./emp-inivte.component.html */ "./src/app/components/emp-invite/emp-inivte.component.html"),
-            styles: [__webpack_require__(/*! ./emp-inivte.component.css */ "./src/app/components/emp-invite/emp-inivte.component.css")],
+            template: __webpack_require__(/*! ./emp-invite.component.html */ "./src/app/components/emp-invite/emp-invite.component.html"),
+            styles: [__webpack_require__(/*! ./emp-invite.component.css */ "./src/app/components/emp-invite/emp-invite.component.css")],
             providers: []
         }),
         __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
@@ -1076,7 +1372,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui segment\">\n  <div class=\"ui three column centered grid\">\n    <table  class=\"ui compact celled definition table\">\n      <!-- datatable [dtOptions]=\"dtOptions\" -->\n      <thead class=\"full-width\">\n      <tr>\n        <th>ID</th>\n        <th>First Name</th>\n        <th>Last Name</th>\n        <th>Phone Name</th>\n        <th>Email</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let user of users\">\n        <td>{{user.userid}}</td>\n        <td>{{user.firstname}}</td>\n        <td>{{user.lastname}}</td>\n        <td>{{user.phone}}</td>\n        <td>{{user.email}}</td>\n      </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui segment\">\n  <div class=\"mat-elevation-z8\">\n    <mat-table #table matSort [dataSource]=\"dataSource\" >\n      <ng-container matColumnDef=\"userid\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> User ID </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\"  >{{element.userid}}  </mat-cell>\n      </ng-container>\n      <ng-container matColumnDef=\"firstname\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\" >{{element.firstname}}  </mat-cell>\n      </ng-container>\n\n      <ng-container matColumnDef=\"lastname\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\" >{{element.lastname}}  </mat-cell>\n      </ng-container>\n\n      <ng-container matColumnDef=\"phone\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\" > {{element.phone}}  </mat-cell>\n      </ng-container>\n\n      <ng-container matColumnDef=\"email\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\" > {{element.email}} </mat-cell>\n      </ng-container>\n\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n    </mat-table>\n    <mat-paginator #paging\n                   [pageSize]=\"5\"\n                   [pageSizeOptions]=\"[5, 10, 25, 100]\">\n    </mat-paginator>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -1092,6 +1388,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmployeeListComponent", function() { return EmployeeListComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1103,42 +1400,34 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var EmployeeListComponent = /** @class */ (function () {
-    // dtOptions: DataTables.Settings = {};
     function EmployeeListComponent(userPro) {
         this.userPro = userPro;
-        this.users = new Array();
+        this.users = [];
+        this.displayedColumns = ['userid', 'firstname', 'lastname', 'phone', 'email'];
     }
     EmployeeListComponent.prototype.ngOnInit = function () {
         console.log("ngOnInit - Employee list");
-        /*this.dtOptions = {
-          searching: false,
-          ordering:  false,
-          info: false,
-          pageLength: 7,
-          lengthChange: false
-        };
-        */
+        this.getAllEmps();
     };
     EmployeeListComponent.prototype.ngAfterContentInit = function () {
         console.log("ngAfterContentInit - Employee list");
-        this.getAllEmps();
     };
     EmployeeListComponent.prototype.getAllEmps = function () {
         var _this = this;
-        /*
-        this.userPro.getUserByRole('Employee').then(
-          (usersRes: any) => {
-             usersRes.forEach(user => {
-                this.users.push(user);
-             });
-          });
-        */
-        this.userPro.getUserByRole('Employee').subscribe(function (res) {
-            _this.users = res;
-            console.log(_this.users);
+        this.userPro.getUserByRole('Employee').subscribe(function (empArr) {
+            empArr.forEach(function (emp) { return _this.users.push(emp); });
+            _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](_this.users);
+            setTimeout(function () {
+                _this.dataSource.paginator = _this.paginator;
+            });
         });
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('paging'),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"])
+    ], EmployeeListComponent.prototype, "paginator", void 0);
     EmployeeListComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-employee-list',
@@ -1241,7 +1530,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui add modal\">\n  <div class=\"header\">\n    Add A New Item To The Cafeteria\n  </div>\n  <div class=\"ui internally celled grid\">\n      <div class=\"row\">\n        <div class=\"three wide column\">\n          <div class=\"ui left aligned image content\">\n            <img class=\"ui centered small circular image padding\" src=\"../../../../assets/png/item.png\">\n            <label>Click To Upload Image</label>\n          </div>\n        </div>\n        <div class=\"eleven wide column\">\n          <div class=\"ui form\">\n            <div class=\"two fields\">\n              <div class=\"field\">\n                <label>Item Name</label>\n                <input type=\"text\" placeholder=\"Name\" [(ngModel)]=\"item.name\" required>\n              </div>\n              <div class=\"field\">\n                <label>Item Description</label>\n                <textarea rows=\"4\" [(ngModel)]=\"item.description\" required>\n                </textarea>\n              </div>\n            </div>\n            <div class=\"three fields\">\n              <div class=\"field\">\n                <label>Item Price</label>\n                <input type=\"text\" placeholder=\"Price\" [(ngModel)]=\"item.price\">\n              </div>\n              <div class=\"field\">\n                <label>Item Quantity</label>\n                <input type=\"text\" placeholder=\"Quantity\" [(ngModel)]=\"item.qty\">\n              </div>\n              <div class=\"field\">\n                <label>Item Type</label>\n                <select class=\"ui fluid search dropdown\" [(ngModel)]=\"item.type\">\n                  <option value=\"Drink\">Dish</option>\n                  <option value=\"Food\">Pastry</option>\n                  <option value=\"Food\">Drink</option>\n                  <option value=\"Food\">Sandwich</option>\n                  <option value=\"Food\">Snack</option>\n                </select>\n              </div>\n              <div class=\"field\">\n                <label>Time Preparation</label>\n                <input type=\"text\" placeholder=\"5 Min..\"  [(ngModel)]=\"item.preptime\">\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n  </div>\n  <div class=\"actions\">\n    <div class=\"ui left floated red cancel button\" (click)=\"action('Cancel')\" >\n      <i class=\"remove icon\"></i>\n      Cancel\n    </div>\n    <div class=\"ui green ok button\" (click)=\"action('Upload')\">\n      <i class=\"checkmark icon\"></i>\n      Upload\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui add modal\">\n  <div class=\"header\">\n    Add A New Item To The Cafeteria\n  </div>\n  <div class=\"ui internally celled grid\">\n      <div class=\"row\">\n        <div class=\"three wide column\">\n          <div class=\"ui left aligned image content\">\n            <img class=\"ui centered small circular image padding\" src=\"../../../../assets/png/item.png\">\n            <label>Click To Upload Image</label>\n          </div>\n        </div>\n        <div class=\"eleven wide column\">\n          <div class=\"ui form\">\n            <div class=\"two fields\">\n              <div class=\"field\">\n                <label>Item Name</label>\n                <input type=\"text\" placeholder=\"Name\" [(ngModel)]=\"item.name\" required>\n              </div>\n              <div class=\"field\">\n                <label>Item Description</label>\n                <textarea rows=\"4\" [(ngModel)]=\"item.description\" required>\n                </textarea>\n              </div>\n            </div>\n            <div class=\"three fields\">\n              <div class=\"field\">\n                <label>Item Price</label>\n                <input type=\"text\" placeholder=\"Price\" [(ngModel)]=\"item.price\">\n              </div>\n              <div class=\"field\">\n                <label>Item Quantity</label>\n                <input type=\"text\" placeholder=\"Quantity\" [(ngModel)]=\"item.qty\">\n              </div>\n              <div class=\"field\">\n                <label>Item Type</label>\n                <select class=\"ui fluid search dropdown\" [(ngModel)]=\"item.type\">\n                  <option value=\"Dish\">Dish</option>\n                  <option value=\"Pastry\">Pastry</option>\n                  <option value=\"Drink\">Drink</option>\n                  <option value=\"Sandwich\">Sandwich</option>\n                  <option value=\"Snack\">Snack</option>\n                </select>\n              </div>\n              <div class=\"field\">\n                <label>Time Preparation</label>\n                <input type=\"text\" placeholder=\"5 Min..\"  [(ngModel)]=\"item.preptime\">\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n  </div>\n  <div class=\"actions\">\n    <div class=\"ui left floated red cancel button\" (click)=\"action('Cancel')\" >\n      <i class=\"remove icon\"></i>\n      Cancel\n    </div>\n    <div class=\"ui green ok button\" (click)=\"action('Upload')\">\n      <i class=\"checkmark icon\"></i>\n      Upload\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1364,7 +1653,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui edit modal\">\n  <div class=\"ui icon header\">\n    <i class=\"edit icon\"></i>\n    Edit An Existing Item In The Cafeteria\n  </div>\n  <div class=\"ui internally celled grid\">\n    <div class=\"row\">\n      <div class=\"three wide column\">\n        <div class=\"ui left aligned image content\">\n          <img class=\"ui centered small circular image padding\" src=\"../../../../assets/png/item.png\">\n          <label>Click To Change Image</label>\n        </div>\n      </div>\n      <div class=\"eleven wide column\">\n        <div class=\"ui form\">\n          <div class=\"two fields\">\n            <div class=\"field\">\n              <label>Item Name</label>\n              <input type=\"text\" placeholder=\"Name\" [(ngModel)]=\"item.name\" required>\n            </div>\n            <div class=\"field\">\n              <label>Item Description</label>\n              <textarea rows=\"2\" [(ngModel)]=\"item.description\" required>\n                </textarea>\n            </div>\n          </div>\n          <div class=\"three fields\">\n            <div class=\"field\">\n              <label>Item Price</label>\n              <input type=\"text\" placeholder=\"Price\" [(ngModel)]=\"item.price\">\n            </div>\n            <div class=\"field\">\n              <label>Item Quantity</label>\n              <input type=\"text\" placeholder=\"Quantity\" [(ngModel)]=\"item.qty\">\n            </div>\n            <div class=\"field\">\n              <label>Item Type</label>\n              <select class=\"ui fluid search dropdown\" [(ngModel)]=\"item.type\">\n                <option value=\"Drink\">Dish</option>\n                <option value=\"Food\">Pastry</option>\n                <option value=\"Food\">Drink</option>\n                <option value=\"Food\">Sandwich</option>\n                <option value=\"Food\">Snack</option>\n              </select>\n            </div>\n            <div class=\"field\">\n              <label>Time Preparation</label>\n              <input type=\"text\" placeholder=\"5 Min..\"  [(ngModel)]=\"item.preptime\">\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"actions\">\n    <div class=\"ui left floated red cancel button\" (click)=\"action('Cancel')\" >\n      <i class=\"remove icon\"></i>\n      Cancel\n    </div>\n    <div class=\"ui green ok button\" (click)=\"action('Upload The Changes')\">\n      <i class=\"checkmark icon\"></i>\n      Upload\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui edit modal\">\n  <div class=\"ui icon header\">\n    <i class=\"edit icon\"></i>\n    Edit An Existing Item In The Cafeteria\n  </div>\n  <div class=\"ui internally celled grid\">\n    <div class=\"row\">\n      <div class=\"three wide column\">\n        <div class=\"ui left aligned image content\">\n          <img class=\"ui centered small circular image padding\" src=\"../../../../assets/png/item.png\">\n          <label>Click To Change Image</label>\n        </div>\n      </div>\n      <div class=\"eleven wide column\">\n        <div class=\"ui form\">\n          <div class=\"two fields\">\n            <div class=\"field\">\n              <label>Item Name</label>\n              <input type=\"text\" placeholder=\"Name\" [(ngModel)]=\"item.name\" required>\n            </div>\n            <div class=\"field\">\n              <label>Item Description</label>\n              <textarea rows=\"2\" [(ngModel)]=\"item.description\" required>\n                </textarea>\n            </div>\n          </div>\n          <div class=\"three fields\">\n            <div class=\"field\">\n              <label>Item Price</label>\n              <input type=\"text\" placeholder=\"Price\" [(ngModel)]=\"item.price\">\n            </div>\n            <div class=\"field\">\n              <label>Item Quantity</label>\n              <input type=\"text\" placeholder=\"Quantity\" [(ngModel)]=\"item.qty\">\n            </div>\n            <div class=\"field\">\n              <label>Item Type</label>\n              <select class=\"ui fluid search dropdown\" [(ngModel)]=\"item.type\">\n                <option value=\"Dish\">Dish</option>\n                <option value=\"Pastry\">Pastry</option>\n                <option value=\"Drink\">Drink</option>\n                <option value=\"Sandwich\">Sandwich</option>\n                <option value=\"Snack\">Snack</option>\n              </select>\n            </div>\n            <div class=\"field\">\n              <label>Time Preparation</label>\n              <input type=\"text\" placeholder=\"5 Min..\"  [(ngModel)]=\"item.preptime\">\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"actions\">\n    <div class=\"ui left floated red cancel button\" (click)=\"action('Cancel')\" >\n      <i class=\"remove icon\"></i>\n      Cancel\n    </div>\n    <div class=\"ui green ok button\" (click)=\"action('Upload The Changes')\">\n      <i class=\"checkmark icon\"></i>\n      Upload\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1420,7 +1709,6 @@ var ItemEditComponent = /** @class */ (function () {
         if (event === 'Upload The Changes') {
             console.log('UPLOAD changed Item');
             console.log(this.item);
-            console.log(this.itemInputEdit);
             // create the object and update
             this.itemService.updateItem(this.item).then(function (res) {
                 console.log(res);
@@ -1811,7 +2099,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui segment\">\n  <!--\n  <div class=\"ui three column centered grid\">\n    <table  class=\"ui compact celled definition table\">\n      <thead class=\"full-width\">\n      <tr>\n        <th>ID</th>\n        <th>Email</th>\n        <th>First Name</th>\n        <th>Last Name</th>\n        <th>Total Spend</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let user of users\">\n        <td>{{user.userid}}</td>\n        <td>{{user.email}}</td>\n        <td>{{user.firstname}}</td>\n        <td>{{user.lastname}} </td>\n        <td>{{user.total}} &#8362;</td>\n      </tr>\n      </tbody>\n    </table>\n  </div>\n  -->\n  <mat-form-field>\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Search..\">\n  </mat-form-field>\n  <div class=\"mat-elevation-z8\">\n    <mat-table #table matSort [dataSource]=\"dataSource\" >\n      <ng-container matColumnDef=\"itemid\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Item ID </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\"  >{{element.itemid}}  </mat-cell>\n      </ng-container>\n      <ng-container matColumnDef=\"name\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\" >{{element.name}}  </mat-cell>\n      </ng-container>\n      <ng-container matColumnDef=\"price\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Item Price </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\" > {{element.price}}  </mat-cell>\n      </ng-container>\n      <ng-container matColumnDef=\"total\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Total Amount </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\" >{{element.total}}  </mat-cell>\n      </ng-container>\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n    </mat-table>\n    <mat-paginator #paging\n                   [length]=\"7\"\n                   [pageSize]=\"5\"\n                   [pageSizeOptions]=\"[5, 10, 25, 100]\">\n    </mat-paginator>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui segment\">\n  <canvas id=\"{{this.chartid}}\" width=\"400\" height=\"400\"></canvas>\n</div>\n"
 
 /***/ }),
 
@@ -1826,8 +2114,9 @@ module.exports = "<div class=\"ui segment\">\n  <!--\n  <div class=\"ui three co
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BestItemsComponent", function() { return BestItemsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _services_query_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/query.service */ "./src/app/services/query.service.ts");
+/* harmony import */ var _services_query_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/query.service */ "./src/app/services/query.service.ts");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_2__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1841,57 +2130,87 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var BestItemsComponent = /** @class */ (function () {
+    // public displayedColumns = ['itemid' , 'name' , 'price' , 'total' ];
+    // public dataSource: any ;
+    // @ViewChild('paging') paginator: MatPaginator;
+    // @ViewChild(MatSort) sort: MatSort;
     function BestItemsComponent(queryPro) {
         this.queryPro = queryPro;
         this.items = [];
-        this.displayedColumns = ['itemid', 'name', 'price', 'total'];
+        this.itemSale = [];
+        this.itemLabels = [];
     }
     BestItemsComponent.prototype.ngOnInit = function () {
         console.log('ngOnInit - Best Items report - ' + this.option);
+        this.title = this.option;
+        this.chartid = this.option;
         this.getReportBy(this.option);
     };
     BestItemsComponent.prototype.ngAfterContentInit = function () {
         console.log('ngAfterContentInit - Best Items report' + this.option);
     };
-    BestItemsComponent.prototype.applyFilter = function (filterValue) {
-        filterValue = filterValue.trim(); // Remove whitespace
-        filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-        this.dataSource.filter = filterValue;
-    };
+    BestItemsComponent.prototype.ngAfterViewInit = function () { };
     BestItemsComponent.prototype.getReportBy = function (s) {
         var _this = this;
-        this.queryPro.getBestUsers(s).subscribe(function (itemArr) {
+        this.queryPro.getBestItems(s).subscribe(function (itemArr) {
             console.log(itemArr);
-            itemArr.forEach(function (it) {
-                _this.items.push(it);
-            });
-            _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](_this.items);
-            setTimeout(function () {
-                _this.dataSource.paginator = _this.paginator;
-                _this.dataSource.sort = _this.sort;
-            });
+            var len = itemArr['length'];
+            if (len === 0) {
+                // hide the chart
+                document.getElementById(_this.chartid).style.display = 'none';
+            }
+            else {
+                itemArr.forEach(function (it) {
+                    _this.items.push(it);
+                    _this.itemSale.push(it.total);
+                    _this.itemLabels.push(it.name);
+                });
+                console.log(_this.items);
+                console.log(_this.itemSale);
+                console.log(_this.itemLabels);
+                _this.canvas = document.getElementById(_this.chartid);
+                _this.ctx = _this.canvas.getContext('2d');
+                _this.myChart = new chart_js__WEBPACK_IMPORTED_MODULE_2__(_this.ctx, {
+                    type: 'horizontalBar',
+                    data: {
+                        labels: _this.itemLabels,
+                        datasets: [
+                            {
+                                label: _this.title,
+                                backgroundColor: '#8e5ea2',
+                                data: _this.itemSale
+                            }
+                        ]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                    ticks: {
+                                        fontSize: 10
+                                    }
+                                }]
+                        },
+                        title: {
+                            display: true,
+                            text: _this.title
+                        }
+                    }
+                });
+            }
         });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
     ], BestItemsComponent.prototype, "option", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('paging'),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"])
-    ], BestItemsComponent.prototype, "paginator", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"]),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"])
-    ], BestItemsComponent.prototype, "sort", void 0);
     BestItemsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-charts-items',
             template: __webpack_require__(/*! ./best-items.component.html */ "./src/app/components/reports/bestItems/best-items.component.html"),
             styles: [__webpack_require__(/*! ./best-items.component.css */ "./src/app/components/reports/bestItems/best-items.component.css")],
-            providers: [_services_query_service__WEBPACK_IMPORTED_MODULE_2__["QueryService"]]
+            providers: [_services_query_service__WEBPACK_IMPORTED_MODULE_1__["QueryService"]]
         }),
-        __metadata("design:paramtypes", [_services_query_service__WEBPACK_IMPORTED_MODULE_2__["QueryService"]])
+        __metadata("design:paramtypes", [_services_query_service__WEBPACK_IMPORTED_MODULE_1__["QueryService"]])
     ], BestItemsComponent);
     return BestItemsComponent;
 }());
@@ -1918,7 +2237,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui segment\">\n  <!--\n  <div class=\"ui three column centered grid\">\n    <table  class=\"ui compact celled definition table\">\n      <thead class=\"full-width\">\n      <tr>\n        <th>ID</th>\n        <th>Email</th>\n        <th>First Name</th>\n        <th>Last Name</th>\n        <th>Total Spend</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let user of users\">\n        <td>{{user.userid}}</td>\n        <td>{{user.email}}</td>\n        <td>{{user.firstname}}</td>\n        <td>{{user.lastname}} </td>\n        <td>{{user.total}} &#8362;</td>\n      </tr>\n      </tbody>\n    </table>\n  </div>\n  -->\n  <mat-form-field>\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Search..\">\n  </mat-form-field>\n  <div class=\"mat-elevation-z8\">\n    <mat-table #table matSort [dataSource]=\"dataSource\" >\n      <ng-container matColumnDef=\"userid\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> User ID </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\"  >{{element.userid}}  </mat-cell>\n      </ng-container>\n      <ng-container matColumnDef=\"email\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\" >{{element.email}}  </mat-cell>\n      </ng-container>\n\n      <ng-container matColumnDef=\"firstname\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\" >{{element.firstname}}  </mat-cell>\n      </ng-container>\n\n      <ng-container matColumnDef=\"lastname\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\" > {{element.lastname}}  </mat-cell>\n      </ng-container>\n\n      <ng-container matColumnDef=\"total\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Total Spend </mat-header-cell>\n        <mat-cell *matCellDef=\"let element\" > {{element.total}} &#8362; </mat-cell>\n      </ng-container>\n\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n    </mat-table>\n    <mat-paginator #paging\n                   [length]=\"7\"\n                   [pageSize]=\"5\"\n                   [pageSizeOptions]=\"[5, 10, 25, 100]\">\n    </mat-paginator>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui segment\">\n  <canvas id=\"{{this.chartid}}\" width=\"400\" height=\"400\"></canvas>\n</div>\n"
 
 /***/ }),
 
@@ -1933,8 +2252,9 @@ module.exports = "<div class=\"ui segment\">\n  <!--\n  <div class=\"ui three co
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BestUsersComponent", function() { return BestUsersComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _services_query_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/query.service */ "./src/app/services/query.service.ts");
+/* harmony import */ var _services_query_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/query.service */ "./src/app/services/query.service.ts");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_2__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1951,56 +2271,309 @@ var BestUsersComponent = /** @class */ (function () {
     function BestUsersComponent(queryPro) {
         this.queryPro = queryPro;
         this.users = [];
-        this.displayedColumns = ['userid', 'email', 'firstname', 'lastname', 'total'];
+        this.userSale = [];
+        this.userLabel = [];
+        this.colors = [];
     }
+    BestUsersComponent.prototype.getRandomColor = function () {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
     BestUsersComponent.prototype.ngOnInit = function () {
         console.log("ngOnInit - Best Users report - " + this.option);
+        this.title = this.option;
+        this.chartid = this.option;
+        console.log(this.getRandomColor());
         this.getReportBy(this.option);
     };
     BestUsersComponent.prototype.ngAfterContentInit = function () {
         console.log("ngAfterContentInit - Best Users report" + this.option);
     };
-    BestUsersComponent.prototype.applyFilter = function (filterValue) {
-        filterValue = filterValue.trim(); // Remove whitespace
-        filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-        this.dataSource.filter = filterValue;
-    };
+    BestUsersComponent.prototype.ngAfterViewInit = function () { };
     BestUsersComponent.prototype.getReportBy = function (s) {
         var _this = this;
         this.queryPro.getBestUsers(s).subscribe(function (userArr) {
             console.log(userArr);
-            userArr.forEach(function (user) {
-                _this.users.push(user);
-            });
-            _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](_this.users);
-            setTimeout(function () {
-                _this.dataSource.paginator = _this.paginator;
-                _this.dataSource.sort = _this.sort;
-            });
+            var len = userArr['length'];
+            if (len === 0) {
+                // hide the chart
+                document.getElementById(_this.chartid).style.display = 'none';
+            }
+            else {
+                userArr.forEach(function (user) {
+                    _this.users.push(user);
+                    _this.userSale.push(user.total);
+                    _this.userLabel.push(user.firstname + ' ' + user.lastname);
+                    _this.colors.push(_this.getRandomColor());
+                });
+                console.log(_this.users);
+                console.log(_this.userSale);
+                console.log(_this.userLabel);
+                _this.canvas = document.getElementById(_this.chartid);
+                _this.ctx = _this.canvas.getContext('2d');
+                _this.myChart = new chart_js__WEBPACK_IMPORTED_MODULE_2__(_this.ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: _this.userLabel,
+                        datasets: [
+                            {
+                                label: _this.title,
+                                backgroundColor: _this.colors,
+                                data: _this.userSale
+                            }
+                        ]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: _this.title
+                        }
+                    }
+                });
+            }
         });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
     ], BestUsersComponent.prototype, "option", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('paging'),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"])
-    ], BestUsersComponent.prototype, "paginator", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"]),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"])
-    ], BestUsersComponent.prototype, "sort", void 0);
     BestUsersComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-charts-users',
             template: __webpack_require__(/*! ./best-users.component.html */ "./src/app/components/reports/bestUsers/best-users.component.html"),
             styles: [__webpack_require__(/*! ./best-users.component.css */ "./src/app/components/reports/bestUsers/best-users.component.css")],
-            providers: [_services_query_service__WEBPACK_IMPORTED_MODULE_2__["QueryService"]]
+            providers: [_services_query_service__WEBPACK_IMPORTED_MODULE_1__["QueryService"]]
         }),
-        __metadata("design:paramtypes", [_services_query_service__WEBPACK_IMPORTED_MODULE_2__["QueryService"]])
+        __metadata("design:paramtypes", [_services_query_service__WEBPACK_IMPORTED_MODULE_1__["QueryService"]])
     ], BestUsersComponent);
     return BestUsersComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/reports/chart-component/chartjs.component.css":
+/*!**************************************************************************!*\
+  !*** ./src/app/components/reports/chart-component/chartjs.component.css ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/reports/chart-component/chartjs.component.html":
+/*!***************************************************************************!*\
+  !*** ./src/app/components/reports/chart-component/chartjs.component.html ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<canvas id=\"myChart\" width=\"450\" height=\"400\"></canvas>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/reports/chart-component/chartjs.component.ts":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/reports/chart-component/chartjs.component.ts ***!
+  \*************************************************************************/
+/*! exports provided: ChartjsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChartjsComponent", function() { return ChartjsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/orderlist.service */ "./src/app/services/orderlist.service.ts");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_2__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ChartjsComponent = /** @class */ (function () {
+    function ChartjsComponent(orderListSer) {
+        this.orderListSer = orderListSer;
+    }
+    ChartjsComponent.prototype.ngOnInit = function () { };
+    ChartjsComponent.prototype.ngAfterViewInit = function () {
+        this.canvas = document.getElementById('myChart');
+        this.ctx = this.canvas.getContext('2d');
+        var myChart = new chart_js__WEBPACK_IMPORTED_MODULE_2__(this.ctx, {
+            type: 'pie',
+            data: {
+                labels: ["New", "In Progress", "On Hold"],
+                datasets: [{
+                        label: '# of Votes',
+                        data: [1, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+            },
+            options: {
+                responsive: false,
+                display: true
+            }
+        });
+    };
+    ChartjsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-chartjs',
+            template: __webpack_require__(/*! ./chartjs.component.html */ "./src/app/components/reports/chart-component/chartjs.component.html"),
+            styles: [__webpack_require__(/*! ./chartjs.component.css */ "./src/app/components/reports/chart-component/chartjs.component.css")],
+            providers: []
+        }),
+        __metadata("design:paramtypes", [_services_orderlist_service__WEBPACK_IMPORTED_MODULE_1__["OrderListService"]])
+    ], ChartjsComponent);
+    return ChartjsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/reports/date-picker/datepicker.component.css":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/reports/date-picker/datepicker.component.css ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".table {\n  width: 100%;\n}\n.table .td {\n  width: 50%;\n  vertical-align: top;\n}\n.title {\n  margin-bottom: 10px;\n}\n.button {\n  cursor: pointer;\n}\n.error {\n  width: 244px;\n  padding: 4px;\n  border: 1px solid #ebccd2;\n  color: #a94444;\n  background-color: #f2dede;\n  border-radius: 2px;\n}\n\n"
+
+/***/ }),
+
+/***/ "./src/app/components/reports/date-picker/datepicker.component.html":
+/*!**************************************************************************!*\
+  !*** ./src/app/components/reports/date-picker/datepicker.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div class=\"date-picker\">\n  <my-date-range-picker [options]=\"myDateRangePickerOptions\"\n                        (dateRangeChanged)=\"onDateRangeChanged($event)\"></my-date-range-picker>\n</div>\n<div *ngIf=\"displayTable\" class=\"mat-elevation-z8\">\n  <mat-table #table matSort [dataSource]=\"dataSource\" >\n    <ng-container matColumnDef=\"userid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> User ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"  >{{element.userid}}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"fullname\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.fullname}}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"olid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Order List ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.olid}}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"ol_dttm\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Pick-Up Time</mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.ol_dttm | date: \"medium\" }}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"ol_dttm_real\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Ordered Time </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.ol_dttm_real | date: \"medium\" }}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"totalprice\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.totalprice}} &#8362; </mat-cell>\n    </ng-container>\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n  </mat-table>\n  <mat-paginator #paging\n                 [length]=\"5\"\n                 [pageSize]=\"5\"\n                 [pageSizeOptions]=\"[5, 10, 25, 100]\">\n  </mat-paginator>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/reports/date-picker/datepicker.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/components/reports/date-picker/datepicker.component.ts ***!
+  \************************************************************************/
+/*! exports provided: DatePickerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatePickerComponent", function() { return DatePickerComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/orderlist.service */ "./src/app/services/orderlist.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var _services_query_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/query.service */ "./src/app/services/query.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var DatePickerComponent = /** @class */ (function () {
+    function DatePickerComponent(orderListSer, formBuilder, queryService) {
+        this.orderListSer = orderListSer;
+        this.formBuilder = formBuilder;
+        this.queryService = queryService;
+        this.ordersArray = [];
+        this.displayedColumns = ['userid', 'fullname', 'olid', 'ol_dttm', 'ol_dttm_real', 'totalprice'];
+        this.displayTable = false;
+        this.myDateRangePickerOptions = {
+            dateFormat: 'dd.mm.yyyy',
+            firstDayOfWeek: 'mo',
+            sunHighlight: true,
+            height: '34px',
+            width: '100%',
+            inline: false,
+            alignSelectorRight: false,
+            indicateInvalidDateRange: true
+        };
+    }
+    DatePickerComponent.prototype.ngOnInit = function () {
+        this.myForm = this.formBuilder.group({
+            // Empty string means no initial value. Can be also specific date range for example:
+            // {beginDate: {year: 2018, month: 10, day: 9}, endDate: {year: 2018, month: 10, day: 19}}
+            // which sets this date range to initial value. It is also possible to set initial
+            // value using the selDateRange attribute.
+            myDateRange: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            // other controls are here...
+        });
+    };
+    DatePickerComponent.prototype.ngAfterContentInit = function () { };
+    DatePickerComponent.prototype.onDateRangeChanged = function (event) {
+        var _this = this;
+        if (this.ordersArray) {
+            console.log(this.ordersArray);
+            this.ordersArray = new Array();
+        }
+        console.log(event.beginDate);
+        console.log(event.endDate);
+        console.log(event.formatted);
+        var rangeStart = new Date(Date.UTC(event.beginDate.year, event.beginDate.month - 1, event.beginDate.day)).toISOString();
+        var rangeEnd = new Date(Date.UTC(event.endDate.year, event.endDate.month - 1, event.endDate.day)).toISOString();
+        console.log(rangeEnd);
+        console.log(rangeStart);
+        this.queryService.getDateRange(rangeStart, rangeEnd).subscribe(function (orderArr) {
+            console.log(orderArr);
+            orderArr.forEach(function (or) {
+                _this.ordersArray.push(or);
+            });
+            _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this.ordersArray);
+            setTimeout(function () {
+                _this.dataSource.paginator = _this.paginator;
+                _this.displayTable = true;
+            });
+        });
+        // event properties are: event.beginDate, event.endDate, event.formatted,
+        // event.beginEpoc and event.endEpoc
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('paging'),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"])
+    ], DatePickerComponent.prototype, "paginator", void 0);
+    DatePickerComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-date-picker',
+            template: __webpack_require__(/*! ./datepicker.component.html */ "./src/app/components/reports/date-picker/datepicker.component.html"),
+            styles: [__webpack_require__(/*! ./datepicker.component.css */ "./src/app/components/reports/date-picker/datepicker.component.css")],
+            providers: [_services_query_service__WEBPACK_IMPORTED_MODULE_3__["QueryService"]]
+        }),
+        __metadata("design:paramtypes", [_services_orderlist_service__WEBPACK_IMPORTED_MODULE_1__["OrderListService"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+            _services_query_service__WEBPACK_IMPORTED_MODULE_3__["QueryService"]])
+    ], DatePickerComponent);
+    return DatePickerComponent;
 }());
 
 
@@ -2288,7 +2861,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui container\">\n    <div class=\"ui two column centered grid\">\n      <div class=\"ten wide column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Last 10 Completed Orders\n              <div class=\"sub header\">These orders has been completed</div>\n            </div>\n          </h2>\n          <app-order-complete></app-order-complete>\n        </div>\n      </div>\n      <div class=\"six wide column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small book icon\"></i>\n            <div class=\"content\">\n              Published Menu\n              <div class=\"sub header\">These items are published on the student menu</div>\n            </div>\n          </h2>\n          <app-menu-published></app-menu-published>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui container\">\n    <div class=\"ui stackable two column centered grid\">\n      <div class=\"ten wide column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Last 10 Completed Orders\n              <div class=\"sub header\">These orders has been completed</div>\n            </div>\n          </h2>\n          <app-order-complete></app-order-complete>\n        </div>\n      </div>\n      <div class=\"six wide column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small book icon\"></i>\n            <div class=\"content\">\n              Published Menu\n              <div class=\"sub header\">These items are published on the student menu</div>\n            </div>\n          </h2>\n          <app-menu-published></app-menu-published>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2351,7 +2924,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui container\">\n    <div class=\"ui two column centered grid\">\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              List Of Employees\n              <div class=\"sub header\">View Employees Details</div>\n            </div>\n          </h2>\n          <app-employee-list></app-employee-list>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small plus users icon\"></i>\n            <div class=\"content\">\n              Add a New Employee\n              <div class=\"sub header\">Invite a worker to the cafeteria</div>\n            </div>\n          </h2>\n          <app-employee-invite></app-employee-invite>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui container\">\n    <div class=\"ui two column centered grid stackable\">\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              List Of Employees\n              <div class=\"sub header\">View Employees Details</div>\n            </div>\n          </h2>\n          <app-employee-list></app-employee-list>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small plus users icon\"></i>\n            <div class=\"content\">\n              Add a New Employee\n              <div class=\"sub header\">Invite a worker to the cafeteria</div>\n            </div>\n          </h2>\n          <app-employee-invite></app-employee-invite>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2843,7 +3416,7 @@ var MaterialModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".logout{\n  color:#fff !important;\n}\n"
+module.exports = "\n"
 
 /***/ }),
 
@@ -2854,7 +3427,7 @@ module.exports = ".logout{\n  color:#fff !important;\n}\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<sm-menu title=\"CMS - Little Cafeteria\" class=\"\"  logoClass=\"home icon\">\n  <sm-menu class=\"left menu\">\n    <a sm-item *ngFor=\"let item of items\" class=\"item\" [routerLink]=\"item.routerLink\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\">\n      <i class=\"white big {{ item.icon }} icon\"></i>\n      {{ item.name }}\n    </a>\n  </sm-menu>\n  <div class=\"right menu\">\n    <div class=\"item\">\n      <button class=\"logout\" (click)=\"onLogout()\">Logout</button>\n    </div>\n    <div class=\"item\">\n      <img class=\"ui mini circular image\"\n           src=\"../assets/png/adam%20copy.jpg\">\n    </div>\n  </div>\n</sm-menu>\n"
+module.exports = "<sm-menu title=\"CMS - Little Cafeteria\" class=\"\"  logoClass=\"home icon\">\n  <sm-menu class=\"left menu tablet only\" >\n    <a sm-item *ngFor=\"let item of items\" class=\"item\" [routerLink]=\"item.routerLink\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\">\n      <i class=\"white big {{ item.icon }} icon\"></i>\n      {{ item.name }}\n    </a>\n  </sm-menu>\n  <div class=\"right menu tablet only\">\n    <a class=\"item\" (click)=\"onLogout()\">\n      <i class=\"white big power off icon\"></i>\n      Logout\n    </a>\n    <div class=\"item\">\n      <img class=\"ui mini circular image\"\n           src=\"../assets/png/adam%20copy.jpg\">\n    </div>\n  </div>\n  <sm-menu class=\"menu right secondary mobile only\">\n    <a sm-item icon=\"sidebar\" (click)=\"invertedSidebar.show({transition: 'overlay'})\"></a>\n  </sm-menu>\n</sm-menu>\n\n<sm-sidebar class=\"left vertical inverted sidebar labeled icon menu\" #invertedSidebar>\n  <div class=\"right menu mobile only\">\n    <div class=\"item\">\n      <img class=\"ui small circular image\"\n           src=\"../assets/png/adam%20copy.jpg\">\n    </div>\n  </div>\n  <a *ngFor=\"let item of items\" class=\"item\" [routerLink]=\"item.routerLink\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" (click)=\"invertedSidebar.show({transition: 'overlay'})\">\n    <i class=\"{{ item.icon }} icon\"></i>\n    {{ item.name }}\n  </a>\n  <a class=\"item\" (click)=\"onLogout()\">\n    <i class=\"white big power off icon\"></i>\n      Logout\n  </a>\n</sm-sidebar>\n\n"
 
 /***/ }),
 
@@ -3410,7 +3983,7 @@ module.exports = ".reload-button{\n  float:right;\n}\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui container\">\n    <div class=\"ui segment\">\n      <h2 class=\"ui block header\">\n        <div class=\"reload-button\" (click)=\"reloadTable()\">\n          <i class=\"circular white sync icon\" id='refresh'></i>\n        </div>\n        <i class=\"small map icon\"></i>\n        <div class=\"content\">\n          Incoming Orders\n          <div class=\"sub header\">List of incoming orders</div>\n        </div>\n      </h2>\n      <app-order-incoming [reloadTable]=\"isReloadAsked\" (notifyTable)=\"onChange($event)\"></app-order-incoming>\n    </div>\n    <div class=\"ui segment\">\n      <h2 class=\"ui block header\">\n        <i class=\"small map icon\"></i>\n        <div class=\"content\">\n          Active Orders\n          <div class=\"sub header\">List of active orders</div>\n        </div>\n      </h2>\n      <app-order-active [insertOrder]=\"isActiveTableUpdated\" (notifyUpdated)=\"onFinish($event)\"></app-order-active>\n    </div>\n</div>\n\n\n"
+module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui container\">\n    <div class=\"ui stackable one column centered grid\">\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <div class=\"reload-button\" (click)=\"reloadTable()\">\n              <i class=\"circular white sync icon\" id='refresh'></i>\n            </div>\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Incoming Orders\n              <div class=\"sub header\">List of incoming orders</div>\n            </div>\n          </h2>\n          <app-order-incoming [reloadTable]=\"isReloadAsked\" (notifyTable)=\"onChange($event)\"></app-order-incoming>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Active Orders\n              <div class=\"sub header\">List of active orders</div>\n            </div>\n          </h2>\n          <app-order-active [insertOrder]=\"isActiveTableUpdated\" (notifyUpdated)=\"onFinish($event)\"></app-order-active>\n        </div>\n      </div>\n    </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -3718,7 +4291,7 @@ var ItemService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.url + '/items', {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json'),
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json').set('Allow-Control-Allow-Origin', '*'),
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4022,6 +4595,9 @@ var QueryService = /** @class */ (function () {
     QueryService.prototype.getBestItems = function (type) {
         return this.http.get(this.url + '/query/' + type);
     };
+    QueryService.prototype.getDateRange = function (rangeStart, rangeEnd) {
+        return this.http.get(this.url + '/query/orderlistreportFromDateToDate?param1=' + rangeStart + '&param2=' + rangeEnd);
+    };
     QueryService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
@@ -4136,7 +4712,7 @@ var UserService = /** @class */ (function () {
     UserService.prototype.createUser = function (_user) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.http.post(_this.url + '/users/signupemployee', JSON.stringify(_user), {
+            _this.http.post(_this.url + '/users/signup', JSON.stringify(_user), {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json'),
                 responseType: 'text'
             })
@@ -4174,6 +4750,23 @@ var UserService = /** @class */ (function () {
     */
     UserService.prototype.getUserByRole = function (role) {
         return this.http.get(this.url + '/users/role/' + role);
+    };
+    UserService.prototype.getUserByRoleAny = function (role) {
+        return this.http.get(this.url + '/users/role/' + role);
+    };
+    UserService.prototype.getUserByRolePromise = function (s) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.get(_this.url + '/users/role/' + s, {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json'),
+                responseType: 'text'
+            })
+                .subscribe(function (res) {
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
     };
     UserService.prototype.getUserById = function (id) {
         return this.http.get(this.url + '/users/' + id);
