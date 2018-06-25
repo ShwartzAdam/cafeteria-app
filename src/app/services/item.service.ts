@@ -8,8 +8,10 @@ import {Item} from '../classes/item';
 export class ItemService {
 
   url = 'https://cafeappserver.herokuapp.com/api';
+  header: HttpHeaders;
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient) {
+  }
 
 
   public getItemById(id) {
@@ -27,7 +29,7 @@ export class ItemService {
   public getAllItems() {
     return new Promise((resolve, reject) => {
       this.http.get(this.url + '/items', {
-        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+        headers: new HttpHeaders().set('Content-Type', 'application/json').set('Allow-Control-Allow-Origin' , '*'),
       })
         .subscribe(res => {
           resolve(res);

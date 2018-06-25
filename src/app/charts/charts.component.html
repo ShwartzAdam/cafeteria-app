@@ -1,6 +1,6 @@
 <div class="ui masthead vertical segment">
   <div class="ui container">
-    <div class="ui two column centered grid">
+    <div class="ui one column centered grid">
         <div class="column">
           <div class="ui segment">
             <h2 class="ui block header">
@@ -47,18 +47,18 @@
             </div>
           </h2>
           <app-charts-items [option]="'TodayBestItems'"></app-charts-items>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui segment">
-          <h2 class="ui block header">
-            <i class="small map icon"></i>
-            <div class="content">
-              Best Items Of Week
-              <div class="sub header">List of items and theirs performance</div>
-            </div>
-          </h2>
-          <app-charts-items [option]="'WeekBestItems'"></app-charts-items>
+         </div>
+       </div>
+       <div class="column">
+         <div class="ui segment">
+           <h2 class="ui block header">
+             <i class="small map icon"></i>
+             <div class="content">
+               Best Items Of Week
+               <div class="sub header">List of items and theirs performance</div>
+             </div>
+           </h2>
+           <app-charts-items [option]="'WeekBestItems'"></app-charts-items>
         </div>
       </div>
       <div class="column">
@@ -71,6 +71,18 @@
             </div>
           </h2>
           <app-charts-items [option]="'MonthBestItems'"></app-charts-items>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <h2 class="ui block header">
+            <i class="small map icon"></i>
+            <div class="content">
+              Date Picker
+              <div class="sub header">Review all orders in the cafeteria by dates</div>
+            </div>
+          </h2>
+          <app-date-picker></app-date-picker>
         </div>
       </div>
     </div>

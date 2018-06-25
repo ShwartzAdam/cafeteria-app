@@ -1,27 +1,33 @@
 <div class="ui masthead vertical segment">
   <div class="ui container">
-    <div class="ui segment">
-      <h2 class="ui block header">
-        <div class="reload-button" (click)="reloadTable()">
-          <i class="circular white sync icon" id='refresh'></i>
+    <div class="ui stackable one column centered grid">
+      <div class="column">
+        <div class="ui segment">
+          <h2 class="ui block header">
+            <div class="reload-button" (click)="reloadTable()">
+              <i class="circular white sync icon" id='refresh'></i>
+            </div>
+            <i class="small map icon"></i>
+            <div class="content">
+              Incoming Orders
+              <div class="sub header">List of incoming orders</div>
+            </div>
+          </h2>
+          <app-order-incoming [reloadTable]="isReloadAsked" (notifyTable)="onChange($event)"></app-order-incoming>
         </div>
-        <i class="small map icon"></i>
-        <div class="content">
-          Incoming Orders
-          <div class="sub header">List of incoming orders</div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <h2 class="ui block header">
+            <i class="small map icon"></i>
+            <div class="content">
+              Active Orders
+              <div class="sub header">List of active orders</div>
+            </div>
+          </h2>
+          <app-order-active [insertOrder]="isActiveTableUpdated" (notifyUpdated)="onFinish($event)"></app-order-active>
         </div>
-      </h2>
-      <app-order-incoming [reloadTable]="isReloadAsked" (notifyTable)="onChange($event)"></app-order-incoming>
-    </div>
-    <div class="ui segment">
-      <h2 class="ui block header">
-        <i class="small map icon"></i>
-        <div class="content">
-          Active Orders
-          <div class="sub header">List of active orders</div>
-        </div>
-      </h2>
-      <app-order-active [insertOrder]="isActiveTableUpdated" (notifyUpdated)="onFinish($event)"></app-order-active>
+      </div>
     </div>
 </div>
 

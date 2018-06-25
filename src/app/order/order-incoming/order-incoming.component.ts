@@ -5,7 +5,6 @@ import {OrderListService} from '../../services/orderlist.service';
 import 'jquery';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/takeWhile';
-import {Observable} from 'rxjs/Observable';
 declare var jQuery: any;
 declare var $: any;
 

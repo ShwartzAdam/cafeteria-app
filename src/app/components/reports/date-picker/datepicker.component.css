@@ -1,0 +1,22 @@
+.table {
+  width: 100%;
+}
+.table .td {
+  width: 50%;
+  vertical-align: top;
+}
+.title {
+  margin-bottom: 10px;
+}
+.button {
+  cursor: pointer;
+}
+.error {
+  width: 244px;
+  padding: 4px;
+  border: 1px solid #ebccd2;
+  color: #a94444;
+  background-color: #f2dede;
+  border-radius: 2px;
+}
+

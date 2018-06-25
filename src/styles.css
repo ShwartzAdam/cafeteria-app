@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-
 /* ngIf */
 [hidden] { display: none !important;}
 
@@ -16,9 +15,27 @@ body{
 .pusher{
   background-color: #2A7C63 !important;
 }
+.ui.centered.image.logo{
+  height:200px;
+}
+.large.ui.button{
+  background-color: #094C38 !important;
+  font-size: 1.40em;
+  color: #fff;
+  letter-spacing: 3px;
+}
+.mydrp .selection {
+  position: inherit !important;
+}
 
 /* You can add global styles to this file, and also import other style files */
 @media (min-width: 1281px) {
+  .mobile.only,
+  .tablet.hidden,
+  .small.monitor.hidden,
+  .large.monitor.hidden {
+    display: none !important;
+  }
   /*
   table css
    */
@@ -100,11 +117,6 @@ body{
   /*
    logo- image
    */
-  .ui.centered.image{
-    height:300px !important;
-  }
-
-
 }
 
 /*
@@ -113,18 +125,43 @@ body{
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
+  .mobile.only,
+  .tablet.hidden,
+  .small.monitor.hidden,
+  .large.monitor.hidden {
+    display: none !important;
+  }
+  /*
+  table css
+   */
   .mat-table.mat-elevation-z1 {
     width: 90%;
     margin: auto;
   }
-
+  /*
+  table - font size
+   */
   .ui.table thead th {
     font-size:0.9em;
   }
   .ui.table tr td {
     font-size:0.8em;
   }
-
+  /*
+   table - semantic
+   */
+  .mat-header-row{
+    font-size:0.9em;
+  }
+  .mat-header-cell{
+    font-size:0.9em;
+  }
+  .mat-cell{
+    font-size: 0.9em;
+  }
+  /*
+  upper menu
+   */
   .ui.menu{
     background-color: #004933 !important;
     font-size: 1.1em;
@@ -139,7 +176,9 @@ body{
   .ui.menu .item.active {
     color: #90BAAD !important;
   }
-
+  /*
+  segments - tables containers
+   */
   .ui.segment{
     background-color: #5DC7A7 !important;
     border-radius: 10px;
@@ -147,6 +186,9 @@ body{
   .ui.vertical.segment{
     background-color: #2A7C63 !important;
   }
+  /*
+  segemnt - block header
+   */
   .ui.block.header{
     background: #2A7C63 !important;
     color: #fff;
@@ -156,15 +198,10 @@ body{
     font-size: 0.8em;
     color: #fff;
   }
-  .mat-header-row{
-    font-size: 0.9em;
-  }
-  .mat-header-cell{
-    font-size:0.9em;
-  }
-  .mat-cell{
-    font-size: 0.9em;
-  }
+
+  /*
+  buttons - sizes
+   */
   .ui.button {
     font-size: 0.8em;
     background-color: #2A7C63;
@@ -173,10 +210,18 @@ body{
   .ui.icon.button{
     font-size:0.7em !important;
   }
-  .ui.centered.image{
-    height:250px !important;
+
+  .ui.icon.input > input{
+    width: 14em;
+    font-size: 0.8em;
   }
 
+  .large.ui.button{
+    background-color: #094C38 !important;
+    font-size: 1em;
+    color: #fff;
+    letter-spacing: 3px;
+  }
 
 
 }
@@ -186,10 +231,19 @@ body{
   ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 760px) and (max-width: 1024px) {
+  .mobile.only,
+  .tablet.hidden,
+  .small.monitor.hidden,
+  .large.monitor.hidden {
+    display: none !important;
+  }
   .mat-table.mat-elevation-z1 {
     width: 90%;
     margin: auto;
+  }
+  .ui.table:not(.unstackable) tr > th{
+    display: table-cell !important;
   }
 
   .ui.table thead th {
@@ -198,7 +252,6 @@ body{
   .ui.table tr td {
     font-size:0.7em;
   }
-
   /*
   menu css
    */
@@ -234,6 +287,101 @@ body{
     color: #fff;
   }
   .mat-header-row{
+    font-size: 0.8em;
+  }
+  .mat-header-cell{
+    font-size:0.8em;
+  }
+  .mat-cell{
+    font-size: 0.8em;
+  }
+
+  .ui.button {
+    font-size: 0.7em;
+    background-color: #2A7C63;
+    color: #fff;
+  }
+  .ui.icon.button{
+    font-size:0.6em !important;
+  }
+  /*
+  input - emp and login
+   */
+  .ui.icon.input > input{
+    width: 15em;
+    font-size: 0.7em;
+  }
+
+  .large.ui.button{
+    font-size: 0.8em;
+  }
+
+
+}
+/* You can add global styles to this file, and also import other style files */
+@media only screen and (min-width: 500px) and (max-width: 759px) {
+  .mobile.hidden,
+  .tablet.only,
+  .small.monitor.hidden,
+  .large.monitor.hidden {
+    display: none !important;
+  }
+  .mat-table.mat-elevation-z1 {
+    margin: auto;
+  }
+
+  .ui.table thead th {
+    font-size:0.75em;
+  }
+  .ui.table tr td {
+    font-size:0.65em;
+  }
+  .ui.table:not(.unstackable) thead {
+    display: none !important;
+  }
+  .ui.table:not(.unstackable) tr {
+    display: inline-grid !important;
+  }
+  .ui.table:not(.unstackable) tr > th{
+    display: inline-block !important;
+  }
+  /*
+  menu css
+   */
+  .ui.menu{
+    background-color: #004933 !important;
+    font-size: 0.7em;
+    border-radius: 0px !important;;
+
+  }
+  .ui.menu .header.item {
+    color: #ECECEC !important;
+  }
+  .ui.menu .item {
+    color: #ECECEC !important;
+  }
+  .ui.menu .item.active {
+    color: #90BAAD !important;
+  }
+  .ui.segment{
+    background-color: #5DC7A7 !important;
+    border-radius: 10px;
+  }
+  .ui.vertical.segment{
+    background-color: #2A7C63 !important;
+    width: 90%;
+    margin:auto;
+  }
+  .ui.block.header{
+    background: #2A7C63 !important;
+    color: #fff;
+    font-size: 0.8em;
+  }
+  h2.ui.header .sub.header {
+    font-size: 0.7em;
+    color: #fff;
+  }
+  .mat-header-row{
     font-size: 0.6em;
   }
   .mat-cell{
@@ -248,13 +396,112 @@ body{
   .ui.icon.button{
     font-size:0.6em !important;
   }
-  .ui.centered.image{
-    height:250px !important;
+  /*
+  input - emp and login
+   */
+  .ui.icon.input > input{
+    width: 15em;
+    font-size: 0.7em;
   }
 
-
+  .large.ui.button{
+    font-size: 0.8em;
+  }
 
 }
+@media (max-width: 499px) {
+  .mobile.hidden,
+  .tablet.only,
+  .small.monitor.hidden,
+  .large.monitor.hidden {
+    display: none !important;
+  }
+  .mat-table.mat-elevation-z1 {
+    margin: auto;
+  }
+
+  .ui.table thead th {
+    font-size:0.75em;
+  }
+  .ui.table tr td {
+    font-size:0.65em;
+  }
+
+  .ui.table:not(.unstackable) thead {
+    display: none !important;
+  }
+  .ui.table:not(.unstackable) tr {
+    display: inline-grid !important;
+  }
+  .ui.table:not(.unstackable) tr > th{
+    display: inline-block !important;
+  }
+
+  /*
+  menu css
+   */
+  .ui.menu{
+    background-color: #004933 !important;
+    font-size: 0.7em;
+    border-radius: 0px !important;;
+
+  }
+  .ui.menu .header.item {
+    color: #ECECEC !important;
+  }
+  .ui.menu .item {
+    color: #ECECEC !important;
+  }
+  .ui.menu .item.active {
+    color: #90BAAD !important;
+  }
+  .ui.segment{
+    background-color: #5DC7A7 !important;
+    border-radius: 10px;
+  }
+  .ui.vertical.segment{
+    background-color: #2A7C63 !important;
+    width: 90%;
+    margin:auto;
+  }
+  .ui.block.header{
+    background: #2A7C63 !important;
+    color: #fff;
+    font-size: 0.8em;
+  }
+  h2.ui.header .sub.header {
+    font-size: 0.7em;
+    color: #fff;
+  }
+  .mat-header-row{
+    font-size: 0.6em;
+  }
+  .mat-cell{
+    font-size: 0.8em;
+  }
+
+  .ui.button {
+    font-size: 0.7em;
+    background-color: #2A7C63;
+    color: #fff;
+  }
+  .ui.icon.button{
+    font-size:0.6em !important;
+  }
+  /*
+  input - emp and login
+   */
+  .ui.icon.input > input{
+    width: 15em;
+    font-size: 0.7em;
+  }
+
+  .large.ui.button{
+    font-size: 0.8em;
+  }
+
+}
+
 
 
 
@@ -268,12 +515,7 @@ body{
 
 
 
-.large.ui.button{
-  background-color: #094C38 !important;
-  font-size: 1.40em;
-  color: #fff;
-  letter-spacing: 3px;
-}
+
 
 
 

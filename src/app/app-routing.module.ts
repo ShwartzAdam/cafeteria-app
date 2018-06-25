@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       { path: 'dashboard' , component : DashboardComponent},
       {

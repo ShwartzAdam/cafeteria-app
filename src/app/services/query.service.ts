@@ -16,6 +16,9 @@ export class QueryService {
   public getBestItems(type: string): Observable<any[]> {
     return this.http.get<any[]>(this.url + '/query/' + type );
   }
+  public getDateRange(rangeStart: string, rangeEnd: string): Observable<any[]> {
+    return this.http.get<any[]>(this.url + '/query/orderlistreportFromDateToDate?param1=' + rangeStart + '&param2=' + rangeEnd );
+  }
 
 
 }

@@ -2,10 +2,13 @@ import {Component} from '@angular/core';
 import {User} from '../../classes/user';
 import {UserService} from '../../services/user.service';
 
+declare var jQuery: any;
+
+
 @Component({
   selector: 'app-employee-invite',
-  templateUrl: './emp-inivte.component.html',
-  styleUrls: ['./emp-inivte.component.css'],
+  templateUrl: './emp-invite.component.html',
+  styleUrls: ['./emp-invite.component.css'],
   providers: []
 })
 export class EmployeeInviteComponent {
@@ -32,6 +35,15 @@ export class EmployeeInviteComponent {
       res => {
         console.log(res );
         this.cleanForm();
+        jQuery.uiAlert({
+          textHead: 'Employee Invitation', // header
+          text: 'Employee has been invited successfully', // Text
+          bgcolor: '#55a9ee', // background-color
+          textcolor: '#fff', // color
+          position: 'top-left', // position . top And bottom ||  left / center / right
+          icon: 'info circle', // icon in semantic-UI
+          time: 5, // time
+        });
       }
     );
   }

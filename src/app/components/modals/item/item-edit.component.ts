@@ -35,7 +35,6 @@ export class ItemEditComponent implements OnInit, OnChanges, OnDestroy {
     if ( event === 'Upload The Changes') {
       console.log('UPLOAD changed Item');
       console.log(this.item);
-      console.log(this.itemInputEdit);
       // create the object and update
       this.itemService.updateItem(this.item).then(
         res => {

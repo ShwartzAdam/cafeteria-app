@@ -14,7 +14,7 @@ export class UserService {
 
   public createUser(_user: User) {
     return new Promise((resolve, reject) => {
-      this.http.post(this.url + '/users/signupemployee', JSON.stringify(_user), {
+      this.http.post(this.url + '/users/signup', JSON.stringify(_user), {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         responseType: 'text'
       })
@@ -52,6 +52,22 @@ export class UserService {
   */
   public getUserByRole(role): Observable<User[]> {
     return this.http.get<User[]>(this.url + '/users/role/' + role );
+  }
+  public getUserByRoleAny(role): Observable<any[]> {
+    return this.http.get<any[]>(this.url + '/users/role/' + role );
+  }
+  public getUserByRolePromise(s: string) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url + '/users/role/' + s, {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+        responseType: 'text'
+      })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
   }
 
   public getUserById(id: number): Observable<User> {

@@ -1,17 +1,39 @@
 <sm-menu title="CMS - Little Cafeteria" class=""  logoClass="home icon">
-  <sm-menu class="left menu">
+  <sm-menu class="left menu tablet only" >
     <a sm-item *ngFor="let item of items" class="item" [routerLink]="item.routerLink" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <i class="white big {{ item.icon }} icon"></i>
       {{ item.name }}
     </a>
   </sm-menu>
-  <div class="right menu">
-    <div class="item">
-      <button class="logout" (click)="onLogout()">Logout</button>
-    </div>
+  <div class="right menu tablet only">
+    <a class="item" (click)="onLogout()">
+      <i class="white big power off icon"></i>
+      Logout
+    </a>
     <div class="item">
       <img class="ui mini circular image"
            src="../assets/png/adam%20copy.jpg">
     </div>
   </div>
+  <sm-menu class="menu right secondary mobile only">
+    <a sm-item icon="sidebar" (click)="invertedSidebar.show({transition: 'overlay'})"></a>
+  </sm-menu>
 </sm-menu>
+
+<sm-sidebar class="left vertical inverted sidebar labeled icon menu" #invertedSidebar>
+  <div class="right menu mobile only">
+    <div class="item">
+      <img class="ui small circular image"
+           src="../assets/png/adam%20copy.jpg">
+    </div>
+  </div>
+  <a *ngFor="let item of items" class="item" [routerLink]="item.routerLink" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="invertedSidebar.show({transition: 'overlay'})">
+    <i class="{{ item.icon }} icon"></i>
+    {{ item.name }}
+  </a>
+  <a class="item" (click)="onLogout()">
+    <i class="white big power off icon"></i>
+      Logout
+  </a>
+</sm-sidebar>
+

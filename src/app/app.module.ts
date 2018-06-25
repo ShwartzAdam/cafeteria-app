@@ -4,9 +4,10 @@ import { NgModule } from '@angular/core';
 import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {MaterialModule} from './modules/material-module.module';
+import { MyDateRangePickerModule } from 'mydaterangepicker';
 
 // import { DataTablesModule } from 'angular-datatables';
 
@@ -64,6 +65,8 @@ import './classes/rxjs-operators';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {QueryService} from './services/query.service';
 import {BestItemsComponent} from './components/reports/bestItems/best-items.component';
+import {DatePickerComponent} from './components/reports/date-picker/datepicker.component';
+import {ChartjsComponent} from './components/reports/chart-component/chartjs.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +103,9 @@ import {BestItemsComponent} from './components/reports/bestItems/best-items.comp
     AuthLayoutComponent,
     HomeLayoutComponent,
     BestUsersComponent,
-    BestItemsComponent
+    BestItemsComponent,
+    DatePickerComponent,
+    ChartjsComponent
   ],
   imports: [
     BrowserModule,
@@ -111,7 +116,9 @@ import {BestItemsComponent} from './components/reports/bestItems/best-items.comp
     // DataTablesModule,
     MaterialModule,
     CommonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MyDateRangePickerModule,
+    ReactiveFormsModule
   ],
   providers: [
     OrderListService,
