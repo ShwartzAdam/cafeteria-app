@@ -83,9 +83,26 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
               ]
             },
             options: {
+              responsive: true,
+              maintainAspectRatio: true,
+              legend: {
+                position: 'bottom',
+                labels: {
+                  fontSize: 9
+                }
+              },
               title: {
                 display: true,
                 text: this.title
+              },
+              animation: {
+                animateScale: true,
+                animateRotate: true
+              },
+              scales: {
+                pointLabels: {
+                  fontSize: 5,
+                }
               }
             }
           });

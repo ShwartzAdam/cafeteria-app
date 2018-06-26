@@ -231,7 +231,7 @@ body{
   ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 760px) and (max-width: 1024px) {
+@media (min-width: 767px) and (max-width: 1024px) {
   .mobile.only,
   .tablet.hidden,
   .small.monitor.hidden,
@@ -319,12 +319,15 @@ body{
 
 }
 /* You can add global styles to this file, and also import other style files */
-@media only screen and (min-width: 500px) and (max-width: 759px) {
+@media only screen and (min-width: 500px) and (max-width: 766px) {
   .mobile.hidden,
   .tablet.only,
   .small.monitor.hidden,
   .large.monitor.hidden {
     display: none !important;
+  }
+  .ui.menu:not(.vertical) .right.menu {
+    font-size: 1.4em;
   }
   .mat-table.mat-elevation-z1 {
     margin: auto;
@@ -384,9 +387,16 @@ body{
   .mat-header-row{
     font-size: 0.6em;
   }
+  .mat-header-cell {
+    font-size: 12px;
+    font-weight: 500;
+    padding-right: 1.5%;
+    padding-left: 1.5%;
+  }
   .mat-cell{
     font-size: 0.8em;
   }
+
 
   .ui.button {
     font-size: 0.7em;
@@ -415,6 +425,9 @@ body{
   .small.monitor.hidden,
   .large.monitor.hidden {
     display: none !important;
+  }
+  .ui.menu:not(.vertical) .right.menu {
+    font-size: 1.4em;
   }
   .mat-table.mat-elevation-z1 {
     margin: auto;

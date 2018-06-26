@@ -28,7 +28,7 @@
     </div>
   </div>
   <a *ngFor="let item of items" class="item" [routerLink]="item.routerLink" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="invertedSidebar.show({transition: 'overlay'})">
-    <i class="{{ item.icon }} icon"></i>
+    <i class="white {{ item.icon }} icon"></i>
     {{ item.name }}
   </a>
   <a class="item" (click)="onLogout()">

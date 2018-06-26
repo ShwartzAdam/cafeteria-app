@@ -1,4 +1,4 @@
-<div class="ui segment">
+<div class="ui segment tablet only">
 <table class="ui compact celled definition table">
   <thead class="full-width">
   <tr>
@@ -29,5 +29,41 @@
   </tr>
   </tbody>
 </table>
-  <app-order-modal-confirm [orderInputConf]="ordertodo" (notifyChange)="onNotifyClicked($event)"></app-order-modal-confirm>
 </div>
+<div class="ui segment mobile only">
+  <div class="responsive_table">
+    <table class="mat-table mat-elevation-z1">
+      <thead>
+      <tr class="mat-header-row">
+        <th class="mat-header-cell"><span>Order ID</span></th>
+        <th class="mat-header-cell"><span>Student Full Name</span></th>
+        <th class="mat-header-cell"><span>PickUp Time</span></th>
+        <th class="mat-header-cell"><span>Total Price (NIS)</span></th>
+        <th class="mat-header-cell"><span>Order Information</span></th>
+        <th class="mat-header-cell"><span>Start Order</span></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="mat-row" *ngFor="let order of ( orderList | orderByTime: 5); let i = index;" >
+        <td class="mat-cell">{{order.olid}} </td>
+        <td class="mat-cell">
+          <app-student-details [userId]="order.userid" ></app-student-details>
+        </td>
+        <td class="mat-cell"> {{order.ol_dttm | date: 'short' : 'UTC' }}</td>
+        <td class="mat-cell"> {{order.totalprice}} &#8362; </td>
+        <td class="mat-cell">
+          <app-order-details [olid]="order.olid"></app-order-details>
+        </td>
+        <td class="mat-cell">
+          <div class="ui labeled icon button" (click)="startMakingOrder(order)">
+            <i class="bullhorn icon"></i> Start Order
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-order-modal-confirm [orderInputConf]="ordertodo" (notifyChange)="onNotifyClicked($event)"></app-order-modal-confirm>
+
+
