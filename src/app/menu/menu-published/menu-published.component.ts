@@ -9,8 +9,7 @@ import {Item} from '../../interfaces/item';
 @Component({
   selector: 'app-menu-published',
   templateUrl: './menu-published.component.html',
-  styleUrls: ['./menu-published.component.css'],
-  providers : [ItemService]
+  styleUrls: ['./menu-published.component.css']
 })
 export class MenuPublishedComponent implements OnInit,
   AfterContentInit {

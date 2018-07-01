@@ -6,8 +6,7 @@ import {OrderListService} from '../../services/orderlist.service';
 @Component({
   selector: 'app-order-complete',
   templateUrl: './order-complete.component.html',
-  styleUrls: ['./order-complete.component.css'],
-  providers : [OrderListService]
+  styleUrls: ['./order-complete.component.css']
 })
 export class OrderCompleteComponent implements OnInit, AfterContentInit {
   // ORDER LIST WITH STATUS 'Completed'

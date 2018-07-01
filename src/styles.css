@@ -486,6 +486,12 @@ body{
     font-size: 0.7em;
     color: #fff;
   }
+  .mat-header-cell {
+    font-size: 9px;
+    font-weight: 500;
+    padding-right: 1.5%;
+    padding-left: 1.5%;
+  }
   .mat-header-row{
     font-size: 0.6em;
   }

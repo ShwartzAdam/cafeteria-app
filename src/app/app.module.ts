@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 // Modules Added
 import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {MaterialModule} from './modules/material-module.module';
@@ -67,6 +67,7 @@ import {QueryService} from './services/query.service';
 import {BestItemsComponent} from './components/reports/bestItems/best-items.component';
 import {DatePickerComponent} from './components/reports/date-picker/datepicker.component';
 import {ChartjsComponent} from './components/reports/chart-component/chartjs.component';
+import {AddHttpHeaderInterceptor} from './services/http-interceptors/noop-interceptor';
 
 @NgModule({
   declarations: [
@@ -129,7 +130,12 @@ import {ChartjsComponent} from './components/reports/chart-component/chartjs.com
     SortService,
     AuthService,
     AuthGuard,
-    QueryService
+    QueryService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AddHttpHeaderInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })

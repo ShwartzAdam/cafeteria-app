@@ -4,17 +4,35 @@ import { Observable } from 'rxjs/Observable';
 import { User } from '../classes/user';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {UserData} from './user-data/user-data.service';
 
 
 @Injectable()
 export class UserService {
-  url = 'https://cafeappserver.herokuapp.com/api';
-
-  constructor(private http: HttpClient) {}
-
+  public url = 'https://cafeappserver.herokuapp.com/api';
+  public urlDev = 'http://localhost:3000/api';
+  public headerConfig: any;
+  constructor(private http: HttpClient) {
+    // this.setToken();
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    this.headerConfig = headers;
+  }
+  /*
+  setToken() {
+    console.log('User Provider - Setting Access Token');
+    this.userData.getToken().then(
+      res => {
+        let headers: HttpHeaders = new HttpHeaders();
+        headers = headers.append('Content-Type', 'application/json');
+        headers = headers.append('x-access-token', res);
+        this.headerConfig = headers;
+      });
+  }
+  */
   public createUser(_user: User) {
     return new Promise((resolve, reject) => {
-      this.http.post(this.url + '/users/signup', JSON.stringify(_user), {
+      this.http.post(this.url + '/signup', JSON.stringify(_user), {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         responseType: 'text'
       })
@@ -28,7 +46,7 @@ export class UserService {
 
   public getUser(registerCredentials) {
     return new Promise((resolve, reject) => {
-      this.http.post(this.url + '/users/login' , JSON.stringify(registerCredentials), {
+      this.http.post(this.url + '/login' , JSON.stringify(registerCredentials), {
         headers: new HttpHeaders().set('Content-Type', 'application/json')
       })
         .subscribe(res => {
@@ -51,16 +69,15 @@ export class UserService {
   }
   */
   public getUserByRole(role): Observable<User[]> {
-    return this.http.get<User[]>(this.url + '/users/role/' + role );
+    return this.http.get<User[]>(this.url + '/users/role/' + role , {headers: this.headerConfig});
   }
   public getUserByRoleAny(role): Observable<any[]> {
-    return this.http.get<any[]>(this.url + '/users/role/' + role );
+    return this.http.get<any[]>(this.url + '/users/role/' + role ,{headers: this.headerConfig});
   }
   public getUserByRolePromise(s: string) {
     return new Promise((resolve, reject) => {
       this.http.get(this.url + '/users/role/' + s, {
-        headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        responseType: 'text'
+        headers: this.headerConfig
       })
         .subscribe(res => {
           resolve(res);
@@ -71,12 +88,24 @@ export class UserService {
   }
 
   public getUserById(id: number): Observable<User> {
-    return this.http.get<User>(this.url + '/users/' + id );
+    return this.http.get<User>(this.url + '/users/' + id , {headers: this.headerConfig} );
+  }
+  public getUserByIdPromise(id: number) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url + '/users/' + id, {
+        headers: this.headerConfig
+      })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
   }
 
 
   public getImage(imageUrl: string): Observable<Blob> {
-    return this.http.get(this.url + '/download/' + imageUrl , {responseType: 'blob'});
+    return this.http.get(this.url + '/download/' + imageUrl , {headers: this.headerConfig, responseType: 'blob'});
   }
 
 }
