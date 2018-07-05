@@ -1,3 +1,17 @@
-<div class="ui segment">
-  <canvas id="{{this.chartid}}" width="400" height="400"></canvas>
+<div class="ui one column centered grid">
+  <div class="column">
+    <div class="ui segment">
+      <h2 class="ui block header">
+        <i class="small map icon"></i>
+        <div class="content">
+          {{this.headerText}}
+          <div class="sub header">List of users who spend the most</div>
+        </div>
+      </h2>
+      <div class="ui segment">
+        <canvas id="{{this.chartid}}" width="400" height="400"></canvas>
+      </div>
+    </div>
+  </div>
 </div>
+

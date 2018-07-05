@@ -22,7 +22,7 @@ export class EmployeeInviteComponent {
   constructor(private userPro: UserService) {}
 
   inviteEmployee(): void {
-    console.log('Invite an Employee to the system');
+    // console.log('Invite an Employee to the system');
     this.userReg.email = this.registerCredentials.email;
     this.userReg.firstname = this.registerCredentials.firstname;
     this.userReg.lastname = this.registerCredentials.lastname;
@@ -33,7 +33,7 @@ export class EmployeeInviteComponent {
     this.userReg.credit = 0;
     this.userPro.createUser(this.userReg).then(
       res => {
-        console.log(res );
+        // console.log(res );
         this.cleanForm();
         jQuery.uiAlert({
           textHead: 'Employee Invitation', // header

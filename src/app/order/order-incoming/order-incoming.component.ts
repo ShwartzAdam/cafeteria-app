@@ -5,6 +5,7 @@ import {OrderListService} from '../../services/orderlist.service';
 import 'jquery';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/takeWhile';
+import {Observable} from 'rxjs';
 declare var jQuery: any;
 declare var $: any;
 
@@ -23,10 +24,10 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
   public ordertodo: OrderList;
   constructor(public orderListService: OrderListService) {}
   ngOnInit() {
-    /*Observable.interval(25000).takeWhile(() => true).subscribe(() => {
+    // every 30 second i will bring new orders
+    Observable.interval(30000).takeWhile(() => true).subscribe(() => {
       this.getIncomingOrders();
     });
-    */
     this.getIncomingOrders();
     $(document).ready(function() {
       $('.reload-button').hover(function() {
@@ -35,8 +36,6 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
           .transition('horizontal flip')
           .transition('stop')
           .transition('vertical flip');
-      }, function() {
-        console.log('reload button triggerd');
       });
     });
   }
@@ -48,13 +47,13 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
+    // console.log(changes);
     if (!changes) {
-      console.log(changes);
+      // console.log(changes);
       return;
     } else {
-      console.log(changes.reloadTable.currentValue);
-      console.log(changes.reloadTable.firstChange);
+      // console.log(changes.reloadTable.currentValue);
+      // console.log(changes.reloadTable.firstChange);
       if (changes.reloadTable.currentValue) {
         this.orderList = new Array();
         this.getIncomingOrders();
@@ -64,23 +63,22 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('exit Menu Storage');
+    // console.log('exit Menu Storage');
     $( '.ui.confirm.order.modal' ).remove();
   }
 
   getIncomingOrders(): void {
-    /*jQuery.uiAlert({
+    jQuery.uiAlert({
       textHead: 'Incoming Orders', // header
       text: 'Incoming orders table has been updated succesfuly', // Text
       bgcolor: '#55a9ee', // background-color
       textcolor: '#fff', // color
       position: 'top-left', // position . top And bottom ||  left / center / right
       icon: 'info circle', // icon in semantic-UI
-      time: 5, // time
+      time: 2, // time
     });
-    */
     this.orderList = new Array();
-    console.log('Getting Incoming Orders !');
+    // console.log('Getting Incoming Orders !');
     /*
     this.orderListService.getAllOrdersByStatus('Incoming').
     then( (_orderList: any) =>  {
@@ -101,12 +99,12 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
     this.orderListService.getTodayFutureOrders().then( (_orderList: any) => {
         const len = _orderList['length'];
         if ( len === 0 ) {
-          console.log('no orders yet');
+         //  console.log('no orders yet');
           // change orders table to display empty line
         } else {
-          console.log('there are orders waiting');
+          // console.log('there are orders waiting');
           _orderList.forEach( ol => {
-            console.log(ol);
+            // console.log(ol);
             let _ol: OrderList = new OrderList;
             _ol.userid = ol.userid;
             _ol.olid = ol.olid
@@ -122,7 +120,7 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   startMakingOrder(order) {
-    console.log('Start Making Order List');
+    // console.log('Start Making Order List');
     this.ordertodo = order;
 
     $('.ui.confirm.order.modal')

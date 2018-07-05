@@ -10,7 +10,7 @@ import {UserData} from './user-data/user-data.service';
 @Injectable()
 export class UserService {
   public url = 'https://cafeappserver.herokuapp.com/api';
-  public urlDev = 'http://localhost:3000/api';
+  public urlEnv = 'http://localhost:3000/api';
   public headerConfig: any;
   constructor(private http: HttpClient) {
     // this.setToken();
@@ -106,6 +106,18 @@ export class UserService {
 
   public getImage(imageUrl: string): Observable<Blob> {
     return this.http.get(this.url + '/download/' + imageUrl , {headers: this.headerConfig, responseType: 'blob'});
+  }
+  public notifyStudent(olid: number) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url + '/users/sms/' + olid, {}, {
+        headers: this.headerConfig
+      })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
   }
 
 }

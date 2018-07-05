@@ -23,8 +23,7 @@
 <sm-sidebar class="left vertical inverted sidebar labeled icon menu" #invertedSidebar>
   <div class="right menu mobile only">
     <div class="item">
-      <img class="ui small circular image"
-           src="../assets/png/adam%20copy.jpg">
+      <img class="ui small image" src="../assets/png/littlecafe.png">
     </div>
   </div>
   <a *ngFor="let item of items" class="item" [routerLink]="item.routerLink" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="invertedSidebar.show({transition: 'overlay'})">

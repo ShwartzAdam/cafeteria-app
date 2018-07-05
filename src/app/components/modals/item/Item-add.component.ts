@@ -21,16 +21,16 @@ export class ItemAddComponent implements OnInit {
 
   action(event): void {
     if ( event === 'Upload') {
-      console.log('UPLOAD Item');
-      console.log(this.item);
+      // console.log('UPLOAD Item');
+      // console.log(this.item);
       this.itemService.createItem(this.item).then(
         res => {
-          console.log(res);
+          // console.log(res);
           this.notify.emit('Add');
         });
 
     } else {
-      console.log('Cancel and exit add Item mod');
+      // console.log('Cancel and exit add Item mod');
 
     }
   }

@@ -63,7 +63,7 @@ export class MenuStorageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('exit Menu Storage');
+    // console.log('exit Menu Storage');
     $( '.ui.edit.modal' ).remove();
     $( '.ui.add.modal' ).remove();
     $( '.ui.confirm.modal' ).remove();
@@ -77,7 +77,7 @@ export class MenuStorageComponent implements OnInit, OnDestroy {
       textcolor: '#fff', // color
       position: 'top-left', // position . top And bottom ||  left / center / right
       icon: 'info circle', // icon in semantic-UI
-      time: 5, // time
+      time: 3, // time
     });
     this.itemService.getAllItems().then(
       (items: any) => {
@@ -85,24 +85,24 @@ export class MenuStorageComponent implements OnInit, OnDestroy {
           const itemTmp = new Item(item);
           this.itemsMenu.push(itemTmp);
         });
-        console.log(this.itemsMenu);
+        // console.log(this.itemsMenu);
       });
   }
 
   public displayModal(action, item): any {
-    console.log(action);
-    console.log(item);
+    // console.log(action);
+    // console.log(item);
     if (action === 'Add') {
-      console.log('Show Modal To Add Item');
+      // console.log('Show Modal To Add Item');
       $('.ui.add.modal')
         .modal('setting', 'transition', 'horizontal flip')
         .modal('show')
       ;
     } else if (action === 'Edit') {
-      console.log('Show Modal To Edit Item');
+      // console.log('Show Modal To Edit Item');
       // update the modal with item
       this.editItem = item;
-      console.log(this.editItem);
+      // console.log(this.editItem);
       $('.ui.edit.modal')
         .modal('setting', 'transition', 'horizontal flip')
         .modal('show')
@@ -110,13 +110,13 @@ export class MenuStorageComponent implements OnInit, OnDestroy {
     } else if (action === 'Delete') {
       // post delete to server
       this.deleteItem = item;
-      console.log('Show Modal To Delete Item');
+      // console.log('Show Modal To Delete Item');
       $('.ui.confirm.modal')
         .modal('setting', 'transition', 'horizontal flip')
         .modal('show')
       ;
     } else {
-      console.log('ERROR');
+      // console.log('ERROR');
     }
 
   }

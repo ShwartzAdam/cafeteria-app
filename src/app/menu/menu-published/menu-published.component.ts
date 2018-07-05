@@ -22,11 +22,11 @@ export class MenuPublishedComponent implements OnInit,
 
   constructor(public itemService: ItemService) {}
   ngOnInit(): void {
-    console.log('ngOnInit - Menu published');
+    // console.log('ngOnInit - Menu published');
     this.getPusblishedMenu();
   }
   ngAfterContentInit(): void {
-    console.log('ngAfterContentInit - Menu published');
+    // console.log('ngAfterContentInit - Menu published');
   }
   public applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -37,7 +37,7 @@ export class MenuPublishedComponent implements OnInit,
     this.itemService.getAllItemsSub().subscribe(
       itemsArr => {
         // this.itemsMenu = items;
-        console.log(itemsArr);
+        // console.log(itemsArr);
         itemsArr.forEach( it => {
           this.items.push(it);
         });

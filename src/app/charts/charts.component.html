@@ -1,90 +1,29 @@
 <div class="ui masthead vertical segment">
+  <div class="ui fluid seven item menu tablet only">
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['./items','MonthBestItems']">Items By Month</a>
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['./items','WeekBestItems']">Items By Week</a>
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['./items','TodayBestItems']">Items By Day</a>
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  [routerLink]="['./users','MonthBestUsers']">Users By Month</a>
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  [routerLink]="['./users','WeekBestUsers']">Users By Week</a>
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  [routerLink]="['./users','TodayBestUsers']">Users By Day</a>
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  [routerLink]="['./datepicker']">Date Picker</a>
+  </div>
+  <div class="ui tabular three item menu mobile only">
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['./items','MonthBestItems']">Items By Month</a>
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['./items','WeekBestItems']">Items By Week</a>
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['./items','TodayBestItems']">Items By Day</a>
+  </div>
+  <div class="ui tabular three item menu">
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  [routerLink]="['./users','MonthBestUsers']">Users By Month</a>
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  [routerLink]="['./users','WeekBestUsers']">Users By Week</a>
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  [routerLink]="['./users','TodayBestUsers']">Users By Day</a>
+  </div>
+  <div class="ui tabular one item menu">
+    <a class="vertically fitted item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  [routerLink]="['./datepicker']">Date Picker</a>
+  </div>
   <div class="ui container">
-    <div class="ui one column centered grid">
-        <div class="column">
-          <div class="ui segment">
-            <h2 class="ui block header">
-              <i class="small map icon"></i>
-              <div class="content">
-                Best Users This Month
-                <div class="sub header">List of users who spend the most</div>
-              </div>
-            </h2>
-            <app-charts-users [option]="'MonthBestUsers'"></app-charts-users>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            <h2 class="ui block header">
-              <i class="small map icon"></i>
-              <div class="content">
-                Best Users Of Week
-                <div class="sub header">List of users who spend the most</div>
-              </div>
-            </h2>
-            <app-charts-users [option]="'WeekBestUsers'"></app-charts-users>
-          </div>
-        </div>
-        <div class="column">
-        <div class="ui segment">
-          <h2 class="ui block header">
-            <i class="small map icon"></i>
-            <div class="content">
-              Best Users Of Today
-              <div class="sub header">List of users who spend the most</div>
-            </div>
-          </h2>
-          <app-charts-users [option]="'TodayBestUsers'"></app-charts-users>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui segment">
-          <h2 class="ui block header">
-            <i class="small map icon"></i>
-            <div class="content">
-              Best Items Of Today
-              <div class="sub header">List of items and theirs performance</div>
-            </div>
-          </h2>
-          <app-charts-items [option]="'TodayBestItems'"></app-charts-items>
-         </div>
-       </div>
-       <div class="column">
-         <div class="ui segment">
-           <h2 class="ui block header">
-             <i class="small map icon"></i>
-             <div class="content">
-               Best Items Of Week
-               <div class="sub header">List of items and theirs performance</div>
-             </div>
-           </h2>
-           <app-charts-items [option]="'WeekBestItems'"></app-charts-items>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui segment">
-          <h2 class="ui block header">
-            <i class="small map icon"></i>
-            <div class="content">
-              Best Items Of Month
-              <div class="sub header">List of items and theirs performance</div>
-            </div>
-          </h2>
-          <app-charts-items [option]="'MonthBestItems'"></app-charts-items>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui segment">
-          <h2 class="ui block header">
-            <i class="small map icon"></i>
-            <div class="content">
-              Date Picker
-              <div class="sub header">Review all orders in the cafeteria by dates</div>
-            </div>
-          </h2>
-          <app-date-picker></app-date-picker>
-        </div>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>
+
+

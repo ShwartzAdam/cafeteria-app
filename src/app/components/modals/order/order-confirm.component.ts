@@ -18,23 +18,23 @@ export class OrderConfirmComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes) {
-      console.log(changes);
+      // console.log(changes);
       return;
     } else {
-      console.log("current value in comfirm :");
-      console.log(changes.orderInputConf.currentValue);
+      // console.log("current value in comfirm :");
+      // console.log(changes.orderInputConf.currentValue);
       this.order = changes.orderInputConf.currentValue;
     }
   }
 
   action(event): void {
     if ( event === 'Ok') {
-      console.log('Start Making Order List ID : ' + this.order.olid);
+      // console.log('Start Making Order List ID : ' + this.order.olid);
       this.order.status = 'Active';
       this.order.ol_dttm_real = new Date().toISOString();
       this.orderListService.updateOrderList(this.order).then(
         res => {
-          console.log(res);
+          // console.log(res);
           this.notifyChange.emit('Update Table');
           jQuery.uiAlert({
             textHead: 'Order has been activated', // header
@@ -48,7 +48,7 @@ export class OrderConfirmComponent implements OnChanges {
         }
       );
     } else {
-      console.log('Exit Confirm Modal');
+      // console.log('Exit Confirm Modal');
     }
   }
 }

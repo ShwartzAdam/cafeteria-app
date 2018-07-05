@@ -57,19 +57,19 @@ export class DatePickerComponent implements OnInit, AfterContentInit {
 
   onDateRangeChanged(event: IMyDateRangeModel) {
     if ( this.ordersArray ) {
-      console.log(this.ordersArray);
+      // console.log(this.ordersArray);
       this.ordersArray = new Array();
     }
-    console.log(event.beginDate);
-    console.log(event.endDate);
-    console.log(event.formatted);
+    // console.log(event.beginDate);
+    // console.log(event.endDate);
+    // console.log(event.formatted);
     let rangeStart = new Date(Date.UTC(event.beginDate.year,  event.beginDate.month - 1,  event.beginDate.day )).toISOString();
     let rangeEnd = new Date(Date.UTC(event.endDate.year,  event.endDate.month - 1,  event.endDate.day )).toISOString();
-    console.log(rangeEnd);
-    console.log(rangeStart);
+    // console.log(rangeEnd);
+    // console.log(rangeStart);
     this.queryService.getDateRange(rangeStart, rangeEnd).subscribe(
       orderArr => {
-        console.log(orderArr);
+        // console.log(orderArr);
         orderArr.forEach( or => {
           this.ordersArray.push(or);
         });

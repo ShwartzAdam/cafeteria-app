@@ -1,7 +1,8 @@
-import {AfterContentInit, AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, OnInit} from '@angular/core';
 import {QueryService} from '../../../services/query.service';
 
 import * as Chart from 'chart.js';
+import {ActivatedRoute} from '@angular/router';
 
 
 export interface BestUsers {
@@ -19,7 +20,6 @@ export interface BestUsers {
   providers: [QueryService]
 })
 export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewInit {
-  @Input() option: string;
   public users: BestUsers[] = [];
   public chartid: string;
   canvas: any;
@@ -27,10 +27,18 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
   public title: string;
   public userSale: number[] = [];
   public userLabel: string[] = [];
-  public myChart: any;
+  public myChart: Chart;
   public colors: string[] = [];
+  private sub: any;
+  private option: string;
+  public text = { month : 'Best Users Of This Month',
+    week: 'Best Users Of This Week',
+    day: 'Best Users Of Today'
+  };
+  public headerText;
 
-  constructor(private queryPro: QueryService) {}
+  constructor(private queryPro: QueryService,
+              private route: ActivatedRoute) {}
   public getRandomColor() {
     let letters = '0123456789ABCDEF';
     let color = '#';
@@ -40,21 +48,44 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
     return color;
   }
   ngOnInit(): void {
-    console.log("ngOnInit - Best Users report - " + this.option);
-    this.title = this.option;
-    this.chartid = this.option;
-    console.log(this.getRandomColor());
-    this.getReportBy(this.option);
+    // console.log("ngOnInit - Best Users report - " + this.option);
+    // this.title = this.option;
+    // this.chartid = this.option;
+    // console.log(this.getRandomColor());
+    // this.getReportBy(this.option);
+    this.sub = this.route.params.subscribe(params => {
+      this.option = params['type']; // (+) converts string 'id' to a number;
+      // In a real app: dispatch action to load the details here.
+      if ( this.option === 'MonthBestUsers' ) {
+        this.headerText = this.text.month;
+        this.title = this.text.month;
+      } else if ( this.option === 'WeekBestUsers' ) {
+        this.headerText = this.text.week;
+        this.title = this.text.week;
+      } else {
+        this.headerText = this.text.day;
+        this.title = this.text.day;
+      }
+      this.chartid = this.option;
+      this.getReportBy(this.option);
+    });
   }
   ngAfterContentInit(): void {
-    console.log("ngAfterContentInit - Best Users report" + this.option);
+    // console.log("ngAfterContentInit - Best Users report" + this.option);
   }
   ngAfterViewInit(): void {}
   public getReportBy(s: string) {
+    if (this.myChart) {
+      console.log('true');
+      this.myChart.destroy();
+      this.users = [];
+      this.userSale = [];
+      this.userLabel = [];
+    }
     this.queryPro.getBestUsers(s).subscribe(
       userArr => {
-        console.log(userArr);
-        let len = userArr['length'];
+        // console.log(userArr);
+        const len = userArr['length'];
         if (len === 0) {
           // hide the chart
           document.getElementById(this.chartid).style.display = 'none';
@@ -65,9 +96,9 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
             this.userLabel.push(user.firstname + ' ' +  user.lastname);
             this.colors.push(this.getRandomColor());
           });
-          console.log(this.users);
-          console.log(this.userSale);
-          console.log(this.userLabel);
+          // console.log(this.users);
+          // console.log(this.userSale);
+          // console.log(this.userLabel);
           this.canvas = document.getElementById(this.chartid);
           this.ctx = this.canvas.getContext('2d');
           this.myChart = new Chart(this.ctx, {
@@ -76,7 +107,7 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
               labels: this.userLabel,
               datasets: [
                 {
-                  label: this.title,
+                  label: 'Which Users Spent The Most',
                   backgroundColor: this.colors,
                   data: this.userSale
                 }

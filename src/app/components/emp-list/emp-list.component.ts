@@ -18,12 +18,12 @@ export class EmployeeListComponent implements OnInit, AfterContentInit {
   constructor(private userPro: UserService) {}
 
   ngOnInit(): void {
-    console.log("ngOnInit - Employee list");
+    // console.log("ngOnInit - Employee list");
     this.getAllEmps();
   }
 
   ngAfterContentInit(): void {
-    console.log("ngAfterContentInit - Employee list");
+    // console.log("ngAfterContentInit - Employee list");
   }
   getAllEmps(): any {
     this.userPro.getUserByRole('Employee').subscribe(

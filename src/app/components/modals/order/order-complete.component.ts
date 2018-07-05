@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {OrderListService} from '../../../services/orderlist.service';
 import {OrderList} from '../../../classes/orderlist';
+import {UserService} from '../../../services/user.service';
 declare var jQuery: any;
 
 @Component({
@@ -13,25 +14,29 @@ export class OrderCompComponent implements OnChanges {
   @Input() orderInputConf: OrderList = new OrderList;
   @Output() notifyChange: EventEmitter<string> = new EventEmitter<string>();
   public order: OrderList = new OrderList;
-  constructor(private orderListService: OrderListService) {}
+  constructor(private orderListService: OrderListService,
+              private userService: UserService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes) {
-      console.log(changes);
+      // console.log(changes);
       return;
     } else {
-      console.log(changes.orderInputConf.currentValue);
+      // console.log(changes.orderInputConf.currentValue);
       this.order = changes.orderInputConf.currentValue;
     }
   }
 
   action(event): void {
     if ( event === 'Ok') {
-      console.log('Order has been complete and ready for pickup - Order List ID : ' + this.order.olid);
+      // console.log('Order has been complete and ready for pickup - Order List ID : ' + this.order.olid);
       this.order.status = 'Complete';
       this.orderListService.updateOrderList(this.order).then(
         res => {
-          console.log(res);
+          // console.log(res);
+          this.userService.notifyStudent(this.order.olid).then(
+            respond => {}
+          );
           this.notifyChange.emit('Order Complete');
           jQuery.uiAlert({
             textHead: 'Order has been completed', // header
@@ -45,7 +50,7 @@ export class OrderCompComponent implements OnChanges {
         }
       );
     } else {
-      console.log('Exit Confirm Modal');
+      // console.log('Exit Confirm Modal');
     }
   }
 }

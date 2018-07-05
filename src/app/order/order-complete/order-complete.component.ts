@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterContentInit, Component} from '@angular/core';
 import {OrderList} from '../../classes/orderlist';
 import {OrderListService} from '../../services/orderlist.service';
 
@@ -8,21 +8,17 @@ import {OrderListService} from '../../services/orderlist.service';
   templateUrl: './order-complete.component.html',
   styleUrls: ['./order-complete.component.css']
 })
-export class OrderCompleteComponent implements OnInit, AfterContentInit {
+export class OrderCompleteComponent implements AfterContentInit {
   // ORDER LIST WITH STATUS 'Completed'
   public elements: OrderList[] = [];
   constructor(public orderListService: OrderListService) { }
-  ngOnInit() {
-    console.log("ngOnInit - Complete Orders");
-
-  }
   ngAfterContentInit(): void {
-    console.log("ngAfterContentInit - Complete Orders");
+    // console.log("ngAfterContentInit - Complete Orders");
     this.getCompletedOrders();
   }
 
   getCompletedOrders(): void {
-    console.log('Getting Completed Orders !');
+    // console.log('Getting Completed Orders !');
     /*
    this.orderListService.getAllOrdersByStatus('Complete').
    then( (_orderList: any) =>  {
@@ -44,7 +40,7 @@ export class OrderCompleteComponent implements OnInit, AfterContentInit {
         _ol.hasreview = ol.hasreview;
         this.elements.push(_ol);
       });
-      console.log(this.elements);
+      // console.log(this.elements);
     });
 
   }

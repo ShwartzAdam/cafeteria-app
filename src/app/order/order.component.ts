@@ -17,11 +17,11 @@ export class OrderComponent {
 
   onChange(message: string) {
     if ( message === 'Update Active Table') {
-      console.log(message);
+      // console.log(message);
       this.isActiveTableUpdated = true;
-      console.log('changed to true to update active table');
+      // console.log('changed to true to update active table');
     } else if (message === 'Incoming Table Updated Succesfuly'){
-        console.log(message);
+        // console.log(message);
         setTimeout(() => {
           this.isReloadAsked = false;
         });
@@ -30,14 +30,14 @@ export class OrderComponent {
   }
   onFinish(message: string) {
     if ( message === 'Active Table Updated Succesfuly' ) {
-      console.log(message);
+      // console.log(message);
       setTimeout(() => {
         this.isActiveTableUpdated = false;
       });
     }
   }
   reloadTable() {
-    console.log('reload data from server');
+    // console.log('reload data from server');
     this.isReloadAsked = true;
   }
 

@@ -15,6 +15,9 @@ import {EmployeeComponent} from './employee/employee.component';
 import {AuthGuard} from './auth/auth.guard';
 import {AuthLayoutComponent} from './layouts/auth-layout.component';
 import {HomeLayoutComponent} from './layouts/home-layout.component';
+import {BestItemsComponent} from './components/reports/bestItems/best-items.component';
+import {BestUsersComponent} from './components/reports/bestUsers/best-users.component';
+import {DatePickerComponent} from './components/reports/date-picker/datepicker.component';
 
 
 
@@ -50,6 +53,13 @@ const appRoutes: Routes = [
       },
       { path: 'charts' ,
         component : ChartsComponent,
+        children: [
+          {path: '' , redirectTo: '/charts' , pathMatch : 'full' },
+          {path: 'items/:type' , component: BestItemsComponent},
+          {path: 'users/:type' , component: BestUsersComponent},
+          {path: 'datepicker' , component: DatePickerComponent},
+
+        ]
         /*
         canActivate: [RoleGuard],
         data: {

@@ -23,26 +23,26 @@ export class ItemEditComponent implements OnInit, OnChanges, OnDestroy {
     if ( !changes ) {
         return;
     } else {
-      console.log(changes.itemInputEdit.currentValue);
+      // console.log(changes.itemInputEdit.currentValue);
       this.item = changes.itemInputEdit.currentValue;
     }
   }
   ngOnDestroy(): void {
-    console.log(event);
+    // console.log(event);
   }
 
   action(event): void {
     if ( event === 'Upload The Changes') {
-      console.log('UPLOAD changed Item');
-      console.log(this.item);
+      // console.log('UPLOAD changed Item');
+      // console.log(this.item);
       // create the object and update
       this.itemService.updateItem(this.item).then(
         res => {
-          console.log(res);
+          // console.log(res);
           this.notify.emit('Edit');
         });
     } else {
-      console.log('Cancel and exit add Item mod');
+      // console.log('Cancel and exit add Item mod');
 
     }
   }

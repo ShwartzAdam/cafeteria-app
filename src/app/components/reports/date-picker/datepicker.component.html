@@ -1,40 +1,51 @@
+<div class="column">
+  <div class="ui segment">
+    <h2 class="ui block header">
+      <i class="small map icon"></i>
+      <div class="content">
+        Date Picker
+        <div class="sub header">Review all orders in the cafeteria by dates</div>
+      </div>
+    </h2>
+    <div class="date-picker">
+      <my-date-range-picker [options]="myDateRangePickerOptions"
+                            (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+    </div>
+    <div *ngIf="displayTable" class="mat-elevation-z8">
+      <mat-table #table matSort [dataSource]="dataSource" >
+        <ng-container matColumnDef="userid">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> User ID </mat-header-cell>
+          <mat-cell *matCellDef="let element"  >{{element.userid}}  </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="fullname">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </mat-header-cell>
+          <mat-cell *matCellDef="let element" >{{element.fullname}}  </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="olid">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Order List ID </mat-header-cell>
+          <mat-cell *matCellDef="let element" > {{element.olid}}  </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="ol_dttm">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Pick-Up Time</mat-header-cell>
+          <mat-cell *matCellDef="let element" >{{element.ol_dttm | date: "medium" }}  </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="ol_dttm_real">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Ordered Time </mat-header-cell>
+          <mat-cell *matCellDef="let element" >{{element.ol_dttm_real | date: "medium" }}  </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="totalprice">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
+          <mat-cell *matCellDef="let element" >{{element.totalprice}} &#8362; </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <mat-paginator #paging
+                     [length]="5"
+                     [pageSize]="5"
+                     [pageSizeOptions]="[5, 10, 25, 100]">
+      </mat-paginator>
+    </div>
 
-<div class="date-picker">
-  <my-date-range-picker [options]="myDateRangePickerOptions"
-                        (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
-</div>
-<div *ngIf="displayTable" class="mat-elevation-z8">
-  <mat-table #table matSort [dataSource]="dataSource" >
-    <ng-container matColumnDef="userid">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> User ID </mat-header-cell>
-      <mat-cell *matCellDef="let element"  >{{element.userid}}  </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="fullname">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </mat-header-cell>
-      <mat-cell *matCellDef="let element" >{{element.fullname}}  </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="olid">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Order List ID </mat-header-cell>
-      <mat-cell *matCellDef="let element" > {{element.olid}}  </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="ol_dttm">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Pick-Up Time</mat-header-cell>
-      <mat-cell *matCellDef="let element" >{{element.ol_dttm | date: "medium" }}  </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="ol_dttm_real">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Ordered Time </mat-header-cell>
-      <mat-cell *matCellDef="let element" >{{element.ol_dttm_real | date: "medium" }}  </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="totalprice">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
-      <mat-cell *matCellDef="let element" >{{element.totalprice}} &#8362; </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-  <mat-paginator #paging
-                 [length]="5"
-                 [pageSize]="5"
-                 [pageSizeOptions]="[5, 10, 25, 100]">
-  </mat-paginator>
+  </div>
 </div>

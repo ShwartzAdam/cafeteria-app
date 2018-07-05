@@ -19,24 +19,24 @@ export class LoginComponent {
               private authService: AuthService) {}
   setRole(s) {
     this.registerCredentials.role = s;
-    console.log(this.registerCredentials.role);
+    // console.log(this.registerCredentials.role);
   }
   login() {
-    console.log(this.registerCredentials);
+    // console.log(this.registerCredentials);
     this.loading = true;
     Observable.interval(1000).take(1).subscribe(() =>
       this.userService.getUser(this.registerCredentials).then( result => {
         if (result) {
-          console.log('Log In Successful, UID: ' + result['userid'] );
+          // console.log('Log In Successful, UID: ' + result['userid'] );
           this.userData.setUserId(result['userid']);
           // this.userData.setToken(result['token']);
           this.authService.loginSucc();
-          console.log(this.authService.isLoggedIn);
+          // console.log(this.authService.isLoggedIn);
           this.loading = false;
         }}).catch( err => {
-          console.log(err);
+          // console.log(err);
           this.loading = false;
-          console.log('bad input for loggin');
+          // console.log('bad input for loggin');
           if ( this.registerCredentials.role === '') {
             jQuery.uiAlert({
               textHead: 'Error Login', // header
