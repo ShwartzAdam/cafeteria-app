@@ -327,6 +327,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _employee_employee_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./employee/employee.component */ "./src/app/employee/employee.component.ts");
 /* harmony import */ var _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./layouts/auth-layout.component */ "./src/app/layouts/auth-layout.component.ts");
 /* harmony import */ var _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./layouts/home-layout.component */ "./src/app/layouts/home-layout.component.ts");
+/* harmony import */ var _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/reports/bestItems/best-items.component */ "./src/app/components/reports/bestItems/best-items.component.ts");
+/* harmony import */ var _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/reports/bestUsers/best-users.component */ "./src/app/components/reports/bestUsers/best-users.component.ts");
+/* harmony import */ var _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/reports/date-picker/datepicker.component */ "./src/app/components/reports/date-picker/datepicker.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -336,6 +339,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // Components for routes
+
+
+
 
 
 
@@ -375,6 +381,18 @@ var appRoutes = [
             },
             { path: 'charts',
                 component: _charts_charts_component__WEBPACK_IMPORTED_MODULE_5__["ChartsComponent"],
+                children: [
+                    { path: '', redirectTo: '/charts', pathMatch: 'full' },
+                    { path: 'items/:type', component: _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_14__["BestItemsComponent"] },
+                    { path: 'users/:type', component: _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_15__["BestUsersComponent"] },
+                    { path: 'datepicker', component: _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_16__["DatePickerComponent"] },
+                ]
+                /*
+                canActivate: [RoleGuard],
+                data: {
+                  expectedRole: 'admin'
+                }
+                */
             },
             { path: 'emp',
                 component: _employee_employee_component__WEBPACK_IMPORTED_MODULE_11__["EmployeeComponent"],
@@ -532,6 +550,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/reports/bestItems/best-items.component */ "./src/app/components/reports/bestItems/best-items.component.ts");
 /* harmony import */ var _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/reports/date-picker/datepicker.component */ "./src/app/components/reports/date-picker/datepicker.component.ts");
 /* harmony import */ var _components_reports_chart_component_chartjs_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./components/reports/chart-component/chartjs.component */ "./src/app/components/reports/chart-component/chartjs.component.ts");
+/* harmony import */ var _services_http_interceptors_noop_interceptor__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./services/http-interceptors/noop-interceptor */ "./src/app/services/http-interceptors/noop-interceptor.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -594,6 +613,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // layouts components
+
 
 
 
@@ -667,7 +687,12 @@ var AppModule = /** @class */ (function () {
                 _components_sort_sort_service__WEBPACK_IMPORTED_MODULE_40__["SortService"],
                 _auth_auth_service__WEBPACK_IMPORTED_MODULE_39__["AuthService"],
                 _auth_auth_guard__WEBPACK_IMPORTED_MODULE_38__["AuthGuard"],
-                _services_query_service__WEBPACK_IMPORTED_MODULE_52__["QueryService"]
+                _services_query_service__WEBPACK_IMPORTED_MODULE_52__["QueryService"],
+                {
+                    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"],
+                    useClass: _services_http_interceptors_noop_interceptor__WEBPACK_IMPORTED_MODULE_56__["AddHttpHeaderInterceptor"],
+                    multi: true,
+                }
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
         })
@@ -921,25 +946,26 @@ var LoginComponent = /** @class */ (function () {
     }
     LoginComponent.prototype.setRole = function (s) {
         this.registerCredentials.role = s;
-        console.log(this.registerCredentials.role);
+        // console.log(this.registerCredentials.role);
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        console.log(this.registerCredentials);
+        // console.log(this.registerCredentials);
         this.loading = true;
         rxjs_Observable__WEBPACK_IMPORTED_MODULE_4__["Observable"].interval(1000).take(1).subscribe(function () {
             return _this.userService.getUser(_this.registerCredentials).then(function (result) {
                 if (result) {
-                    console.log('Log In Successful, UID: ' + result['userid']);
+                    // console.log('Log In Successful, UID: ' + result['userid'] );
                     _this.userData.setUserId(result['userid']);
+                    // this.userData.setToken(result['token']);
                     _this.authService.loginSucc();
-                    console.log(_this.authService.isLoggedIn);
+                    // console.log(this.authService.isLoggedIn);
                     _this.loading = false;
                 }
             }).catch(function (err) {
-                console.log(err);
+                // console.log(err);
                 _this.loading = false;
-                console.log('bad input for loggin');
+                // console.log('bad input for loggin');
                 if (_this.registerCredentials.role === '') {
                     jQuery.uiAlert({
                         textHead: 'Error Login',
@@ -1063,7 +1089,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui container\">\n    <div class=\"ui one column centered grid\">\n        <div class=\"column\">\n          <div class=\"ui segment\">\n            <h2 class=\"ui block header\">\n              <i class=\"small map icon\"></i>\n              <div class=\"content\">\n                Best Users This Month\n                <div class=\"sub header\">List of users who spend the most</div>\n              </div>\n            </h2>\n            <app-charts-users [option]=\"'MonthBestUsers'\"></app-charts-users>\n          </div>\n        </div>\n        <div class=\"column\">\n          <div class=\"ui segment\">\n            <h2 class=\"ui block header\">\n              <i class=\"small map icon\"></i>\n              <div class=\"content\">\n                Best Users Of Week\n                <div class=\"sub header\">List of users who spend the most</div>\n              </div>\n            </h2>\n            <app-charts-users [option]=\"'WeekBestUsers'\"></app-charts-users>\n          </div>\n        </div>\n        <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Best Users Of Today\n              <div class=\"sub header\">List of users who spend the most</div>\n            </div>\n          </h2>\n          <app-charts-users [option]=\"'TodayBestUsers'\"></app-charts-users>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Best Items Of Today\n              <div class=\"sub header\">List of items and theirs performance</div>\n            </div>\n          </h2>\n          <app-charts-items [option]=\"'TodayBestItems'\"></app-charts-items>\n         </div>\n       </div>\n       <div class=\"column\">\n         <div class=\"ui segment\">\n           <h2 class=\"ui block header\">\n             <i class=\"small map icon\"></i>\n             <div class=\"content\">\n               Best Items Of Week\n               <div class=\"sub header\">List of items and theirs performance</div>\n             </div>\n           </h2>\n           <app-charts-items [option]=\"'WeekBestItems'\"></app-charts-items>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Best Items Of Month\n              <div class=\"sub header\">List of items and theirs performance</div>\n            </div>\n          </h2>\n          <app-charts-items [option]=\"'MonthBestItems'\"></app-charts-items>\n        </div>\n      </div>\n      <div class=\"column\">\n        <div class=\"ui segment\">\n          <h2 class=\"ui block header\">\n            <i class=\"small map icon\"></i>\n            <div class=\"content\">\n              Date Picker\n              <div class=\"sub header\">Review all orders in the cafeteria by dates</div>\n            </div>\n          </h2>\n          <app-date-picker></app-date-picker>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"ui fluid seven item menu tablet only\">\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" [routerLink]=\"['./items','MonthBestItems']\">Items By Month</a>\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" [routerLink]=\"['./items','WeekBestItems']\">Items By Week</a>\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" [routerLink]=\"['./items','TodayBestItems']\">Items By Day</a>\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\"  [routerLink]=\"['./users','MonthBestUsers']\">Users By Month</a>\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\"  [routerLink]=\"['./users','WeekBestUsers']\">Users By Week</a>\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\"  [routerLink]=\"['./users','TodayBestUsers']\">Users By Day</a>\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\"  [routerLink]=\"['./datepicker']\">Date Picker</a>\n  </div>\n  <div class=\"ui tabular three item menu mobile only\">\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" [routerLink]=\"['./items','MonthBestItems']\">Items By Month</a>\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" [routerLink]=\"['./items','WeekBestItems']\">Items By Week</a>\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" [routerLink]=\"['./items','TodayBestItems']\">Items By Day</a>\n  </div>\n  <div class=\"ui tabular three item menu\">\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\"  [routerLink]=\"['./users','MonthBestUsers']\">Users By Month</a>\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\"  [routerLink]=\"['./users','WeekBestUsers']\">Users By Week</a>\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\"  [routerLink]=\"['./users','TodayBestUsers']\">Users By Day</a>\n  </div>\n  <div class=\"ui tabular one item menu\">\n    <a class=\"vertically fitted item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\"  [routerLink]=\"['./datepicker']\">Date Picker</a>\n  </div>\n  <div class=\"ui container\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1308,7 +1334,7 @@ var EmployeeInviteComponent = /** @class */ (function () {
     }
     EmployeeInviteComponent.prototype.inviteEmployee = function () {
         var _this = this;
-        console.log('Invite an Employee to the system');
+        // console.log('Invite an Employee to the system');
         this.userReg.email = this.registerCredentials.email;
         this.userReg.firstname = this.registerCredentials.firstname;
         this.userReg.lastname = this.registerCredentials.lastname;
@@ -1318,7 +1344,7 @@ var EmployeeInviteComponent = /** @class */ (function () {
         this.userReg.url = 'None';
         this.userReg.credit = 0;
         this.userPro.createUser(this.userReg).then(function (res) {
-            console.log(res);
+            // console.log(res );
             _this.cleanForm();
             jQuery.uiAlert({
                 textHead: 'Employee Invitation',
@@ -1408,11 +1434,11 @@ var EmployeeListComponent = /** @class */ (function () {
         this.displayedColumns = ['userid', 'firstname', 'lastname', 'phone', 'email'];
     }
     EmployeeListComponent.prototype.ngOnInit = function () {
-        console.log("ngOnInit - Employee list");
+        // console.log("ngOnInit - Employee list");
         this.getAllEmps();
     };
     EmployeeListComponent.prototype.ngAfterContentInit = function () {
-        console.log("ngAfterContentInit - Employee list");
+        // console.log("ngAfterContentInit - Employee list");
     };
     EmployeeListComponent.prototype.getAllEmps = function () {
         var _this = this;
@@ -1481,15 +1507,15 @@ var ItemAddComponent = /** @class */ (function () {
     ItemAddComponent.prototype.action = function (event) {
         var _this = this;
         if (event === 'Upload') {
-            console.log('UPLOAD Item');
-            console.log(this.item);
+            // console.log('UPLOAD Item');
+            // console.log(this.item);
             this.itemService.createItem(this.item).then(function (res) {
-                console.log(res);
+                // console.log(res);
                 _this.notify.emit('Add');
             });
         }
         else {
-            console.log('Cancel and exit add Item mod');
+            // console.log('Cancel and exit add Item mod');
         }
     };
     __decorate([
@@ -1593,22 +1619,22 @@ var ItemConfirmComponent = /** @class */ (function () {
             return;
         }
         else {
-            console.log(changes.itemInputDelete.currentValue);
+            // console.log(changes.itemInputDelete.currentValue);
             this.item = changes.itemInputDelete.currentValue;
         }
     };
     ItemConfirmComponent.prototype.action = function (event) {
         var _this = this;
         if (event === 'Ok') {
-            console.log('Delete Item : ' + this.item.itemid);
+            // console.log('Delete Item : ' + this.item.itemid);
             this.itemService.deleteItem(this.item.itemid).then(function (res) {
-                console.log(res);
+                // console.log(res);
                 _this.notify.emit('Delete');
                 // event to tell the table to referesh
             });
         }
         else {
-            console.log('Exit Confirm Modal');
+            // console.log('Exit Confirm Modal');
         }
     };
     __decorate([
@@ -1697,26 +1723,26 @@ var ItemEditComponent = /** @class */ (function () {
             return;
         }
         else {
-            console.log(changes.itemInputEdit.currentValue);
+            // console.log(changes.itemInputEdit.currentValue);
             this.item = changes.itemInputEdit.currentValue;
         }
     };
     ItemEditComponent.prototype.ngOnDestroy = function () {
-        console.log(event);
+        // console.log(event);
     };
     ItemEditComponent.prototype.action = function (event) {
         var _this = this;
         if (event === 'Upload The Changes') {
-            console.log('UPLOAD changed Item');
-            console.log(this.item);
+            // console.log('UPLOAD changed Item');
+            // console.log(this.item);
             // create the object and update
             this.itemService.updateItem(this.item).then(function (res) {
-                console.log(res);
+                // console.log(res);
                 _this.notify.emit('Edit');
             });
         }
         else {
-            console.log('Cancel and exit add Item mod');
+            // console.log('Cancel and exit add Item mod');
         }
     };
     __decorate([
@@ -1778,6 +1804,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/orderlist.service */ "./src/app/services/orderlist.service.ts");
 /* harmony import */ var _classes_orderlist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../classes/orderlist */ "./src/app/classes/orderlist.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/user.service */ "./src/app/services/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1790,30 +1817,33 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var OrderCompComponent = /** @class */ (function () {
-    function OrderCompComponent(orderListService) {
+    function OrderCompComponent(orderListService, userService) {
         this.orderListService = orderListService;
+        this.userService = userService;
         this.orderInputConf = new _classes_orderlist__WEBPACK_IMPORTED_MODULE_2__["OrderList"];
         this.notifyChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.order = new _classes_orderlist__WEBPACK_IMPORTED_MODULE_2__["OrderList"];
     }
     OrderCompComponent.prototype.ngOnChanges = function (changes) {
         if (!changes) {
-            console.log(changes);
+            // console.log(changes);
             return;
         }
         else {
-            console.log(changes.orderInputConf.currentValue);
+            // console.log(changes.orderInputConf.currentValue);
             this.order = changes.orderInputConf.currentValue;
         }
     };
     OrderCompComponent.prototype.action = function (event) {
         var _this = this;
         if (event === 'Ok') {
-            console.log('Order has been complete and ready for pickup - Order List ID : ' + this.order.olid);
+            // console.log('Order has been complete and ready for pickup - Order List ID : ' + this.order.olid);
             this.order.status = 'Complete';
             this.orderListService.updateOrderList(this.order).then(function (res) {
-                console.log(res);
+                // console.log(res);
+                _this.userService.notifyStudent(_this.order.olid).then(function (respond) { });
                 _this.notifyChange.emit('Order Complete');
                 jQuery.uiAlert({
                     textHead: 'Order has been completed',
@@ -1827,7 +1857,7 @@ var OrderCompComponent = /** @class */ (function () {
             });
         }
         else {
-            console.log('Exit Confirm Modal');
+            // console.log('Exit Confirm Modal');
         }
     };
     __decorate([
@@ -1845,7 +1875,8 @@ var OrderCompComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./order-complete.component.css */ "./src/app/components/modals/order/order-complete.component.css")],
             providers: [_services_orderlist_service__WEBPACK_IMPORTED_MODULE_1__["OrderListService"]]
         }),
-        __metadata("design:paramtypes", [_services_orderlist_service__WEBPACK_IMPORTED_MODULE_1__["OrderListService"]])
+        __metadata("design:paramtypes", [_services_orderlist_service__WEBPACK_IMPORTED_MODULE_1__["OrderListService"],
+            _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
     ], OrderCompComponent);
     return OrderCompComponent;
 }());
@@ -1910,23 +1941,23 @@ var OrderConfirmComponent = /** @class */ (function () {
     }
     OrderConfirmComponent.prototype.ngOnChanges = function (changes) {
         if (!changes) {
-            console.log(changes);
+            // console.log(changes);
             return;
         }
         else {
-            console.log("current value in comfirm :");
-            console.log(changes.orderInputConf.currentValue);
+            // console.log("current value in comfirm :");
+            // console.log(changes.orderInputConf.currentValue);
             this.order = changes.orderInputConf.currentValue;
         }
     };
     OrderConfirmComponent.prototype.action = function (event) {
         var _this = this;
         if (event === 'Ok') {
-            console.log('Start Making Order List ID : ' + this.order.olid);
+            // console.log('Start Making Order List ID : ' + this.order.olid);
             this.order.status = 'Active';
             this.order.ol_dttm_real = new Date().toISOString();
             this.orderListService.updateOrderList(this.order).then(function (res) {
-                console.log(res);
+                // console.log(res);
                 _this.notifyChange.emit('Update Table');
                 jQuery.uiAlert({
                     textHead: 'Order has been activated',
@@ -1940,7 +1971,7 @@ var OrderConfirmComponent = /** @class */ (function () {
             });
         }
         else {
-            console.log('Exit Confirm Modal');
+            // console.log('Exit Confirm Modal');
         }
     };
     __decorate([
@@ -2099,7 +2130,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui segment\">\n  <canvas id=\"{{this.chartid}}\" width=\"400\" height=\"400\"></canvas>\n</div>\n"
+module.exports = "<div class=\"ui one column centered grid\">\n  <div class=\"column\">\n    <div class=\"ui segment\">\n      <h2 class=\"ui block header\">\n        <i class=\"small map icon\"></i>\n        <div class=\"content\">\n          {{this.headerText}}\n          <div class=\"sub header\">List of users who spend the most</div>\n        </div>\n      </h2>\n      <div class=\"ui segment\">\n      <canvas id=\"{{this.chartid}}\" width=\"400\" height=\"400\"></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -2117,6 +2148,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_query_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/query.service */ "./src/app/services/query.service.ts");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/esm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2129,31 +2161,60 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var BestItemsComponent = /** @class */ (function () {
     // public displayedColumns = ['itemid' , 'name' , 'price' , 'total' ];
     // public dataSource: any ;
     // @ViewChild('paging') paginator: MatPaginator;
     // @ViewChild(MatSort) sort: MatSort;
-    function BestItemsComponent(queryPro) {
+    function BestItemsComponent(queryPro, route) {
         this.queryPro = queryPro;
+        this.route = route;
         this.items = [];
         this.itemSale = [];
         this.itemLabels = [];
+        this.text = { month: 'Best Items Of This Month',
+            week: 'Best Items Of This Week',
+            day: 'Best Items Of Today'
+        };
     }
     BestItemsComponent.prototype.ngOnInit = function () {
-        console.log('ngOnInit - Best Items report - ' + this.option);
-        this.title = this.option;
-        this.chartid = this.option;
-        this.getReportBy(this.option);
+        var _this = this;
+        // console.log('ngOnInit - Best Items report - ' + this.option);
+        // this.title = this.option;
+        /// this.chartid = this.option;
+        // this.getReportBy(this.option);
+        this.sub = this.route.params.subscribe(function (params) {
+            _this.option = params['type']; // (+) converts string 'id' to a number
+            console.log(_this.option);
+            if (_this.option === 'MonthBestItems') {
+                _this.headerText = _this.text.month;
+                _this.title = _this.text.month;
+            }
+            else if (_this.option === 'WeekBestItems') {
+                _this.headerText = _this.text.week;
+                _this.title = _this.text.week;
+            }
+            else {
+                _this.headerText = _this.text.day;
+                _this.title = _this.text.day;
+            }
+            _this.chartid = _this.option;
+            _this.getReportBy(_this.option);
+            // In a real app: dispatch action to load the details here.
+        });
     };
-    BestItemsComponent.prototype.ngAfterContentInit = function () {
-        console.log('ngAfterContentInit - Best Items report' + this.option);
-    };
-    BestItemsComponent.prototype.ngAfterViewInit = function () { };
     BestItemsComponent.prototype.getReportBy = function (s) {
         var _this = this;
+        if (this.myChart) {
+            console.log('true');
+            this.myChart.destroy();
+            this.items = [];
+            this.itemSale = [];
+            this.itemLabels = [];
+        }
         this.queryPro.getBestItems(s).subscribe(function (itemArr) {
-            console.log(itemArr);
+            // console.log(itemArr);
             var len = itemArr['length'];
             if (len === 0) {
                 // hide the chart
@@ -2165,9 +2226,9 @@ var BestItemsComponent = /** @class */ (function () {
                     _this.itemSale.push(it.total);
                     _this.itemLabels.push(it.name);
                 });
-                console.log(_this.items);
-                console.log(_this.itemSale);
-                console.log(_this.itemLabels);
+                // console.log(this.items);
+                // console.log(this.itemSale);
+                // console.log(this.itemLabels);
                 _this.canvas = document.getElementById(_this.chartid);
                 _this.ctx = _this.canvas.getContext('2d');
                 _this.myChart = new chart_js__WEBPACK_IMPORTED_MODULE_2__(_this.ctx, {
@@ -2176,7 +2237,7 @@ var BestItemsComponent = /** @class */ (function () {
                         labels: _this.itemLabels,
                         datasets: [
                             {
-                                label: _this.title,
+                                label: 'Amount of items',
                                 backgroundColor: '#8e5ea2',
                                 data: _this.itemSale
                             }
@@ -2199,10 +2260,6 @@ var BestItemsComponent = /** @class */ (function () {
             }
         });
     };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", String)
-    ], BestItemsComponent.prototype, "option", void 0);
     BestItemsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-charts-items',
@@ -2210,7 +2267,8 @@ var BestItemsComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./best-items.component.css */ "./src/app/components/reports/bestItems/best-items.component.css")],
             providers: [_services_query_service__WEBPACK_IMPORTED_MODULE_1__["QueryService"]]
         }),
-        __metadata("design:paramtypes", [_services_query_service__WEBPACK_IMPORTED_MODULE_1__["QueryService"]])
+        __metadata("design:paramtypes", [_services_query_service__WEBPACK_IMPORTED_MODULE_1__["QueryService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], BestItemsComponent);
     return BestItemsComponent;
 }());
@@ -2237,7 +2295,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui segment\">\n  <canvas id=\"{{this.chartid}}\" width=\"400\" height=\"400\"></canvas>\n</div>\n"
+module.exports = "<div class=\"ui one column centered grid\">\n  <div class=\"column\">\n    <div class=\"ui segment\">\n      <h2 class=\"ui block header\">\n        <i class=\"small map icon\"></i>\n        <div class=\"content\">\n          {{this.headerText}}\n          <div class=\"sub header\">List of users who spend the most</div>\n        </div>\n      </h2>\n      <div class=\"ui segment\">\n        <canvas id=\"{{this.chartid}}\" width=\"400\" height=\"400\"></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -2255,6 +2313,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_query_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/query.service */ "./src/app/services/query.service.ts");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/esm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2267,13 +2326,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var BestUsersComponent = /** @class */ (function () {
-    function BestUsersComponent(queryPro) {
+    function BestUsersComponent(queryPro, route) {
         this.queryPro = queryPro;
+        this.route = route;
         this.users = [];
         this.userSale = [];
         this.userLabel = [];
         this.colors = [];
+        this.text = { month: 'Best Users Of This Month',
+            week: 'Best Users Of This Week',
+            day: 'Best Users Of Today'
+        };
     }
     BestUsersComponent.prototype.getRandomColor = function () {
         var letters = '0123456789ABCDEF';
@@ -2284,20 +2349,46 @@ var BestUsersComponent = /** @class */ (function () {
         return color;
     };
     BestUsersComponent.prototype.ngOnInit = function () {
-        console.log("ngOnInit - Best Users report - " + this.option);
-        this.title = this.option;
-        this.chartid = this.option;
-        console.log(this.getRandomColor());
-        this.getReportBy(this.option);
+        var _this = this;
+        // console.log("ngOnInit - Best Users report - " + this.option);
+        // this.title = this.option;
+        // this.chartid = this.option;
+        // console.log(this.getRandomColor());
+        // this.getReportBy(this.option);
+        this.sub = this.route.params.subscribe(function (params) {
+            _this.option = params['type']; // (+) converts string 'id' to a number;
+            // In a real app: dispatch action to load the details here.
+            if (_this.option === 'MonthBestUsers') {
+                _this.headerText = _this.text.month;
+                _this.title = _this.text.month;
+            }
+            else if (_this.option === 'WeekBestUsers') {
+                _this.headerText = _this.text.week;
+                _this.title = _this.text.week;
+            }
+            else {
+                _this.headerText = _this.text.day;
+                _this.title = _this.text.day;
+            }
+            _this.chartid = _this.option;
+            _this.getReportBy(_this.option);
+        });
     };
     BestUsersComponent.prototype.ngAfterContentInit = function () {
-        console.log("ngAfterContentInit - Best Users report" + this.option);
+        // console.log("ngAfterContentInit - Best Users report" + this.option);
     };
     BestUsersComponent.prototype.ngAfterViewInit = function () { };
     BestUsersComponent.prototype.getReportBy = function (s) {
         var _this = this;
+        if (this.myChart) {
+            console.log('true');
+            this.myChart.destroy();
+            this.users = [];
+            this.userSale = [];
+            this.userLabel = [];
+        }
         this.queryPro.getBestUsers(s).subscribe(function (userArr) {
-            console.log(userArr);
+            // console.log(userArr);
             var len = userArr['length'];
             if (len === 0) {
                 // hide the chart
@@ -2310,9 +2401,9 @@ var BestUsersComponent = /** @class */ (function () {
                     _this.userLabel.push(user.firstname + ' ' + user.lastname);
                     _this.colors.push(_this.getRandomColor());
                 });
-                console.log(_this.users);
-                console.log(_this.userSale);
-                console.log(_this.userLabel);
+                // console.log(this.users);
+                // console.log(this.userSale);
+                // console.log(this.userLabel);
                 _this.canvas = document.getElementById(_this.chartid);
                 _this.ctx = _this.canvas.getContext('2d');
                 _this.myChart = new chart_js__WEBPACK_IMPORTED_MODULE_2__(_this.ctx, {
@@ -2321,7 +2412,7 @@ var BestUsersComponent = /** @class */ (function () {
                         labels: _this.userLabel,
                         datasets: [
                             {
-                                label: _this.title,
+                                label: 'Which Users Spent The Most',
                                 backgroundColor: _this.colors,
                                 data: _this.userSale
                             }
@@ -2354,10 +2445,6 @@ var BestUsersComponent = /** @class */ (function () {
             }
         });
     };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", String)
-    ], BestUsersComponent.prototype, "option", void 0);
     BestUsersComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-charts-users',
@@ -2365,7 +2452,8 @@ var BestUsersComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./best-users.component.css */ "./src/app/components/reports/bestUsers/best-users.component.css")],
             providers: [_services_query_service__WEBPACK_IMPORTED_MODULE_1__["QueryService"]]
         }),
-        __metadata("design:paramtypes", [_services_query_service__WEBPACK_IMPORTED_MODULE_1__["QueryService"]])
+        __metadata("design:paramtypes", [_services_query_service__WEBPACK_IMPORTED_MODULE_1__["QueryService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], BestUsersComponent);
     return BestUsersComponent;
 }());
@@ -2485,7 +2573,7 @@ module.exports = ".table {\n  width: 100%;\n}\n.table .td {\n  width: 50%;\n  ve
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"date-picker\">\n  <my-date-range-picker [options]=\"myDateRangePickerOptions\"\n                        (dateRangeChanged)=\"onDateRangeChanged($event)\"></my-date-range-picker>\n</div>\n<div *ngIf=\"displayTable\" class=\"mat-elevation-z8\">\n  <mat-table #table matSort [dataSource]=\"dataSource\" >\n    <ng-container matColumnDef=\"userid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> User ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"  >{{element.userid}}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"fullname\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.fullname}}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"olid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Order List ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.olid}}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"ol_dttm\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Pick-Up Time</mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.ol_dttm | date: \"medium\" }}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"ol_dttm_real\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Ordered Time </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.ol_dttm_real | date: \"medium\" }}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"totalprice\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.totalprice}} &#8362; </mat-cell>\n    </ng-container>\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n  </mat-table>\n  <mat-paginator #paging\n                 [length]=\"5\"\n                 [pageSize]=\"5\"\n                 [pageSizeOptions]=\"[5, 10, 25, 100]\">\n  </mat-paginator>\n</div>\n"
+module.exports = "<div class=\"column\">\n  <div class=\"ui segment\">\n    <h2 class=\"ui block header\">\n      <i class=\"small map icon\"></i>\n      <div class=\"content\">\n        Date Picker\n        <div class=\"sub header\">Review all orders in the cafeteria by dates</div>\n      </div>\n    </h2>\n    <div class=\"date-picker\">\n      <my-date-range-picker [options]=\"myDateRangePickerOptions\"\n                            (dateRangeChanged)=\"onDateRangeChanged($event)\"></my-date-range-picker>\n    </div>\n    <div *ngIf=\"displayTable\" class=\"mat-elevation-z8\">\n      <mat-table #table matSort [dataSource]=\"dataSource\" >\n        <ng-container matColumnDef=\"userid\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> User ID </mat-header-cell>\n          <mat-cell *matCellDef=\"let element\"  >{{element.userid}}  </mat-cell>\n        </ng-container>\n        <ng-container matColumnDef=\"fullname\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </mat-header-cell>\n          <mat-cell *matCellDef=\"let element\" >{{element.fullname}}  </mat-cell>\n        </ng-container>\n        <ng-container matColumnDef=\"olid\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Order List ID </mat-header-cell>\n          <mat-cell *matCellDef=\"let element\" > {{element.olid}}  </mat-cell>\n        </ng-container>\n        <ng-container matColumnDef=\"ol_dttm\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Pick-Up Time</mat-header-cell>\n          <mat-cell *matCellDef=\"let element\" >{{element.ol_dttm | date: \"medium\" }}  </mat-cell>\n        </ng-container>\n        <ng-container matColumnDef=\"ol_dttm_real\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Ordered Time </mat-header-cell>\n          <mat-cell *matCellDef=\"let element\" >{{element.ol_dttm_real | date: \"medium\" }}  </mat-cell>\n        </ng-container>\n        <ng-container matColumnDef=\"totalprice\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>\n          <mat-cell *matCellDef=\"let element\" >{{element.totalprice}} &#8362; </mat-cell>\n        </ng-container>\n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n      </mat-table>\n      <mat-paginator #paging\n                     [length]=\"5\"\n                     [pageSize]=\"5\"\n                     [pageSizeOptions]=\"[5, 10, 25, 100]\">\n      </mat-paginator>\n    </div>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2551,18 +2639,18 @@ var DatePickerComponent = /** @class */ (function () {
     DatePickerComponent.prototype.onDateRangeChanged = function (event) {
         var _this = this;
         if (this.ordersArray) {
-            console.log(this.ordersArray);
+            // console.log(this.ordersArray);
             this.ordersArray = new Array();
         }
-        console.log(event.beginDate);
-        console.log(event.endDate);
-        console.log(event.formatted);
+        // console.log(event.beginDate);
+        // console.log(event.endDate);
+        // console.log(event.formatted);
         var rangeStart = new Date(Date.UTC(event.beginDate.year, event.beginDate.month - 1, event.beginDate.day)).toISOString();
         var rangeEnd = new Date(Date.UTC(event.endDate.year, event.endDate.month - 1, event.endDate.day)).toISOString();
-        console.log(rangeEnd);
-        console.log(rangeStart);
+        // console.log(rangeEnd);
+        // console.log(rangeStart);
         this.queryService.getDateRange(rangeStart, rangeEnd).subscribe(function (orderArr) {
-            console.log(orderArr);
+            // console.log(orderArr);
             orderArr.forEach(function (or) {
                 _this.ordersArray.push(or);
             });
@@ -2893,6 +2981,10 @@ module.exports = "<div class=\"ui masthead vertical segment\">\n  <div class=\"u
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var _services_orderlist_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/orderlist.service */ "./src/app/services/orderlist.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_order_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/order.service */ "./src/app/services/order.service.ts");
+/* harmony import */ var _services_item_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/item.service */ "./src/app/services/item.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2903,6 +2995,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var DashboardComponent = /** @class */ (function () {
     function DashboardComponent() {
     }
@@ -2912,7 +3008,8 @@ var DashboardComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-dashboard',
             template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/dashboard/dashboard.component.html"),
-            styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")]
+            styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")],
+            providers: [_services_orderlist_service__WEBPACK_IMPORTED_MODULE_1__["OrderListService"], _services_order_service__WEBPACK_IMPORTED_MODULE_3__["OrderService"], _services_item_service__WEBPACK_IMPORTED_MODULE_4__["ItemService"], _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]]
         }),
         __metadata("design:paramtypes", [])
     ], DashboardComponent);
@@ -3110,11 +3207,11 @@ var MenuPublishedComponent = /** @class */ (function () {
         this.displayedColumns = ['itemid', 'supid', 'name', 'type', 'quantity', 'price'];
     }
     MenuPublishedComponent.prototype.ngOnInit = function () {
-        console.log('ngOnInit - Menu published');
+        // console.log('ngOnInit - Menu published');
         this.getPusblishedMenu();
     };
     MenuPublishedComponent.prototype.ngAfterContentInit = function () {
-        console.log('ngAfterContentInit - Menu published');
+        // console.log('ngAfterContentInit - Menu published');
     };
     MenuPublishedComponent.prototype.applyFilter = function (filterValue) {
         filterValue = filterValue.trim(); // Remove whitespace
@@ -3125,7 +3222,7 @@ var MenuPublishedComponent = /** @class */ (function () {
         var _this = this;
         this.itemService.getAllItemsSub().subscribe(function (itemsArr) {
             // this.itemsMenu = items;
-            console.log(itemsArr);
+            // console.log(itemsArr);
             itemsArr.forEach(function (it) {
                 _this.items.push(it);
             });
@@ -3148,8 +3245,7 @@ var MenuPublishedComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-menu-published',
             template: __webpack_require__(/*! ./menu-published.component.html */ "./src/app/menu/menu-published/menu-published.component.html"),
-            styles: [__webpack_require__(/*! ./menu-published.component.css */ "./src/app/menu/menu-published/menu-published.component.css")],
-            providers: [_services_item_service__WEBPACK_IMPORTED_MODULE_1__["ItemService"]]
+            styles: [__webpack_require__(/*! ./menu-published.component.css */ "./src/app/menu/menu-published/menu-published.component.css")]
         }),
         __metadata("design:paramtypes", [_services_item_service__WEBPACK_IMPORTED_MODULE_1__["ItemService"]])
     ], MenuPublishedComponent);
@@ -3256,7 +3352,7 @@ var MenuStorageComponent = /** @class */ (function () {
         this.getStorage();
     };
     MenuStorageComponent.prototype.ngOnDestroy = function () {
-        console.log('exit Menu Storage');
+        // console.log('exit Menu Storage');
         $('.ui.edit.modal').remove();
         $('.ui.add.modal').remove();
         $('.ui.confirm.modal').remove();
@@ -3270,30 +3366,30 @@ var MenuStorageComponent = /** @class */ (function () {
             textcolor: '#fff',
             position: 'top-left',
             icon: 'info circle',
-            time: 5,
+            time: 3,
         });
         this.itemService.getAllItems().then(function (items) {
             items.forEach(function (item) {
                 var itemTmp = new _classes_item__WEBPACK_IMPORTED_MODULE_2__["Item"](item);
                 _this.itemsMenu.push(itemTmp);
             });
-            console.log(_this.itemsMenu);
+            // console.log(this.itemsMenu);
         });
     };
     MenuStorageComponent.prototype.displayModal = function (action, item) {
-        console.log(action);
-        console.log(item);
+        // console.log(action);
+        // console.log(item);
         if (action === 'Add') {
-            console.log('Show Modal To Add Item');
+            // console.log('Show Modal To Add Item');
             $('.ui.add.modal')
                 .modal('setting', 'transition', 'horizontal flip')
                 .modal('show');
         }
         else if (action === 'Edit') {
-            console.log('Show Modal To Edit Item');
+            // console.log('Show Modal To Edit Item');
             // update the modal with item
             this.editItem = item;
-            console.log(this.editItem);
+            // console.log(this.editItem);
             $('.ui.edit.modal')
                 .modal('setting', 'transition', 'horizontal flip')
                 .modal('show');
@@ -3301,13 +3397,13 @@ var MenuStorageComponent = /** @class */ (function () {
         else if (action === 'Delete') {
             // post delete to server
             this.deleteItem = item;
-            console.log('Show Modal To Delete Item');
+            // console.log('Show Modal To Delete Item');
             $('.ui.confirm.modal')
                 .modal('setting', 'transition', 'horizontal flip')
                 .modal('show');
         }
         else {
-            console.log('ERROR');
+            // console.log('ERROR');
         }
     };
     MenuStorageComponent = __decorate([
@@ -3444,7 +3540,7 @@ module.exports = "\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<sm-menu title=\"CMS - Little Cafeteria\" class=\"\"  logoClass=\"home icon\">\n  <sm-menu class=\"left menu tablet only\" >\n    <a sm-item *ngFor=\"let item of items\" class=\"item\" [routerLink]=\"item.routerLink\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\">\n      <i class=\"white big {{ item.icon }} icon\"></i>\n      {{ item.name }}\n    </a>\n  </sm-menu>\n  <div class=\"right menu tablet only\">\n    <a class=\"item\" (click)=\"onLogout()\">\n      <i class=\"white big power off icon\"></i>\n      Logout\n    </a>\n    <div class=\"item\">\n      <img class=\"ui mini circular image\"\n           src=\"../assets/png/adam%20copy.jpg\">\n    </div>\n  </div>\n  <sm-menu class=\"menu right secondary mobile only\">\n    <a sm-item icon=\"sidebar\" (click)=\"invertedSidebar.show({transition: 'overlay'})\"></a>\n  </sm-menu>\n</sm-menu>\n\n<sm-sidebar class=\"left vertical inverted sidebar labeled icon menu\" #invertedSidebar>\n  <div class=\"right menu mobile only\">\n    <div class=\"item\">\n      <img class=\"ui small circular image\"\n           src=\"../assets/png/adam%20copy.jpg\">\n    </div>\n  </div>\n  <a *ngFor=\"let item of items\" class=\"item\" [routerLink]=\"item.routerLink\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" (click)=\"invertedSidebar.show({transition: 'overlay'})\">\n    <i class=\"white {{ item.icon }} icon\"></i>\n    {{ item.name }}\n  </a>\n  <a class=\"item\" (click)=\"onLogout()\">\n    <i class=\"white big power off icon\"></i>\n      Logout\n  </a>\n</sm-sidebar>\n\n"
+module.exports = "<sm-menu title=\"CMS - Little Cafeteria\" class=\"\"  logoClass=\"home icon\">\n  <sm-menu class=\"left menu tablet only\" >\n    <a sm-item *ngFor=\"let item of items\" class=\"item\" [routerLink]=\"item.routerLink\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\">\n      <i class=\"white big {{ item.icon }} icon\"></i>\n      {{ item.name }}\n    </a>\n  </sm-menu>\n  <div class=\"right menu tablet only\">\n    <a class=\"item\" (click)=\"onLogout()\">\n      <i class=\"white big power off icon\"></i>\n      Logout\n    </a>\n    <div class=\"item\">\n      <img class=\"ui mini circular image\"\n           src=\"../assets/png/adam%20copy.jpg\">\n    </div>\n  </div>\n  <sm-menu class=\"menu right secondary mobile only\">\n    <a sm-item icon=\"sidebar\" (click)=\"invertedSidebar.show({transition: 'overlay'})\"></a>\n  </sm-menu>\n</sm-menu>\n\n<sm-sidebar class=\"left vertical inverted sidebar labeled icon menu\" #invertedSidebar>\n  <div class=\"right menu mobile only\">\n    <div class=\"item\">\n      <img class=\"ui small image\" src=\"../assets/png/littlecafe.png\">\n    </div>\n  </div>\n  <a *ngFor=\"let item of items\" class=\"item\" [routerLink]=\"item.routerLink\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" (click)=\"invertedSidebar.show({transition: 'overlay'})\">\n    <i class=\"white {{ item.icon }} icon\"></i>\n    {{ item.name }}\n  </a>\n  <a class=\"item\" (click)=\"onLogout()\">\n    <i class=\"white big power off icon\"></i>\n      Logout\n  </a>\n</sm-sidebar>\n\n"
 
 /***/ }),
 
@@ -3518,7 +3614,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui segment tablet only\">\n<table class=\"ui compact celled definition table\">\n  <thead class=\"full-width\">\n  <tr>\n    <th>Order ID</th>\n    <th>Student Full Name</th>\n    <th>Pick-Up Time</th>\n    <th>Total Price (NIS)</th>\n    <th>Order Information</th>\n    <th>End Order</th>\n  </tr>\n  </thead>\n  <tbody>\n  <tr *ngFor=\"let order of ( orderList | orderByTime : 5); let i = index;\">\n    <td>{{order.olid}}</td>\n    <td>\n      <app-student-details [userId]=\"order.userid\" ></app-student-details>\n    </td>\n    <td>{{order?.ol_dttm | date: 'short' : 'UTC'  }}</td>\n    <td>{{order?.totalprice}} &#8362;</td>\n    <td>\n      <app-order-details [olid]=\"order.olid\"></app-order-details>\n    </td>\n    <td>\n      <div class=\"ui labeled icon button\" (click)=\"completeOrder(order)\">\n        <i class=\"bullhorn icon\"></i> Order Is Ready\n      </div>\n    </td>\n  </tr>\n  </tbody>\n  <app-order-modal-complete [orderInputConf]=\"ordertocomplete\" (notifyChange)=\"onNotifyClicked($event)\"></app-order-modal-complete>\n</table>\n</div>\n<div class=\"ui segment mobile only\">\n  <div class=\"responsive_table\">\n    <table class=\"mat-table mat-elevation-z1\">\n      <thead>\n      <tr class=\"mat-header-row\">\n        <th class=\"mat-header-cell\"><span>Order ID</span></th>\n        <th class=\"mat-header-cell\"><span>Student Full Name</span></th>\n        <th class=\"mat-header-cell\"><span>PickUp Time</span></th>\n        <th class=\"mat-header-cell\"><span>Total Price (NIS)</span></th>\n        <th class=\"mat-header-cell\"><span>Order Information</span></th>\n        <th class=\"mat-header-cell\"><span>End Order</span></th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr class=\"mat-row\" *ngFor=\"let order of ( orderList | orderByTime: 5); let i = index;\" >\n        <td class=\"mat-cell\">{{order.olid}} </td>\n        <td class=\"mat-cell\">\n          <app-student-details [userId]=\"order.userid\" ></app-student-details>\n        </td>\n        <td class=\"mat-cell\"> {{order.ol_dttm | date: 'short' : 'UTC' }}</td>\n        <td class=\"mat-cell\"> {{order.totalprice}} &#8362; </td>\n        <td class=\"mat-cell\">\n          <app-order-details [olid]=\"order.olid\"></app-order-details>\n        </td>\n        <td class=\"mat-cell\">\n          <div class=\"ui labeled icon button\" (click)=\"completeOrder(order)\">\n            <i class=\"bullhorn icon\"></i> Order Is Ready\n          </div>\n        </td>\n      </tr>\n      </tbody>\n    </table>\n    <app-order-modal-complete [orderInputConf]=\"ordertocomplete\" (notifyChange)=\"onNotifyClicked($event)\"></app-order-modal-complete>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui segment tablet only\">\n<table class=\"ui compact celled definition table\">\n  <thead class=\"full-width\">\n  <tr>\n    <th>Order ID</th>\n    <th>Student Full Name</th>\n    <th>Pick-Up Time</th>\n    <th>Total Price (NIS)</th>\n    <th>Order Information</th>\n    <th>End Order</th>\n  </tr>\n  </thead>\n  <tbody>\n  <tr *ngFor=\"let order of ( orderList | orderByTime : 5); let i = index;\">\n    <td>{{order.olid}}</td>\n    <td>\n      <app-student-details [userId]=\"order.userid\" ></app-student-details>\n    </td>\n    <td>{{order?.ol_dttm | date: 'short' : 'UTC'  }}</td>\n    <td>{{order?.totalprice}} &#8362;</td>\n    <td>\n      <app-order-details [olid]=\"order.olid\"></app-order-details>\n    </td>\n    <td>\n      <div class=\"ui labeled icon button\" (click)=\"completeOrder(order)\">\n        <i class=\"bullhorn icon\"></i> Order Is Ready\n      </div>\n    </td>\n  </tr>\n  </tbody>\n</table>\n</div>\n<div class=\"ui segment mobile only\">\n  <div class=\"responsive_table\">\n    <table class=\"mat-table mat-elevation-z1\">\n      <thead>\n      <tr class=\"mat-header-row\">\n        <th class=\"mat-header-cell\"><span>Order ID</span></th>\n        <th class=\"mat-header-cell\"><span>Student Full Name</span></th>\n        <th class=\"mat-header-cell\"><span>PickUp Time</span></th>\n        <th class=\"mat-header-cell\"><span>Total Price (NIS)</span></th>\n        <th class=\"mat-header-cell\"><span>Order Information</span></th>\n        <th class=\"mat-header-cell\"><span>End Order</span></th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr class=\"mat-row\" *ngFor=\"let order of ( orderList | orderByTime: 5); let i = index;\" >\n        <td class=\"mat-cell\">{{order.olid}} </td>\n        <td class=\"mat-cell\">\n          <app-student-details [userId]=\"order.userid\" ></app-student-details>\n        </td>\n        <td class=\"mat-cell\"> {{order.ol_dttm | date: 'short' : 'UTC' }}</td>\n        <td class=\"mat-cell\"> {{order.totalprice}} &#8362; </td>\n        <td class=\"mat-cell\">\n          <app-order-details [olid]=\"order.olid\"></app-order-details>\n        </td>\n        <td class=\"mat-cell\">\n          <div class=\"ui labeled icon button\" (click)=\"completeOrder(order)\">\n            <i class=\"bullhorn icon\"></i> Order Is Ready\n          </div>\n        </td>\n      </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n<app-order-modal-complete [orderInputConf]=\"ordertocomplete\" (notifyChange)=\"onNotifyClicked($event)\"></app-order-modal-complete>\n\n"
 
 /***/ }),
 
@@ -3563,11 +3659,11 @@ var OrderActiveComponent = /** @class */ (function () {
     };
     OrderActiveComponent.prototype.ngOnChanges = function (changes) {
         if (!changes) {
-            console.log(changes);
+            // console.log(changes);
             return;
         }
         else {
-            console.log(changes.insertOrder);
+            // console.log(changes.insertOrder);
             if (changes.insertOrder.currentValue) {
                 this.orderList = new Array();
                 this.getActiveOrders();
@@ -3576,11 +3672,11 @@ var OrderActiveComponent = /** @class */ (function () {
         }
     };
     OrderActiveComponent.prototype.ngOnDestroy = function () {
-        console.log("Active - Destory");
+        // console.log("Active - Destory");
         $('.ui.complete.order.modal').remove();
     };
     OrderActiveComponent.prototype.onNotifyClicked = function (message) {
-        console.log(message);
+        // console.log(message);
         if (message === 'Order Complete') {
             this.orderList = new Array();
             this.getActiveOrders();
@@ -3588,7 +3684,7 @@ var OrderActiveComponent = /** @class */ (function () {
     };
     OrderActiveComponent.prototype.getActiveOrders = function () {
         var _this = this;
-        console.log('Getting Active Orders !');
+        // console.log('Getting Active Orders !');
         jQuery.uiAlert({
             textHead: 'Active Orders',
             text: 'Active orders table has been updated succesfuly',
@@ -3596,35 +3692,18 @@ var OrderActiveComponent = /** @class */ (function () {
             textcolor: '#fff',
             position: 'top-left',
             icon: 'info circle',
-            time: 5,
+            time: 3,
         });
-        /*
-        this.orderListService.getAllOrdersByStatus('Active').
-        then( (_orderList: any) =>  {
-          _orderList.forEach( ol => {
-            const _ol: OrderList = new OrderList;
-            _ol.userid = ol.userid;
-            _ol.olid = ol.olid
-            _ol.totalprice = ol.totalprice;
-            _ol.status = ol.status;
-            _ol.ol_dttm = ol.ol_dttm;
-            _ol.ol_dttm_real = ol.ol_dttm_real;
-            _ol.hasreview = ol.hasreview;
-            this.orderList.push(_ol);
-          });
-          console.log(this.orderList);
-        });
-        */
         this.orderListService.getTodayActiveOrders().then(function (_orderList) {
             var len = _orderList['length'];
             if (len === 0) {
-                console.log('no orders yet');
+                // console.log('no orders yet');
                 // change orders table to display empty line
             }
             else {
-                console.log('there are orders waiting');
+                // console.log('there are orders waiting');
                 _orderList.forEach(function (ol) {
-                    console.log(ol);
+                    // console.log(ol);
                     var _ol = new _classes_orderlist__WEBPACK_IMPORTED_MODULE_2__["OrderList"];
                     _ol.userid = ol.userid;
                     _ol.olid = ol.olid;
@@ -3639,21 +3718,13 @@ var OrderActiveComponent = /** @class */ (function () {
         });
     };
     OrderActiveComponent.prototype.completeOrder = function (order) {
-        console.log(order);
-        console.log('Complete Order List and notify Student');
+        // console.log(order);
+        // console.log('Complete Order List and notify Student');
         this.ordertocomplete = order;
-        console.log(this.ordertocomplete);
+        // console.log(this.ordertocomplete);
         $('.ui.complete.order.modal')
             .modal('setting', 'transition', 'horizontal flip')
             .modal('show');
-        // modal for action - yes or no - then if
-        // yes  - put call with orderlist to change status to 'Active'
-        //        notify student (server side my opion
-        //        get new incoming order to the list
-        // no -   return to old screen review incoming anyway
-        //
-        // call it again to present changes in tables
-        //this.getIncomingOrders();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
@@ -3732,16 +3803,13 @@ var OrderCompleteComponent = /** @class */ (function () {
         // ORDER LIST WITH STATUS 'Completed'
         this.elements = [];
     }
-    OrderCompleteComponent.prototype.ngOnInit = function () {
-        console.log("ngOnInit - Complete Orders");
-    };
     OrderCompleteComponent.prototype.ngAfterContentInit = function () {
-        console.log("ngAfterContentInit - Complete Orders");
+        // console.log("ngAfterContentInit - Complete Orders");
         this.getCompletedOrders();
     };
     OrderCompleteComponent.prototype.getCompletedOrders = function () {
         var _this = this;
-        console.log('Getting Completed Orders !');
+        // console.log('Getting Completed Orders !');
         /*
        this.orderListService.getAllOrdersByStatus('Complete').
        then( (_orderList: any) =>  {
@@ -3763,15 +3831,14 @@ var OrderCompleteComponent = /** @class */ (function () {
                 _ol.hasreview = ol.hasreview;
                 _this.elements.push(_ol);
             });
-            console.log(_this.elements);
+            // console.log(this.elements);
         });
     };
     OrderCompleteComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-order-complete',
             template: __webpack_require__(/*! ./order-complete.component.html */ "./src/app/order/order-complete/order-complete.component.html"),
-            styles: [__webpack_require__(/*! ./order-complete.component.css */ "./src/app/order/order-complete/order-complete.component.css")],
-            providers: [_services_orderlist_service__WEBPACK_IMPORTED_MODULE_2__["OrderListService"]]
+            styles: [__webpack_require__(/*! ./order-complete.component.css */ "./src/app/order/order-complete/order-complete.component.css")]
         }),
         __metadata("design:paramtypes", [_services_orderlist_service__WEBPACK_IMPORTED_MODULE_2__["OrderListService"]])
     ], OrderCompleteComponent);
@@ -3821,6 +3888,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var rxjs_add_observable_interval__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/observable/interval */ "./node_modules/rxjs/_esm5/add/observable/interval.js");
 /* harmony import */ var rxjs_add_operator_takeWhile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/add/operator/takeWhile */ "./node_modules/rxjs/_esm5/add/operator/takeWhile.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/Rx.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(rxjs__WEBPACK_IMPORTED_MODULE_6__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3836,6 +3905,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var OrderIncomingComponent = /** @class */ (function () {
     function OrderIncomingComponent(orderListService) {
         this.orderListService = orderListService;
@@ -3845,10 +3915,11 @@ var OrderIncomingComponent = /** @class */ (function () {
         this.reloadTable = false;
     }
     OrderIncomingComponent.prototype.ngOnInit = function () {
-        /*Observable.interval(25000).takeWhile(() => true).subscribe(() => {
-          this.getIncomingOrders();
+        var _this = this;
+        // every 30 second i will bring new orders
+        rxjs__WEBPACK_IMPORTED_MODULE_6__["Observable"].interval(30000).takeWhile(function () { return true; }).subscribe(function () {
+            _this.getIncomingOrders();
         });
-        */
         this.getIncomingOrders();
         $(document).ready(function () {
             $('.reload-button').hover(function () {
@@ -3857,8 +3928,6 @@ var OrderIncomingComponent = /** @class */ (function () {
                     .transition('horizontal flip')
                     .transition('stop')
                     .transition('vertical flip');
-            }, function () {
-                console.log('reload button triggerd');
             });
         });
     };
@@ -3870,14 +3939,14 @@ var OrderIncomingComponent = /** @class */ (function () {
         }
     };
     OrderIncomingComponent.prototype.ngOnChanges = function (changes) {
-        console.log(changes);
+        // console.log(changes);
         if (!changes) {
-            console.log(changes);
+            // console.log(changes);
             return;
         }
         else {
-            console.log(changes.reloadTable.currentValue);
-            console.log(changes.reloadTable.firstChange);
+            // console.log(changes.reloadTable.currentValue);
+            // console.log(changes.reloadTable.firstChange);
             if (changes.reloadTable.currentValue) {
                 this.orderList = new Array();
                 this.getIncomingOrders();
@@ -3886,23 +3955,22 @@ var OrderIncomingComponent = /** @class */ (function () {
         }
     };
     OrderIncomingComponent.prototype.ngOnDestroy = function () {
-        console.log('exit Menu Storage');
+        // console.log('exit Menu Storage');
         $('.ui.confirm.order.modal').remove();
     };
     OrderIncomingComponent.prototype.getIncomingOrders = function () {
         var _this = this;
-        /*jQuery.uiAlert({
-          textHead: 'Incoming Orders', // header
-          text: 'Incoming orders table has been updated succesfuly', // Text
-          bgcolor: '#55a9ee', // background-color
-          textcolor: '#fff', // color
-          position: 'top-left', // position . top And bottom ||  left / center / right
-          icon: 'info circle', // icon in semantic-UI
-          time: 5, // time
+        jQuery.uiAlert({
+            textHead: 'Incoming Orders',
+            text: 'Incoming orders table has been updated succesfuly',
+            bgcolor: '#55a9ee',
+            textcolor: '#fff',
+            position: 'top-left',
+            icon: 'info circle',
+            time: 2,
         });
-        */
         this.orderList = new Array();
-        console.log('Getting Incoming Orders !');
+        // console.log('Getting Incoming Orders !');
         /*
         this.orderListService.getAllOrdersByStatus('Incoming').
         then( (_orderList: any) =>  {
@@ -3923,13 +3991,13 @@ var OrderIncomingComponent = /** @class */ (function () {
         this.orderListService.getTodayFutureOrders().then(function (_orderList) {
             var len = _orderList['length'];
             if (len === 0) {
-                console.log('no orders yet');
+                //  console.log('no orders yet');
                 // change orders table to display empty line
             }
             else {
-                console.log('there are orders waiting');
+                // console.log('there are orders waiting');
                 _orderList.forEach(function (ol) {
-                    console.log(ol);
+                    // console.log(ol);
                     var _ol = new _classes_orderlist__WEBPACK_IMPORTED_MODULE_1__["OrderList"];
                     _ol.userid = ol.userid;
                     _ol.olid = ol.olid;
@@ -3944,7 +4012,7 @@ var OrderIncomingComponent = /** @class */ (function () {
         });
     };
     OrderIncomingComponent.prototype.startMakingOrder = function (order) {
-        console.log('Start Making Order List');
+        // console.log('Start Making Order List');
         this.ordertodo = order;
         $('.ui.confirm.order.modal')
             .modal('setting', 'transition', 'horizontal flip')
@@ -4035,12 +4103,12 @@ var OrderComponent = /** @class */ (function () {
     OrderComponent.prototype.onChange = function (message) {
         var _this = this;
         if (message === 'Update Active Table') {
-            console.log(message);
+            // console.log(message);
             this.isActiveTableUpdated = true;
-            console.log('changed to true to update active table');
+            // console.log('changed to true to update active table');
         }
         else if (message === 'Incoming Table Updated Succesfuly') {
-            console.log(message);
+            // console.log(message);
             setTimeout(function () {
                 _this.isReloadAsked = false;
             });
@@ -4050,14 +4118,14 @@ var OrderComponent = /** @class */ (function () {
     OrderComponent.prototype.onFinish = function (message) {
         var _this = this;
         if (message === 'Active Table Updated Succesfuly') {
-            console.log(message);
+            // console.log(message);
             setTimeout(function () {
                 _this.isActiveTableUpdated = false;
             });
         }
     };
     OrderComponent.prototype.reloadTable = function () {
-        console.log('reload data from server');
+        // console.log('reload data from server');
         this.isReloadAsked = true;
     };
     OrderComponent = __decorate([
@@ -4263,6 +4331,32 @@ var TimeOrderPipe = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/http-interceptors/noop-interceptor.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/services/http-interceptors/noop-interceptor.ts ***!
+  \****************************************************************/
+/*! exports provided: AddHttpHeaderInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddHttpHeaderInterceptor", function() { return AddHttpHeaderInterceptor; });
+var AddHttpHeaderInterceptor = /** @class */ (function () {
+    function AddHttpHeaderInterceptor() {
+    }
+    AddHttpHeaderInterceptor.prototype.intercept = function (req, next) {
+        // Get the auth header from the service.
+        var authHeader = 'token_value';
+        var clonedReq = req.clone({ headers: req.headers.set('Authorization', authHeader) });
+        return next.handle(clonedReq);
+    };
+    return AddHttpHeaderInterceptor;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/item.service.ts":
 /*!******************************************!*\
   !*** ./src/app/services/item.service.ts ***!
@@ -4290,12 +4384,29 @@ var ItemService = /** @class */ (function () {
     function ItemService(http) {
         this.http = http;
         this.url = 'https://cafeappserver.herokuapp.com/api';
+        this.urlEnv = 'http://localhost:3000/api';
+        // this.setToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]();
+        headers = headers.set('Content-Type', 'application/json');
+        this.headerConfig = headers;
     }
+    /*
+    setToken() {
+      console.log('Item Provider - Setting Access Token');
+      this.userData.getToken().then(
+        res => {
+          let headers: HttpHeaders = new HttpHeaders();
+          headers = headers.append('Content-Type', 'application/json');
+          headers = headers.append('x-access-token', res);
+          this.headerConfig = headers;
+        });
+    }
+    */
     ItemService.prototype.getItemById = function (id) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.url + '/items/' + id, {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json'),
+                headers: _this.headerConfig
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4308,7 +4419,7 @@ var ItemService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.url + '/items', {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json').set('Allow-Control-Allow-Origin', '*'),
+                headers: _this.headerConfig,
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4318,13 +4429,13 @@ var ItemService = /** @class */ (function () {
         });
     };
     ItemService.prototype.getAllItemsSub = function () {
-        return this.http.get(this.url + '/items');
+        return this.http.get(this.url + '/items', { headers: this.headerConfig });
     };
     ItemService.prototype.createItem = function (_item) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.post(_this.url + '/items', JSON.stringify(_item), {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json'),
+                headers: _this.headerConfig,
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4336,7 +4447,7 @@ var ItemService = /** @class */ (function () {
     ItemService.prototype.deleteItem = function (itemid) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.http.delete(_this.url + '/items/' + itemid)
+            _this.http.delete(_this.url + '/items/' + itemid, { headers: _this.headerConfig })
                 .subscribe(function (res) {
                 resolve(res);
             }, function (err) {
@@ -4348,7 +4459,7 @@ var ItemService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.put(_this.url + '/items/', JSON.stringify(_item), {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json')
+                headers: _this.headerConfig
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4395,12 +4506,29 @@ var OrderService = /** @class */ (function () {
     function OrderService(http) {
         this.http = http;
         this.url = 'https://cafeappserver.herokuapp.com/api';
+        this.urlEnv = 'http://localhost:3000/api';
+        // this.setToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]();
+        headers = headers.set('Content-Type', 'application/json');
+        this.headerConfig = headers;
     }
+    /*
+    setToken() {
+      console.log('Order Provider - Setting Access Token');
+      this.userData.getToken().then(
+        res => {
+          let headers: HttpHeaders = new HttpHeaders();
+          headers = headers.append('Content-Type', 'application/json');
+          headers = headers.append('x-access-token', res);
+          this.headerConfig = headers;
+        });
+    }
+    */
     OrderService.prototype.createOrder = function (_order) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.post(_this.url + '/ordereditems', JSON.stringify(_order), {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json'),
+                headers: _this.headerConfig,
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4410,14 +4538,14 @@ var OrderService = /** @class */ (function () {
         });
     };
     OrderService.prototype.getOrderById = function (id) {
-        return this.http.get(this.url + '/ordereditems/' + id);
+        return this.http.get(this.url + '/ordereditems/' + id, { headers: this.headerConfig });
     };
     // delete order list by id
     OrderService.prototype.deleteOrderById = function (id) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.delete(_this.url + '/ordereditems/' + id, {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json'),
+                headers: _this.headerConfig
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4431,7 +4559,7 @@ var OrderService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.url + '/ordereditems/olid/' + id, {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json'),
+                headers: _this.headerConfig
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4478,18 +4606,35 @@ var OrderListService = /** @class */ (function () {
     function OrderListService(http) {
         this.http = http;
         this.url = 'https://cafeappserver.herokuapp.com/api';
+        this.urlEv = 'http://localhost:3000/api';
+        // this.setToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
+        headers = headers.set('Content-Type', 'application/json');
+        this.headerConfig = headers;
     }
+    /*
+    setToken() {
+      console.log('Order List Provider - Setting Access Token');
+      this.userData.getToken().then(
+        res => {
+          let headers: HttpHeaders = new HttpHeaders();
+          headers = headers.append('Content-Type', 'application/json');
+          headers = headers.append('x-access-token', res);
+          this.headerConfig = headers;
+        });
+    }
+    */
     OrderListService.prototype.getAllOrders = function () {
-        return this.http.get(this.url + '/orderedlist');
+        return this.http.get(this.url + '/orderedlist', { headers: this.headerConfig });
     };
     OrderListService.prototype.getOrderListById = function (id) {
-        return this.http.get(this.url + '/orderedlist/' + id);
+        return this.http.get(this.url + '/orderedlist/' + id, { headers: this.headerConfig });
     };
     OrderListService.prototype.getAllOrdersPromise = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.url + '/orderedlist', {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json')
+                headers: _this.headerConfig
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4502,7 +4647,7 @@ var OrderListService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.url + '/orderedlist/status/' + status, {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json')
+                headers: _this.headerConfig
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4515,7 +4660,7 @@ var OrderListService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.url + '/orderedlist/todayfutureorders', {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json')
+                headers: _this.headerConfig
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4528,7 +4673,7 @@ var OrderListService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.url + '/orderedlist/todayactiveorders', {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json')
+                headers: _this.headerConfig
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4541,7 +4686,7 @@ var OrderListService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.put(_this.url + '/orderedlist/', JSON.stringify(_orderList), {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json')
+                headers: _this.headerConfig
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4554,7 +4699,7 @@ var OrderListService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.put(_this.url + '/orderedlist/', JSON.stringify(_orderList), {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json')
+                headers: _this.headerConfig
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4588,6 +4733,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs/_esm5/add/operator/catch.js");
 /* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var _user_data_user_data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-data/user-data.service */ "./src/app/services/user-data/user-data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4601,23 +4747,43 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var QueryService = /** @class */ (function () {
-    function QueryService(http) {
+    function QueryService(http, userData) {
         this.http = http;
+        this.userData = userData;
         this.url = 'https://cafeappserver.herokuapp.com/api';
+        this.urlDev = 'http://localhost:3000/api';
+        // this.setToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]();
+        headers = headers.set('Content-Type', 'application/json');
+        this.headerConfig = headers;
     }
+    /*
+    setToken() {
+      console.log('Query Provider - Setting Access Token');
+      this.userData.getToken().then(
+        res => {
+          let headers: HttpHeaders = new HttpHeaders();
+          headers = headers.append('Content-Type', 'application/json');
+          headers = headers.append('x-access-token', res);
+          this.headerConfig = headers;
+        });
+    }
+    */
     QueryService.prototype.getBestUsers = function (type) {
-        return this.http.get(this.url + '/query/' + type);
+        return this.http.get(this.url + '/query/' + type, { headers: this.headerConfig });
     };
     QueryService.prototype.getBestItems = function (type) {
-        return this.http.get(this.url + '/query/' + type);
+        return this.http.get(this.url + '/query/' + type, { headers: this.headerConfig });
     };
     QueryService.prototype.getDateRange = function (rangeStart, rangeEnd) {
-        return this.http.get(this.url + '/query/orderlistreportFromDateToDate?param1=' + rangeStart + '&param2=' + rangeEnd);
+        return this.http.get(this.url + '/query/orderlistreportFromDateToDate?param1=' + rangeStart + '&param2=' + rangeEnd, { headers: this.headerConfig });
     };
     QueryService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"],
+            _user_data_user_data_service__WEBPACK_IMPORTED_MODULE_4__["UserData"]])
     ], QueryService);
     return QueryService;
 }());
@@ -4679,6 +4845,24 @@ var UserData = /** @class */ (function () {
     UserData.prototype.setUserId = function (userid) {
         return this.instance.setItem('userid', userid).then(function (res) { return console.log(res); });
     };
+    // Gets userid for any  cause
+    UserData.prototype.getToken = function () {
+        var _this = this;
+        if (this.token) {
+            return Promise.resolve(this.token);
+        }
+        else {
+            return this.instance.getItem('token').then(function (res) {
+                _this.token = res;
+                return res;
+            });
+        }
+    };
+    // Sets the userid after succussful login
+    UserData.prototype.setToken = function (token) {
+        return this.instance.setItem('token', token).then(function (res) { return console.log(res); });
+    };
+    // set employee/manager
     UserData.prototype.setManager = function (manager) { };
     UserData.prototype.clearManager = function () {
         this.instance.removeItem('userid');
@@ -4725,11 +4909,28 @@ var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
         this.url = 'https://cafeappserver.herokuapp.com/api';
+        this.urlEnv = 'http://localhost:3000/api';
+        // this.setToken();
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]();
+        headers = headers.set('Content-Type', 'application/json');
+        this.headerConfig = headers;
     }
+    /*
+    setToken() {
+      console.log('User Provider - Setting Access Token');
+      this.userData.getToken().then(
+        res => {
+          let headers: HttpHeaders = new HttpHeaders();
+          headers = headers.append('Content-Type', 'application/json');
+          headers = headers.append('x-access-token', res);
+          this.headerConfig = headers;
+        });
+    }
+    */
     UserService.prototype.createUser = function (_user) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.http.post(_this.url + '/users/signup', JSON.stringify(_user), {
+            _this.http.post(_this.url + '/signup', JSON.stringify(_user), {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json'),
                 responseType: 'text'
             })
@@ -4743,7 +4944,7 @@ var UserService = /** @class */ (function () {
     UserService.prototype.getUser = function (registerCredentials) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.http.post(_this.url + '/users/login', JSON.stringify(registerCredentials), {
+            _this.http.post(_this.url + '/login', JSON.stringify(registerCredentials), {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json')
             })
                 .subscribe(function (res) {
@@ -4766,17 +4967,16 @@ var UserService = /** @class */ (function () {
     }
     */
     UserService.prototype.getUserByRole = function (role) {
-        return this.http.get(this.url + '/users/role/' + role);
+        return this.http.get(this.url + '/users/role/' + role, { headers: this.headerConfig });
     };
     UserService.prototype.getUserByRoleAny = function (role) {
-        return this.http.get(this.url + '/users/role/' + role);
+        return this.http.get(this.url + '/users/role/' + role, { headers: this.headerConfig });
     };
     UserService.prototype.getUserByRolePromise = function (s) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.url + '/users/role/' + s, {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set('Content-Type', 'application/json'),
-                responseType: 'text'
+                headers: _this.headerConfig
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -4786,10 +4986,36 @@ var UserService = /** @class */ (function () {
         });
     };
     UserService.prototype.getUserById = function (id) {
-        return this.http.get(this.url + '/users/' + id);
+        return this.http.get(this.url + '/users/' + id, { headers: this.headerConfig });
+    };
+    UserService.prototype.getUserByIdPromise = function (id) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.get(_this.url + '/users/' + id, {
+                headers: _this.headerConfig
+            })
+                .subscribe(function (res) {
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
     };
     UserService.prototype.getImage = function (imageUrl) {
-        return this.http.get(this.url + '/download/' + imageUrl, { responseType: 'blob' });
+        return this.http.get(this.url + '/download/' + imageUrl, { headers: this.headerConfig, responseType: 'blob' });
+    };
+    UserService.prototype.notifyStudent = function (olid) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(_this.url + '/users/sms/' + olid, {}, {
+                headers: _this.headerConfig
+            })
+                .subscribe(function (res) {
+                resolve(res);
+            }, function (err) {
+                reject(err);
+            });
+        });
     };
     UserService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
