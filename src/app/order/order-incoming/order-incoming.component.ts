@@ -68,7 +68,7 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   getIncomingOrders(): void {
-    jQuery.uiAlert({
+   /* jQuery.uiAlert({
       textHead: 'Incoming Orders', // header
       text: 'Incoming orders table has been updated succesfuly', // Text
       bgcolor: '#55a9ee', // background-color
@@ -77,6 +77,7 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
       icon: 'info circle', // icon in semantic-UI
       time: 2, // time
     });
+    */
     this.orderList = new Array();
     // console.log('Getting Incoming Orders !');
     /*

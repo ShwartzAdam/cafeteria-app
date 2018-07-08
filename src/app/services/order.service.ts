@@ -9,7 +9,7 @@ import {UserData} from './user-data/user-data.service';
 export class OrderService {
 
   public url = 'https://cafeappserver.herokuapp.com/api';
-  public urlPrd = 'http://localhost:3000/api';
+  public urlEnv = 'http://localhost:3000/api';
   public headerConfig: any;
   constructor(private http: HttpClient) {
     // this.setToken();

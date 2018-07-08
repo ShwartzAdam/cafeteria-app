@@ -50,7 +50,7 @@ export class UserData {
 
   // Sets the userid after succussful login
   public setToken(token: string): void {
-    return this.instance.setItem('token', token).then(res => console.log(res));
+    return this.instance.setItem('token', token).then(res => {});
   }
   // set employee/manager
   public setManager(manager: User): void {}
