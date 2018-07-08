@@ -238,6 +238,9 @@ body{
   .large.monitor.hidden {
     display: none !important;
   }
+  /*
+  table css
+   */
   .mat-table.mat-elevation-z1 {
     width: 90%;
     margin: auto;
@@ -246,11 +249,23 @@ body{
     display: table-cell !important;
   }
 
+  /*
+  table - font size
+   */
   .ui.table thead th {
     font-size:0.8em;
   }
   .ui.table tr td {
     font-size:0.7em;
+  }
+  .mat-header-row{
+    font-size: 0.8em;
+  }
+  .mat-header-cell{
+    font-size:0.8em;
+  }
+  .mat-cell{
+    font-size: 0.8em;
   }
   /*
   menu css
@@ -270,10 +285,16 @@ body{
   .ui.menu .item.active {
     color: #90BAAD !important;
   }
+  /*
+  segments - tables containers
+   */
   .ui.segment{
     background-color: #5DC7A7 !important;
     border-radius: 10px;
   }
+  /*
+ segemnt - block header
+  */
   .ui.vertical.segment{
     background-color: #2A7C63 !important;
   }
@@ -286,16 +307,9 @@ body{
     font-size: 0.7em;
     color: #fff;
   }
-  .mat-header-row{
-    font-size: 0.8em;
-  }
-  .mat-header-cell{
-    font-size:0.8em;
-  }
-  .mat-cell{
-    font-size: 0.8em;
-  }
-
+  /*
+  buttons - sizes
+   */
   .ui.button {
     font-size: 0.7em;
     background-color: #2A7C63;
@@ -329,10 +343,17 @@ body{
   .ui.menu:not(.vertical) .right.menu {
     font-size: 1.4em;
   }
+  /*
+ table css
+  */
+
   .mat-table.mat-elevation-z1 {
     margin: auto;
+    display: grid !important;
   }
-
+  /*
+  table - font size
+   */
   .ui.table thead th {
     font-size:0.75em;
   }
@@ -348,6 +369,18 @@ body{
   .ui.table:not(.unstackable) tr > th{
     display: inline-block !important;
   }
+  .mat-header-row{
+    font-size: 0.6em;
+  }
+  .mat-header-cell {
+    font-size: 0.9em;
+    padding-right: 2%;
+    padding-left: 2%;
+  }
+  .mat-cell{
+    font-size: 0.6em;
+  }
+
   /*
   menu css
    */
@@ -362,10 +395,14 @@ body{
   }
   .ui.menu .item {
     color: #ECECEC !important;
+    font-size: 15px;
   }
   .ui.menu .item.active {
     color: #90BAAD !important;
   }
+  /*
+  segments - tables containers
+   */
   .ui.segment{
     background-color: #5DC7A7 !important;
     border-radius: 10px;
@@ -375,6 +412,9 @@ body{
     width: 90%;
     margin:auto;
   }
+  /*
+ segemnt - block header
+  */
   .ui.block.header{
     background: #2A7C63 !important;
     color: #fff;
@@ -384,20 +424,10 @@ body{
     font-size: 0.7em;
     color: #fff;
   }
-  .mat-header-row{
-    font-size: 0.6em;
-  }
-  .mat-header-cell {
-    font-size: 12px;
-    font-weight: 500;
-    padding-right: 1.5%;
-    padding-left: 1.5%;
-  }
-  .mat-cell{
-    font-size: 0.8em;
-  }
 
-
+  /*
+    buttons - sizes
+     */
   .ui.button {
     font-size: 0.7em;
     background-color: #2A7C63;
@@ -426,20 +456,16 @@ body{
   .large.monitor.hidden {
     display: none !important;
   }
+    /*
+  table css
+   */
   .ui.menu:not(.vertical) .right.menu {
     font-size: 1.4em;
   }
   .mat-table.mat-elevation-z1 {
     margin: auto;
+    display: grid !important;
   }
-
-  .ui.table thead th {
-    font-size:0.75em;
-  }
-  .ui.table tr td {
-    font-size:0.65em;
-  }
-
   .ui.table:not(.unstackable) thead {
     display: none !important;
   }
@@ -449,7 +475,26 @@ body{
   .ui.table:not(.unstackable) tr > th{
     display: inline-block !important;
   }
+  /*
+  table - font size
+   */
 
+  .ui.table thead th {
+    font-size:0.75em;
+  }
+  .ui.table tr td {
+    font-size:0.65em;
+  }
+  .mat-header-cell {
+    font-size: 1em;
+    font-weight: 500;
+  }
+  .mat-header-row{
+    font-size: 0.5em;
+  }
+  .mat-cell{
+    font-size: 0.5em;
+  }
   /*
   menu css
    */
@@ -464,10 +509,14 @@ body{
   }
   .ui.menu .item {
     color: #ECECEC !important;
+    font-size: 15px;
   }
   .ui.menu .item.active {
     color: #90BAAD !important;
   }
+  /*
+  segments - tables containers
+   */
   .ui.segment{
     background-color: #5DC7A7 !important;
     border-radius: 10px;
@@ -486,18 +535,9 @@ body{
     font-size: 0.7em;
     color: #fff;
   }
-  .mat-header-cell {
-    font-size: 9px;
-    font-weight: 500;
-    padding-right: 1.5%;
-    padding-left: 1.5%;
-  }
-  .mat-header-row{
-    font-size: 0.6em;
-  }
-  .mat-cell{
-    font-size: 0.8em;
-  }
+  /*
+    buttons - sizes
+     */
 
   .ui.button {
     font-size: 0.7em;

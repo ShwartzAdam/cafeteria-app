@@ -1,4 +1,4 @@
-<sm-menu title="CMS - Little Cafeteria" class=""  logoClass="home icon">
+<sm-menu title="" class=""  logoClass="home icon">
   <sm-menu class="left menu tablet only" >
     <a sm-item *ngFor="let item of items" class="item" [routerLink]="item.routerLink" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <i class="white big {{ item.icon }} icon"></i>
@@ -15,7 +15,7 @@
            src="../assets/png/adam%20copy.jpg">
     </div>
   </div>
-  <sm-menu class="menu right secondary mobile only">
+  <sm-menu class="menu left secondary mobile only">
     <a sm-item icon="sidebar" (click)="invertedSidebar.show({transition: 'overlay'})"></a>
   </sm-menu>
 </sm-menu>

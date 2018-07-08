@@ -10,7 +10,7 @@ import {UserData} from './user-data/user-data.service';
 @Injectable()
 export class SupplyService {
   public url = 'https://cafeappserver.herokuapp.com/api';
-  public urlDev = 'http://localhost:3000/api';
+  public urlPrd = 'http://localhost:3000/api';
   public headerConfig: any;
   constructor(private http: HttpClient) {
     // this.setToken();
