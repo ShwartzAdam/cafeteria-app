@@ -325,11 +325,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu_menu_storage_menu_storage_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./menu/menu-storage/menu-storage.component */ "./src/app/menu/menu-storage/menu-storage.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _employee_employee_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./employee/employee.component */ "./src/app/employee/employee.component.ts");
-/* harmony import */ var _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./layouts/auth-layout.component */ "./src/app/layouts/auth-layout.component.ts");
-/* harmony import */ var _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./layouts/home-layout.component */ "./src/app/layouts/home-layout.component.ts");
-/* harmony import */ var _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/reports/bestItems/best-items.component */ "./src/app/components/reports/bestItems/best-items.component.ts");
-/* harmony import */ var _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/reports/bestUsers/best-users.component */ "./src/app/components/reports/bestUsers/best-users.component.ts");
-/* harmony import */ var _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/reports/date-picker/datepicker.component */ "./src/app/components/reports/date-picker/datepicker.component.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./layouts/auth-layout.component */ "./src/app/layouts/auth-layout.component.ts");
+/* harmony import */ var _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./layouts/home-layout.component */ "./src/app/layouts/home-layout.component.ts");
+/* harmony import */ var _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/reports/bestItems/best-items.component */ "./src/app/components/reports/bestItems/best-items.component.ts");
+/* harmony import */ var _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/reports/bestUsers/best-users.component */ "./src/app/components/reports/bestUsers/best-users.component.ts");
+/* harmony import */ var _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/reports/date-picker/datepicker.component */ "./src/app/components/reports/date-picker/datepicker.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -349,6 +350,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+// guards
+
 
 
 
@@ -357,8 +360,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var appRoutes = [
     {
         path: '',
-        component: _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_13__["HomeLayoutComponent"],
-        // canActivate: [AuthGuard],
+        component: _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_14__["HomeLayoutComponent"],
+        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]],
         children: [
             { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["DashboardComponent"] },
             {
@@ -383,9 +386,9 @@ var appRoutes = [
                 component: _charts_charts_component__WEBPACK_IMPORTED_MODULE_5__["ChartsComponent"],
                 children: [
                     { path: '', redirectTo: '/charts', pathMatch: 'full' },
-                    { path: 'items/:type', component: _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_14__["BestItemsComponent"] },
-                    { path: 'users/:type', component: _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_15__["BestUsersComponent"] },
-                    { path: 'datepicker', component: _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_16__["DatePickerComponent"] },
+                    { path: 'items/:type', component: _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_15__["BestItemsComponent"] },
+                    { path: 'users/:type', component: _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_16__["BestUsersComponent"] },
+                    { path: 'datepicker', component: _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_17__["DatePickerComponent"] },
                 ]
                 /*
                 canActivate: [RoleGuard],
@@ -401,7 +404,7 @@ var appRoutes = [
     },
     {
         path: '',
-        component: _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_12__["AuthLayoutComponent"],
+        component: _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_13__["AuthLayoutComponent"],
         children: [
             {
                 path: 'login',
@@ -2016,7 +2019,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button class=\"ui labeled icon button\" (click)=\"myModalNormal.show({inverted: false})\">\n  <i class=\"search plus icon\"></i>Info\n</button>\n<sm-modal title=\"Order List Details\" class=\"\" icon=\"clipboard\" #myModalNormal>\n  <modal-content>\n    <div class=\"ui six column grid\" *ngFor=\"let order of orders; let i = index\">\n        <div class=\"six column row\">\n          <div class=\"column\">\n            <strong>Order ID :</strong>\n          </div>\n          <div class=\"column\">\n            {{order.orderid}}\n          </div>\n        </div>\n      <div class=\"column\">\n        <strong>Item Name :</strong>\n      </div>\n      <div class=\"column\">\n        {{this.items[i]?.name}}\n      </div>\n      <div class=\"column\">\n        <strong>Item Quantity :</strong>\n      </div>\n      <div class=\"column\">\n        {{order.qty}}\n      </div>\n      <div class=\"column\">\n        <strong>Item Price :</strong>\n      </div>\n      <div class=\"column\">\n        {{this.items[i]?.price}} &#8362;\n      </div>\n    </div>\n    <div class=\"ui four column grid\">\n      <div class=\"column\">\n        <strong>Pick Up Time:</strong>\n      </div>\n      <div class=\"column\">\n       {{orderListRef?.ol_dttm | date: 'medium' }}\n      </div>\n    </div>\n    <div class=\"ui four column grid\">\n      <div class=\"column\">\n        <strong>Preperation Time:</strong>\n      </div>\n      <div class=\"column\">\n        {{orderListRef?.totalpreptime }} Minutes\n      </div>\n    </div>\n  </modal-content>\n  <modal-actions>\n    <div class=\"ui buttons\">\n      <div class=\"ui button primary\" (click)=\"myModalNormal.hide()\">Close</div>\n    </div>\n  </modal-actions>\n</sm-modal>\n"
+module.exports = "<button class=\"ui labeled icon button\" (click)=\"myModalNormal.show({inverted: false})\">\n  <i class=\"search plus icon\"></i>Info\n</button>\n<sm-modal title=\"Order List Details\" class=\"\" icon=\"clipboard\" #myModalNormal>\n  <modal-content>\n    <div class=\"ui six column grid\" *ngFor=\"let order of orders; let i = index\">\n        <div class=\"six column row\">\n          <div class=\"column\">\n            <strong>Order ID :</strong>\n          </div>\n          <div class=\"column\">\n            {{order.orderid}}\n          </div>\n        </div>\n      <div class=\"column\">\n        <strong>Item Name :</strong>\n      </div>\n      <div class=\"column\">\n        {{this.items[i]?.name}}\n      </div>\n      <div class=\"column\">\n        <strong>Item Quantity :</strong>\n      </div>\n      <div class=\"column\">\n        {{order.qty}}\n      </div>\n      <div class=\"column\">\n        <strong>Item Price :</strong>\n      </div>\n      <div class=\"column\">\n        {{this.items[i]?.price}} &#8362;\n      </div>\n    </div>\n    <div class=\"ui four column grid\">\n      <div class=\"column\">\n        <strong>Pick Up Time:</strong>\n      </div>\n      <div class=\"column\">\n       {{orderListRef?.ol_dttm | date: 'medium' : 'UTC' }}\n      </div>\n    </div>\n    <div class=\"ui four column grid\">\n      <div class=\"column\">\n        <strong>Preperation Time:</strong>\n      </div>\n      <div class=\"column\">\n        {{orderListRef?.totalpreptime }} Minutes\n      </div>\n    </div>\n  </modal-content>\n  <modal-actions>\n    <div class=\"ui buttons\">\n      <div class=\"ui button primary\" (click)=\"myModalNormal.hide()\">Close</div>\n    </div>\n  </modal-actions>\n</sm-modal>\n"
 
 /***/ }),
 
@@ -2067,6 +2070,7 @@ var OrderDetailsComponent = /** @class */ (function () {
         else {
             this.orderListService.getOrderListById(this.olid).subscribe(function (res) {
                 _this.orderListRef = res;
+                // console.log(res);
             });
             this.olid = changes.olid.currentValue;
             this.orderService.getOrdersByOrderListId(this.olid).then(function (resOrders) {
@@ -2186,7 +2190,7 @@ var BestItemsComponent = /** @class */ (function () {
         // this.getReportBy(this.option);
         this.sub = this.route.params.subscribe(function (params) {
             _this.option = params['type']; // (+) converts string 'id' to a number
-            console.log(_this.option);
+            // onsole.log(this.option);
             if (_this.option === 'MonthBestItems') {
                 _this.headerText = _this.text.month;
                 _this.title = _this.text.month;
@@ -2207,7 +2211,7 @@ var BestItemsComponent = /** @class */ (function () {
     BestItemsComponent.prototype.getReportBy = function (s) {
         var _this = this;
         if (this.myChart) {
-            console.log('true');
+            // console.log('true');
             this.myChart.destroy();
             this.items = [];
             this.itemSale = [];
@@ -4384,8 +4388,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var ItemService = /** @class */ (function () {
     function ItemService(http) {
         this.http = http;
-        this.urlPrd = 'https://cafeappserver.herokuapp.com/api';
-        this.url = 'http://localhost:3000/api';
+        this.url = 'https://cafeappserver.herokuapp.com/api';
+        this.urlPrd = 'http://localhost:3000/api';
         // this.setToken();
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]();
         headers = headers.set('Content-Type', 'application/json');
@@ -4506,8 +4510,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var OrderService = /** @class */ (function () {
     function OrderService(http) {
         this.http = http;
-        this.urlPrd = 'https://cafeappserver.herokuapp.com/api';
-        this.url = 'http://localhost:3000/api';
+        this.url = 'https://cafeappserver.herokuapp.com/api';
+        this.urlEnv = 'http://localhost:3000/api';
         // this.setToken();
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]();
         headers = headers.set('Content-Type', 'application/json');
@@ -4606,8 +4610,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var OrderListService = /** @class */ (function () {
     function OrderListService(http) {
         this.http = http;
-        this.urlPrd = 'https://cafeappserver.herokuapp.com/api';
-        this.url = 'http://localhost:3000/api';
+        this.url = 'https://cafeappserver.herokuapp.com/api';
+        this.urlEv = 'http://localhost:3000/api';
         // this.setToken();
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers = headers.set('Content-Type', 'application/json');
@@ -4753,8 +4757,8 @@ var QueryService = /** @class */ (function () {
     function QueryService(http, userData) {
         this.http = http;
         this.userData = userData;
-        this.urlPrd = 'https://cafeappserver.herokuapp.com/api';
-        this.url = 'http://localhost:3000/api';
+        this.url = 'https://cafeappserver.herokuapp.com/api';
+        this.urlDev = 'http://localhost:3000/api';
         // this.setToken();
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]();
         headers = headers.set('Content-Type', 'application/json');
@@ -4844,7 +4848,7 @@ var UserData = /** @class */ (function () {
     };
     // Sets the userid after succussful login
     UserData.prototype.setUserId = function (userid) {
-        return this.instance.setItem('userid', userid).then(function (res) { return console.log(res); });
+        return this.instance.setItem('userid', userid).then(function (res) { });
     };
     // Gets userid for any  cause
     UserData.prototype.getToken = function () {
@@ -4909,8 +4913,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
-        this.urlPrd = 'https://cafeappserver.herokuapp.com/api';
-        this.url = 'http://localhost:3000/api';
+        this.url = 'https://cafeappserver.herokuapp.com/api';
+        this.urlEnv = 'http://localhost:3000/api';
         // this.setToken();
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]();
         headers = headers.set('Content-Type', 'application/json');

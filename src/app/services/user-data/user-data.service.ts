@@ -34,7 +34,7 @@ export class UserData {
 
   // Sets the userid after succussful login
   public setUserId(userid: number): void {
-    return this.instance.setItem('userid', userid).then(res => console.log(res));
+    return this.instance.setItem('userid', userid).then(res => {});
   }
   // Gets userid for any  cause
   public getToken(): Promise<string> {

@@ -47,7 +47,7 @@ export class BestItemsComponent implements OnInit {
     // this.getReportBy(this.option);
     this.sub = this.route.params.subscribe(params => {
       this.option = params['type']; // (+) converts string 'id' to a number
-      console.log(this.option);
+      // onsole.log(this.option);
       if ( this.option === 'MonthBestItems' ) {
         this.headerText = this.text.month;
         this.title = this.text.month;
@@ -65,7 +65,7 @@ export class BestItemsComponent implements OnInit {
   }
   public getReportBy(s: string) {
     if (this.myChart) {
-      console.log('true');
+      // console.log('true');
       this.myChart.destroy();
       this.items = [];
       this.itemSale = [];

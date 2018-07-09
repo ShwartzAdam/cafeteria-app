@@ -28,6 +28,7 @@ export class OrderDetailsComponent implements OnChanges {
       this.orderListService.getOrderListById(this.olid).subscribe(
         (res: any) => {
           this.orderListRef = res;
+          // console.log(res);
         });
       this.olid = changes.olid.currentValue;
       this.orderService.getOrdersByOrderListId(this.olid).then(
