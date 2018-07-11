@@ -325,12 +325,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu_menu_storage_menu_storage_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./menu/menu-storage/menu-storage.component */ "./src/app/menu/menu-storage/menu-storage.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _employee_employee_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./employee/employee.component */ "./src/app/employee/employee.component.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
-/* harmony import */ var _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./layouts/auth-layout.component */ "./src/app/layouts/auth-layout.component.ts");
-/* harmony import */ var _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./layouts/home-layout.component */ "./src/app/layouts/home-layout.component.ts");
-/* harmony import */ var _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/reports/bestItems/best-items.component */ "./src/app/components/reports/bestItems/best-items.component.ts");
-/* harmony import */ var _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/reports/bestUsers/best-users.component */ "./src/app/components/reports/bestUsers/best-users.component.ts");
-/* harmony import */ var _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/reports/date-picker/datepicker.component */ "./src/app/components/reports/date-picker/datepicker.component.ts");
+/* harmony import */ var _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./layouts/home-layout.component */ "./src/app/layouts/home-layout.component.ts");
+/* harmony import */ var _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/reports/bestItems/best-items.component */ "./src/app/components/reports/bestItems/best-items.component.ts");
+/* harmony import */ var _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/reports/bestUsers/best-users.component */ "./src/app/components/reports/bestUsers/best-users.component.ts");
+/* harmony import */ var _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/reports/date-picker/datepicker.component */ "./src/app/components/reports/date-picker/datepicker.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -350,9 +348,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-// guards
-
-
 
 
 
@@ -360,8 +355,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var appRoutes = [
     {
         path: '',
-        component: _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_14__["HomeLayoutComponent"],
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]],
+        component: _layouts_home_layout_component__WEBPACK_IMPORTED_MODULE_12__["HomeLayoutComponent"],
+        //canActivate: [AuthGuard],
         children: [
             { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["DashboardComponent"] },
             {
@@ -386,9 +381,9 @@ var appRoutes = [
                 component: _charts_charts_component__WEBPACK_IMPORTED_MODULE_5__["ChartsComponent"],
                 children: [
                     { path: '', redirectTo: '/charts', pathMatch: 'full' },
-                    { path: 'items/:type', component: _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_15__["BestItemsComponent"] },
-                    { path: 'users/:type', component: _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_16__["BestUsersComponent"] },
-                    { path: 'datepicker', component: _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_17__["DatePickerComponent"] },
+                    { path: 'items/:type', component: _components_reports_bestItems_best_items_component__WEBPACK_IMPORTED_MODULE_13__["BestItemsComponent"] },
+                    { path: 'users/:type', component: _components_reports_bestUsers_best_users_component__WEBPACK_IMPORTED_MODULE_14__["BestUsersComponent"] },
+                    { path: 'datepicker', component: _components_reports_date_picker_datepicker_component__WEBPACK_IMPORTED_MODULE_15__["DatePickerComponent"] },
                 ]
                 /*
                 canActivate: [RoleGuard],
@@ -404,7 +399,7 @@ var appRoutes = [
     },
     {
         path: '',
-        component: _layouts_auth_layout_component__WEBPACK_IMPORTED_MODULE_13__["AuthLayoutComponent"],
+        // component: AuthLayoutComponent,
         children: [
             {
                 path: 'login',
@@ -2134,7 +2129,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui one column centered grid\">\n  <div class=\"column\">\n    <div class=\"ui segment\">\n      <h2 class=\"ui block header\">\n        <i class=\"small map icon\"></i>\n        <div class=\"content\">\n          {{this.headerText}}\n          <div class=\"sub header\">List of users who spend the most</div>\n        </div>\n      </h2>\n      <div class=\"ui segment\">\n      <canvas id=\"{{this.chartid}}\" width=\"400\" height=\"400\"></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"ui one column centered grid\">\n  <div class=\"column\">\n    <div class=\"ui segment\">\n      <h2 class=\"ui block header\">\n        <i class=\"small map icon\"></i>\n        <div class=\"content\">\n          {{this.headerText}}\n        </div>\n      </h2>\n      <div class=\"ui segment\">\n      <canvas id=\"{{this.chartid}}\" width=\"400\" height=\"400\"></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -2177,9 +2172,9 @@ var BestItemsComponent = /** @class */ (function () {
         this.items = [];
         this.itemSale = [];
         this.itemLabels = [];
-        this.text = { month: 'Best Items Of This Month',
-            week: 'Best Items Of This Week',
-            day: 'Best Items Of Today'
+        this.text = { month: 'Which items have been sold in this month',
+            week: 'Which items have been sold in this week',
+            day: 'Which items have been sold today'
         };
     }
     BestItemsComponent.prototype.ngOnInit = function () {
@@ -2299,7 +2294,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui one column centered grid\">\n  <div class=\"column\">\n    <div class=\"ui segment\">\n      <h2 class=\"ui block header\">\n        <i class=\"small map icon\"></i>\n        <div class=\"content\">\n          {{this.headerText}}\n          <div class=\"sub header\">List of users who spend the most</div>\n        </div>\n      </h2>\n      <div class=\"ui segment\">\n        <canvas id=\"{{this.chartid}}\" width=\"400\" height=\"400\"></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"ui one column centered grid\">\n  <div class=\"column\">\n    <div class=\"ui segment\">\n      <h2 class=\"ui block header\">\n        <i class=\"small map icon\"></i>\n        <div class=\"content\">\n          {{this.headerText}}\n        </div>\n      </h2>\n      <div class=\"ui segment\">\n        <canvas id=\"{{this.chartid}}\" width=\"400\" height=\"400\"></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -2339,9 +2334,9 @@ var BestUsersComponent = /** @class */ (function () {
         this.userSale = [];
         this.userLabel = [];
         this.colors = [];
-        this.text = { month: 'Best Users Of This Month',
-            week: 'Best Users Of This Week',
-            day: 'Best Users Of Today'
+        this.text = { month: 'Which users has spent the most this month ( New Shekels )',
+            week: 'Which users has spent the most this week ( New Shekels )',
+            day: 'Which users has spent the most today ( New Shekels )'
         };
     }
     BestUsersComponent.prototype.getRandomColor = function () {
@@ -2385,7 +2380,7 @@ var BestUsersComponent = /** @class */ (function () {
     BestUsersComponent.prototype.getReportBy = function (s) {
         var _this = this;
         if (this.myChart) {
-            console.log('true');
+            // console.log('true');
             this.myChart.destroy();
             this.users = [];
             this.userSale = [];
@@ -2426,7 +2421,7 @@ var BestUsersComponent = /** @class */ (function () {
                         responsive: true,
                         maintainAspectRatio: true,
                         legend: {
-                            position: 'bottom',
+                            position: 'top',
                             labels: {
                                 fontSize: 9
                             }

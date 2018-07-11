@@ -25,7 +25,7 @@ const appRoutes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     children: [
       { path: 'dashboard' , component : DashboardComponent},
       {
@@ -80,7 +80,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    component: AuthLayoutComponent,
+    // component: AuthLayoutComponent,
     children: [
       {
         path: 'login',

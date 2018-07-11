@@ -28,9 +28,9 @@ export class BestItemsComponent implements OnInit {
   public itemLabels: string[] = [];
   public myChart: Chart;
   private sub: any;
-  public text = { month : 'Best Items Of This Month',
-    week: 'Best Items Of This Week',
-    day: 'Best Items Of Today'
+  public text = { month : 'Which items have been sold in this month',
+    week: 'Which items have been sold in this week',
+    day: 'Which items have been sold today'
   };
   public headerText;
   // public displayedColumns = ['itemid' , 'name' , 'price' , 'total' ];

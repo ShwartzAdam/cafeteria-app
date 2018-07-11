@@ -31,9 +31,9 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
   public colors: string[] = [];
   private sub: any;
   private option: string;
-  public text = { month : 'Best Users Of This Month',
-    week: 'Best Users Of This Week',
-    day: 'Best Users Of Today'
+  public text = { month : 'Which users has spent the most this month ( New Shekels )',
+    week: 'Which users has spent the most this week ( New Shekels )',
+    day: 'Which users has spent the most today ( New Shekels )'
   };
   public headerText;
 
@@ -76,7 +76,7 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
   ngAfterViewInit(): void {}
   public getReportBy(s: string) {
     if (this.myChart) {
-      console.log('true');
+      // console.log('true');
       this.myChart.destroy();
       this.users = [];
       this.userSale = [];
@@ -117,7 +117,7 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
               responsive: true,
               maintainAspectRatio: true,
               legend: {
-                position: 'bottom',
+                position: 'top',
                 labels: {
                   fontSize: 9
                 }
