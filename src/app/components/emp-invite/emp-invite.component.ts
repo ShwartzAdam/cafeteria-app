@@ -19,8 +19,8 @@ export class EmployeeInviteComponent {
                                   lastname: '',
                                   credit: 0,
                                   phone: '',
-                                  url: 'None',
-                                  role: 'Employee'
+                                  url: '',
+                                  role: ''
   };
   constructor(private userPro: UserService) {}
 
@@ -31,9 +31,10 @@ export class EmployeeInviteComponent {
     this.userReg.lastname = this.registerCredentials.lastname;
     this.userReg.password = this.registerCredentials.password;
     this.userReg.phone = this.registerCredentials.phone;
+    this.userReg.role = 'Employee';
+    this.userReg.url = 'None';
     this.userPro.createUser(this.userReg).then(
       res => {
-        console.log(res );
         this.cleanForm();
         jQuery.uiAlert({
           textHead: 'Employee Invitation', // header

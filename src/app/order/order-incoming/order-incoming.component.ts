@@ -108,12 +108,12 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
             // console.log(ol);
             let _ol: OrderList = new OrderList;
             _ol.userid = ol.userid;
-            _ol.olid = ol.olid
+            _ol.olid = ol.olid;
             _ol.totalprice = ol.totalprice;
-            // _ol.status = ol.status;
+            _ol.totalpreptime = ol.totalpreptime;
             _ol.ol_dttm = ol.ol_dttm;
-            // _ol.ol_dttm_real = ol.ol_dttm_real;
-            // _ol.hasreview = ol.hasreview;
+            _ol.ol_dttm_real = ol.ol_dttm_real;
+            _ol.hasreview = ol.hasreview;
             this.orderList.push(_ol);
           });
         }

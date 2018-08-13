@@ -7,7 +7,7 @@
     <div class="ui centered header">
       <h1>Does this order is ready for pick up by the student ? </h1>
       <p> Order ID : <span>{{order?.olid}}</span></p>
-      <p> Order Pick Up Time : <span>{{order?.ol_dttm | date: 'medium'}}</span></p>
+      <p> Order Pick Up Time : <span>{{order?.ol_dttm | date: 'medium' : 'UTC'}}</span></p>
       <p> Order Total Price : <span>{{order?.totalprice}} &#8362;</span></p>
     </div>
   </div>

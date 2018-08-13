@@ -1329,8 +1329,8 @@ var EmployeeInviteComponent = /** @class */ (function () {
             lastname: '',
             credit: 0,
             phone: '',
-            url: 'None',
-            role: 'Employee'
+            url: '',
+            role: ''
         };
     }
     EmployeeInviteComponent.prototype.inviteEmployee = function () {
@@ -1341,8 +1341,9 @@ var EmployeeInviteComponent = /** @class */ (function () {
         this.userReg.lastname = this.registerCredentials.lastname;
         this.userReg.password = this.registerCredentials.password;
         this.userReg.phone = this.registerCredentials.phone;
+        this.userReg.role = 'Employee';
+        this.userReg.url = 'None';
         this.userPro.createUser(this.userReg).then(function (res) {
-            console.log(res);
             _this.cleanForm();
             jQuery.uiAlert({
                 textHead: 'Employee Invitation',
@@ -1785,7 +1786,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui complete order modal\">\n  <div class=\"ui icon header\">\n    <i class=\"archive icon\"></i>\n    Action confirmation - Order Complete\n  </div>\n  <div class=\"content\">\n    <div class=\"ui centered header\">\n      <h1>Does this order is ready for pick up by the student ? </h1>\n      <p> Order ID : <span>{{order?.olid}}</span></p>\n      <p> Order Pick Up Time : <span>{{order?.ol_dttm | date: 'medium'}}</span></p>\n      <p> Order Total Price : <span>{{order?.totalprice}} &#8362;</span></p>\n    </div>\n  </div>\n  <div class=\"actions\">\n    <div class=\"ui left floated red cancel button\" (click)=\"action('Cancel')\">\n      <i class=\"remove icon\"></i>\n      No\n    </div>\n    <div class=\"ui green ok button\" (click)=\"action('Ok')\">\n      <i class=\"checkmark icon\"></i>\n      Yes\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui complete order modal\">\n  <div class=\"ui icon header\">\n    <i class=\"archive icon\"></i>\n    Action confirmation - Order Complete\n  </div>\n  <div class=\"content\">\n    <div class=\"ui centered header\">\n      <h1>Does this order is ready for pick up by the student ? </h1>\n      <p> Order ID : <span>{{order?.olid}}</span></p>\n      <p> Order Pick Up Time : <span>{{order?.ol_dttm | date: 'medium' : 'UTC'}}</span></p>\n      <p> Order Total Price : <span>{{order?.totalprice}} &#8362;</span></p>\n    </div>\n  </div>\n  <div class=\"actions\">\n    <div class=\"ui left floated red cancel button\" (click)=\"action('Cancel')\">\n      <i class=\"remove icon\"></i>\n      No\n    </div>\n    <div class=\"ui green ok button\" (click)=\"action('Ok')\">\n      <i class=\"checkmark icon\"></i>\n      Yes\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1901,7 +1902,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui confirm order modal\">\n  <div class=\"ui icon header\">\n    <i class=\"archive icon\"></i>\n    Action confirmation - Start Making The Order\n  </div>\n  <div class=\"content\">\n    <div class=\"ui centered header\">\n      <h1>Are you sure to want to start this order list? </h1>\n      <p> Order ID : <span>{{order?.olid}}</span></p>\n      <p> Order Pick Up Time : <span>{{order?.ol_dttm | date: 'medium'}}</span></p>\n      <p> Order Total Price : <span>{{order?.totalprice}} &#8362;</span></p>\n    </div>\n  </div>\n  <div class=\"actions\">\n    <div class=\"ui left floated red cancel button\" (click)=\"action('Cancel')\">\n      <i class=\"remove icon\"></i>\n      No\n    </div>\n    <div class=\"ui green ok button\" (click)=\"action('Ok')\">\n      <i class=\"checkmark icon\"></i>\n      Yes\n    </div>\n  </div>\n</div>\n\n\n"
+module.exports = "<div class=\"ui confirm order modal\">\n  <div class=\"ui icon header\">\n    <i class=\"archive icon\"></i>\n    Action confirmation - Start Making The Order\n  </div>\n  <div class=\"content\">\n    <div class=\"ui centered header\">\n      <h1>Are you sure to want to start this order list? </h1>\n      <p> Order ID : <span>{{order?.olid}}</span></p>\n      <p> Order Pick Up Time : <span>{{order?.ol_dttm | date: 'medium' : 'UTC'}}</span></p>\n      <p> Order Total Price : <span>{{order?.totalprice}} &#8362;</span></p>\n    </div>\n  </div>\n  <div class=\"actions\">\n    <div class=\"ui left floated red cancel button\" (click)=\"action('Cancel')\">\n      <i class=\"remove icon\"></i>\n      No\n    </div>\n    <div class=\"ui green ok button\" (click)=\"action('Ok')\">\n      <i class=\"checkmark icon\"></i>\n      Yes\n    </div>\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1953,6 +1954,7 @@ var OrderConfirmComponent = /** @class */ (function () {
         if (event === 'Ok') {
             // console.log('Start Making Order List ID : ' + this.order.olid);
             this.order.status = 'Active';
+            console.log(this.order);
             this.order.ol_dttm_real = new Date().toISOString();
             this.orderListService.updateOrderList(this.order).then(function (res) {
                 // console.log(res);
@@ -3159,7 +3161,7 @@ var HomeLayoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-paginator-navigation-previous mat-icon-button{\n  color: #000 !important;\n}\n.mat-sort-header-button{\n  color: #000 !important;\n}\n.mat-elevation-z8 {\n  padding-bottom: 15px !important;\n}\n"
+module.exports = ".mat-paginator-navigation-previous mat-icon-button{\n  color: #000 !important;\n}\n.mat-sort-header-button{\n  color: #000 !important;\n}\n.mat-elevation-z8 {\n  padding-bottom: 8px !important;\n}\n"
 
 /***/ }),
 
@@ -3170,7 +3172,7 @@ module.exports = ".mat-paginator-navigation-previous mat-icon-button{\n  color: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"mat-elevation-z8\">\n  <mat-table #table matSort [dataSource]=\"dataSource\" >\n    <ng-container matColumnDef=\"itemid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Item ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"  >{{element.itemid}}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"supid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Supplier ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.supid}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"name\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.name}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"type\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.type}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"quantity\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.qty}} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"price\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.price}} </mat-cell>\n    </ng-container>\n\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n  </mat-table>\n  <mat-paginator #paging\n                 [length]=\"7\"\n                 [pageSize]=\"8\"\n                 [pageSizeOptions]=\"[5, 10, 25, 100]\">\n  </mat-paginator>\n</div>\n\n\n"
+module.exports = "\n<div class=\"mat-elevation-z8\">\n  <mat-table #table matSort [dataSource]=\"dataSource\" >\n    <ng-container matColumnDef=\"itemid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Item ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"  >{{element.itemid}}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"supid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Supplier ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.supid}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"name\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.name}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"type\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.type}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"quantity\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.qty}} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"price\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.price}} </mat-cell>\n    </ng-container>\n\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n  </mat-table>\n  <mat-paginator #paging\n                 [length]=\"10\"\n                 [pageSize]=\"10\"\n                 [pageSizeOptions]=\"[5, 10, 25, 100]\">\n  </mat-paginator>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -3707,10 +3709,10 @@ var OrderActiveComponent = /** @class */ (function () {
                     _ol.userid = ol.userid;
                     _ol.olid = ol.olid;
                     _ol.totalprice = ol.totalprice;
-                    // _ol.status = ol.status;
+                    _ol.totalpreptime = ol.totalpreptime;
                     _ol.ol_dttm = ol.ol_dttm;
-                    // _ol.ol_dttm_real = ol.ol_dttm_real;
-                    // _ol.hasreview = ol.hasreview;
+                    _ol.ol_dttm_real = ol.ol_dttm_real;
+                    _ol.hasreview = ol.hasreview;
                     _this.orderList.push(_ol);
                 });
             }
@@ -4002,10 +4004,10 @@ var OrderIncomingComponent = /** @class */ (function () {
                     _ol.userid = ol.userid;
                     _ol.olid = ol.olid;
                     _ol.totalprice = ol.totalprice;
-                    // _ol.status = ol.status;
+                    _ol.totalpreptime = ol.totalpreptime;
                     _ol.ol_dttm = ol.ol_dttm;
-                    // _ol.ol_dttm_real = ol.ol_dttm_real;
-                    // _ol.hasreview = ol.hasreview;
+                    _ol.ol_dttm_real = ol.ol_dttm_real;
+                    _ol.hasreview = ol.hasreview;
                     _this.orderList.push(_ol);
                 });
             }

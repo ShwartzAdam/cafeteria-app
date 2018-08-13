@@ -31,6 +31,7 @@ export class OrderConfirmComponent implements OnChanges {
     if ( event === 'Ok') {
       // console.log('Start Making Order List ID : ' + this.order.olid);
       this.order.status = 'Active';
+      console.log(this.order);
       this.order.ol_dttm_real = new Date().toISOString();
       this.orderListService.updateOrderList(this.order).then(
         res => {
