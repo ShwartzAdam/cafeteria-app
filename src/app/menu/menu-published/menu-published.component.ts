@@ -44,7 +44,7 @@ export class MenuPublishedComponent implements OnInit,
         this.dataSource = new MatTableDataSource<Item>(this.items);
         setTimeout(() => {
           this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
+          // this.dataSource.sort = this.sort;
         });
       }
     );

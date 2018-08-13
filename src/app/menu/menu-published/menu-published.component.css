@@ -4,3 +4,6 @@
 .mat-sort-header-button{
   color: #000 !important;
 }
+.mat-elevation-z8 {
+  padding-bottom: 15px !important;
+}

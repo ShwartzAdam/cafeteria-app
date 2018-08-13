@@ -1327,7 +1327,10 @@ var EmployeeInviteComponent = /** @class */ (function () {
             password: '',
             firstname: '',
             lastname: '',
-            phone: ''
+            credit: 0,
+            phone: '',
+            url: 'None',
+            role: 'Employee'
         };
     }
     EmployeeInviteComponent.prototype.inviteEmployee = function () {
@@ -1338,11 +1341,8 @@ var EmployeeInviteComponent = /** @class */ (function () {
         this.userReg.lastname = this.registerCredentials.lastname;
         this.userReg.password = this.registerCredentials.password;
         this.userReg.phone = this.registerCredentials.phone;
-        this.userReg.role = 'Employee';
-        this.userReg.url = 'None';
-        this.userReg.credit = 0;
         this.userPro.createUser(this.userReg).then(function (res) {
-            // console.log(res );
+            console.log(res);
             _this.cleanForm();
             jQuery.uiAlert({
                 textHead: 'Employee Invitation',
@@ -3159,7 +3159,7 @@ var HomeLayoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-paginator-navigation-previous mat-icon-button{\n  color: #000 !important;\n}\n.mat-sort-header-button{\n  color: #000 !important;\n}\n"
+module.exports = ".mat-paginator-navigation-previous mat-icon-button{\n  color: #000 !important;\n}\n.mat-sort-header-button{\n  color: #000 !important;\n}\n.mat-elevation-z8 {\n  padding-bottom: 15px !important;\n}\n"
 
 /***/ }),
 
@@ -3170,7 +3170,7 @@ module.exports = ".mat-paginator-navigation-previous mat-icon-button{\n  color: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Search an item..\">\n</mat-form-field>\n<div class=\"mat-elevation-z8\">\n  <mat-table #table matSort [dataSource]=\"dataSource\" >\n    <ng-container matColumnDef=\"itemid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Item ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"  >{{element.itemid}}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"supid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Supplier ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.supid}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"name\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.name}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"type\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.type}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"quantity\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.qty}} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"price\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.price}} </mat-cell>\n    </ng-container>\n\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n  </mat-table>\n  <mat-paginator #paging\n                 [length]=\"7\"\n                 [pageSize]=\"8\"\n                 [pageSizeOptions]=\"[5, 10, 25, 100]\">\n  </mat-paginator>\n</div>\n\n\n"
+module.exports = "\n<div class=\"mat-elevation-z8\">\n  <mat-table #table matSort [dataSource]=\"dataSource\" >\n    <ng-container matColumnDef=\"itemid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Item ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"  >{{element.itemid}}  </mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"supid\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Supplier ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.supid}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"name\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" >{{element.name}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"type\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.type}}  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"quantity\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.qty}} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"price\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\" > {{element.price}} </mat-cell>\n    </ng-container>\n\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n  </mat-table>\n  <mat-paginator #paging\n                 [length]=\"7\"\n                 [pageSize]=\"8\"\n                 [pageSizeOptions]=\"[5, 10, 25, 100]\">\n  </mat-paginator>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -3228,7 +3228,7 @@ var MenuPublishedComponent = /** @class */ (function () {
             _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](_this.items);
             setTimeout(function () {
                 _this.dataSource.paginator = _this.paginator;
-                _this.dataSource.sort = _this.sort;
+                // this.dataSource.sort = this.sort;
             });
         });
     };
