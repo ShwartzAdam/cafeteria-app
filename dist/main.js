@@ -955,6 +955,7 @@ var LoginComponent = /** @class */ (function () {
                 if (result) {
                     // console.log('Log In Successful, UID: ' + result['userid'] );
                     _this.userData.setUserId(result['userid']);
+                    _this.userData.setRole(_this.registerCredentials.role);
                     // this.userData.setToken(result['token']);
                     _this.authService.loginSucc();
                     // console.log(this.authService.isLoggedIn);
@@ -3554,6 +3555,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavComponent", function() { return NavComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var _services_user_data_user_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/user-data/user-data.service */ "./src/app/services/user-data/user-data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3565,19 +3567,38 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var NavComponent = /** @class */ (function () {
-    function NavComponent(authService) {
+    function NavComponent(authService, userData) {
         this.authService = authService;
-        this.items = [
-            { 'name': 'Dashboard', 'routerLink': '/dashboard', 'icon': 'cogs' },
-            { 'name': 'Orders', 'routerLink': '/order', 'icon': 'coffee' },
-            { 'name': 'Storage', 'routerLink': '/menu', 'icon': 'map' },
-            { 'name': 'Charts', 'routerLink': '/charts', 'icon': 'chart line' },
-            { 'name': 'Employee', 'routerLink': '/emp', 'icon': 'address book' }
-        ];
+        this.userData = userData;
     }
     NavComponent.prototype.onLogout = function () {
+        this.userData.clearRole();
+        this.userData.clearUserId();
         this.authService.logout();
+    };
+    NavComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userData.getRole().then(function (res) {
+            console.log(res);
+            if (res === 'Manager') {
+                _this.items = [
+                    { 'name': 'Dashboard', 'routerLink': '/dashboard', 'icon': 'cogs' },
+                    { 'name': 'Orders', 'routerLink': '/order', 'icon': 'coffee' },
+                    { 'name': 'Storage', 'routerLink': '/menu', 'icon': 'map' },
+                    { 'name': 'Charts', 'routerLink': '/charts', 'icon': 'chart line' },
+                    { 'name': 'Employee', 'routerLink': '/emp', 'icon': 'address book' }
+                ];
+            }
+            else {
+                _this.items = [
+                    { 'name': 'Dashboard', 'routerLink': '/dashboard', 'icon': 'cogs' },
+                    { 'name': 'Orders', 'routerLink': '/order', 'icon': 'coffee' },
+                    { 'name': 'Storage', 'routerLink': '/menu', 'icon': 'map' },
+                ];
+            }
+        });
     };
     NavComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -3585,7 +3606,8 @@ var NavComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./nav.component.html */ "./src/app/nav.component.html"),
             styles: [__webpack_require__(/*! ./nav.component.css */ "./src/app/nav.component.css")]
         }),
-        __metadata("design:paramtypes", [_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+        __metadata("design:paramtypes", [_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+            _services_user_data_user_data_service__WEBPACK_IMPORTED_MODULE_2__["UserData"]])
     ], NavComponent);
     return NavComponent;
 }());
@@ -4844,6 +4866,21 @@ var UserData = /** @class */ (function () {
     UserData.prototype.setUserId = function (userid) {
         return this.instance.setItem('userid', userid).then(function (res) { });
     };
+    UserData.prototype.setRole = function (role) {
+        return this.instance.setItem('role', role).then(function (res) { });
+    };
+    UserData.prototype.getRole = function () {
+        var _this = this;
+        if (this.role) {
+            return Promise.resolve(this.role);
+        }
+        else {
+            return this.instance.getItem('role').then(function (res) {
+                _this.token = res;
+                return res;
+            });
+        }
+    };
     // Gets userid for any  cause
     UserData.prototype.getToken = function () {
         var _this = this;
@@ -4861,10 +4898,11 @@ var UserData = /** @class */ (function () {
     UserData.prototype.setToken = function (token) {
         return this.instance.setItem('token', token).then(function (res) { });
     };
-    // set employee/manager
-    UserData.prototype.setManager = function (manager) { };
-    UserData.prototype.clearManager = function () {
+    UserData.prototype.clearUserId = function () {
         this.instance.removeItem('userid');
+    };
+    UserData.prototype.clearRole = function () {
+        this.instance.removeItem('role');
     };
     UserData = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),

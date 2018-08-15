@@ -7,7 +7,7 @@ export class UserData {
 
   public userid: number;
   public token: string;
-  public manager: User;
+  public role: string;
   public instance: any;
   constructor () {
     localForage.config({
@@ -36,6 +36,19 @@ export class UserData {
   public setUserId(userid: number): void {
     return this.instance.setItem('userid', userid).then(res => {});
   }
+  public setRole(role: string): void {
+    return this.instance.setItem('role', role).then(res => {});
+  }
+  public getRole(): Promise<string> {
+    if (this.role) {
+      return Promise.resolve(this.role);
+    } else {
+      return this.instance.getItem('role').then((res) => {
+        this.token = res;
+        return res;
+      });
+    }
+  }
   // Gets userid for any  cause
   public getToken(): Promise<string> {
     if (this.token) {
@@ -52,11 +65,11 @@ export class UserData {
   public setToken(token: string): void {
     return this.instance.setItem('token', token).then(res => {});
   }
-  // set employee/manager
-  public setManager(manager: User): void {}
-
-  public clearManager(): void {
+  public clearUserId(): void {
     this.instance.removeItem('userid');
+  }
+  public clearRole(): void {
+    this.instance.removeItem('role');
   }
 
 

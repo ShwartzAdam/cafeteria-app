@@ -29,6 +29,7 @@ export class LoginComponent {
         if (result) {
           // console.log('Log In Successful, UID: ' + result['userid'] );
           this.userData.setUserId(result['userid']);
+          this.userData.setRole(this.registerCredentials.role);
           // this.userData.setToken(result['token']);
           this.authService.loginSucc();
           // console.log(this.authService.isLoggedIn);

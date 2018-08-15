@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from './auth/auth.service';
+import {UserData} from './services/user-data/user-data.service';
 
 
 @Component({
@@ -7,18 +8,39 @@ import {AuthService} from './auth/auth.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent {
-  items = [
-    {'name' : 'Dashboard', 'routerLink' : '/dashboard', 'icon' : 'cogs'},
-    {'name' : 'Orders', 'routerLink' : '/order', 'icon' : 'coffee'},
-    {'name' : 'Storage', 'routerLink' : '/menu', 'icon' : 'map'},
-    {'name' : 'Charts', 'routerLink' : '/charts', 'icon' : 'chart line'},
-    {'name' : 'Employee', 'routerLink' : '/emp', 'icon' : 'address book'}
-    ];
-  constructor(private authService: AuthService) {}
+export class NavComponent implements OnInit {
+  private items: any;
+  constructor(private authService: AuthService,
+              private userData: UserData) {
+
+  }
 
   onLogout() {
+    this.userData.clearRole();
+    this.userData.clearUserId();
     this.authService.logout();
+  }
+
+  ngOnInit(): void {
+    this.userData.getRole().then(
+      res => {
+        console.log(res);
+        if (res === 'Manager') {
+          this.items = [
+            {'name' : 'Dashboard', 'routerLink' : '/dashboard', 'icon' : 'cogs'},
+            {'name' : 'Orders', 'routerLink' : '/order', 'icon' : 'coffee'},
+            {'name' : 'Storage', 'routerLink' : '/menu', 'icon' : 'map'},
+            {'name' : 'Charts', 'routerLink' : '/charts', 'icon' : 'chart line'},
+            {'name' : 'Employee', 'routerLink' : '/emp', 'icon' : 'address book'}
+          ];
+        } else {
+          this.items = [
+            {'name' : 'Dashboard', 'routerLink' : '/dashboard', 'icon' : 'cogs'},
+            {'name' : 'Orders', 'routerLink' : '/order', 'icon' : 'coffee'},
+            {'name' : 'Storage', 'routerLink' : '/menu', 'icon' : 'map'},
+          ];
+        }
+      });
   }
 
 }
