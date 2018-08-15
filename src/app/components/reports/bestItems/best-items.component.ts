@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {QueryService} from '../../../services/query.service';
 
 import * as Chart from 'chart.js';
@@ -21,6 +21,7 @@ export class BestItemsComponent implements OnInit {
   private option: string;
   public items: BestItem[] = [];
   public chartid: string;
+
   canvas: any;
   ctx: any;
   public title: string;
@@ -84,9 +85,6 @@ export class BestItemsComponent implements OnInit {
             this.itemSale.push(it.total);
             this.itemLabels.push(it.name);
           });
-          // console.log(this.items);
-          // console.log(this.itemSale);
-          // console.log(this.itemLabels);
           this.canvas = document.getElementById(this.chartid);
           this.ctx = this.canvas.getContext('2d');
           this.myChart = new Chart(this.ctx, {
@@ -105,7 +103,7 @@ export class BestItemsComponent implements OnInit {
               scales: {
                 xAxes: [{
                   ticks: {
-                    fontSize: 10
+                    fontSize: 20
                   }
                 }]
               },

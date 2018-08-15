@@ -119,7 +119,7 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
               legend: {
                 position: 'top',
                 labels: {
-                  fontSize: 9
+                  fontSize: 17
                 }
               },
               title: {
