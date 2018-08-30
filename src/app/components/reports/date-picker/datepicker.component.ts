@@ -43,13 +43,8 @@ export class DatePickerComponent implements OnInit, AfterContentInit {
 
   ngOnInit(): void {
     this.myForm = this.formBuilder.group({
-      // Empty string means no initial value. Can be also specific date range for example:
-      // {beginDate: {year: 2018, month: 10, day: 9}, endDate: {year: 2018, month: 10, day: 19}}
-      // which sets this date range to initial value. It is also possible to set initial
-      // value using the selDateRange attribute.
 
       myDateRange: ['', Validators.required]
-      // other controls are here...
     });
   }
 
@@ -57,19 +52,13 @@ export class DatePickerComponent implements OnInit, AfterContentInit {
 
   onDateRangeChanged(event: IMyDateRangeModel) {
     if ( this.ordersArray ) {
-      // console.log(this.ordersArray);
       this.ordersArray = new Array();
     }
-    // console.log(event.beginDate);
-    // console.log(event.endDate);
-    // console.log(event.formatted);
-    let rangeStart = new Date(Date.UTC(event.beginDate.year,  event.beginDate.month - 1,  event.beginDate.day )).toISOString();
-    let rangeEnd = new Date(Date.UTC(event.endDate.year,  event.endDate.month - 1,  event.endDate.day )).toISOString();
-    // console.log(rangeEnd);
-    // console.log(rangeStart);
+    const rangeStart = new Date(Date.UTC(event.beginDate.year,  event.beginDate.month - 1,  event.beginDate.day )).toISOString();
+    const rangeEnd = new Date(Date.UTC(event.endDate.year,  event.endDate.month - 1,  event.endDate.day )).toISOString();
+
     this.queryService.getDateRange(rangeStart, rangeEnd).subscribe(
       orderArr => {
-        // console.log(orderArr);
         orderArr.forEach( or => {
           this.ordersArray.push(or);
         });
@@ -79,7 +68,5 @@ export class DatePickerComponent implements OnInit, AfterContentInit {
           this.displayTable = true;
         });
       });
-    // event properties are: event.beginDate, event.endDate, event.formatted,
-    // event.beginEpoc and event.endEpoc
   }
 }

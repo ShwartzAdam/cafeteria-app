@@ -1,16 +1,15 @@
+// Little Cafe - Cafeteria Application
+// Shenkar 2018 final project
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// Modules Added
 import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 import { AppRoutingModule } from './app-routing.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {MaterialModule} from './modules/material-module.module';
 import { MyDateRangePickerModule } from 'mydaterangepicker';
-
-// import { DataTablesModule } from 'angular-datatables';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // Main Component
 import { AppComponent } from './app.component';
 // Sub Components
@@ -38,36 +37,30 @@ import {EmployeeComponent} from './employee/employee.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {EmployeeListComponent} from './components/emp-list/emp-list.component';
 import {BestUsersComponent} from './components/reports/bestUsers/best-users.component';
-
+import {BestItemsComponent} from './components/reports/bestItems/best-items.component';
+import {DatePickerComponent} from './components/reports/date-picker/datepicker.component';
+import {ChartjsComponent} from './components/reports/chart-component/chartjs.component';
 // services
+import {AddHttpHeaderInterceptor} from './services/http-interceptors/noop-interceptor';
 import {OrderService} from './services/order.service';
 import {OrderListService} from './services/orderlist.service';
 import {UserService} from './services/user.service';
 import {ItemService} from './services/item.service';
 import {AuthGuard} from './auth/auth.guard';
 import {AuthService} from './auth/auth.service';
-import {SortService} from './components/sort/sort.service';
+import {QueryService} from './services/query.service';
 // data storage
 import {UserData} from './services/user-data/user-data.service';
 // pipes
 import {CapitalizeFirstPipe} from './pipes/capitalizefirst.pipe';
 import {TimeOrderPipe} from './pipes/time-order.pipe';
-import {SortableColumnComponent} from './components/sort/sortable-column.component';
-import {SortableTableDirective} from './components/sort/sort.directive';
 import {ReviewPipe} from './pipes/review.pipe';
 import {MenuPipe} from './pipes/on-menu.pipe';
 // layouts components
 import {AuthLayoutComponent} from './layouts/auth-layout.component';
 import {HomeLayoutComponent} from './layouts/home-layout.component';
 
-
 import './classes/rxjs-operators';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {QueryService} from './services/query.service';
-import {BestItemsComponent} from './components/reports/bestItems/best-items.component';
-import {DatePickerComponent} from './components/reports/date-picker/datepicker.component';
-import {ChartjsComponent} from './components/reports/chart-component/chartjs.component';
-import {AddHttpHeaderInterceptor} from './services/http-interceptors/noop-interceptor';
 
 @NgModule({
   declarations: [
@@ -93,8 +86,6 @@ import {AddHttpHeaderInterceptor} from './services/http-interceptors/noop-interc
     ReviewPipe,
     MenuPipe,
     DashboardComponent,
-    SortableColumnComponent,
-    SortableTableDirective,
     EmployeeInviteComponent,
     EmployeeComponent,
     EmployeeListComponent,
@@ -114,8 +105,6 @@ import {AddHttpHeaderInterceptor} from './services/http-interceptors/noop-interc
     AppRoutingModule,
     NgSemanticModule,
     FormsModule,
-    // DataTablesModule,
-    MaterialModule,
     CommonModule,
     BrowserAnimationsModule,
     MyDateRangePickerModule,
@@ -127,7 +116,6 @@ import {AddHttpHeaderInterceptor} from './services/http-interceptors/noop-interc
     UserService,
     ItemService,
     UserData,
-    SortService,
     AuthService,
     AuthGuard,
     QueryService,

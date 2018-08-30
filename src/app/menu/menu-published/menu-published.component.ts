@@ -3,9 +3,6 @@ import {ItemService} from '../../services/item.service';
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import {Item} from '../../interfaces/item';
 
-
-
-
 @Component({
   selector: 'app-menu-published',
   templateUrl: './menu-published.component.html',
@@ -22,11 +19,9 @@ export class MenuPublishedComponent implements OnInit,
 
   constructor(public itemService: ItemService) {}
   ngOnInit(): void {
-    // console.log('ngOnInit - Menu published');
     this.getPusblishedMenu();
   }
   ngAfterContentInit(): void {
-    // console.log('ngAfterContentInit - Menu published');
   }
   public applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -36,15 +31,12 @@ export class MenuPublishedComponent implements OnInit,
   public getPusblishedMenu() {
     this.itemService.getAllItemsSub().subscribe(
       itemsArr => {
-        // this.itemsMenu = items;
-        // console.log(itemsArr);
         itemsArr.forEach( it => {
           this.items.push(it);
         });
         this.dataSource = new MatTableDataSource<Item>(this.items);
         setTimeout(() => {
           this.dataSource.paginator = this.paginator;
-          // this.dataSource.sort = this.sort;
         });
       }
     );

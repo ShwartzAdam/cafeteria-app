@@ -90,19 +90,14 @@ export class MenuStorageComponent implements OnInit, OnDestroy {
   }
 
   public displayModal(action, item): any {
-    // console.log(action);
-    // console.log(item);
     if (action === 'Add') {
-      // console.log('Show Modal To Add Item');
       $('.ui.add.modal')
         .modal('setting', 'transition', 'horizontal flip')
         .modal('show')
       ;
     } else if (action === 'Edit') {
-      // console.log('Show Modal To Edit Item');
       // update the modal with item
       this.editItem = item;
-      // console.log(this.editItem);
       $('.ui.edit.modal')
         .modal('setting', 'transition', 'horizontal flip')
         .modal('show')
@@ -110,17 +105,11 @@ export class MenuStorageComponent implements OnInit, OnDestroy {
     } else if (action === 'Delete') {
       // post delete to server
       this.deleteItem = item;
-      // console.log('Show Modal To Delete Item');
       $('.ui.confirm.modal')
         .modal('setting', 'transition', 'horizontal flip')
         .modal('show')
       ;
-    } else {
-      // console.log('ERROR');
     }
-
   }
-
-
 
 }

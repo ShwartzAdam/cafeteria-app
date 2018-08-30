@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {OrderListService} from '../../../services/orderlist.service';
 
 import * as Chart from 'chart.js';
 
@@ -12,7 +11,7 @@ import * as Chart from 'chart.js';
 export class ChartjsComponent implements OnInit, AfterViewInit {
   canvas: any;
   ctx: any;
-  constructor(private orderListSer: OrderListService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 

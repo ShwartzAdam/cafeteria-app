@@ -19,23 +19,19 @@ export class OrderCompComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes) {
-      // console.log(changes);
       return;
     } else {
-      // console.log(changes.orderInputConf.currentValue);
       this.order = changes.orderInputConf.currentValue;
     }
   }
 
   action(event): void {
     if ( event === 'Ok') {
-      // console.log('Order has been complete and ready for pickup - Order List ID : ' + this.order.olid);
       this.order.status = 'Complete';
       this.orderListService.updateOrderList(this.order).then(
-        res => {
-          // console.log(res);
+        () => {
           this.userService.notifyStudent(this.order.olid).then(
-            respond => {}
+            () => {}
           );
           this.notifyChange.emit('Order Complete');
           jQuery.uiAlert({
@@ -49,8 +45,6 @@ export class OrderCompComponent implements OnChanges {
           });
         }
       );
-    } else {
-      // console.log('Exit Confirm Modal');
     }
   }
 }

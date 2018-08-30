@@ -9,24 +9,14 @@ import {OrderListService} from '../../services/orderlist.service';
   styleUrls: ['./order-complete.component.css']
 })
 export class OrderCompleteComponent implements AfterContentInit {
-  // ORDER LIST WITH STATUS 'Completed'
+  // order list with status 'completed'
   public elements: OrderList[] = [];
   constructor(public orderListService: OrderListService) { }
   ngAfterContentInit(): void {
-    // console.log("ngAfterContentInit - Complete Orders");
     this.getCompletedOrders();
   }
 
   getCompletedOrders(): void {
-    // console.log('Getting Completed Orders !');
-    /*
-   this.orderListService.getAllOrdersByStatus('Complete').
-   then( (_orderList: any) =>  {
-     this.orderList = _orderList;
-     console.log(this.orderList);
-
-   });
-    */
     this.orderListService.getAllOrdersByStatus('Complete').
     then( (_orderList: any) =>  {
       _orderList.forEach( ol => {
@@ -40,7 +30,6 @@ export class OrderCompleteComponent implements AfterContentInit {
         _ol.hasreview = ol.hasreview;
         this.elements.push(_ol);
       });
-      // console.log(this.elements);
     });
 
   }

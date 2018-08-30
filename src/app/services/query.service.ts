@@ -13,12 +13,12 @@ export class QueryService {
   public headerConfig: any;
   constructor(private http: HttpClient,
               private userData: UserData) {
-    // this.setToken();
+    this.setToken();
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
     this.headerConfig = headers;
   }
-  /*
+
   setToken() {
     console.log('Query Provider - Setting Access Token');
     this.userData.getToken().then(
@@ -29,13 +29,15 @@ export class QueryService {
         this.headerConfig = headers;
       });
   }
-  */
+  // get best users by type (day, month,week)
   public getBestUsers(type: string): Observable<any[]> {
     return this.http.get<any[]>(this.url + '/query/' + type , {headers: this.headerConfig});
   }
+  // get best items by type (day, month,week)
   public getBestItems(type: string): Observable<any[]> {
     return this.http.get<any[]>(this.url + '/query/' + type , {headers: this.headerConfig});
   }
+  // get date range of orderlist
   public getDateRange(rangeStart: string, rangeEnd: string): Observable<any[]> {
     return this.http.get<any[]>(this.url + '/query/orderlistreportFromDateToDate?param1=' + rangeStart + '&param2=' + rangeEnd ,
       {headers: this.headerConfig});

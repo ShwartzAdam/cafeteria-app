@@ -19,7 +19,7 @@ export interface BestUsers {
   styleUrls: ['./best-users.component.css'],
   providers: [QueryService]
 })
-export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewInit {
+export class BestUsersComponent implements OnInit, AfterViewInit {
   public users: BestUsers[] = [];
   public chartid: string;
   canvas: any;
@@ -48,14 +48,8 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
     return color;
   }
   ngOnInit(): void {
-    // console.log("ngOnInit - Best Users report - " + this.option);
-    // this.title = this.option;
-    // this.chartid = this.option;
-    // console.log(this.getRandomColor());
-    // this.getReportBy(this.option);
     this.sub = this.route.params.subscribe(params => {
       this.option = params['type']; // (+) converts string 'id' to a number;
-      // In a real app: dispatch action to load the details here.
       if ( this.option === 'MonthBestUsers' ) {
         this.headerText = this.text.month;
         this.title = this.text.month;
@@ -70,13 +64,10 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
       this.getReportBy(this.option);
     });
   }
-  ngAfterContentInit(): void {
-    // console.log("ngAfterContentInit - Best Users report" + this.option);
-  }
+
   ngAfterViewInit(): void {}
   public getReportBy(s: string) {
     if (this.myChart) {
-      // console.log('true');
       this.myChart.destroy();
       this.users = [];
       this.userSale = [];
@@ -84,7 +75,6 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
     }
     this.queryPro.getBestUsers(s).subscribe(
       userArr => {
-        // console.log(userArr);
         const len = userArr['length'];
         if (len === 0) {
           // hide the chart
@@ -96,9 +86,6 @@ export class BestUsersComponent implements OnInit, AfterContentInit, AfterViewIn
             this.userLabel.push(user.firstname + ' ' +  user.lastname);
             this.colors.push(this.getRandomColor());
           });
-          // console.log(this.users);
-          // console.log(this.userSale);
-          // console.log(this.userLabel);
           this.canvas = document.getElementById(this.chartid);
           this.ctx = this.canvas.getContext('2d');
           this.myChart = new Chart(this.ctx, {

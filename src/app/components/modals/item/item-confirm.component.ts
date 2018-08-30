@@ -18,23 +18,17 @@ export class ItemConfirmComponent implements OnChanges {
     if (!changes) {
       return;
     } else {
-      // console.log(changes.itemInputDelete.currentValue);
       this.item = changes.itemInputDelete.currentValue;
     }
   }
 
   action(event): void {
     if ( event === 'Ok') {
-      // console.log('Delete Item : ' + this.item.itemid);
       this.itemService.deleteItem(this.item.itemid).then(
-        res => {
-          // console.log(res);
-          this.notify.emit('Delete');
+        () => {
           // event to tell the table to referesh
+          this.notify.emit('Delete');
         });
-    } else {
-      // console.log('Exit Confirm Modal');
-
     }
   }
 }

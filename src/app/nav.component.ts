@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from './auth/auth.service';
 import {UserData} from './services/user-data/user-data.service';
 
-
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -12,7 +11,6 @@ export class NavComponent implements OnInit {
   private items: any;
   constructor(private authService: AuthService,
               private userData: UserData) {
-
   }
 
   onLogout() {
@@ -24,7 +22,7 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.userData.getRole().then(
       res => {
-        console.log(res);
+        // display the right nav accroding to his role
         if (res === 'Manager') {
           this.items = [
             {'name' : 'Dashboard', 'routerLink' : '/dashboard', 'icon' : 'cogs'},

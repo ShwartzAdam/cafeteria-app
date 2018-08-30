@@ -12,13 +12,14 @@ export class SupplyService {
   public url = 'https://cafeappserver.herokuapp.com/api';
   public urlDev = 'http://localhost:3000/api';
   public headerConfig: any;
-  constructor(private http: HttpClient) {
-    // this.setToken();
+  constructor(private http: HttpClient,
+              private userData: UserData) {
+    this.setToken();
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
     this.headerConfig = headers;
   }
-  /*
+
   setToken() {
     console.log('Supplier Provider - Setting Access Token');
     this.userData.getToken().then(
@@ -29,7 +30,7 @@ export class SupplyService {
         this.headerConfig = headers;
       });
   }
-  */
+  // get all suppliers
   public getAllSupply(): Observable<Supplier> {
     return this.http.get<Supplier>(this.url + '/sup/' , {headers: this.headerConfig});
   }

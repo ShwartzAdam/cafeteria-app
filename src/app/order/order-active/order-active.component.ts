@@ -15,7 +15,7 @@ declare var $: any;
 })
 export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
 
-  // ORDER LIST WITH STATUS 'ACTIVE'
+  // Order list with status 'active'
   public orderList: OrderList[] = new Array();  //
   @Output() notifyUpdated: EventEmitter<string> = new EventEmitter<string>();
   @Input() insertOrder: boolean = false;
@@ -28,10 +28,8 @@ export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes) {
-      // console.log(changes);
       return;
     } else {
-      // console.log(changes.insertOrder);
       if ( changes.insertOrder.currentValue ) {
         this.orderList = new Array();
         this.getActiveOrders();
@@ -40,18 +38,15 @@ export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
   ngOnDestroy(): void {
-    // console.log("Active - Destory");
     $( '.ui.complete.order.modal' ).remove();
   }
   onNotifyClicked(message) {
-    // console.log(message);
     if ( message === 'Order Complete') {
       this.orderList = new Array();
       this.getActiveOrders();
     }
   }
   getActiveOrders(): void {
-    // console.log('Getting Active Orders !');
     jQuery.uiAlert({
       textHead: 'Active Orders', // header
       text: 'Active orders table has been updated succesfuly', // Text
@@ -64,12 +59,9 @@ export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
     this.orderListService.getTodayActiveOrders().then( (_orderList: any) => {
       const len = _orderList['length'];
       if ( len === 0 ) {
-        // console.log('no orders yet');
         // change orders table to display empty line
       } else {
-        // console.log('there are orders waiting');
         _orderList.forEach( ol => {
-          // console.log(ol);
           let _ol: OrderList = new OrderList;
           _ol.userid = ol.userid;
           _ol.olid = ol.olid;
@@ -84,10 +76,7 @@ export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
     });
   }
   completeOrder(order) {
-    // console.log(order);
-    // console.log('Complete Order List and notify Student');
     this.ordertocomplete = order;
-    // console.log(this.ordertocomplete);
     $('.ui.complete.order.modal')
       .modal('setting', 'transition', 'horizontal flip')
       .modal('show')

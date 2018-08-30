@@ -9,11 +9,11 @@
           <img class="ui centered image logo" src="../../../assets/png/littlecafe.png">
         </div>
       </div>
-      <form (ngSubmit)="login()" #registerForm="ngForm">
+      <form (ngSubmit)="login()">
         <div class="ui one column grid">
           <div class="column">
             <div class="ui icon input">
-              <input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required>
+              <input type="email" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required>
               <i class="users icon"></i>
             </div>
           </div>

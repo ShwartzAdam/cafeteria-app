@@ -34,21 +34,13 @@ export class BestItemsComponent implements OnInit {
     day: 'Which items have been sold today'
   };
   public headerText;
-  // public displayedColumns = ['itemid' , 'name' , 'price' , 'total' ];
-  // public dataSource: any ;
-  // @ViewChild('paging') paginator: MatPaginator;
-  // @ViewChild(MatSort) sort: MatSort;
+
   constructor(private queryPro: QueryService,
               private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // console.log('ngOnInit - Best Items report - ' + this.option);
-    // this.title = this.option;
-    /// this.chartid = this.option;
-    // this.getReportBy(this.option);
     this.sub = this.route.params.subscribe(params => {
       this.option = params['type']; // (+) converts string 'id' to a number
-      // onsole.log(this.option);
       if ( this.option === 'MonthBestItems' ) {
         this.headerText = this.text.month;
         this.title = this.text.month;
@@ -61,12 +53,10 @@ export class BestItemsComponent implements OnInit {
       }
       this.chartid = this.option;
       this.getReportBy(this.option);
-      // In a real app: dispatch action to load the details here.
     });
   }
   public getReportBy(s: string) {
     if (this.myChart) {
-      // console.log('true');
       this.myChart.destroy();
       this.items = [];
       this.itemSale = [];
@@ -74,7 +64,6 @@ export class BestItemsComponent implements OnInit {
     }
     this.queryPro.getBestItems(s).subscribe(
       itemArr => {
-        // console.log(itemArr);
         const len = itemArr['length'];
         if (len === 0) {
           // hide the chart

@@ -25,7 +25,7 @@ export class EmployeeInviteComponent {
   constructor(private userPro: UserService) {}
 
   inviteEmployee(): void {
-    // console.log('Invite an Employee to the system');
+    // after invite click , collect all data and prepare to Post it
     this.userReg.email = this.registerCredentials.email;
     this.userReg.firstname = this.registerCredentials.firstname;
     this.userReg.lastname = this.registerCredentials.lastname;

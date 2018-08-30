@@ -10,7 +10,7 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
   styleUrls: ['./emp-list.component.css'],
   providers: [UserService]
 })
-export class EmployeeListComponent implements OnInit, AfterContentInit {
+export class EmployeeListComponent implements OnInit {
   public users: User[] = [];
   public displayedColumns = ['userid' , 'firstname' , 'lastname' , 'phone' , 'email' ];
   public dataSource: any ;
@@ -18,14 +18,11 @@ export class EmployeeListComponent implements OnInit, AfterContentInit {
   constructor(private userPro: UserService) {}
 
   ngOnInit(): void {
-    // console.log("ngOnInit - Employee list");
     this.getAllEmps();
   }
 
-  ngAfterContentInit(): void {
-    // console.log("ngAfterContentInit - Employee list");
-  }
   getAllEmps(): any {
+    // get all emplys and display in a list
     this.userPro.getUserByRole('Employee').subscribe(
       empArr => {
           empArr.forEach( emp => this.users.push(emp));
