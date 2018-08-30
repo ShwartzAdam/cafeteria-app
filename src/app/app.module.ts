@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 import { AppRoutingModule } from './app-routing.module';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MyDateRangePickerModule } from 'mydaterangepicker';
@@ -38,7 +38,6 @@ import {BestUsersComponent} from './components/reports/bestUsers/best-users.comp
 import {BestItemsComponent} from './components/reports/bestItems/best-items.component';
 import {DatePickerComponent} from './components/reports/date-picker/datepicker.component';
 // services
-import {AddHttpHeaderInterceptor} from './services/http-interceptors/noop-interceptor';
 import {OrderService} from './services/order.service';
 import {OrderListService} from './services/orderlist.service';
 import {UserService} from './services/user.service';
@@ -112,12 +111,7 @@ import './classes/rxjs-operators';
     UserData,
     AuthService,
     AuthGuard,
-    QueryService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AddHttpHeaderInterceptor,
-      multi: true,
-    }
+    QueryService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,12 +1,15 @@
+/**
+ * User Data injection - with local storage , store user id and role
+ *
+ */
+
 import { Injectable } from '@angular/core';
-import {User} from '../../classes/user';
 import * as localForage from 'localforage';
 
 @Injectable()
 export class UserData {
 
   public userid: number;
-  public token: string;
   public role: string;
   public instance: any;
   constructor () {
@@ -44,26 +47,10 @@ export class UserData {
       return Promise.resolve(this.role);
     } else {
       return this.instance.getItem('role').then((res) => {
-        this.token = res;
+        this.role = res;
         return res;
       });
     }
-  }
-  // Gets userid for any  cause
-  public getToken(): Promise<string> {
-    if (this.token) {
-      return Promise.resolve(this.token);
-    } else {
-      return this.instance.getItem('token').then((res) => {
-        this.token = res;
-        return res;
-      });
-    }
-  }
-
-  // Sets the userid after succussful login
-  public setToken(token: string): void {
-    return this.instance.setItem('token', token).then(res => {});
   }
   public clearUserId(): void {
     this.instance.removeItem('userid');

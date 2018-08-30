@@ -1,8 +1,11 @@
+/**
+ * Item service - api calls to web service
+ *
+ */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Item} from '../classes/item';
-import {UserData} from './user-data/user-data.service';
 
 @Injectable()
 export class ItemService {
@@ -10,22 +13,11 @@ export class ItemService {
   public url = 'https://cafeappserver.herokuapp.com/api';
   // public urlPrd = 'http://localhost:3000/api';
   public headerConfig: any;
-  constructor(private http: HttpClient,
-              private userData: UserData) {
-    this.setToken();
+  private http: HttpClient
+  constructor() {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
     this.headerConfig = headers;
-  }
-  setToken() {
-    console.log('Item Provider - Setting Access Token');
-    this.userData.getToken().then(
-      res => {
-        let headers: HttpHeaders = new HttpHeaders();
-        headers = headers.append('Content-Type', 'application/json');
-        headers = headers.append('x-access-token', res);
-        this.headerConfig = headers;
-      });
   }
   // Get item by id
   public getItemById(id) {

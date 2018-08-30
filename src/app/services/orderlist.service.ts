@@ -1,3 +1,7 @@
+/**
+ * Order List service - api calls to web service
+ *
+ */
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {OrderList} from '../classes/orderlist';
@@ -13,21 +17,11 @@ export class OrderListService {
   private http: HttpClient;
   private userData: UserData;
   constructor() {
-    this.setToken();
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
     this.headerConfig = headers;
   }
-  setToken() {
-    console.log('Order List Provider - Setting Access Token');
-    this.userData.getToken().then(
-      res => {
-        let headers: HttpHeaders = new HttpHeaders();
-        headers = headers.append('Content-Type', 'application/json');
-        headers = headers.append('x-access-token', res);
-        this.headerConfig = headers;
-      });
-  }
+
   // Get order list by id
   public getOrderListById(id: number): Observable<OrderList> {
     return this.http.get<OrderList>(this.url + '/orderedlist/' + id , {headers: this.headerConfig} );
