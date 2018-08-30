@@ -18,8 +18,10 @@ export class OrderConfirmComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes) {
+      // if there werent any change , return
       return;
     } else {
+      // if an event change the object , fetch it and store it
       this.order = changes.orderInputConf.currentValue;
     }
   }

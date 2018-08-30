@@ -1,3 +1,7 @@
+/**
+ * orderlist details component - show order list details to mangager/emp
+ *
+ */
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {OrderList} from '../../classes/orderlist';
 import {OrderService} from '../../services/order.service';
@@ -13,9 +17,13 @@ import {Item} from '../../classes/item';
   providers: [OrderService, ItemService, OrderListService]
 })
 export class OrderDetailsComponent implements OnChanges {
+  // input order list id
   @Input() olid: number;
+  // hold order list object
   public orderListRef: OrderList;
+  // arr of orders
   public orders: Order[] = new Array();
+  // arr of items
   public items: Item[] = new Array();
   constructor(private orderService: OrderService,
               private orderListService: OrderListService,
@@ -23,8 +31,10 @@ export class OrderDetailsComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if ( !changes ) {
+      // if there werent any change , return
       return;
     } else {
+      // if an event change the object , fetch it and store it
       this.orderListService.getOrderListById(this.olid).subscribe(
         (res: any) => {
           this.orderListRef = res;

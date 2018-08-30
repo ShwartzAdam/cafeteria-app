@@ -1,3 +1,8 @@
+/**
+ * app charts components - holds MonthBestItems ,WeekBestItems,
+ * TodayBestItems, MonthBestUsers, WeekBestUsers, TodayBestUsers, datepicker
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

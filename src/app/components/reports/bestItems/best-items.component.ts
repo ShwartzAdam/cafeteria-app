@@ -1,3 +1,8 @@
+/**
+ * app charts items - show best selling items in the cafeteria
+ * using chart js
+ *
+ */
 import {Component, OnInit} from '@angular/core';
 import {QueryService} from '../../../services/query.service';
 
@@ -57,11 +62,13 @@ export class BestItemsComponent implements OnInit {
   }
   public getReportBy(s: string) {
     if (this.myChart) {
+      // clean chart data
       this.myChart.destroy();
       this.items = [];
       this.itemSale = [];
       this.itemLabels = [];
     }
+    // get best items arr
     this.queryPro.getBestItems(s).subscribe(
       itemArr => {
         const len = itemArr['length'];
@@ -69,6 +76,7 @@ export class BestItemsComponent implements OnInit {
           // hide the chart
           document.getElementById(this.chartid).style.display = 'none';
         } else {
+          // init arr with values from server
           itemArr.forEach( it => {
             this.items.push(it);
             this.itemSale.push(it.total);

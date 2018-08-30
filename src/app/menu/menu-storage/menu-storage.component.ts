@@ -1,3 +1,8 @@
+/**
+ * Menu storage component
+ *
+ */
+
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ItemService} from '../../services/item.service';
 import {Item} from '../../classes/item';
@@ -15,7 +20,7 @@ export class MenuStorageComponent implements OnInit, OnDestroy {
 
   public editItem: Item;
   public deleteItem: Item;
-  // THE ITEMS IN PUBLISHED MENU
+  // items in the menu
   itemsMenu: Item[] = new Array();
 
   constructor(public itemService: ItemService) {
@@ -63,7 +68,7 @@ export class MenuStorageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // console.log('exit Menu Storage');
+    // remove modal
     $( '.ui.edit.modal' ).remove();
     $( '.ui.add.modal' ).remove();
     $( '.ui.confirm.modal' ).remove();
@@ -85,7 +90,6 @@ export class MenuStorageComponent implements OnInit, OnDestroy {
           const itemTmp = new Item(item);
           this.itemsMenu.push(itemTmp);
         });
-        // console.log(this.itemsMenu);
       });
   }
 

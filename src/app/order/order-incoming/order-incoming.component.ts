@@ -1,3 +1,7 @@
+/**
+ * Order incoming component
+ *
+ */
 import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {OrderList} from '../../classes/orderlist';
 import {OrderListService} from '../../services/orderlist.service';
@@ -6,7 +10,6 @@ import 'jquery';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/takeWhile';
 import {Observable} from 'rxjs';
-declare var jQuery: any;
 declare var $: any;
 
 @Component({
@@ -19,7 +22,9 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
 
   // Order list with status 'incoming'
   public orderList: OrderList[] = [];
+  // notify table
   @Output() notifyTable: EventEmitter<string> = new EventEmitter<string>();
+  // reload table boolean
   @Input() reloadTable: boolean = false;
   public ordertodo: OrderList;
   constructor(public orderListService: OrderListService) {}
@@ -48,8 +53,10 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes) {
+      // nothing change return
       return;
     } else {
+      // the object has changed - fetch it
       if (changes.reloadTable.currentValue) {
         this.orderList = new Array();
         this.getIncomingOrders();
@@ -59,11 +66,14 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    // remove modal
     $( '.ui.confirm.order.modal' ).remove();
   }
 
   getIncomingOrders(): void {
+    // init a new array
     this.orderList = new Array();
+    // get future orders
     this.orderListService.getTodayFutureOrders().then( (_orderList: any) => {
         const len = _orderList['length'];
         if ( len === 0 ) {
@@ -86,6 +96,7 @@ export class OrderIncomingComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   startMakingOrder(order) {
+    // make this order
     this.ordertodo = order;
     $('.ui.confirm.order.modal')
       .modal('setting', 'transition', 'horizontal flip')

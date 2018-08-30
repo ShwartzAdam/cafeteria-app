@@ -1,3 +1,7 @@
+/**
+ * Login Component - allows emp/mang to login
+ *
+ */
 import {Component} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {UserData} from '../../services/user-data/user-data.service';
@@ -15,7 +19,6 @@ declare var jQuery: any;
 export class LoginComponent {
   public loading = false;
   public registerCredentials = { email: '', password: '', role: '' };
-  public loggin: User;
   constructor(public userService: UserService,
               public userData: UserData,
               private authService: AuthService) {}
@@ -23,16 +26,17 @@ export class LoginComponent {
     this.registerCredentials.role = s;
   }
   login() {
+    // display login
     this.loading = true;
+    // start interval
     Observable.interval(1000).take(1).subscribe(() =>
       this.userService.getUser(this.registerCredentials).then( result => {
         if (result) {
-          // if user exist save it in local storage
+          // if user exist save it in local storage - id and role
           this.userData.setUserId(result['userid']);
           this.userData.setRole(this.registerCredentials.role);
           this.authService.loginSucc();
-          this.loggin.email = this.registerCredentials.email;
-          this.loggin.password = this.registerCredentials.password;
+          // hide loading
           this.loading = false;
         }}).catch( err => {
           this.loading = false;

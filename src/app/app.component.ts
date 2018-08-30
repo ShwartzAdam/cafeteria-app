@@ -1,3 +1,7 @@
+/**
+ * Main Application
+ *
+ */
 import {Component} from '@angular/core';
 
 @Component({

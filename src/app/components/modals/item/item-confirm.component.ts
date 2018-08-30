@@ -1,3 +1,8 @@
+/**
+ * Item modal - Confirm
+ *
+ */
+
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../classes/item';
@@ -16,8 +21,10 @@ export class ItemConfirmComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes) {
+      // if there werent any change , return
       return;
     } else {
+      // if an event change the object , fetch it and store it in item
       this.item = changes.itemInputDelete.currentValue;
     }
   }

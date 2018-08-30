@@ -1,3 +1,7 @@
+/**
+* Order complete component
+*
+*/
 import {AfterContentInit, Component} from '@angular/core';
 import {OrderList} from '../../classes/orderlist';
 import {OrderListService} from '../../services/orderlist.service';
@@ -13,6 +17,7 @@ export class OrderCompleteComponent implements AfterContentInit {
   public elements: OrderList[] = [];
   constructor(public orderListService: OrderListService) { }
   ngAfterContentInit(): void {
+    // get completed orders from server
     this.getCompletedOrders();
   }
 

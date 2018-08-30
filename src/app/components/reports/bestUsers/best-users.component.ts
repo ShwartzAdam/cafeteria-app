@@ -1,3 +1,9 @@
+/**
+ * app charts users - showing the best users in the cafeteria - spending the most
+ * using chart js
+ *
+ */
+
 import {AfterContentInit, AfterViewInit, Component, OnInit} from '@angular/core';
 import {QueryService} from '../../../services/query.service';
 
@@ -48,8 +54,9 @@ export class BestUsersComponent implements OnInit, AfterViewInit {
     return color;
   }
   ngOnInit(): void {
+    // present the right chart
     this.sub = this.route.params.subscribe(params => {
-      this.option = params['type']; // (+) converts string 'id' to a number;
+      this.option = params['type'];
       if ( this.option === 'MonthBestUsers' ) {
         this.headerText = this.text.month;
         this.title = this.text.month;
@@ -68,11 +75,13 @@ export class BestUsersComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {}
   public getReportBy(s: string) {
     if (this.myChart) {
+      // clean chart data
       this.myChart.destroy();
       this.users = [];
       this.userSale = [];
       this.userLabel = [];
     }
+    // get best users arr
     this.queryPro.getBestUsers(s).subscribe(
       userArr => {
         const len = userArr['length'];
@@ -80,6 +89,7 @@ export class BestUsersComponent implements OnInit, AfterViewInit {
           // hide the chart
           document.getElementById(this.chartid).style.display = 'none';
         } else {
+          // init values
           userArr.forEach( user => {
             this.users.push(user);
             this.userSale.push(user.total);

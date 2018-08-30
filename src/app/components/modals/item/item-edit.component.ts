@@ -1,3 +1,8 @@
+/**
+ * Item modal - Edit
+ *
+ */
+
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../classes/item';
@@ -15,13 +20,16 @@ export class ItemEditComponent implements OnInit, OnChanges {
   constructor(private itemService: ItemService) {}
 
   ngOnInit(): void {
+    // when init - init the object
     this.itemInputEdit = new Item;
     this.item = new Item;
   }
   ngOnChanges(changes: SimpleChanges): void {
     if ( !changes ) {
+        // if there werent any change , return
         return;
     } else {
+      // if an event change the object , fetch it and store it in item
       this.item = changes.itemInputEdit.currentValue;
     }
   }
@@ -30,7 +38,7 @@ export class ItemEditComponent implements OnInit, OnChanges {
     if ( event === 'Upload The Changes') {
       // create the object and update
       this.itemService.updateItem(this.item).then(
-        res => {
+        () => {
           this.notify.emit('Edit');
         });
     }

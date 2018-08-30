@@ -1,3 +1,7 @@
+/**
+ * employee compnent - list of emplys and emp invaition
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

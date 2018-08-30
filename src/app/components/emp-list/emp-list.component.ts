@@ -1,4 +1,8 @@
-import {AfterContentInit, Component, OnInit, ViewChild} from '@angular/core';
+/**
+ * Emp list - display a list of all emplys
+ *
+ */
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {User} from '../../classes/user';
 import {UserService} from '../../services/user.service';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
@@ -26,6 +30,7 @@ export class EmployeeListComponent implements OnInit {
     this.userPro.getUserByRole('Employee').subscribe(
       empArr => {
           empArr.forEach( emp => this.users.push(emp));
+          // add to mat table the array
           this.dataSource = new MatTableDataSource<User>(this.users);
           setTimeout(() => {
             this.dataSource.paginator = this.paginator;

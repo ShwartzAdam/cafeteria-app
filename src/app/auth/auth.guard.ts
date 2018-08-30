@@ -1,3 +1,5 @@
+// guard - if not loggin throw me out to login page
+
 import { Injectable } from '@angular/core';
 import {
   CanActivate,

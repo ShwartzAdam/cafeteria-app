@@ -1,3 +1,7 @@
+/**
+ * Order - Incoming order component and Active order component
+ *
+ */
 import {Component} from '@angular/core';
 import { OrderListService } from '../services/orderlist.service';
 

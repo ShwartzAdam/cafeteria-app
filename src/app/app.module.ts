@@ -17,8 +17,6 @@ import { NavComponent } from './nav.component';
 import { MenuComponent} from './menu/menu.component';
 import { MenuStorageComponent } from './menu/menu-storage/menu-storage.component';
 import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { ForgotpassComponent } from './auth/forgotpass/forgotpass.component';
 import { OrderComponent } from './order/order.component';
 import { ChartsComponent } from './charts/charts.component';
 import { OrderDetailsComponent } from './components/orderinfo/orderdetails.component';
@@ -39,7 +37,6 @@ import {EmployeeListComponent} from './components/emp-list/emp-list.component';
 import {BestUsersComponent} from './components/reports/bestUsers/best-users.component';
 import {BestItemsComponent} from './components/reports/bestItems/best-items.component';
 import {DatePickerComponent} from './components/reports/date-picker/datepicker.component';
-import {ChartjsComponent} from './components/reports/chart-component/chartjs.component';
 // services
 import {AddHttpHeaderInterceptor} from './services/http-interceptors/noop-interceptor';
 import {OrderService} from './services/order.service';
@@ -72,8 +69,6 @@ import './classes/rxjs-operators';
     ItemEditComponent,
     ItemConfirmComponent,
     LoginComponent,
-    SignupComponent,
-    ForgotpassComponent,
     OrderComponent,
     ChartsComponent,
     OrderIncomingComponent,
@@ -97,7 +92,6 @@ import './classes/rxjs-operators';
     BestUsersComponent,
     BestItemsComponent,
     DatePickerComponent,
-    ChartjsComponent
   ],
   imports: [
     BrowserModule,

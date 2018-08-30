@@ -1,3 +1,7 @@
+/**
+ * Menu components - present app-menu-storage selector
+ *
+ */
 import {Component} from '@angular/core';
 
 @Component({

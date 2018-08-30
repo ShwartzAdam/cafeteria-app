@@ -1,3 +1,7 @@
+/**
+ * Order active component
+ *
+ */
 import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {OrderListService} from '../../services/orderlist.service';
 import {OrderList} from '../../classes/orderlist';
@@ -16,8 +20,10 @@ declare var $: any;
 export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
 
   // Order list with status 'active'
-  public orderList: OrderList[] = new Array();  //
+  public orderList: OrderList[] = new Array();
+  // notify updated event
   @Output() notifyUpdated: EventEmitter<string> = new EventEmitter<string>();
+  // insert new order
   @Input() insertOrder: boolean = false;
   public ordertocomplete: OrderList;
   constructor(public orderListService: OrderListService) { }
@@ -28,8 +34,10 @@ export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes) {
+      // if nothing change and it the same oject return
       return;
     } else {
+      // the object has changed due of an event - fetch it
       if ( changes.insertOrder.currentValue ) {
         this.orderList = new Array();
         this.getActiveOrders();
@@ -38,6 +46,7 @@ export class OrderActiveComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
   ngOnDestroy(): void {
+    // remove modal
     $( '.ui.complete.order.modal' ).remove();
   }
   onNotifyClicked(message) {

@@ -1,3 +1,7 @@
+/**
+ * Emp invite - simple form to invite emp to the system
+ *
+ */
 import {Component} from '@angular/core';
 import {User} from '../../classes/user';
 import {UserService} from '../../services/user.service';

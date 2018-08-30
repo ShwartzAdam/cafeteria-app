@@ -1,3 +1,8 @@
+/**
+ * Menu published component
+ *
+ */
+
 import {AfterContentInit, Component, OnInit, ViewChild} from '@angular/core';
 import {ItemService} from '../../services/item.service';
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';

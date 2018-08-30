@@ -1,3 +1,8 @@
+/**
+ * user details component - display all the details of a student
+ *
+ */
+
 import {Component, Input, OnInit} from '@angular/core';
 import { UserService } from '../../services/user.service';
 import {User} from '../../classes/user';

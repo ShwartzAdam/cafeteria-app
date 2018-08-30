@@ -12,11 +12,13 @@ export class AuthService {
   }
 
   loginSucc() {
+    // if login succ - go to dashboard
     this.loggedIn.next(true);
     this.router.navigate(['/dashboard']);
   }
 
-  logout() {                            // {4}
+  logout() {
+    // if logout - go to login
     this.loggedIn.next(false);
     this.router.navigate(['/login']);
   }

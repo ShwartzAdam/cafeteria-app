@@ -1,3 +1,7 @@
+/**
+ * Order modal - Complete
+ *
+ */
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {OrderListService} from '../../../services/orderlist.service';
 import {OrderList} from '../../../classes/orderlist';
@@ -11,16 +15,21 @@ declare var jQuery: any;
   providers: [OrderListService]
 })
 export class OrderCompComponent implements OnChanges {
+  // input of orderlist
   @Input() orderInputConf: OrderList = new OrderList;
+  // output of nofity event
   @Output() notifyChange: EventEmitter<string> = new EventEmitter<string>();
+  // holds the orderlist
   public order: OrderList = new OrderList;
   constructor(private orderListService: OrderListService,
               private userService: UserService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes) {
+      // if there werent any change , return
       return;
     } else {
+      // if an event change the object , fetch it and store it
       this.order = changes.orderInputConf.currentValue;
     }
   }
